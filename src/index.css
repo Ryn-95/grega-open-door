@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import de la police */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Styles de base */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-white text-gray-900 m-0 min-h-screen w-full;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  #root {
+    @apply w-full min-h-screen;
+  }
+
+  ::selection {
+    @apply bg-[#1a237e] text-white;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Composants */
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply px-6 py-3 rounded-full font-medium transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply bg-[#1a237e] text-white hover:bg-[#283593];
+  }
+
+  .btn-outline {
+    @apply border-2 border-[#1a237e] text-[#1a237e] hover:bg-[#1a237e] hover:text-white;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl p-8 transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-medium;
+  }
+
+  .badge-primary {
+    @apply bg-blue-50 text-[#1a237e];
+  }
+}
+
+/* Typographie */
+.heading-1 {
+  @apply text-4xl md:text-[3.5rem] font-bold leading-tight text-[#1a237e];
+}
+
+.heading-2 {
+  @apply text-3xl md:text-4xl font-bold text-[#1a237e];
+}
+
+.heading-3 {
+  @apply text-xl md:text-2xl font-bold text-[#1a237e];
+}
+
+.subtitle {
+  @apply text-lg md:text-xl text-gray-600;
+}
+
+/* Sections */
+.section {
+  @apply py-16 md:py-24;
+}
+
+.section-title {
+  @apply text-center mb-16;
+}
+
+.section-badge {
+  @apply text-sm font-medium text-[#1a237e] bg-blue-50 px-4 py-2 rounded-full inline-block mb-4;
+}
+
+/* Grilles */
+.grid-auto-fit {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+/* Points de décoration */
+.decoration-dot {
+  @apply w-2 h-2 rounded-full bg-orange-400 absolute;
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Effets de survol */
+.hover-lift {
+  @apply transition-transform duration-300 hover:-translate-y-1;
+}
+
+.hover-scale {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
+  }
+  
+  .heading-1 {
+    @apply text-3xl;
+  }
+  
+  .heading-2 {
+    @apply text-2xl;
+  }
+
+  .section {
+    @apply py-12;
+  }
+}
+
+/* Transitions */
+.smooth-transition {
+  transition: all 0.3s ease-in-out;
+}
