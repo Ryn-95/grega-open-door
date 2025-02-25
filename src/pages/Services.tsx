@@ -1,4 +1,4 @@
-import { FaSearch, FaFileSignature, FaKey, FaClipboardCheck } from 'react-icons/fa'
+import { FaSearch, FaFileSignature, FaKey } from 'react-icons/fa'
 
 const Services = () => {
   return (

@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import { FaClock, FaUsers, FaHandshake, FaHistory, FaCheck, FaRegLightbulb, FaRegSmile, FaSearch, FaHome, FaRegBuilding, FaMapMarkedAlt } from 'react-icons/fa'
 import { images } from '../data/images'
 
