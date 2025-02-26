@@ -1,5 +1,5 @@
 /* Import de la police */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -14,8 +14,8 @@
   }
 
   body {
-    @apply bg-white text-gray-900 m-0 min-h-screen w-full;
-    font-family: 'Poppins', sans-serif;
+    @apply bg-black text-white m-0 min-h-screen w-full;
+    font-family: 'Montserrat', sans-serif;
   }
 
   #root {
@@ -73,6 +73,22 @@
 
   .badge-primary {
     @apply bg-blue-50 text-[#1a237e];
+  }
+
+  .nav-link {
+    @apply text-white hover:text-gray-300 transition-colors duration-300 uppercase text-sm tracking-wider;
+  }
+
+  .btn-outline-white {
+    @apply border border-white text-white px-8 py-3 uppercase text-sm tracking-wider hover:bg-white hover:text-black transition-all duration-300;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl uppercase font-light tracking-wider mb-8;
+  }
+
+  .section-text {
+    @apply text-lg text-gray-300 max-w-2xl;
   }
 }
 
@@ -157,4 +173,32 @@
 /* Transitions */
 .smooth-transition {
   transition: all 0.3s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -1,19 +1,51 @@
 export const images = {
-  // Image principale
-  modernBuilding: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1000&q=80",
+  // Images principales
+  parisSunset: '/images/paris-sunset.jpg',
+  modernBuilding: '/images/modern-building.jpg',
   
   // Appartements
-  apartment1: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80",
-  apartment2: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80",
-  apartment3: "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=800&q=80",
+  apartment1: '/images/apartment1.jpg',
+  apartment2: '/images/apartment2.jpg',
+  apartment3: '/images/apartment3.jpg',
+  apartment4: '/images/apartment4.jpg',
   
   // Témoignages
-  testimonial1: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
-  testimonial2: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
-  testimonial3: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&q=80",
+  testimonial1: '/images/testimonial1.jpg',
+  testimonial2: '/images/testimonial2.jpg',
+  testimonial3: '/images/testimonial3.jpg',
   
-  // Autres images
-  interiorModern: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80",
-  livingRoom: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=800&q=80",
-  kitchen: "https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80"
+  // Services
+  service1: '/images/service1.jpg',
+  service2: '/images/service2.jpg',
+  service3: '/images/service3.jpg',
+  
+  // Backgrounds
+  historyBg: '/images/history-bg.jpg',
+  contactBg: '/images/contact-bg.jpg',
+  serviceBg: '/images/service-bg.jpg',
+  aboutBg: '/images/about-bg.jpg',
+  
+  // Équipe
+  team1: '/images/team1.jpg',
+  team2: '/images/team2.jpg',
+  team3: '/images/team3.jpg',
+  team4: '/images/team4.jpg',
+  
+  // Galerie
+  gallery1: '/images/gallery1.jpg',
+  gallery2: '/images/gallery2.jpg',
+  gallery3: '/images/gallery3.jpg',
+  gallery4: '/images/gallery4.jpg',
+
+  // Catégories
+  tables: '/images/tables.jpg',
+  hotels: '/images/hotels.jpg',
+  clubs: '/images/clubs.jpg',
+  events: '/images/events.jpg',
+
+  // Marques
+  gigi: '/images/gigi.jpg',
+  girafe: '/images/girafe.jpg',
+  beaucoco: '/images/beaucoco.jpg',
+  mun: '/images/mun.jpg',
 }; 

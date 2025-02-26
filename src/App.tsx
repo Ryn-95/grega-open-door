@@ -1,21 +1,29 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
+import Navigation from './components/Navigation'
 import Home from './pages/Home'
+import About from './pages/About'
 import Services from './pages/Services'
-import Footer from './components/Footer'
+import Offices from './pages/Offices'
+import Contact from './pages/Contact'
+import Properties from './pages/Properties'
+import Location from './pages/Location'
+import Social from './pages/Social'
 
 function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen w-full">
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-          </Routes>
-        </main>
-        <Footer />
+      <div className="text-white">
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/offices" element={<Offices />} />
+          <Route path="/properties" element={<Properties />} />
+          <Route path="/location" element={<Location />} />
+          <Route path="/social" element={<Social />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
       </div>
     </Router>
   )
