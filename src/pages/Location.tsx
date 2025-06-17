@@ -1,218 +1,395 @@
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaMapMarkerAlt, FaRulerCombined, FaBed, FaSearch, FaFilter } from 'react-icons/fa';
+import { FaHome, FaBolt, FaLock, FaHandshake, FaArrowRight, FaStar } from 'react-icons/fa';
 import Footer from '../components/Footer';
 
 const Location = () => {
-  const properties = [
+  // Animation variants
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.6, 0.05, -0.01, 0.9],
+      },
+    },
+  };
+
+  const benefits = [
     {
-      id: 1,
-      title: "Villa Moderne à Paris",
-      description: "Magnifique villa contemporaine avec jardin paysager",
-      price: "850,000 €",
-      location: "Paris 16ème",
-      surface: "180m²",
-      rooms: "5",
-      image: "/images/property1.jpg",
-      features: ["Jardin", "Parking", "Cave"]
+      icon: <FaHome />,
+      title: 'Biens exclusifs',
+      description: 'Accès à des biens immobiliers en exclusivité'
     },
     {
-      id: 2,
-      title: "Appartement Haussmannien",
-      description: "Appartement de caractère avec moulures et parquet",
-      price: "650,000 €",
-      location: "Paris 8ème",
-      surface: "120m²",
-      rooms: "3",
-      image: "/images/property2.jpg",
-      features: ["Balcon", "Ascenseur", "Parquet"]
+      icon: <FaBolt />,
+      title: 'Service rapide',
+      description: 'Traitement accéléré de votre dossier de location'
     },
     {
-      id: 3,
-      title: "Maison avec Jardin",
-      description: "Belle maison familiale avec piscine chauffée",
-      price: "450,000 €",
-      location: "Neuilly-sur-Seine",
-      surface: "150m²",
-      rooms: "4",
-      image: "/images/property3.jpg",
-      features: ["Terrasse", "Garage", "Piscine"]
+      icon: <FaLock />,
+      title: 'Dossier sécurisé',
+      description: 'Protection optimale de vos données personnelles'
+    },
+    {
+      icon: <FaHandshake />,
+      title: 'Accompagnement personnalisé',
+      description: 'Suivi sur mesure tout au long de votre recherche'
     }
   ];
 
-  return (
-    <main className="min-h-screen bg-black pt-32">
-      {/* Hero Section */}
-      <section className="relative h-[50vh] mb-16">
-        <div className="absolute inset-0">
-          <img
-            src="/images/property1.jpg"
-            alt="Location immobilière"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/20 backdrop-blur-sm"></div>
-        </div>
-        <div className="relative h-full container mx-auto px-4 flex flex-col items-center justify-center text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl font-extralight mb-6 tracking-wider"
-          >
-            Location Immobilière
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl text-gray-300 max-w-2xl"
-          >
-            Découvrez notre sélection de biens d'exception pour votre location
-          </motion.p>
-        </div>
-      </section>
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-      {/* Section Filtres */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-5xl mx-auto"
+  return (
+    <div className="bg-gradient-to-b from-black to-blue-950 min-h-screen text-white">
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-4 md:px-12 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div
+            className="flex flex-col md:flex-row items-center"
           >
-            <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 md:p-12">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-2xl">
-                  <FaFilter />
-                </div>
-                <div>
-                  <h2 className="text-2xl font-light tracking-wide">Filtrer les biens</h2>
-                  <p className="text-gray-400">Trouvez le bien qui correspond à vos critères</p>
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="space-y-2">
-                  <label className="text-sm text-gray-400">Type de bien</label>
-                  <select className="w-full bg-white/5 border border-white/10 text-white px-4 py-3 rounded-xl appearance-none hover:border-white/30 transition-colors focus:outline-none focus:border-white/50">
-                    <option>Tous les types</option>
-                    <option>Appartement</option>
-                    <option>Maison</option>
-                    <option>Villa</option>
-                    <option>Studio</option>
-                  </select>
-                </div>
-                
-                <div className="space-y-2">
-                  <label className="text-sm text-gray-400">Budget maximum</label>
-                  <select className="w-full bg-white/5 border border-white/10 text-white px-4 py-3 rounded-xl appearance-none hover:border-white/30 transition-colors focus:outline-none focus:border-white/50">
-                    <option>Sans limite</option>
-                    <option>1000 €/mois</option>
-                    <option>1500 €/mois</option>
-                    <option>2000 €/mois</option>
-                    <option>2500 €/mois</option>
-                  </select>
-                </div>
-                
-                <div className="space-y-2">
-                  <label className="text-sm text-gray-400">Surface minimum</label>
-                  <select className="w-full bg-white/5 border border-white/10 text-white px-4 py-3 rounded-xl appearance-none hover:border-white/30 transition-colors focus:outline-none focus:border-white/50">
-                    <option>Toutes surfaces</option>
-                    <option>30m²</option>
-                    <option>50m²</option>
-                    <option>70m²</option>
-                    <option>90m²</option>
-                  </select>
-                </div>
-              </div>
-              
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full mt-8 bg-gradient-to-r from-white to-gray-200 text-black py-4 rounded-xl font-medium transition-all flex items-center justify-center gap-2 hover:opacity-90"
+            <div className="md:w-1/2 z-10">
+              <motion.h3 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+                className="text-lg md:text-xl font-extralight tracking-[0.3em] mb-1 text-gray-300"
               >
-                <FaSearch />
-                Rechercher
+                GREGA
+              </motion.h3>
+              <motion.h4
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.15 }}
+                className="text-sm md:text-base font-extralight tracking-[0.4em] mb-6 text-gray-400"
+              >
+                OPEN DOOR
+              </motion.h4>
+              <motion.h1 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+                className="text-4xl md:text-6xl font-extralight tracking-wide mb-6"
+              >
+                <span className="font-extralight">Location</span>
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-400">classique</span>
+              </motion.h1>
+              <motion.p 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.3 }}
+                className="text-lg md:text-xl text-gray-300 mb-8 max-w-xl leading-relaxed"
+              >
+                Obtenez un logement avec GREGA OPEN DOOR avec facilité et sérénité
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.4 }}
+                className="text-base text-gray-400 mb-8 max-w-xl leading-relaxed"
+              >
+                La recherche d'un logement peut sembler compliquée, mais avec notre aide, vous n'aurez plus à vous en soucier ! De la définition de vos critères à la signature de votre bail, nous vous accompagnons à chaque étape pour rendre ce parcours plus simple et rapide. Vous pouvez compter sur nous pour vous guider et vous alléger des démarches administratives.
+              </motion.p>
+              <motion.button 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.5 }}
+                className="bg-transparent hover:bg-white/10 text-white font-light py-3 px-6 border border-white/30 rounded-full transition duration-300 flex items-center group"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span className="mr-2 uppercase tracking-widest text-sm">Nous contacter</span>
+                <FaArrowRight className="transform transition-transform duration-300 group-hover:translate-x-1" />
               </motion.button>
             </div>
-          </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="md:w-1/2 mt-12 md:mt-0"
+            >
+              <div className="relative">
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl blur-3xl opacity-40"></div>
+                <img 
+                  src="/images/location.jpg" 
+                  alt="Appartement en location classique" 
+                  className="rounded-xl relative z-10 w-full object-cover h-[400px] shadow-2xl"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80";
+                  }}
+                />
+                <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-lg text-xs text-white/80 z-20">
+                  Service disponible sur toute la France
+                </div>
+                <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-lg z-20 flex items-center">
+                  <div className="flex mr-2">
+                    {[...Array(5)].map((_, i) => (
+                      <FaStar key={i} className="text-yellow-400 text-xs" />
+                    ))}
+                  </div>
+                  <div className="text-xs text-white/80">
+                    <span className="font-medium">Google</span>
+                    <br />
+                    <span>+700 avis clients</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Section Biens */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {properties.map((property, index) => (
-              <motion.div
-                key={property.id}
+      {/* Benefits Section */}
+      <section className="py-16 px-4 md:px-12 bg-black/60 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto">
+          <div 
+            className="grid grid-cols-2 md:grid-cols-4 gap-8"
+          >
+            {benefits.map((benefit, index) => (
+              <motion.div 
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="text-center"
               >
-                <div className="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden hover:bg-white/10 transition-colors">
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <img
-                      src={property.image}
-                      alt={property.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-sm px-4 py-2 rounded-full">
-                      <span className="text-sm font-medium">{property.price}</span>
-                    </div>
-                  </div>
-                  
-                  <div className="p-6">
-                    <h3 className="text-xl font-light mb-2">{property.title}</h3>
-                    <p className="text-gray-400 text-sm mb-4">{property.description}</p>
-                    
-                    <div className="space-y-3 mb-6">
-                      <p className="text-gray-400 flex items-center gap-2">
-                        <FaMapMarkerAlt className="text-white/50" />
-                        {property.location}
-                      </p>
-                      <p className="text-gray-400 flex items-center gap-2">
-                        <FaRulerCombined className="text-white/50" />
-                        {property.surface}
-                      </p>
-                      <p className="text-gray-400 flex items-center gap-2">
-                        <FaBed className="text-white/50" />
-                        {property.rooms} pièces
-                      </p>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {property.features.map((feature, i) => (
-                        <span
-                          key={i}
-                          className="bg-white/10 px-3 py-1 rounded-full text-sm hover:bg-white/20 transition-colors"
-                        >
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
-
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="w-full bg-white/10 hover:bg-white/20 text-white py-3 rounded-xl font-light tracking-wide transition-colors flex items-center justify-center gap-2"
-                    >
-                      Voir le bien
-                    </motion.button>
-                  </div>
-                </div>
+                <div className="text-blue-400 text-4xl mb-4 flex justify-center">{benefit.icon}</div>
+                <h3 className="text-xl font-light mb-2">{benefit.title}</h3>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <Footer />
-    </main>
+      {/* What is Location Classique Section */}
+      <section className="py-20 px-4 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <img 
+                src="/images/exemple-location.jpg" 
+                alt="Exemple de logement en location classique" 
+                className="rounded-xl shadow-2xl w-full h-[400px] object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = "https://images.unsplash.com/photo-1527359443443-84a48aec73d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80";
+                }}
+              />
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-extralight mb-6">
+                Qu'est-ce que la <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-400">location classique</span> ?
+              </h2>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                La location classique consiste à louer un logement auprès d'un propriétaire privé ou d'une agence immobilière. Elle s'adresse à toute personne souhaitant trouver un bien correspondant à ses besoins et à son budget. Pour obtenir une location, il est nécessaire de constituer un dossier solide comprenant divers justificatifs (revenus, garanties, etc.).
+              </p>
+              <p className="text-gray-300 mb-8 leading-relaxed">
+                Chez GREGA OPEN DOOR, nous vous accompagnons à chaque étape de votre recherche, afin de maximiser vos chances de succès et vous simplifier la vie. De plus, nous disposons de biens immobiliers qui nous sont confiés en exclusivité, ce qui signifie que vous aurez accès à des logements que personne d'autre ne peut voir sur le marché classique.
+              </p>
+              <motion.button 
+                className="bg-transparent hover:bg-white/10 text-white font-light py-3 px-6 border border-white/30 rounded-full transition duration-300 flex items-center group"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span className="mr-2 uppercase tracking-widest text-sm">Nous contacter</span>
+                <FaArrowRight className="transform transition-transform duration-300 group-hover:translate-x-1" />
+              </motion.button>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Access Conditions Section */}
+      <section className="py-20 px-4 md:px-12 bg-black/60 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="order-2 md:order-1"
+            >
+              <h2 className="text-3xl md:text-4xl font-extralight mb-6">
+                Les conditions d'accès <br />à une <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-400">location</span>
+              </h2>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                L'accès à une location repose sur plusieurs critères :
+              </p>
+              <ul className="mb-6 space-y-2 text-gray-300">
+                <li className="flex items-start">
+                  <div className="mr-2 mt-1 w-1 h-1 rounded-full bg-blue-400"></div>
+                  <span>Vos revenus</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="mr-2 mt-1 w-1 h-1 rounded-full bg-blue-400"></div>
+                  <span>La composition de votre foyer</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="mr-2 mt-1 w-1 h-1 rounded-full bg-blue-400"></div>
+                  <span>Votre situation professionnelle</span>
+                </li>
+              </ul>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                Pour obtenir un logement, vous devez constituer un dossier complet et le soumettre au propriétaire ou à l'agence immobilière concernée.
+              </p>
+              <p className="text-gray-300 mb-8 leading-relaxed">
+                Les délais d'obtention peuvent varier en fonction de la demande et de la tension locative dans votre secteur.
+              </p>
+              <motion.button 
+                className="bg-transparent hover:bg-white/10 text-white font-light py-3 px-6 border border-white/30 rounded-full transition duration-300 flex items-center group"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span className="mr-2 uppercase tracking-widest text-sm">Nous contacter</span>
+                <FaArrowRight className="transform transition-transform duration-300 group-hover:translate-x-1" />
+              </motion.button>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="order-1 md:order-2"
+            >
+              <img 
+                src="/images/preparation-dossier.jpg" 
+                alt="Préparation d'un dossier de location" 
+                className="rounded-xl shadow-2xl w-full h-[400px] object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = "https://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80";
+                }}
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-20 px-4 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <img 
+                src="/images/services-grega.jpg" 
+                alt="Services immobiliers Grega Open Door" 
+                className="rounded-xl shadow-2xl w-full h-[400px] object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80";
+                }}
+              />
+              <div className="mt-4 text-center">
+                <p className="text-gray-400 text-sm">Grega Open Door</p>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-extralight mb-6">
+                Pourquoi faire appel à <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-400">GREGA OPEN DOOR</span> ?
+              </h2>
+              <p className="text-gray-300 mb-8 leading-relaxed">
+                Avec GREGA OPEN DOOR, vous bénéficiez d'un accompagnement complet. Nous nous occupons de la constitution de votre dossier, vous aidons à rassembler les documents indispensables et assurons un suivi régulier de l'avancement de votre demande, pour que vous n'ayez rien à gérer seul.
+              </p>
+              <motion.button 
+                className="bg-transparent hover:bg-white/10 text-white font-light py-3 px-6 border border-white/30 rounded-full transition duration-300 flex items-center group"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span className="mr-2 uppercase tracking-widest text-sm">Nous contacter</span>
+                <FaArrowRight className="transform transition-transform duration-300 group-hover:translate-x-1" />
+              </motion.button>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final Section */}
+      <section className="py-20 px-4 md:px-12 bg-black/60 backdrop-blur-sm">
+        <div className="max-w-3xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-extralight mb-6">
+              Un mot sur la <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-400">location classique</span>
+            </h2>
+            <p className="text-gray-300 mb-6 leading-relaxed">
+              La location classique en France permet d'accéder à un logement dans le parc privé, mais face à une demande élevée, il peut être difficile de trouver rapidement un bien correspondant à ses attentes. Un dossier bien préparé et une approche structurée sont essentiels pour maximiser vos chances.
+            </p>
+            <p className="text-gray-300 mb-8 leading-relaxed">
+              Nos experts chez GREGA OPEN DOOR sont là pour vous guider et gérer votre recherche de manière personnalisée. Faites-nous confiance pour vous offrir un accompagnement sur mesure et efficace !
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4 md:px-12 bg-black/60 backdrop-blur-sm">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-extralight uppercase tracking-widest mb-6">
+              Prêt à <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-400">commencer</span> ?
+            </h2>
+            <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
+              Contactez-nous dès aujourd'hui pour bénéficier de notre accompagnement personnalisé et trouvez votre logement idéal.
+            </p>
+            <button className="bg-transparent hover:bg-white/10 text-white font-light py-3 px-8 border border-white/30 rounded-full transition duration-300 flex items-center mx-auto group">
+              <span className="mr-2 uppercase tracking-widest text-sm">Prendre rendez-vous</span>
+              <FaArrowRight className="transform transition-transform duration-300 group-hover:translate-x-1" />
+            </button>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   );
 };
 
