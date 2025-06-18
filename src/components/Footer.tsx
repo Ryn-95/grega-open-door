@@ -170,19 +170,19 @@ const Footer = () => {
                 {
                   icon: <FaPhone className="w-4 h-4" />,
                   label: "Téléphone",
-                  value: "+33 1 23 45 67 89",
-                  link: "tel:+33123456789"
+                  value: "09 53 37 61 41",
+                  link: "tel:0953376141"
                 },
                 {
                   icon: <FaEnvelope className="w-4 h-4" />,
                   label: "Email",
-                  value: "hello@grega.paris",
-                  link: "mailto:hello@grega.paris"
+                  value: "contact@gregaopendoor.fr",
+                  link: "mailto:contact@gregaopendoor.fr"
                 },
                 {
                   icon: <FaMapMarkerAlt className="w-4 h-4" />,
                   label: "Adresse",
-                  value: "75008 Paris",
+                  value: "37 rue des maturins, 75008 Paris",
                   link: "#"
                 }
               ].map((contact, index) => (

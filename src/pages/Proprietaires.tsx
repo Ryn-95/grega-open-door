@@ -604,7 +604,7 @@ const Proprietaires = () => {
                   </div>
                   
                   <div className="mt-6 text-center">
-                    <span className="text-white/50 text-sm font-light">proprietaires@gregaopendoor.com</span>
+                    <span className="text-white/50 text-sm font-light">contact@gregaopendoor.fr</span>
                   </div>
                 </div>
               </div>
@@ -636,7 +636,7 @@ const Proprietaires = () => {
                       whileHover={{ scale: 1.02 }}
                       className="w-full px-4 py-3 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border border-emerald-500/30 text-white rounded-xl font-light hover:shadow-lg transition-all duration-300 backdrop-blur-sm"
                     >
-                      01 23 45 67 89
+                      09 53 37 61 41
                     </motion.button>
                   </div>
                 </div>
@@ -655,7 +655,7 @@ const Proprietaires = () => {
                       </div>
                       <h3 className="text-lg sm:text-xl font-extralight text-white">Notre Bureau</h3>
                     </div>
-                    <p className="text-white/70 mb-4 font-light text-sm sm:text-base">123 rue de Paris<br />75001 Paris</p>
+                    <p className="text-white/70 mb-4 font-light text-sm sm:text-base">37 rue des maturins<br />75008 Paris</p>
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       className="w-full px-4 py-3 bg-gradient-to-r from-violet-500/20 to-purple-500/20 border border-violet-500/30 text-white rounded-xl font-light hover:shadow-lg transition-all duration-300 backdrop-blur-sm"

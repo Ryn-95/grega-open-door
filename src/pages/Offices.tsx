@@ -1,143 +1,371 @@
 import { motion } from 'framer-motion'
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from 'react-icons/fa'
-import { images } from '../data/images'
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaBuilding, FaArrowRight, FaStar, FaUserTie, FaShieldAlt, FaRocket } from 'react-icons/fa'
 import Footer from '../components/Footer'
+import { useState, useEffect } from 'react'
 
 const Offices = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   const offices = [
     {
-      name: "Bureau Principal - Paris",
-      address: "123 Avenue des Champs-Élysées",
-      postal: "75008 Paris",
-      phone: "+33 1 23 45 67 89",
-      email: "paris@gregaopendoor.fr",
-      hours: "Lun-Ven: 9h-18h, Sam: 10h-16h"
-    },
-    {
-      name: "Agence Paris Est",
-      address: "45 Rue de la République",
-      postal: "75011 Paris",
-      phone: "+33 1 23 45 67 90",
-      email: "paris-est@gregaopendoor.fr",
-      hours: "Lun-Ven: 9h-18h"
-    },
-    {
-      name: "Agence Paris Ouest",
-      address: "78 Avenue de la Grande Armée",
-      postal: "75016 Paris",
-      phone: "+33 1 23 45 67 91",
-      email: "paris-ouest@gregaopendoor.fr",
-      hours: "Lun-Ven: 9h-18h"
+      id: 1,
+      name: 'Bureau Principal Paris',
+      address: '37 rue des maturins à Paris',
+      city: 'Paris 8ème',
+      phone: '09 53 37 61 41',
+      email: 'contact@gregaopendoor.fr',
+      hours: {
+        'Lun-Ven': '9h00 - 19h00',
+        'Samedi': '9h00 - 17h00',
+        'Dimanche': 'Sur rendez-vous'
+      },
+      services: ['Location classique', 'Logement social', 'Gestion locative', 'État des lieux'],
+      featured: true
     }
-  ]
+  ];
+
+  const services = [
+    {
+      icon: <FaBuilding className="w-8 h-8" />,
+      title: 'Gestion Premium',
+      description: 'Service de gestion locative haut de gamme avec suivi personnalisé'
+    },
+    {
+      icon: <FaUserTie className="w-8 h-8" />,
+      title: 'Conseil Expert',
+      description: 'Accompagnement par nos conseillers spécialisés en immobilier'
+    },
+    {
+      icon: <FaShieldAlt className="w-8 h-8" />,
+      title: 'Sécurité Garantie',
+      description: 'Protection complète et assurance pour tous vos projets immobiliers'
+    }
+  ];
 
   return (
-    <div className="min-h-screen bg-black">
-      {/* Hero Section */}
-      <section className="relative h-[60vh] w-full">
-        <div className="absolute inset-0">
-          <img
-            src={images.modernBuilding}
-            alt="Nos Bureaux"
-            className="w-full h-full object-cover"
+    <main className="min-h-screen bg-white overflow-hidden">
+      
+      {/* Hero Section Ultra-Révolutionnaire */}
+      <section className="min-h-screen bg-white relative overflow-hidden flex items-center justify-center">
+        {/* Background holographique ultra-sophistiqué */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-50/10 via-transparent to-gray-100/10"></div>
+          
+          {/* Grille ultra-fine */}
+          <div 
+            className="absolute inset-0 opacity-[0.008] pointer-events-none"
+            style={{ 
+              backgroundImage: `
+                linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px)
+              `,
+              backgroundSize: '40px 40px'
+            }}
           />
-          <div className="absolute inset-0 bg-black/50" />
-        </div>
-        <div className="relative h-full flex items-center">
-          <div className="container mx-auto px-4">
+          
+          {/* Effet de lumière qui suit la souris */}
+          <motion.div
+            animate={{
+              background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(0, 0, 0, 0.04), transparent 70%)`,
+            }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="absolute inset-0 pointer-events-none"
+          />
+          
+          {/* Particules de bureaux flottantes */}
+          {[...Array(25)].map((_, i) => (
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="max-w-4xl"
-            >
-              <h1 className="text-5xl md:text-7xl font-light uppercase tracking-wider mb-8">
-                Nos Bureaux
-              </h1>
-              <p className="text-xl text-gray-300 max-w-2xl">
-                Retrouvez-nous dans nos différentes agences à Paris
-              </p>
-            </motion.div>
-          </div>
+              key={i}
+              animate={{ 
+                y: [0, -40, 0],
+                opacity: [0.2, 0.8, 0.2],
+                scale: [0.5, 1.2, 0.5]
+              }}
+              transition={{ 
+                duration: 5 + i * 0.3, 
+                repeat: Infinity, 
+                delay: i * 0.2 
+              }}
+              className="absolute w-1 h-1 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full"
+              style={{
+                left: `${3 + (i * 3.8)}%`,
+                top: `${15 + Math.sin(i) * 50}%`
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="max-w-5xl mx-auto text-center px-6 relative z-10">
+          
+          {/* Badge ultra-épuré */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
+            className="mb-8"
+          >
+            <div className="inline-flex items-center px-4 py-2 rounded-full border border-gray-200/50 bg-gray-50/80 backdrop-blur-sm">
+              <div className="w-1.5 h-1.5 rounded-full bg-gray-400/60 mr-3 animate-pulse" />
+              <span className="text-gray-600 text-xs font-light tracking-[0.2em] uppercase">
+                Nos Bureaux Premium
+              </span>
+              <div className="w-1.5 h-1.5 rounded-full bg-gray-500/60 ml-3 animate-pulse" style={{ animationDelay: '1s' }} />
+            </div>
+          </motion.div>
+          
+          {/* Titre principal ultra-sophistiqué */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.6, ease: [0.4, 0, 0.2, 1] }}
+            className="mb-8"
+          >
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extralight text-gray-900 leading-[1.1] tracking-[-0.02em] mb-4">
+              Nos{' '}
+              <motion.span 
+                className="font-normal bg-gradient-to-r from-gray-600 via-gray-800 to-black bg-clip-text text-transparent relative"
+                animate={{ 
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+                style={{ backgroundSize: "200% 200%" }}
+              >
+                bureaux
+                <motion.div
+                  animate={{ x: [-100, 300] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 opacity-30"
+                />
+              </motion.span>
+            </h1>
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-thin text-gray-700 leading-[1.1] tracking-[-0.01em]">
+              à votre service
+            </h2>
+          </motion.div>
+          
+          {/* Description premium */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1, ease: [0.4, 0, 0.2, 1] }}
+            className="mb-12"
+          >
+            <p className="text-lg md:text-xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto">
+              Découvrez nos espaces dédiés à l'accompagnement immobilier.
+              <span className="text-gray-800"> Des lieux d'échange et d'expertise pour concrétiser vos projets.</span>
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* Offices Grid */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Section Bureaux */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          {/* Header révolutionnaire */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.6, 0.01, 0.05, 0.95] }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
+            <motion.h2 
+              className="text-4xl md:text-5xl font-extralight text-gray-900 mb-6 tracking-tight leading-tight"
+              whileHover={{ scale: 1.02 }}
+            >
+              Nos{' '}
+              <motion.span 
+                className="font-normal bg-gradient-to-r from-gray-600 via-gray-800 to-black bg-clip-text text-transparent"
+                animate={{ 
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+                style={{ backgroundSize: "200% 200%" }}
+              >
+                adresses
+              </motion.span>
+            </motion.h2>
+          </motion.div>
+
+          {/* Liste des bureaux */}
+          <div className="space-y-12">
             {offices.map((office, index) => (
               <motion.div
-                key={office.name}
-                initial={{ opacity: 0, y: 50 }}
+                key={office.id}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white/5 rounded-2xl p-8 hover:bg-white/10 transition-colors"
+                className="group"
               >
-                <h2 className="text-2xl font-light mb-6">{office.name}</h2>
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <FaMapMarkerAlt className="text-white/60 w-5 h-5 mt-1" />
+                <motion.div
+                  whileHover={{ scale: 1.01, y: -5 }}
+                  transition={{ duration: 0.4 }}
+                  className="p-8 lg:p-12 rounded-3xl bg-gradient-to-br from-gray-50/80 to-gray-100/60 hover:shadow-2xl transition-all duration-500 border border-gray-200/30 relative overflow-hidden backdrop-blur-sm"
+                >
+                  {/* Badge featured si applicable */}
+                  {office.featured && (
+                    <div className="absolute top-6 right-6 bg-gradient-to-r from-gray-600 to-gray-800 text-white px-4 py-2 rounded-full text-sm font-medium">
+                      <FaStar className="w-3 h-3 inline mr-2" />
+                      Principal
+                    </div>
+                  )}
+                  
+                  <div className="grid lg:grid-cols-3 gap-8">
+                    {/* Informations principales */}
+                    <div className="lg:col-span-2">
+                      <h3 className="text-3xl font-light text-gray-900 mb-4">
+                        {office.name}
+                      </h3>
+                      
+                      {/* Adresse */}
+                      <div className="flex items-start gap-4 mb-6">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 border border-gray-200/50 flex items-center justify-center text-gray-700">
+                          <FaMapMarkerAlt className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <h4 className="text-lg font-medium text-gray-900 mb-1">Adresse</h4>
+                          <p className="text-gray-600">{office.address}</p>
+                          <p className="text-gray-600">{office.city}</p>
+                        </div>
+                      </div>
+                      
+                      {/* Contact */}
+                      <div className="grid md:grid-cols-2 gap-6 mb-6">
+                        <div className="flex items-start gap-4">
+                          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 border border-gray-200/50 flex items-center justify-center text-gray-700">
+                            <FaPhone className="w-5 h-5" />
+                          </div>
+                          <div>
+                            <h4 className="text-lg font-medium text-gray-900 mb-1">Téléphone</h4>
+                            <p className="text-gray-600">{office.phone}</p>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-start gap-4">
+                          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 border border-gray-200/50 flex items-center justify-center text-gray-700">
+                            <FaEnvelope className="w-5 h-5" />
+                          </div>
+                          <div>
+                            <h4 className="text-lg font-medium text-gray-900 mb-1">Email</h4>
+                            <p className="text-gray-600">{office.email}</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Services */}
+                      <div>
+                        <h4 className="text-lg font-medium text-gray-900 mb-4">Services disponibles</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {office.services.map((service, serviceIndex) => (
+                            <span 
+                              key={serviceIndex}
+                              className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                            >
+                              {service}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Horaires */}
                     <div>
-                      <p className="text-white">{office.address}</p>
-                      <p className="text-gray-400">{office.postal}</p>
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 border border-gray-200/50 flex items-center justify-center text-gray-700">
+                          <FaClock className="w-5 h-5" />
+                        </div>
+                        <h4 className="text-lg font-medium text-gray-900">Horaires</h4>
+                      </div>
+                      
+                      <div className="space-y-3">
+                        {Object.entries(office.hours).map(([day, hours]) => (
+                          <div key={day} className="flex justify-between items-center">
+                            <span className="text-gray-600">{day}</span>
+                            <span className="text-gray-900 font-medium">{hours}</span>
+                          </div>
+                        ))}
+                      </div>
+                      
+                      {/* CTA */}
+                      <motion.button
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="w-full mt-8 py-3 px-6 bg-gradient-to-r from-gray-900 to-black text-white rounded-xl font-medium hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-3"
+                      >
+                        <span>Prendre rendez-vous</span>
+                        <FaArrowRight className="w-4 h-4" />
+                      </motion.button>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <FaPhone className="text-white/60 w-5 h-5" />
-                    <p className="text-white">{office.phone}</p>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <FaEnvelope className="text-white/60 w-5 h-5" />
-                    <p className="text-white">{office.email}</p>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <FaClock className="text-white/60 w-5 h-5" />
-                    <p className="text-gray-400">{office.hours}</p>
-                  </div>
-                </div>
+                </motion.div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="py-20 bg-white/5">
-        <div className="container mx-auto px-4">
+      {/* Section Services Bureaux */}
+      <section className="py-20 bg-gray-50/30 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center mb-12"
+            className="text-center mb-16"
           >
-            <h2 className="text-4xl uppercase tracking-wider font-light mb-8">
-              Nous Trouver
+            <h2 className="text-4xl md:text-5xl font-extralight text-gray-900 mb-6 tracking-tight">
+              Services{' '}
+              <span className="font-normal bg-gradient-to-r from-gray-600 to-black bg-clip-text text-transparent">
+                sur site
+              </span>
             </h2>
-            <p className="text-gray-300">
-              Nos agences sont facilement accessibles en transport en commun et disposent d'un espace d'accueil confortable pour vous recevoir dans les meilleures conditions.
-            </p>
           </motion.div>
-          
-          <div className="h-[400px] rounded-2xl overflow-hidden">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.2168256289745!2d2.3002657156740614!3d48.87248397928882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fc7f85bf1ef%3A0x608b9f0242d8d9d5!2s30%20Rue%20de%20Berri%2C%2075008%20Paris%2C%20France!5e0!3m2!1sen!2s!4v1645789123456!5m2!1sen!2s"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              className="grayscale contrast-125"
-            ></iframe>
+
+          {/* Grille des services */}
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="text-center group"
+              >
+                <motion.div
+                  whileHover={{ scale: 1.1, rotateY: 10 }}
+                  transition={{ duration: 0.4 }}
+                  className="w-20 h-20 mx-auto mb-6 rounded-3xl bg-gradient-to-br from-white to-gray-50 border border-gray-200 flex items-center justify-center text-gray-700 shadow-lg group-hover:shadow-xl transition-shadow duration-300"
+                >
+                  {service.icon}
+                </motion.div>
+                
+                <h3 className="text-xl font-light text-gray-900 mb-4">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed font-light">
+                  {service.description}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       <Footer />
-    </div>
-  )
-}
+    </main>
+  );
+};
 
-export default Offices 
+export default Offices; 

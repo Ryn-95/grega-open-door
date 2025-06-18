@@ -1,628 +1,511 @@
-import { motion, useMotionValue, useSpring, useScroll, useTransform } from 'framer-motion'
-import { FaCheck, FaArrowRight, FaUserFriends, FaBuilding, FaGraduationCap, FaStar, FaRegLightbulb } from 'react-icons/fa'
+import { motion, AnimatePresence } from 'framer-motion'
+import { FaHome, FaUsers, FaShieldAlt, FaRocket, FaCheck, FaArrowRight, FaStar, FaGraduationCap, FaUserFriends, FaBuilding, FaKey, FaHandshake, FaLightbulb, FaGlobe } from 'react-icons/fa'
 import Footer from '../components/Footer'
-import { useEffect, useState, useRef } from 'react'
+import { useState, useEffect } from 'react'
 
 const Services = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isMobile, setIsMobile] = useState(false);
-  const [activeCard, setActiveCard] = useState<number | null>(null);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll();
-  
-  // Mouse tracking avec spring pour fluidité ultra-douce
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const springMouseX = useSpring(mouseX, { stiffness: 150, damping: 30 });
-  const springMouseY = useSpring(mouseY, { stiffness: 150, damping: 30 });
-  
-  // Transformations scroll ultra-fluides
-  const backgroundOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0.95]);
-  const backgroundScale = useTransform(scrollYProgress, [0, 0.3], [1, 1.05]);
+  const [activeService, setActiveService] = useState(0);
   
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
     const handleMouseMove = (e: MouseEvent) => {
-      if (!isMobile && sectionRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width;
-        const y = (e.clientY - rect.top) / rect.height;
-        
-        setMousePosition({ x, y });
-        mouseX.set(e.clientX);
-        mouseY.set(e.clientY);
-      }
+      setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    if (!isMobile) {
     window.addEventListener('mousemove', handleMouseMove);
-    }
-    
-    return () => {
-      window.removeEventListener('resize', checkMobile);
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, [isMobile, mouseX, mouseY]);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
-  // Liste des fonctionnalités avec style quantique révolutionnaire
-  const serviceFeatures = [
-    "Architecture quantique de recherche avec IA neuronale avancée",
-    "Optimisation holistique et révolutionnaire de votre dossier locatif",
-    "Chasseur locatif dédié avec intelligence artificielle prédictive",
-    "Réseau exclusif d'algorithmes immobiliers et partenaires premium",
-    "Planification intelligente ultra-optimisée avec trajets quantiques",
-    "Négociations automatisées via IA comportementale avancée",
-    "Accompagnement complet avec signature digitale révolutionnaire"
+  const services = [
+    {
+      icon: <FaHome className="w-8 h-8" />,
+      title: "Logement Classique",
+      subtitle: "Service Premium",
+      description: "Découvrez notre sélection exclusive de biens résidentiels premium avec accompagnement personnalisé",
+      features: ["Sélection premium", "Visite privée", "Négociation", "Suivi complet"]
+    },
+    {
+      icon: <FaUsers className="w-8 h-8" />,
+      title: "Logement Social",
+      subtitle: "Service Solidaire", 
+      description: "Accédez à des logements à loyer modéré avec un accompagnement spécialisé et des solutions adaptées",
+      features: ["Dossier optimisé", "Démarches simplifiées", "Suivi administratif", "Garanties incluses"]
+    },
+    {
+      icon: <FaGraduationCap className="w-8 h-8" />,
+      title: "Logement Étudiant",
+      subtitle: "Service Jeunes",
+      description: "Solutions dédiées aux étudiants avec des logements adaptés et des conditions privilégiées",
+      features: ["Résidences étudiantes", "Colocation", "Garants acceptés", "Proximité campus"]
+    },
+    {
+      icon: <FaShieldAlt className="w-8 h-8" />,
+      title: "Constitution Dossier",
+      subtitle: "Service Expert",
+      description: "Optimisation complète de votre dossier de candidature pour maximiser vos chances de succès",
+      features: ["Analyse personnalisée", "Optimisation", "Vérification", "Présentation premium"]
+    }
   ];
 
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
-      {/* Curseur custom ultra-révolutionnaire */}
-      {!isMobile && (
-        <motion.div
-          className="fixed top-0 left-0 w-6 h-6 pointer-events-none z-[9999]"
-          style={{ 
-            x: springMouseX,
-            y: springMouseY,
-            translateX: "-50%",
-            translateY: "-50%"
-          }}
-        >
-          <div className="w-full h-full rounded-full bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600 backdrop-blur-sm" />
-          <div className="absolute inset-1 rounded-full bg-blue-500/20 animate-pulse" />
-          <div className="absolute inset-2 rounded-full bg-violet-500/10 animate-ping" />
-        </motion.div>
-      )}
-
-      {/* Section principale ultra-révolutionnaire */}
-      <motion.section 
-        ref={sectionRef} 
-        className="relative py-40 bg-gradient-to-br from-gray-50 to-white overflow-hidden"
-        style={{
-          opacity: backgroundOpacity,
-          scale: backgroundScale
-        }}
-      >
-        {/* Background quantique ultra-sophistiqué avec layers multiples */}
-        <div className="absolute inset-0">
-          {/* Grille fractale tri-dimensionnelle */}
+    <main className="min-h-screen bg-white overflow-hidden">
+      
+      {/* Hero Section Ultra-Révolutionnaire */}
+      <section className="min-h-screen bg-white relative overflow-hidden flex items-center justify-center">
+        {/* Background holographique ultra-sophistiqué */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-50/10 via-transparent to-gray-100/10"></div>
+          
+          {/* Grille ultra-fine */}
           <div 
-            className="absolute inset-0 opacity-[0.1] pointer-events-none"
+            className="absolute inset-0 opacity-[0.008] pointer-events-none"
             style={{ 
               backgroundImage: `
-                linear-gradient(rgba(59, 130, 246, 0.1) 0.5px, transparent 0.5px),
-                linear-gradient(90deg, rgba(147, 51, 234, 0.08) 0.5px, transparent 0.5px),
-                linear-gradient(45deg, rgba(236, 72, 153, 0.05) 0.25px, transparent 0.25px)
+                linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px)
               `,
-              backgroundSize: '60px 60px, 60px 60px, 30px 30px'
-            }}
-          />
-        
-          {/* Grille quantique micro-détaillée */}
-          <div 
-            className="absolute inset-0 opacity-[0.05] pointer-events-none"
-            style={{ 
-              backgroundImage: `
-                radial-gradient(circle, rgba(59, 130, 246, 0.2) 0.5px, transparent 0.5px),
-                radial-gradient(circle, rgba(147, 51, 234, 0.15) 0.25px, transparent 0.25px)
-              `,
-              backgroundSize: '12px 12px, 8px 8px'
+              backgroundSize: '40px 40px'
             }}
           />
           
-          {/* Effet holographique triple-couche révolutionnaire */}
-          {!isMobile && (
-            <>
-              <motion.div 
-                className="absolute inset-0 opacity-[0.08] pointer-events-none"
-                style={{
-                  background: `
-                    radial-gradient(1400px circle at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, 
-                    rgba(59, 130, 246, 0.04), rgba(147, 51, 234, 0.02), transparent 75%)
-                  `,
-                  transition: 'background 5s cubic-bezier(0.4, 0, 0.2, 1)'
-                }}
-              />
-              
-              <motion.div 
-                className="absolute inset-0 opacity-[0.06] pointer-events-none"
-                style={{
-                  background: `
-                    radial-gradient(1000px circle at ${(1-mousePosition.x) * 100}% ${(1-mousePosition.y) * 100}%, 
-                    rgba(147, 51, 234, 0.035), rgba(236, 72, 153, 0.02), transparent 65%)
-                  `,
-                  transition: 'background 4s cubic-bezier(0.4, 0, 0.2, 1)'
-                }}
-              />
-              
-              <motion.div 
-                className="absolute inset-0 opacity-[0.04] pointer-events-none"
-          style={{
-                  background: `
-                    radial-gradient(800px circle at ${mousePosition.x * 50 + 25}% ${mousePosition.y * 50 + 25}%, 
-                    rgba(236, 72, 153, 0.03), rgba(59, 130, 246, 0.015), transparent 55%)
-                  `,
-                  transition: 'background 3s cubic-bezier(0.4, 0, 0.2, 1)'
-                }}
-              />
-            </>
-          )}
-          
-          {/* Champ énergétique quantique */}
-          <div className="absolute top-10 left-1/5 w-[600px] h-[600px] bg-blue-500/[0.008] rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-10 right-1/5 w-[500px] h-[500px] bg-violet-500/[0.012] rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-pink-500/[0.008] rounded-full blur-3xl animate-pulse delay-2000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-white/[0.003] to-transparent rounded-full blur-3xl"></div>
-      </div>
-
-        {/* Ligne décorative supérieure quantique avec pulsation */}
-        <motion.div 
-          initial={{ scaleX: 0, opacity: 0 }} 
-          whileInView={{ scaleX: 1, opacity: 1 }} 
-          transition={{ duration: 3, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="absolute top-0 left-0 right-0 h-[0.5px] bg-gradient-to-r from-transparent via-blue-400/30 via-violet-400/40 via-pink-400/30 to-transparent"
-        />
-
-        <div className="container mx-auto px-6 max-w-7xl relative z-10">
-          {/* Header ultra-révolutionnaire */}
+          {/* Effet de lumière qui suit la souris */}
           <motion.div
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
-            viewport={{ once: true, margin: "-150px" }}
-            className="text-center mb-32"
-          >
-            {/* Badge quantique avec effet de respiration */}
-            <motion.div 
-              className="inline-flex items-center gap-4 px-8 py-3 border border-blue-200 text-gray-700 rounded-full text-xs tracking-[0.25em] uppercase mb-12 backdrop-blur-3xl bg-gradient-to-r from-blue-50 to-violet-50 relative overflow-hidden group"
-              whileHover={{ 
-                scale: 1.05,
-                borderColor: "rgba(59, 130, 246, 0.5)"
-              }}
-              animate={{
-                boxShadow: [
-                  "0 0 20px rgba(59, 130, 246, 0)",
-                  "0 0 30px rgba(59, 130, 246, 0.2)",
-                  "0 0 20px rgba(147, 51, 234, 0.2)",
-                  "0 0 30px rgba(236, 72, 153, 0.2)",
-                  "0 0 20px rgba(59, 130, 246, 0)"
-                ]
+            animate={{
+              background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(0, 0, 0, 0.04), transparent 70%)`,
+            }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="absolute inset-0 pointer-events-none"
+          />
+          
+          {/* Constellation de particules dynamiques */}
+          {[...Array(25)].map((_, i) => (
+              <motion.div 
+              key={i}
+              animate={{ 
+                y: [0, -40, 0],
+                opacity: [0.2, 0.8, 0.2],
+                scale: [0.5, 1.2, 0.5]
               }}
               transition={{ 
-                boxShadow: { duration: 8, repeat: Infinity, ease: "easeInOut" }
+                duration: 5 + i * 0.3, 
+                repeat: Infinity, 
+                delay: i * 0.2 
               }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-100/30 via-violet-100/20 to-pink-100/30 opacity-0 group-hover:opacity-100 transition-opacity duration-1500"></div>
-              <div className="w-1.5 h-1.5 bg-gradient-to-r from-blue-500 to-blue-400 rounded-full animate-pulse"></div>
-              <span className="relative z-10 font-light">Services • Immobiliers • Révolutionnaires</span>
-            </motion.div>
-            
-            {/* Titre ultra-révolutionnaire avec effet holographique */}
-            <div className="relative">
-              {/* Effet holographique continu sur le titre */}
-              <motion.div
-                className="absolute inset-0 text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] font-thin tracking-[-0.04em] leading-tight"
-              style={{
-                  background: 'linear-gradient(45deg, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.12), rgba(236, 72, 153, 0.1), rgba(59, 130, 246, 0.08))',
-                WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  filter: 'blur(2px)'
-                }}
-                animate={{
-                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
-                }}
-                transition={{
-                  duration: 12,
-                  repeat: Infinity,
-                  ease: 'linear'
+              className="absolute w-1 h-1 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full"
+                style={{
+                left: `${3 + (i * 3.8)}%`,
+                top: `${15 + Math.sin(i) * 50}%`
               }}
-            >
-                <div className="block leading-tight">Nos</div>
-                <div className="block leading-tight">Services</div>
-              </motion.div>
-              
-              {/* Titre principal avec animations échelonnées */}
-              <h1 className="relative text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] font-thin tracking-[-0.04em] mb-12 leading-tight">
-                <motion.div 
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1.2, delay: 0.4 }}
-                  className="block text-gray-900 leading-tight"
-                  viewport={{ once: true }}
-                >
-                  Nos
-                </motion.div>
-                <motion.div 
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1.2, delay: 0.8 }}
-                  className="block bg-gradient-to-r from-blue-300 via-violet-300 to-pink-300 bg-clip-text text-transparent leading-tight"
-                  viewport={{ once: true }}
-                >
-                  Services
-                </motion.div>
-              </h1>
-              </div>
-            
-            {/* Description ultra-épurée avec effet de typing */}
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1.2 }}
-              className="text-xl md:text-2xl text-gray-600 font-thin max-w-5xl mx-auto leading-relaxed"
-              viewport={{ once: true }}
-            >
-              Découvrez nos solutions immobilières sur mesure, conçues pour répondre à tous vos besoins 
-              <span className="text-gray-400"> avec un service premium et une intelligence artificielle révolutionnaire</span>
-            </motion.p>
-            
-            {/* Ligne de séparation quantique animée */}
-            <motion.div
-              initial={{ width: 0 }}
-              whileInView={{ width: "70%" }}
-              transition={{ duration: 3, delay: 1.6 }}
-              viewport={{ once: true }}
-              className="h-[0.5px] bg-gradient-to-r from-transparent via-gray-300 to-transparent mt-12 mx-auto"
             />
-            </motion.div>
+          ))}
+        </div>
+
+        <div className="max-w-5xl mx-auto text-center px-6 relative z-10">
           
-          {/* Grille des services ultra-révolutionnaire */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mb-40">
-            {/* Service Logement Classique - Design révolutionnaire */}
-            <motion.div
-              initial={{ opacity: 0, y: 100, scale: 0.9, rotateX: 15 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
-              transition={{ 
-                duration: 1.8, 
-                delay: 0.3,
-                ease: [0.22, 1, 0.36, 1]
-              }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="group relative"
-              onHoverStart={() => setActiveCard(0)}
-              onHoverEnd={() => setActiveCard(null)}
-            >
-              {/* Halo énergétique externe */}
+          {/* Badge ultra-épuré */}
               <motion.div 
-                className="absolute -inset-4 bg-gradient-to-r from-blue-500/[0.15] via-blue-600/[0.08] to-blue-500/[0.15] rounded-3xl blur-2xl opacity-0 group-hover:opacity-100"
-                transition={{ duration: 1.5 }}
-              />
-              
-              {/* Carte principale ultra-sophistiquée */}
-              <div className="relative rounded-3xl overflow-hidden backdrop-blur-3xl border border-gray-200 bg-gradient-to-br from-slate-900/70 via-slate-800/50 to-slate-900/70 hover:border-blue-400/[0.25] transition-all duration-1500 hover:shadow-2xl group-hover:shadow-blue-500/20">
-                
-                {/* Effet holographique multicouche */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.12] via-blue-600/[0.06] to-blue-500/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-1800 rounded-3xl"></div>
-                
-                {/* Effet de scan quantique révolutionnaire */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/[0.08] via-white/[0.03] via-blue-400/[0.08] to-transparent -translate-x-full"
-                  whileHover={{ translateX: "200%" }}
-                  transition={{ duration: 2.5, ease: "easeInOut" }}
-                />
-                
-                {/* Particules flottantes internes */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
-                  <div className="absolute top-6 right-8 w-1 h-1 bg-blue-400 rounded-full animate-ping"></div>
-                  <div className="absolute bottom-8 left-6 w-0.5 h-0.5 bg-white/60 rounded-full animate-pulse delay-700"></div>
-                  <div className="absolute top-1/3 right-1/4 w-0.5 h-0.5 bg-blue-300 rounded-full animate-pulse delay-1000"></div>
-                </div>
-                
-                {/* Contenu ultra-raffiné */}
-                <div className="relative z-10 p-10 lg:p-14">
-                  {/* Header du service révolutionnaire */}
-                  <div className="flex items-center gap-6 mb-10">
-                    <motion.div 
-                      whileHover={{ scale: 1.2, rotate: 10 }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
-                      className="relative flex-shrink-0"
-                    >
-                      <div className="w-18 h-18 rounded-3xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-gray-200 flex items-center justify-center relative overflow-hidden group-hover:scale-110 transition-all duration-1000 shadow-2xl backdrop-blur-xl">
-                        {/* Halo quantique multiple */}
-                        <div className="absolute inset-0 bg-blue-400/15 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-                        <div className="absolute inset-0 bg-blue-300/10 blur-lg opacity-0 group-hover:opacity-60 transition-opacity duration-800 scale-125"></div>
-                        <div className="relative z-10 text-blue-400 group-hover:text-blue-300 transition-colors duration-700">
-                          <FaBuilding className="w-7 h-7" />
-                        </div>
-                        
-                        {/* Système de particules orbitales */}
-                        <div className="absolute inset-0 opacity-0 group-hover:opacity-50 transition-opacity duration-1000">
-                          <motion.div 
-                            className="absolute top-2 right-2 w-1.5 h-1.5 bg-white rounded-full"
-                            animate={{ opacity: [0.6, 1, 0.6] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                          />
-                          <motion.div 
-                            className="absolute bottom-3 left-3 w-1 h-1 bg-blue-300/70 rounded-full"
-                            animate={{ opacity: [0.4, 0.9, 0.4] }}
-                            transition={{ duration: 2.5, repeat: Infinity, delay: 0.8 }}
-                          />
-                        </div>
-                      </div>
-                    </motion.div>
-                    
-                    <div>
-                      <div className="text-gray-50 text-sm font-thin tracking-[0.25em] uppercase mb-2">Service Premium</div>
-                      <h3 className="text-3xl lg:text-4xl font-thin text-gray-900 group-hover:text-gray-100 transition-colors duration-700 tracking-tight leading-tight">
-                        Logement Classique
-                      </h3>
-                    </div>
-                  </div>
-                  
-                  {/* Description évoluée */}
-                  <p className="text-gray-700 font-thin text-xl leading-relaxed mb-10 group-hover:text-gray-100 transition-colors duration-700">
-                    Découvrez notre sélection{' '}
-                    <span className="bg-gradient-to-r from-blue-400/80 to-blue-300/80 bg-clip-text text-transparent">
-                      premium quantique
-                    </span>{' '}
-                    de biens résidentiels avec un accompagnement IA révolutionnaire
-                  </p>
-                  
-                  {/* Ligne de séparation quantique évoluée */}
-                  <div className="w-full h-[0.5px] bg-gradient-to-r from-gray-800 via-gray-200 to-gray-800 mb-10 group-hover:from-blue-400/30 group-hover:via-blue-400/60 group-hover:to-blue-400/30 transition-all duration-1500" />
-                  
-                  {/* Fonctionnalités avec animations sophistiquées */}
-                  <div className="space-y-5 mb-12">
-                    {serviceFeatures.slice(0, 4).map((feature, index) => (
-                      <motion.div 
-                        key={index}
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: index * 0.15 }}
-                  viewport={{ once: true }}
-                        className="flex items-start gap-4 text-gray-600 font-thin text-base group/item"
-                      >
-                        <motion.div
-                          whileHover={{ scale: 1.2, rotate: 360 }}
-                          transition={{ duration: 0.6 }}
-                          className="mt-1"
-                    >
-                          <FaCheck className="text-blue-400/70 w-4 h-4 flex-shrink-0 transition-colors duration-500 group-hover/item:text-blue-400" />
-                        </motion.div>
-                        <span className="transition-colors duration-500 group-hover/item:text-gray-100">{feature}</span>
-                      </motion.div>
-                  ))}
-                  </div>
-                
-                  {/* CTA révolutionnaire */}
-                  <motion.button
-                    whileHover={{ scale: 1.08, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="group/btn relative px-10 py-5 bg-gradient-to-r from-white/[0.05] to-white/[0.02] border border-gray-200 text-gray-900 font-thin rounded-3xl backdrop-blur-xl hover:border-blue-400/[0.3] transition-all duration-700 overflow-hidden w-full"
-                  >
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-blue-500/[0.15] via-blue-400/[0.08] to-blue-500/[0.15] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-700"
-                    />
-                    <span className="relative z-10 flex items-center justify-center gap-4 text-lg">
-                      Découvrir l'Innovation
-                      <motion.div
-                        animate={{ x: [0, 4, 0] }}
-                        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                      >
-                        <FaArrowRight className="w-5 h-5" />
-                      </motion.div>
-                    </span>
-                  </motion.button>
-                </div>
-              </div>
-            </motion.div>
-            
-            {/* Service Logement Social - Design révolutionnaire */}
-            <motion.div
-              initial={{ opacity: 0, y: 100, scale: 0.9, rotateX: 15 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
-              transition={{ 
-                duration: 1.8, 
-                delay: 0.6,
-                ease: [0.22, 1, 0.36, 1]
-              }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="group relative"
-              onHoverStart={() => setActiveCard(1)}
-              onHoverEnd={() => setActiveCard(null)}
-            >
-              {/* Halo énergétique externe */}
-              <motion.div 
-                className="absolute -inset-4 bg-gradient-to-r from-violet-500/[0.15] via-purple-600/[0.08] to-violet-500/[0.15] rounded-3xl blur-2xl opacity-0 group-hover:opacity-100"
-                transition={{ duration: 1.5 }}
-              />
-              
-              {/* Carte principale ultra-sophistiquée */}
-              <div className="relative rounded-3xl overflow-hidden backdrop-blur-3xl border border-gray-200 bg-gradient-to-br from-slate-900/70 via-slate-800/50 to-slate-900/70 hover:border-violet-400/[0.25] transition-all duration-1500 hover:shadow-2xl group-hover:shadow-violet-500/20">
-                
-                {/* Effet holographique multicouche */}
-                <div className="absolute inset-0 bg-gradient-to-br from-violet-500/[0.12] via-purple-600/[0.06] to-violet-500/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-1800 rounded-3xl"></div>
-                
-                {/* Effet de scan quantique révolutionnaire */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/[0.08] via-white/[0.03] via-violet-400/[0.08] to-transparent -translate-x-full"
-                  whileHover={{ translateX: "200%" }}
-                  transition={{ duration: 2.5, ease: "easeInOut" }}
-                />
-                
-                {/* Particules flottantes internes */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
-                  <div className="absolute top-6 right-8 w-1 h-1 bg-violet-400 rounded-full animate-ping"></div>
-                  <div className="absolute bottom-8 left-6 w-0.5 h-0.5 bg-white/60 rounded-full animate-pulse delay-700"></div>
-                  <div className="absolute top-1/3 right-1/4 w-0.5 h-0.5 bg-violet-300 rounded-full animate-pulse delay-1000"></div>
-                </div>
-                
-                {/* Contenu ultra-raffiné */}
-                <div className="relative z-10 p-10 lg:p-14">
-                  {/* Header du service révolutionnaire */}
-                  <div className="flex items-center gap-6 mb-10">
-                    <motion.div 
-                      whileHover={{ scale: 1.2, rotate: 10 }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
-                      className="relative flex-shrink-0"
-                    >
-                      <div className="w-18 h-18 rounded-3xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-gray-200 flex items-center justify-center relative overflow-hidden group-hover:scale-110 transition-all duration-1000 shadow-2xl backdrop-blur-xl">
-                        {/* Halo quantique multiple */}
-                        <div className="absolute inset-0 bg-violet-400/15 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-                        <div className="absolute inset-0 bg-violet-300/10 blur-lg opacity-0 group-hover:opacity-60 transition-opacity duration-800 scale-125"></div>
-                        <div className="relative z-10 text-violet-400 group-hover:text-violet-300 transition-colors duration-700">
-                          <FaUserFriends className="w-7 h-7" />
-                        </div>
-                        
-                        {/* Système de particules orbitales */}
-                        <div className="absolute inset-0 opacity-0 group-hover:opacity-50 transition-opacity duration-1000">
-                          <motion.div 
-                            className="absolute top-2 right-2 w-1.5 h-1.5 bg-white rounded-full"
-                            animate={{ opacity: [0.6, 1, 0.6] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                          />
-                          <motion.div 
-                            className="absolute bottom-3 left-3 w-1 h-1 bg-violet-300/70 rounded-full"
-                            animate={{ opacity: [0.4, 0.9, 0.4] }}
-                            transition={{ duration: 2.5, repeat: Infinity, delay: 0.8 }}
-                          />
-                        </div>
-                      </div>
-                    </motion.div>
-                    
-                    <div>
-                      <div className="text-gray-50 text-sm font-thin tracking-[0.25em] uppercase mb-2">Service Innovant</div>
-                      <h3 className="text-3xl lg:text-4xl font-thin text-gray-900 group-hover:text-gray-100 transition-colors duration-700 tracking-tight leading-tight">
-                        Logement Social
-                      </h3>
-                    </div>
-                  </div>
-                  
-                  {/* Description évoluée */}
-                  <p className="text-gray-700 font-thin text-xl leading-relaxed mb-10 group-hover:text-gray-100 transition-colors duration-700">
-                    Accédez à des logements{' '}
-                    <span className="bg-gradient-to-r from-violet-400/80 to-violet-300/80 bg-clip-text text-transparent">
-                      sociaux révolutionnaires
-                    </span>{' '}
-                    avec un accompagnement personnalisé et une approche quantique
-                  </p>
-                  
-                  {/* Ligne de séparation quantique évoluée */}
-                  <div className="w-full h-[0.5px] bg-gradient-to-r from-gray-800 via-gray-200 to-gray-800 mb-10 group-hover:from-violet-400/30 group-hover:via-violet-400/60 group-hover:to-violet-400/30 transition-all duration-1500" />
-                  
-                  {/* Fonctionnalités avec animations sophistiquées */}
-                  <div className="space-y-5 mb-12">
-                    {serviceFeatures.slice(3, 7).map((feature, index) => (
-                      <motion.div 
-                        key={index}
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: index * 0.15 }}
-                  viewport={{ once: true }}
-                        className="flex items-start gap-4 text-gray-600 font-thin text-base group/item"
-                      >
-                        <motion.div
-                          whileHover={{ scale: 1.2, rotate: 360 }}
-                          transition={{ duration: 0.6 }}
-                          className="mt-1"
-                    >
-                          <FaCheck className="text-violet-400/70 w-4 h-4 flex-shrink-0 transition-colors duration-500 group-hover/item:text-violet-400" />
-                        </motion.div>
-                        <span className="transition-colors duration-500 group-hover/item:text-gray-100">{feature}</span>
-                      </motion.div>
-                  ))}
-                  </div>
-                
-                  {/* CTA révolutionnaire */}
-                  <motion.button
-                    whileHover={{ scale: 1.08, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="group/btn relative px-10 py-5 bg-gradient-to-r from-white/[0.05] to-white/[0.02] border border-gray-200 text-gray-900 font-thin rounded-3xl backdrop-blur-xl hover:border-violet-400/[0.3] transition-all duration-700 overflow-hidden w-full"
-                  >
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-violet-500/[0.15] via-violet-400/[0.08] to-violet-500/[0.15] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-700"
-                    />
-                    <span className="relative z-10 flex items-center justify-center gap-4 text-lg">
-                      Découvrir l'Innovation
-                      <motion.div
-                        animate={{ x: [0, 4, 0] }}
-                        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                      >
-                        <FaArrowRight className="w-5 h-5" />
-                      </motion.div>
-                    </span>
-                  </motion.button>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-          
-          {/* Transition finale ultra-épurée */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, delay: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mt-24"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
+            className="mb-8"
           >
-            <p className="text-4xl md:text-5xl lg:text-6xl font-thin text-gray-900 leading-relaxed">
-              <span className="bg-gradient-to-r from-blue-400 via-violet-400 to-pink-400 bg-clip-text text-transparent">
-                L'avenir de l'immobilier
+            <div className="inline-flex items-center px-4 py-2 rounded-full border border-gray-200/50 bg-gray-50/80 backdrop-blur-sm">
+              <div className="w-1.5 h-1.5 rounded-full bg-gray-400/60 mr-3 animate-pulse" />
+              <span className="text-gray-600 text-xs font-light tracking-[0.2em] uppercase">
+                Nos Services Premium
               </span>
-              <br />
-              <span className="text-gray-700">commence ici</span>
+              <div className="w-1.5 h-1.5 rounded-full bg-gray-500/60 ml-3 animate-pulse" style={{ animationDelay: '1s' }} />
+            </div>
+          </motion.div>
+          
+          {/* Titre principal ultra-sophistiqué */}
+              <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.6, ease: [0.4, 0, 0.2, 1] }}
+            className="mb-8"
+          >
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extralight text-gray-900 leading-[1.1] tracking-[-0.02em] mb-4">
+              L'excellence{' '}
+              <motion.span 
+                className="font-normal bg-gradient-to-r from-gray-600 via-gray-800 to-black bg-clip-text text-transparent relative"
+                animate={{ 
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+                style={{ backgroundSize: "200% 200%" }}
+              >
+                immobilière
+                <motion.div
+                  animate={{ x: [-100, 350] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 opacity-30"
+                />
+              </motion.span>
+            </h1>
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-thin text-gray-700 leading-[1.1] tracking-[-0.01em]">
+              redéfinie pour vous
+            </h2>
+          </motion.div>
+          
+          {/* Description premium */}
+        <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1, ease: [0.4, 0, 0.2, 1] }}
+            className="mb-12"
+          >
+            <p className="text-lg md:text-xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto">
+              Découvrez notre gamme complète de services immobiliers premium.
+              <span className="text-gray-800"> De la recherche à la signature, une expérience révolutionnaire vous attend.</span>
             </p>
           </motion.div>
+          
+          {/* Navigation services interactive */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.3 }}
+            className="flex flex-wrap justify-center gap-4 mb-12"
+          >
+            {services.map((service, index) => (
+              <motion.button
+                key={index}
+                onClick={() => setActiveService(index)}
+                className={`px-6 py-3 rounded-full border transition-all duration-300 ${
+                  activeService === index 
+                    ? 'bg-gray-900 text-white border-gray-900' 
+                    : 'bg-gray-50 text-gray-600 border-gray-200 hover:border-gray-300'
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="flex items-center gap-2 text-sm font-medium">
+                  {service.icon}
+                  {service.title}
+                </span>
+              </motion.button>
+            ))}
+            </motion.div>
+            
+          {/* CTA élégant */}
+              <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.6 }}
+          >
+            <motion.button
+              className="group relative px-8 py-4 bg-gradient-to-r from-gray-900 to-black text-white rounded-full text-lg font-medium overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500"
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span className="relative z-10 flex items-center gap-3">
+                Explorer nos services
+                <motion.div 
+                  animate={{ x: [0, 3, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <FaArrowRight className="w-4 h-4" />
+                </motion.div>
+              </span>
+                <motion.div 
+                className="absolute inset-0 bg-gradient-to-r from-gray-700 to-gray-900 opacity-0 group-hover:opacity-100"
+                transition={{ duration: 0.3 }}
+              />
+            </motion.button>
+                </motion.div>
+              </div>
+            
+        {/* Indicateur de scroll épuré */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 2 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        >
+          <div className="flex flex-col items-center">
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="w-0.5 h-12 bg-gradient-to-b from-gray-400 to-transparent mb-2"
+            />
+            <div className="text-gray-400 text-xs font-light tracking-wide uppercase">
+              Scroll
+            </div>
+          </div>
+            </motion.div>
+      </section>
+
+      {/* Section Services Détaillés - Style révolutionnaire */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        {/* Background holographique */}
+        <div className="absolute inset-0 pointer-events-none">
+            <motion.div
+            animate={{ 
+              background: [
+                "radial-gradient(circle at 20% 30%, rgba(0, 0, 0, 0.03) 0%, transparent 50%)",
+                "radial-gradient(circle at 80% 70%, rgba(0, 0, 0, 0.03) 0%, transparent 50%)",
+                "radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.03) 0%, transparent 50%)"
+              ]
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute inset-0"
+          />
         </div>
-        
-        {/* Particules quantiques ultra-avancées */}
-        {!isMobile && (
-          <>
-            <motion.div
-              className="absolute top-[15%] left-[8%] w-24 h-24 rounded-full border border-gray-200 bg-gray-100/[0.006] animate-pulse"
-              animate={{ 
-                y: [0, -20, 0],
-                opacity: [0.08, 0.25, 0.08],
-                scale: [1, 1.1, 1],
-                rotate: [0, 180, 360]
-              }}
-              transition={{ 
-                duration: 15,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          {/* Header révolutionnaire */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.6, 0.01, 0.05, 0.95] }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
+            <motion.h2 
+              className="text-4xl md:text-5xl font-extralight text-gray-900 mb-6 tracking-tight leading-tight relative"
+              whileHover={{ scale: 1.02 }}
+            >
+              Services{' '}
+              <motion.span 
+                className="font-normal bg-gradient-to-r from-gray-600 via-gray-800 to-black bg-clip-text text-transparent relative"
+                animate={{ 
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+                style={{ backgroundSize: "200% 200%" }}
+              >
+                sur mesure
+                <motion.div
+                  animate={{ x: [-100, 300] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 opacity-30"
+                />
+              </motion.span>
+            </motion.h2>
+                    <motion.div 
+              className="w-24 h-0.5 bg-gradient-to-r from-gray-600 to-black mx-auto rounded-full"
+              initial={{ width: 0 }}
+              whileInView={{ width: 96 }}
+              transition={{ duration: 1, delay: 0.3 }}
             />
-            
-            <motion.div
-              className="absolute bottom-[20%] right-[10%] w-18 h-18 rounded-full border border-gray-200 bg-gray-100/[0.008] animate-pulse"
-              animate={{ 
-                y: [0, 15, 0],
-                opacity: [0.1, 0.3, 0.1],
-                scale: [1, 1.15, 1],
-                rotate: [360, 180, 0]
-              }}
-              transition={{ 
-                duration: 12,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 2
-              }}
+                    </motion.div>
+                    
+          {/* Grille des services ultra-sophistiquée */}
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+            {services.map((service, index) => (
+                      <motion.div 
+                        key={index}
+                initial={{ opacity: 0, y: 40, rotateY: -15 }}
+                whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1, ease: [0.6, 0.01, 0.05, 0.95] }}
+                  viewport={{ once: true }}
+                className="group perspective-1000"
+                      >
+                        <motion.div
+                  whileHover={{ scale: 1.02, rotateY: 2, z: 20 }}
+                  transition={{ duration: 0.4 }}
+                  className="p-8 lg:p-12 rounded-3xl bg-gradient-to-br from-gray-50/80 to-gray-100/60 hover:shadow-2xl transition-all duration-500 border border-gray-200/30 relative overflow-hidden backdrop-blur-sm"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  {/* Effet de lueur holographique */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-gray-100/10 via-gray-200/5 to-gray-100/10 opacity-0 group-hover:opacity-100 transition-opacity duration-800 rounded-3xl"></div>
+                  
+                  {/* Particules flottantes spécialisées */}
+                  {[...Array(12)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      animate={{ 
+                        y: [0, -20, 0],
+                        opacity: [0.3, 0.8, 0.3],
+                        scale: [0.5, 1, 0.5]
+                      }}
+                      transition={{ 
+                        duration: 4 + i * 0.2, 
+                        repeat: Infinity, 
+                        delay: i * 0.3 
+                      }}
+                      className="absolute w-1 h-1 rounded-full bg-gray-400"
+                      style={{
+                        left: `${10 + (i * 7)}%`,
+                        top: `${20 + Math.sin(i) * 30}%`
+                      }}
+                    />
+                  ))}
+
+                  {/* Badge premium */}
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="inline-flex items-center gap-2 bg-gray-50/80 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium text-gray-700 border border-gray-200/30">
+                      {service.icon}
+                      <span>{service.subtitle}</span>
+                </div>
+                    <motion.div 
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                      className="w-8 h-8 rounded-full bg-gradient-to-r from-gray-200 to-gray-300 flex items-center justify-center"
+                    >
+                      <FaStar className="w-3 h-3 text-gray-600" />
+                    </motion.div>
+                  </div>
+                  
+                  <div className="relative z-10">
+                    <h3 className="text-2xl lg:text-3xl font-light text-gray-900 mb-4 tracking-wide">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed font-light text-lg mb-8">
+                      {service.description}
+                    </p>
+                    
+                    {/* Features premium */}
+                    <div className="space-y-3 mb-8">
+                      {service.features.map((feature, featureIndex) => (
+                      <motion.div 
+                          key={featureIndex}
+                          initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.5, delay: 0.1 + featureIndex * 0.1 }}
+                  viewport={{ once: true }}
+                          className="flex items-center gap-3"
+                      >
+                        <motion.div
+                            whileHover={{ scale: 1.2, rotate: 90 }}
+                            transition={{ duration: 0.3 }}
+                            className="w-5 h-5 rounded-full flex items-center justify-center bg-gray-50/80 border-gray-200/30 border"
+                          >
+                            <FaCheck className="w-2 h-2 text-gray-700" />
+                          </motion.div>
+                          <span className="text-gray-700 font-light">{feature}</span>
+                      </motion.div>
+                  ))}
+                  </div>
+                
+                    {/* CTA service */}
+                  <motion.button
+                      whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                      className="w-full py-4 px-6 bg-gradient-to-r from-gray-900 to-black text-white rounded-2xl font-medium hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 group"
+                    >
+                      <span>Découvrir ce service</span>
+                      <motion.div
+                        animate={{ x: [0, 3, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                      >
+                        <FaArrowRight className="w-4 h-4" />
+                      </motion.div>
+                  </motion.button>
+                </div>
+                </motion.div>
+            </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+          
+      {/* Section Processus Ultra-Moderne */}
+      <section className="py-20 bg-gray-50/30 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-extralight text-gray-900 mb-6 tracking-tight">
+              Notre{' '}
+              <span className="font-normal bg-gradient-to-r from-gray-600 to-black bg-clip-text text-transparent">
+                méthode
+              </span>
+            </h2>
+            <motion.div 
+              className="w-20 h-0.5 bg-gradient-to-r from-gray-600 to-black mx-auto rounded-full"
+              initial={{ width: 0 }}
+              whileInView={{ width: 80 }}
+              transition={{ duration: 1, delay: 0.3 }}
             />
-            
+          </motion.div>
+
+          {/* Étapes du processus ultra-sophistiquées */}
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+            {[
+              {
+                step: "01",
+                title: "Analyse & Conseil",
+                description: "Étude approfondie de vos besoins et conseils personnalisés pour optimiser votre recherche",
+                icon: <FaLightbulb className="w-6 h-6" />
+              },
+              {
+                step: "02", 
+                title: "Recherche Active",
+                description: "Prospection ciblée et présentation d'une sélection premium de biens correspondant à vos critères",
+                icon: <FaGlobe className="w-6 h-6" />
+              },
+              {
+                step: "03",
+                title: "Signature & Suivi",
+                description: "Accompagnement jusqu'à la signature et suivi post-emménagement pour votre satisfaction",
+                icon: <FaHandshake className="w-6 h-6" />
+              }
+            ].map((etape, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="relative group"
+              >
+                {/* Ligne de connexion */}
+                {index < 2 && (
             <motion.div
-              className="absolute top-[60%] left-[5%] w-12 h-12 rounded-full border border-gray-200 bg-gray-100/[0.01] animate-pulse"
-              animate={{ 
-                y: [0, -10, 0],
-                opacity: [0.15, 0.4, 0.15],
-                scale: [1, 1.2, 1],
-                rotate: [0, 360, 0]
-              }}
-              transition={{ 
-                duration: 10,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1
-              }}
-            />
-          </>
-        )}
-      </motion.section>
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    transition={{ duration: 1, delay: 0.8 + index * 0.2 }}
+                    viewport={{ once: true }}
+                    className="hidden md:block absolute top-6 -right-6 w-12 h-0.5 bg-gradient-to-r from-gray-300 to-transparent origin-left"
+                  />
+                )}
+                
+                <div className="text-center">
+                  {/* Numéro d'étape holographique */}
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotateY: 180 }}
+                    transition={{ duration: 0.5 }}
+                    className="w-12 h-12 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 border-2 border-gray-300/50 flex items-center justify-center text-gray-700 font-bold text-lg shadow-lg relative overflow-hidden group-hover:shadow-xl transition-shadow duration-300"
+                  >
+                    {etape.step}
+                    {/* Effet de brillance */}
+            <motion.div
+                      animate={{ x: [-100, 100] }}
+                      transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"
+                    />
+                  </motion.div>
+                  
+                  {/* Icône flottante */}
+            <motion.div
+                    animate={{ y: [0, -5, 0] }}
+                    transition={{ duration: 3, repeat: Infinity, delay: index * 0.5 }}
+                    className="w-8 h-8 mx-auto mb-4 text-gray-600"
+                  >
+                    {etape.icon}
+                  </motion.div>
+                  
+                  <h3 className="text-xl font-light text-gray-900 mb-4">
+                    {etape.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed font-light">
+                    {etape.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
       
       <Footer />
-    </div>
+    </main>
   );
 };
 

@@ -4,13 +4,10 @@ import About from './pages/About'
 import Services from './pages/Services'
 import Offices from './pages/Offices'
 import Contact from './pages/Contact'
-import Properties from './pages/Properties'
 import Proprietaires from './pages/Proprietaires'
-import Location from './pages/Location'
-import Social from './pages/Social'
-import EtatDesLieux from './pages/EtatDesLieux'
 import { useEffect } from 'react'
 import { AnimatePresence } from 'framer-motion'
+import Navbar from './components/Navbar'
 
 // Composant qui réinitialise la position de défilement lors du changement de route
 const ScrollToTop = () => {
@@ -33,6 +30,7 @@ const AppContent = () => {
   
   return (
     <div className="min-h-screen bg-white">
+      <Navbar />
       <ScrollToTop />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
@@ -40,13 +38,7 @@ const AppContent = () => {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/offices" element={<Offices />} />
-          <Route path="/properties" element={<Properties />} />
           <Route path="/proprietaires" element={<Proprietaires />} />
-          <Route path="/location" element={<Location />} />
-          <Route path="/logement-classique" element={<Location />} />
-          <Route path="/social" element={<Social />} />
-          <Route path="/logement-social" element={<Social />} />
-          <Route path="/etat-des-lieux" element={<EtatDesLieux />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </AnimatePresence>

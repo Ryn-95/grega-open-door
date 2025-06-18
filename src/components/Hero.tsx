@@ -65,7 +65,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
-            Agence de chasse locative premium.
+            Agence de broker real estate.
             <br />
             <span className="text-gray-500">
               Nous trouvons, préparons votre dossier et négocions pour vous.
@@ -173,7 +173,7 @@ const Hero = () => {
             transition={{ delay: 1, duration: 0.5 }}
           >
             <p className="text-3xl font-extralight text-gray-900 mb-1 tracking-wider">
-              01 XX XX XX XX
+              09 53 37 61 41
             </p>
             <p className="text-gray-500 text-xs font-medium tracking-wide">
               GRATUIT • IMMÉDIAT • SANS ENGAGEMENT
