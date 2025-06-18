@@ -65,7 +65,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
-            Agence de broker real estate.
+            Agence de Broker Real Estate.
             <br />
             <span className="text-gray-500">
               Nous trouvons, préparons votre dossier et négocions pour vous.
@@ -150,10 +150,11 @@ const Hero = () => {
           className="space-y-6"
         >
           {/* Bouton Principal Optimisé */}
-          <motion.button
+          <motion.a
+            href="tel:0953376141"
             whileHover={{ scale: 1.02, y: -1 }}
             whileTap={{ scale: 0.98 }}
-            className="group bg-gray-900 text-white px-8 py-3 rounded-full text-base font-medium hover:bg-gray-800 transition-all duration-300 flex items-center gap-3 mx-auto shadow-lg hover:shadow-xl"
+            className="group bg-gray-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-gray-800 transition-all duration-300 flex items-center gap-2 mx-auto shadow-lg hover:shadow-xl w-fit"
           >
             <FaPhone className="w-3 h-3" />
             <span>Nous contacter</span>
@@ -164,7 +165,7 @@ const Hero = () => {
             >
               <FaArrowRight className="w-3 h-3" />
             </motion.div>
-          </motion.button>
+          </motion.a>
           
           {/* Numéro Compact */}
           <motion.div

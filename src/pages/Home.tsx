@@ -85,13 +85,7 @@ const Home = () => {
                 transition={{ duration: 3, repeat: Infinity }}
                 style={{ backgroundSize: "200% 200%" }}
               >
-                GREGA
-                {/* Effet de brillance */}
-                <motion.div
-                  animate={{ x: [-100, 300] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 opacity-30"
-                />
+                GREGA ?
               </motion.span>
             </motion.h2>
             <motion.div 
@@ -105,576 +99,118 @@ const Home = () => {
           {/* Grille Ultra-Révolutionnaire */}
           <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
             
-            {/* EFFICACITÉ - Hologramme Temporel */}
+            {/* EFFICACITÉ - Version Simple */}
             <motion.div
-              initial={{ opacity: 0, y: 40, rotateY: -15 }}
-              whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.6, 0.01, 0.05, 0.95] }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
-              className="group text-center perspective-1000"
+              className="text-center"
             >
-              <motion.div
-                whileHover={{ scale: 1.05, rotateY: 5, z: 50 }}
-                transition={{ duration: 0.4 }}
-                className="p-8 rounded-3xl bg-gradient-to-br from-blue-50/80 to-blue-100/60 hover:from-blue-100/90 hover:to-blue-200/70 transition-all duration-500 border border-blue-200/30 hover:border-blue-300/50 relative overflow-hidden shadow-xl hover:shadow-2xl backdrop-blur-sm"
-                style={{ transformStyle: "preserve-3d" }}
-              >
-                {/* Particules flottantes */}
-                {[...Array(12)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    animate={{ 
-                      y: [0, -20, 0],
-                      opacity: [0.3, 0.8, 0.3],
-                      scale: [0.5, 1, 0.5]
-                    }}
-                    transition={{ 
-                      duration: 3 + i * 0.2, 
-                      repeat: Infinity, 
-                      delay: i * 0.3 
-                    }}
-                    className="absolute w-1 h-1 bg-blue-400 rounded-full"
-                    style={{
-                      left: `${10 + (i * 7)}%`,
-                      top: `${20 + Math.sin(i) * 30}%`
-                    }}
-                  />
-                ))}
+              <div className="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200/30 hover:shadow-lg transition-shadow duration-300">
+                
+                {/* Icône Simple */}
+                <div className="w-16 h-16 mx-auto mb-6 bg-blue-500 rounded-full flex items-center justify-center">
+                  <span className="text-white text-2xl font-bold">3x</span>
+                </div>
 
-                {/* Hologramme Temporel Ultra-Avancé */}
-                <div className="relative mb-8">
-                  <motion.div
-                    animate={{ rotateY: 360 }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                    className="w-24 h-24 mx-auto relative"
-                    style={{ transformStyle: "preserve-3d" }}
-                  >
-                    {/* Sphère temporelle */}
-                    <motion.div
-                      animate={{ 
-                        boxShadow: [
-                          "0 0 20px rgba(59, 130, 246, 0.3), inset 0 0 20px rgba(59, 130, 246, 0.1)",
-                          "0 0 40px rgba(59, 130, 246, 0.6), inset 0 0 30px rgba(59, 130, 246, 0.3)",
-                          "0 0 20px rgba(59, 130, 246, 0.3), inset 0 0 20px rgba(59, 130, 246, 0.1)"
-                        ]
-                      }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                      className="w-full h-full rounded-full bg-gradient-to-br from-blue-400/20 to-blue-600/40 border-2 border-blue-300/50 relative overflow-hidden backdrop-blur-sm"
-                    >
-                      {/* Anneaux orbitaux */}
-                      {[...Array(3)].map((_, i) => (
-                        <motion.div
-                          key={i}
-                          animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
-                          transition={{ 
-                            duration: 4 + i * 2, 
-                            repeat: Infinity, 
-                            ease: "linear" 
-                          }}
-                          className={`absolute inset-${i * 2} border border-blue-400/30 rounded-full`}
-                        />
-                      ))}
-                      
-                      {/* Centre énergétique */}
-                      <motion.div
-                        animate={{ 
-                          scale: [0.8, 1.2, 0.8],
-                          rotate: [0, 180, 360]
-                        }}
-                        transition={{ duration: 3, repeat: Infinity }}
-                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg"
-                      >
-                        3x
-                      </motion.div>
-                    </motion.div>
-                  </motion.div>
-                  
-                  {/* Compteur temps réel */}
-                  <motion.div
-                    initial={{ scale: 0, rotate: -180 }}
-                    whileInView={{ scale: 1, rotate: 0 }}
-                    transition={{ duration: 0.8, delay: 0.5, type: "spring" }}
-                    className="absolute -top-3 -right-3 bg-gradient-to-r from-blue-600 to-blue-800 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg border-2 border-white"
-                  >
-                    <motion.span
-                      animate={{ opacity: [1, 0.5, 1] }}
-                      transition={{ duration: 1, repeat: Infinity }}
-                    >
-                      TURBO
-                    </motion.span>
-                  </motion.div>
-        </div>
-
-                <h3 className="text-2xl font-light text-gray-900 mb-4 tracking-wide">
-                  Efficacité Quantique
+                <h3 className="text-2xl font-light text-gray-900 mb-4">
+                  Efficacité Maximale
                 </h3>
                 <p className="text-gray-700 font-light text-base leading-relaxed mb-6">
-                  IA prédictive révolutionnaire : trouvez votre logement 3x plus rapidement
+                  IA prédictive : trouvez votre logement 3x plus rapidement
                 </p>
                 
-                {/* Barre de performance holographique */}
-                <div className="relative">
-                  <div className="w-full bg-gradient-to-r from-gray-200 to-gray-300 rounded-full h-3 mb-3 overflow-hidden">
-        <motion.div 
-                      initial={{ width: 0, x: -100 }}
-                      whileInView={{ width: "100%", x: 0 }}
-                      transition={{ duration: 2.5, delay: 0.8, ease: "easeOut" }}
-                      className="bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 h-full rounded-full relative overflow-hidden"
-                    >
-                      <motion.div
-                        animate={{ x: ["-100%", "100%"] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                      />
-                    </motion.div>
-                  </div>
-                  <motion.p 
-                    className="text-sm text-blue-700 font-medium text-center"
-                    animate={{ opacity: [0.7, 1, 0.7] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    Performance dépassant toute concurrence
-                  </motion.p>
+                <div className="text-sm text-blue-700 font-medium">
+                  Performance optimisée
                 </div>
-              </motion.div>
+              </div>
             </motion.div>
 
-            {/* SÉCURITÉ - Bouclier Quantique */}
+            {/* SÉCURITÉ - Version Simple */}
             <motion.div
-              initial={{ opacity: 0, y: 40, rotateY: 15 }}
-              whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.6, 0.01, 0.05, 0.95] }}
-          viewport={{ once: true }}
-              className="group text-center perspective-1000"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-center"
             >
-              <motion.div
-                whileHover={{ scale: 1.05, rotateY: -5, z: 50 }}
-                transition={{ duration: 0.4 }}
-                className="p-8 rounded-3xl bg-gradient-to-br from-green-50/80 to-emerald-100/60 hover:from-green-100/90 hover:to-emerald-200/70 transition-all duration-500 border border-green-200/30 hover:border-emerald-300/50 relative overflow-hidden shadow-xl hover:shadow-2xl backdrop-blur-sm"
-                style={{ transformStyle: "preserve-3d" }}
-              >
-                {/* Matrice de sécurité */}
-                {[...Array(20)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    animate={{ 
-                      opacity: [0, 1, 0],
-                      scale: [0, 1, 0]
-                    }}
-                    transition={{ 
-                      duration: 2, 
-                      repeat: Infinity, 
-                      delay: i * 0.1 
-                    }}
-                    className="absolute w-0.5 h-0.5 bg-green-400 rounded-full"
-                    style={{
-                      left: `${Math.random() * 100}%`,
-                      top: `${Math.random() * 100}%`
-                    }}
-                  />
-                ))}
+              <div className="p-8 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-100 border border-green-200/30 hover:shadow-lg transition-shadow duration-300">
+                
+                {/* Icône Simple */}
+                <div className="w-16 h-16 mx-auto mb-6 bg-green-500 rounded-full flex items-center justify-center">
+                  <FaShieldAlt className="w-8 h-8 text-white" />
+                </div>
 
-                {/* Bouclier Quantique */}
-                <div className="relative mb-8">
-          <motion.div
-                    whileHover={{ scale: 1.15, rotateZ: 10 }}
-                    className="w-24 h-24 mx-auto relative"
-                  >
-                    {/* Bouclier principal avec effet holographique */}
-                    <motion.div
-                      animate={{ 
-                        boxShadow: [
-                          "0 0 30px rgba(34, 197, 94, 0.4), 0 0 60px rgba(34, 197, 94, 0.2)",
-                          "0 0 50px rgba(34, 197, 94, 0.8), 0 0 100px rgba(34, 197, 94, 0.4)",
-                          "0 0 30px rgba(34, 197, 94, 0.4), 0 0 60px rgba(34, 197, 94, 0.2)"
-                        ]
-                      }}
-                      transition={{ duration: 3, repeat: Infinity }}
-                      className="w-full h-full bg-gradient-to-br from-green-300/30 to-emerald-600/50 rounded-2xl border-2 border-green-400/60 relative overflow-hidden backdrop-blur-sm transform rotate-45"
-                    >
-                      {/* Lignes de scan multiples */}
-                      <motion.div
-                        animate={{ y: ["-100%", "200%"] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                        className="absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-green-300 to-transparent opacity-70"
-                      />
-                      <motion.div
-                        animate={{ x: ["-100%", "200%"] }}
-                        transition={{ duration: 2.5, repeat: Infinity, ease: "linear", delay: 0.5 }}
-                        className="absolute top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-emerald-300 to-transparent opacity-70"
-                      />
-                      
-                      {/* Centre sécurisé */}
-                      <motion.div
-                        animate={{ 
-                          rotate: [0, 360],
-                          scale: [0.8, 1.2, 0.8]
-                        }}
-                        transition={{ duration: 4, repeat: Infinity }}
-                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-45 w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white shadow-lg"
-                      >
-                        <FaShieldAlt className="w-5 h-5" />
-                      </motion.div>
-                    </motion.div>
-                    
-                    {/* Particules de protection orbitales */}
-                    {[...Array(6)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        animate={{ 
-                          rotate: [0, 360],
-                          scale: [0.5, 1, 0.5]
-                        }}
-                        transition={{ 
-                          duration: 3 + i * 0.5, 
-                          repeat: Infinity, 
-                          delay: i * 0.2 
-                        }}
-                        className="absolute w-2 h-2 bg-green-400 rounded-full"
-                        style={{
-                          top: "50%",
-                          left: "50%",
-                          transform: `translate(-50%, -50%) rotate(${i * 60}deg) translateY(-40px) rotate(-${i * 60}deg)`
-                        }}
-                      />
-                    ))}
-                  </motion.div>
-                  
-                  {/* Badge certification */}
-                  <motion.div
-                    initial={{ scale: 0, rotate: 180 }}
-                    whileInView={{ scale: 1, rotate: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6, type: "spring" }}
-                    className="absolute -top-3 -right-3 bg-gradient-to-r from-green-600 to-emerald-800 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg border-2 border-white"
-                  >
-                    <motion.span
-                      animate={{ opacity: [1, 0.5, 1] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    >
-                      100% IA
-                    </motion.span>
-                  </motion.div>
-            </div>
-
-                <h3 className="text-2xl font-light text-gray-900 mb-4 tracking-wide">
+                <h3 className="text-2xl font-light text-gray-900 mb-4">
                   Sécurité Absolue
                 </h3>
                 <p className="text-gray-700 font-light text-base leading-relaxed mb-6">
-                  Blockchain & IA : protection maximale de vos données et dossiers
+                  Protection maximale de vos données et dossiers
                 </p>
                 
-                {/* Indicateur de sécurité avancé */}
-                <div className="flex items-center justify-center gap-3">
-                  <motion.div
-                    animate={{ 
-                      scale: [1, 1.3, 1],
-                      boxShadow: [
-                        "0 0 10px rgba(34, 197, 94, 0.5)",
-                        "0 0 20px rgba(34, 197, 94, 0.8)",
-                        "0 0 10px rgba(34, 197, 94, 0.5)"
-                      ]
-                    }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="w-3 h-3 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full"
-                  />
-                  <motion.p 
-                    className="text-sm text-green-700 font-medium"
-                    animate={{ opacity: [0.7, 1, 0.7] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    Cryptage militaire actif
-                  </motion.p>
+                <div className="text-sm text-green-700 font-medium">
+                  Sécurité garantie
                 </div>
-              </motion.div>
+              </div>
             </motion.div>
 
-            {/* EXCELLENCE - Constellation Premium */}
+            {/* EXCELLENCE - Version Simple */}
             <motion.div
-              initial={{ opacity: 0, y: 40, rotateY: -15 }}
-              whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.6, 0.01, 0.05, 0.95] }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="group text-center perspective-1000"
+              className="text-center"
             >
-              <motion.div
-                whileHover={{ scale: 1.05, rotateY: 5, z: 50 }}
-                transition={{ duration: 0.4 }}
-                className="p-8 rounded-3xl bg-gradient-to-br from-amber-50/80 to-orange-100/60 hover:from-amber-100/90 hover:to-orange-200/70 transition-all duration-500 border border-amber-200/30 hover:border-orange-300/50 relative overflow-hidden shadow-xl hover:shadow-2xl backdrop-blur-sm"
-                style={{ transformStyle: "preserve-3d" }}
-              >
-                {/* Poussière d'étoiles */}
-                {[...Array(15)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    animate={{ 
-                      y: [0, -30, 0],
-                      opacity: [0.2, 1, 0.2],
-                      rotate: [0, 360]
-                    }}
-                    transition={{ 
-                      duration: 4 + i * 0.3, 
-                      repeat: Infinity, 
-                      delay: i * 0.2 
-                    }}
-                    className="absolute"
-                    style={{
-                      left: `${15 + (i * 5)}%`,
-                      top: `${10 + Math.sin(i) * 40}%`
-                    }}
-                  >
-                    <FaStar className="w-1 h-1 text-amber-400" />
-                  </motion.div>
-                ))}
-
-                {/* Constellation Premium */}
-                <div className="relative mb-8">
-                  <motion.div
-                    animate={{ rotateZ: 360 }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    className="w-24 h-24 mx-auto relative"
-                  >
-                    {/* Étoiles constellation */}
-                    {[...Array(5)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ scale: 0, rotate: 0 }}
-                        whileInView={{ scale: 1, rotate: 360 }}
-                        transition={{ 
-                          duration: 1.5, 
-                          delay: i * 0.2,
-                          type: "spring",
-                          stiffness: 200
-                        }}
-                        className="absolute"
-                        style={{
-                          top: "50%",
-                          left: "50%",
-                          transform: `translate(-50%, -50%) rotate(${i * 72}deg) translateY(-35px) rotate(-${i * 72}deg)`
-                        }}
-                      >
-                        <motion.div
-                          animate={{ 
-                            scale: [1, 1.5, 1],
-                            rotate: [0, 180, 360],
-                            boxShadow: [
-                              "0 0 10px rgba(245, 158, 11, 0.5)",
-                              "0 0 25px rgba(245, 158, 11, 0.8)",
-                              "0 0 10px rgba(245, 158, 11, 0.5)"
-                            ]
-                          }}
-                          transition={{ 
-                            duration: 3, 
-                            repeat: Infinity, 
-                            delay: i * 0.3 
-                          }}
-                          className="w-4 h-4 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full flex items-center justify-center"
-                        >
-                          <FaStar className="w-2 h-2 text-white" />
-                        </motion.div>
-                      </motion.div>
-                    ))}
-                    
-                    {/* Étoile centrale premium */}
-                    <motion.div
-                      animate={{ 
-                        scale: [1, 1.3, 1],
-                        rotate: [0, 360],
-                        boxShadow: [
-                          "0 0 20px rgba(251, 191, 36, 0.6)",
-                          "0 0 40px rgba(251, 191, 36, 0.9)",
-                          "0 0 20px rgba(251, 191, 36, 0.6)"
-                        ]
-                      }}
-                      transition={{ duration: 4, repeat: Infinity }}
-                      className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full flex items-center justify-center text-white shadow-lg"
-                    >
-                      <FaStar className="w-4 h-4" />
-                    </motion.div>
-
-                    {/* Anneaux de prestige */}
-                    {[...Array(3)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
-                        transition={{ 
-                          duration: 8 + i * 2, 
-                          repeat: Infinity, 
-                          ease: "linear" 
-                        }}
-                        className={`absolute inset-${i * 3} border border-amber-300/40 rounded-full`}
-                      />
-                    ))}
-                  </motion.div>
-                  
-                  {/* Badge excellence */}
-                  <motion.div
-                    initial={{ scale: 0, rotate: -180 }}
-                    whileInView={{ scale: 1, rotate: 0 }}
-                    transition={{ duration: 0.8, delay: 0.7, type: "spring" }}
-                    className="absolute -top-3 -right-3 bg-gradient-to-r from-amber-600 to-orange-800 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg border-2 border-white"
-                  >
-                    4.9★
-                  </motion.div>
+              <div className="p-8 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-100 border border-amber-200/30 hover:shadow-lg transition-shadow duration-300">
+                
+                {/* Icône Simple */}
+                <div className="w-16 h-16 mx-auto mb-6 bg-amber-500 rounded-full flex items-center justify-center">
+                  <FaStar className="w-8 h-8 text-white" />
                 </div>
 
-                <h3 className="text-2xl font-light text-gray-900 mb-4 tracking-wide">
+                <h3 className="text-2xl font-light text-gray-900 mb-4">
                   Excellence Premium
                 </h3>
                 <p className="text-gray-700 font-light text-base leading-relaxed mb-6">
-                  Service white-glove personnalisé avec accompagnement VIP
+                  Service personnalisé avec accompagnement VIP
                 </p>
                 
-                {/* Compteur clients premium */}
-                <div className="flex items-center justify-center gap-3">
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    transition={{ duration: 1, delay: 0.8, type: "spring" }}
-                    className="flex items-center gap-2"
-                  >
-                    <motion.div
-                      animate={{ 
-                        rotate: [0, 360],
-                        scale: [0.8, 1.2, 0.8]
-                      }}
-                      transition={{ duration: 3, repeat: Infinity }}
-                      className="w-6 h-6 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full flex items-center justify-center"
-                    >
-                      <span className="text-white text-xs font-bold">+</span>
-                    </motion.div>
-              <motion.span 
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 2, delay: 1 }}
-                      className="text-lg font-bold text-orange-700"
-                    >
-                      500
-              </motion.span>
-              <motion.span 
-                      className="text-sm text-orange-600 font-medium"
-                      animate={{ opacity: [0.7, 1, 0.7] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      clients VIP satisfaits
-                    </motion.span>
-                  </motion.div>
+                <div className="text-sm text-orange-700 font-medium">
+                  +500 clients satisfaits
                 </div>
-              </motion.div>
+              </div>
             </motion.div>
           </div>
 
-          {/* Section Bonus Ultra-Futuriste : Tableau de Bord Quantique */}
+          {/* Section Bonus Simplifiée */}
           <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 1, delay: 0.8 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
             className="mt-20"
           >
-            <motion.div
-              whileHover={{ scale: 1.02, rotateX: 2 }}
-              className="bg-gradient-to-r from-gray-900/95 via-gray-800/95 to-gray-900/95 rounded-3xl p-8 border border-gray-700/50 shadow-2xl backdrop-blur-sm relative overflow-hidden"
-              style={{ transformStyle: "preserve-3d" }}
-            >
-              {/* Effet matrix background */}
-              <div className="absolute inset-0 opacity-10">
-                {[...Array(50)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    animate={{ y: [0, 100, 0] }}
-                    transition={{ 
-                      duration: 2 + Math.random() * 3, 
-                      repeat: Infinity, 
-                      delay: Math.random() * 2 
-                    }}
-                    className="absolute w-px h-4 bg-green-400"
-                    style={{
-                      left: `${Math.random() * 100}%`,
-                      top: `${Math.random() * 100}%`
-                    }}
-                  />
-                ))}
-              </div>
-
-              <div className="text-center mb-8 relative z-10">
-                <motion.h3 
-                  className="text-3xl font-light text-white mb-3"
-                  animate={{ opacity: [0.8, 1, 0.8] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                >
-                  Command Center Quantique
-                </motion.h3>
-                <div className="flex items-center justify-center gap-3">
-                  <motion.div
-                    animate={{ 
-                      scale: [1, 1.5, 1],
-                      boxShadow: [
-                        "0 0 10px rgba(34, 197, 94, 0.5)",
-                        "0 0 25px rgba(34, 197, 94, 1)",
-                        "0 0 10px rgba(34, 197, 94, 0.5)"
-                      ]
-                    }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="w-3 h-3 bg-green-400 rounded-full"
-                  />
-                  <span className="text-green-400 text-sm font-medium">SYSTÈME OPÉRATIONNEL</span>
-                </div>
-              </div>
+            <div className="bg-gray-900 rounded-2xl p-8 text-center text-white">
+              <h3 className="text-2xl font-light mb-4">Command Center</h3>
+              <p className="text-gray-300 mb-6">Système opérationnel</p>
               
-              {/* Dashboard futuriste */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 relative z-10">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {[
-                  { label: "Recherches IA actives", value: "127", icon: "🔍", color: "blue" },
-                  { label: "Visites VR planifiées", value: "43", icon: "🥽", color: "purple" },
-                  { label: "Dossiers blockchain", value: "89", icon: "⛓️", color: "green" },
-                  { label: "Contrats smart signés", value: "31", icon: "📜", color: "orange" }
+                  { label: "Recherches actives", value: "127", icon: "🔍" },
+                  { label: "Visites planifiées", value: "43", icon: "🏠" },
+                  { label: "Dossiers traités", value: "89", icon: "📋" },
+                  { label: "Contrats signés", value: "31", icon: "✅" }
                 ].map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30, rotateY: -20 }}
-                    whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
-                    whileHover={{ scale: 1.05, rotateY: 5 }}
-                    transition={{ duration: 0.6, delay: index * 0.15 + 1 }}
-                    className="text-center p-6 bg-gradient-to-br from-gray-800/50 to-gray-700/30 rounded-2xl border border-gray-600/30 shadow-lg backdrop-blur-sm relative overflow-hidden"
-                    style={{ transformStyle: "preserve-3d" }}
-                  >
-                    {/* Effet de scan */}
-                    <motion.div
-                      animate={{ x: ["-100%", "100%"] }}
-                      transition={{ 
-                        duration: 3, 
-                        repeat: Infinity, 
-                        delay: index * 0.5 + 2 
-                      }}
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
-                    />
-                    
-                    <div className="text-3xl mb-3">{stat.icon}</div>
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      transition={{ duration: 1, delay: index * 0.2 + 1.5, type: "spring" }}
-                      className={`text-3xl font-light text-${stat.color}-400 mb-2`}
-                    >
-                      <motion.span
-                        animate={{ opacity: [0.7, 1, 0.7] }}
-                        transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
-                      >
-                        {stat.value}
-                      </motion.span>
-                    </motion.div>
-                    <p className="text-gray-300 text-xs font-light">{stat.label}</p>
-                    
-                    {/* Indicateur activité */}
-                    <motion.div
-                      animate={{ opacity: [0.5, 1, 0.5] }}
-                      transition={{ duration: 1.5, repeat: Infinity, delay: index * 0.2 }}
-                      className={`absolute top-2 right-2 w-2 h-2 bg-${stat.color}-400 rounded-full`}
-                    />
-                  </motion.div>
+                  <div key={index} className="text-center p-4 bg-gray-800 rounded-xl">
+                    <div className="text-2xl mb-2">{stat.icon}</div>
+                    <div className="text-2xl font-light text-white mb-1">{stat.value}</div>
+                    <p className="text-gray-400 text-xs">{stat.label}</p>
+                  </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>
