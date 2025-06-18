@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
-import Navigation from './components/Navigation'
 import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
@@ -33,8 +32,7 @@ const AppContent = () => {
   const location = useLocation()
   
   return (
-    <div className="text-white">
-      <Navigation />
+    <div className="min-h-screen bg-white">
       <ScrollToTop />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>

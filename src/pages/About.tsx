@@ -4,7 +4,7 @@ import Footer from '../components/Footer'
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative h-[60vh] w-full">
         <div className="absolute inset-0">
@@ -23,7 +23,7 @@ const About = () => {
               transition={{ duration: 0.8 }}
               className="max-w-4xl"
             >
-              <h1 className="text-5xl md:text-7xl font-light uppercase tracking-wider mb-8">
+              <h1 className="text-5xl md:text-7xl font-light text-white uppercase tracking-wider mb-8">
                 Notre Histoire
               </h1>
             </motion.div>
@@ -32,7 +32,7 @@ const About = () => {
       </section>
 
       {/* Histoire Section */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -41,10 +41,10 @@ const About = () => {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h2 className="text-4xl uppercase tracking-wider font-light mb-8">
+            <h2 className="text-4xl text-gray-900 uppercase tracking-wider font-light mb-8">
               Notre Passion
             </h2>
-            <p className="text-gray-300 mb-12">
+            <p className="text-gray-600 mb-12">
               Depuis notre création, nous nous efforçons de créer des expériences uniques 
               et mémorables. Notre passion pour l'excellence et l'attention aux détails 
               nous ont permis de devenir un leader dans notre domaine.
@@ -54,7 +54,7 @@ const About = () => {
       </section>
 
       {/* Équipe Section */}
-      <section className="py-20 bg-white/5">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -63,7 +63,7 @@ const About = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl uppercase tracking-wider font-light mb-8">
+            <h2 className="text-4xl text-gray-900 uppercase tracking-wider font-light mb-8">
               Notre Équipe
             </h2>
           </motion.div>
@@ -106,8 +106,8 @@ const About = () => {
                     className="w-full h-64 object-cover hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <h3 className="text-xl font-light mb-2">{member.name}</h3>
-                <p className="text-gray-400">{member.role}</p>
+                <h3 className="text-xl text-gray-900 font-light mb-2">{member.name}</h3>
+                <p className="text-gray-600">{member.role}</p>
               </motion.div>
             ))}
           </div>

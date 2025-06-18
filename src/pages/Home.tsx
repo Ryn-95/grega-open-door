@@ -61,7 +61,7 @@ const Home = () => {
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             className="absolute inset-0"
           />
-        </div>
+      </div>
 
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           {/* Header Révolutionnaire */}
@@ -203,7 +203,7 @@ const Home = () => {
                       TURBO
                     </motion.span>
                   </motion.div>
-                </div>
+        </div>
 
                 <h3 className="text-2xl font-light text-gray-900 mb-4 tracking-wide">
                   Efficacité Quantique
@@ -215,7 +215,7 @@ const Home = () => {
                 {/* Barre de performance holographique */}
                 <div className="relative">
                   <div className="w-full bg-gradient-to-r from-gray-200 to-gray-300 rounded-full h-3 mb-3 overflow-hidden">
-                    <motion.div
+        <motion.div 
                       initial={{ width: 0, x: -100 }}
                       whileInView={{ width: "100%", x: 0 }}
                       transition={{ duration: 2.5, delay: 0.8, ease: "easeOut" }}
@@ -244,7 +244,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 40, rotateY: 15 }}
               whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.6, 0.01, 0.05, 0.95] }}
-              viewport={{ once: true }}
+          viewport={{ once: true }}
               className="group text-center perspective-1000"
             >
               <motion.div
@@ -276,7 +276,7 @@ const Home = () => {
 
                 {/* Bouclier Quantique */}
                 <div className="relative mb-8">
-                  <motion.div
+          <motion.div
                     whileHover={{ scale: 1.15, rotateZ: 10 }}
                     className="w-24 h-24 mx-auto relative"
                   >
@@ -354,7 +354,7 @@ const Home = () => {
                       100% IA
                     </motion.span>
                   </motion.div>
-                </div>
+            </div>
 
                 <h3 className="text-2xl font-light text-gray-900 mb-4 tracking-wide">
                   Sécurité Absolue
@@ -542,15 +542,15 @@ const Home = () => {
                     >
                       <span className="text-white text-xs font-bold">+</span>
                     </motion.div>
-                    <motion.span 
+              <motion.span 
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ duration: 2, delay: 1 }}
                       className="text-lg font-bold text-orange-700"
                     >
                       500
-                    </motion.span>
-                    <motion.span 
+              </motion.span>
+              <motion.span 
                       className="text-sm text-orange-600 font-medium"
                       animate={{ opacity: [0.7, 1, 0.7] }}
                       transition={{ duration: 2, repeat: Infinity }}

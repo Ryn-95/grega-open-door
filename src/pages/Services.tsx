@@ -58,11 +58,11 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black overflow-x-hidden">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Curseur custom ultra-révolutionnaire */}
       {!isMobile && (
         <motion.div
-          className="fixed top-0 left-0 w-6 h-6 pointer-events-none z-[9999] mix-blend-difference"
+          className="fixed top-0 left-0 w-6 h-6 pointer-events-none z-[9999]"
           style={{ 
             x: springMouseX,
             y: springMouseY,
@@ -70,31 +70,31 @@ const Services = () => {
             translateY: "-50%"
           }}
         >
-          <div className="w-full h-full rounded-full bg-gradient-to-r from-blue-400/80 via-violet-400/60 to-pink-400/80 backdrop-blur-sm" />
-          <div className="absolute inset-1 rounded-full bg-white/20 animate-pulse" />
-          <div className="absolute inset-2 rounded-full bg-white/10 animate-ping" />
+          <div className="w-full h-full rounded-full bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600 backdrop-blur-sm" />
+          <div className="absolute inset-1 rounded-full bg-blue-500/20 animate-pulse" />
+          <div className="absolute inset-2 rounded-full bg-violet-500/10 animate-ping" />
         </motion.div>
       )}
 
       {/* Section principale ultra-révolutionnaire */}
       <motion.section 
         ref={sectionRef} 
-        className="relative py-40 bg-black overflow-hidden"
+        className="relative py-40 bg-gradient-to-br from-gray-50 to-white overflow-hidden"
         style={{
           opacity: backgroundOpacity,
           scale: backgroundScale
-          }}
+        }}
       >
         {/* Background quantique ultra-sophistiqué avec layers multiples */}
         <div className="absolute inset-0">
           {/* Grille fractale tri-dimensionnelle */}
           <div 
-            className="absolute inset-0 opacity-[0.002] pointer-events-none"
+            className="absolute inset-0 opacity-[0.1] pointer-events-none"
             style={{ 
               backgroundImage: `
-                linear-gradient(rgba(59, 130, 246, 0.05) 0.5px, transparent 0.5px),
-                linear-gradient(90deg, rgba(147, 51, 234, 0.03) 0.5px, transparent 0.5px),
-                linear-gradient(45deg, rgba(236, 72, 153, 0.02) 0.25px, transparent 0.25px)
+                linear-gradient(rgba(59, 130, 246, 0.1) 0.5px, transparent 0.5px),
+                linear-gradient(90deg, rgba(147, 51, 234, 0.08) 0.5px, transparent 0.5px),
+                linear-gradient(45deg, rgba(236, 72, 153, 0.05) 0.25px, transparent 0.25px)
               `,
               backgroundSize: '60px 60px, 60px 60px, 30px 30px'
             }}
@@ -102,11 +102,11 @@ const Services = () => {
         
           {/* Grille quantique micro-détaillée */}
           <div 
-            className="absolute inset-0 opacity-[0.0008] pointer-events-none"
+            className="absolute inset-0 opacity-[0.05] pointer-events-none"
             style={{ 
               backgroundImage: `
-                radial-gradient(circle, rgba(255, 255, 255, 0.15) 0.5px, transparent 0.5px),
-                radial-gradient(circle, rgba(59, 130, 246, 0.1) 0.25px, transparent 0.25px)
+                radial-gradient(circle, rgba(59, 130, 246, 0.2) 0.5px, transparent 0.5px),
+                radial-gradient(circle, rgba(147, 51, 234, 0.15) 0.25px, transparent 0.25px)
               `,
               backgroundSize: '12px 12px, 8px 8px'
             }}
@@ -177,17 +177,17 @@ const Services = () => {
           >
             {/* Badge quantique avec effet de respiration */}
             <motion.div 
-              className="inline-flex items-center gap-4 px-8 py-3 border border-white/[0.12] text-white/70 rounded-full text-xs tracking-[0.25em] uppercase mb-12 backdrop-blur-3xl bg-gradient-to-r from-white/[0.03] to-white/[0.008] relative overflow-hidden group"
+              className="inline-flex items-center gap-4 px-8 py-3 border border-blue-200 text-gray-700 rounded-full text-xs tracking-[0.25em] uppercase mb-12 backdrop-blur-3xl bg-gradient-to-r from-blue-50 to-violet-50 relative overflow-hidden group"
               whileHover={{ 
-                borderColor: "rgba(255, 255, 255, 0.25)",
-                scale: 1.05
+                scale: 1.05,
+                borderColor: "rgba(59, 130, 246, 0.5)"
               }}
               animate={{
                 boxShadow: [
                   "0 0 20px rgba(59, 130, 246, 0)",
-                  "0 0 30px rgba(59, 130, 246, 0.1)",
-                  "0 0 20px rgba(147, 51, 234, 0.1)",
-                  "0 0 30px rgba(236, 72, 153, 0.1)",
+                  "0 0 30px rgba(59, 130, 246, 0.2)",
+                  "0 0 20px rgba(147, 51, 234, 0.2)",
+                  "0 0 30px rgba(236, 72, 153, 0.2)",
                   "0 0 20px rgba(59, 130, 246, 0)"
                 ]
               }}
@@ -195,10 +195,9 @@ const Services = () => {
                 boxShadow: { duration: 8, repeat: Infinity, ease: "easeInOut" }
               }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/8 via-violet-500/6 to-pink-500/8 opacity-0 group-hover:opacity-100 transition-opacity duration-1500"></div>
-              <div className="w-1.5 h-1.5 bg-gradient-to-r from-blue-400 to-blue-300 rounded-full animate-pulse"></div>
-              <span className="relative z-10 font-thin">Services • Immobiliers • Révolutionnaires</span>
-              <div className="w-1.5 h-1.5 bg-gradient-to-r from-violet-400 to-pink-400 rounded-full animate-pulse delay-1000"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-100/30 via-violet-100/20 to-pink-100/30 opacity-0 group-hover:opacity-100 transition-opacity duration-1500"></div>
+              <div className="w-1.5 h-1.5 bg-gradient-to-r from-blue-500 to-blue-400 rounded-full animate-pulse"></div>
+              <span className="relative z-10 font-light">Services • Immobiliers • Révolutionnaires</span>
             </motion.div>
             
             {/* Titre ultra-révolutionnaire avec effet holographique */}
@@ -231,7 +230,7 @@ const Services = () => {
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1.2, delay: 0.4 }}
-                  className="block text-white/95 leading-tight"
+                  className="block text-gray-900 leading-tight"
                   viewport={{ once: true }}
                 >
                   Nos
@@ -253,11 +252,11 @@ const Services = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1.2 }}
-              className="text-xl md:text-2xl text-white/60 font-thin max-w-5xl mx-auto leading-relaxed"
+              className="text-xl md:text-2xl text-gray-600 font-thin max-w-5xl mx-auto leading-relaxed"
               viewport={{ once: true }}
             >
               Découvrez nos solutions immobilières sur mesure, conçues pour répondre à tous vos besoins 
-              <span className="text-white/40"> avec un service premium et une intelligence artificielle révolutionnaire</span>
+              <span className="text-gray-400"> avec un service premium et une intelligence artificielle révolutionnaire</span>
             </motion.p>
             
             {/* Ligne de séparation quantique animée */}
@@ -266,7 +265,7 @@ const Services = () => {
               whileInView={{ width: "70%" }}
               transition={{ duration: 3, delay: 1.6 }}
               viewport={{ once: true }}
-              className="h-[0.5px] bg-gradient-to-r from-transparent via-white/30 to-transparent mt-12 mx-auto"
+              className="h-[0.5px] bg-gradient-to-r from-transparent via-gray-300 to-transparent mt-12 mx-auto"
             />
             </motion.div>
           
@@ -293,7 +292,7 @@ const Services = () => {
               />
               
               {/* Carte principale ultra-sophistiquée */}
-              <div className="relative rounded-3xl overflow-hidden backdrop-blur-3xl border border-white/[0.06] bg-gradient-to-br from-slate-900/70 via-slate-800/50 to-slate-900/70 hover:border-blue-400/[0.25] transition-all duration-1500 hover:shadow-2xl group-hover:shadow-blue-500/20">
+              <div className="relative rounded-3xl overflow-hidden backdrop-blur-3xl border border-gray-200 bg-gradient-to-br from-slate-900/70 via-slate-800/50 to-slate-900/70 hover:border-blue-400/[0.25] transition-all duration-1500 hover:shadow-2xl group-hover:shadow-blue-500/20">
                 
                 {/* Effet holographique multicouche */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.12] via-blue-600/[0.06] to-blue-500/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-1800 rounded-3xl"></div>
@@ -321,7 +320,7 @@ const Services = () => {
                       transition={{ duration: 0.6, ease: "easeOut" }}
                       className="relative flex-shrink-0"
                     >
-                      <div className="w-18 h-18 rounded-3xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-white/[0.12] flex items-center justify-center relative overflow-hidden group-hover:scale-110 transition-all duration-1000 shadow-2xl backdrop-blur-xl">
+                      <div className="w-18 h-18 rounded-3xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-gray-200 flex items-center justify-center relative overflow-hidden group-hover:scale-110 transition-all duration-1000 shadow-2xl backdrop-blur-xl">
                         {/* Halo quantique multiple */}
                         <div className="absolute inset-0 bg-blue-400/15 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
                         <div className="absolute inset-0 bg-blue-300/10 blur-lg opacity-0 group-hover:opacity-60 transition-opacity duration-800 scale-125"></div>
@@ -346,15 +345,15 @@ const Services = () => {
                     </motion.div>
                     
                     <div>
-                      <div className="text-white/50 text-sm font-thin tracking-[0.25em] uppercase mb-2">Service Premium</div>
-                      <h3 className="text-3xl lg:text-4xl font-thin text-white/95 group-hover:text-white transition-colors duration-700 tracking-tight leading-tight">
+                      <div className="text-gray-50 text-sm font-thin tracking-[0.25em] uppercase mb-2">Service Premium</div>
+                      <h3 className="text-3xl lg:text-4xl font-thin text-gray-900 group-hover:text-gray-100 transition-colors duration-700 tracking-tight leading-tight">
                         Logement Classique
                       </h3>
                     </div>
                   </div>
                   
                   {/* Description évoluée */}
-                  <p className="text-white/70 font-thin text-xl leading-relaxed mb-10 group-hover:text-white/85 transition-colors duration-700">
+                  <p className="text-gray-700 font-thin text-xl leading-relaxed mb-10 group-hover:text-gray-100 transition-colors duration-700">
                     Découvrez notre sélection{' '}
                     <span className="bg-gradient-to-r from-blue-400/80 to-blue-300/80 bg-clip-text text-transparent">
                       premium quantique
@@ -363,7 +362,7 @@ const Services = () => {
                   </p>
                   
                   {/* Ligne de séparation quantique évoluée */}
-                  <div className="w-full h-[0.5px] bg-gradient-to-r from-white/8 via-white/25 to-white/8 mb-10 group-hover:from-blue-400/30 group-hover:via-blue-400/60 group-hover:to-blue-400/30 transition-all duration-1500" />
+                  <div className="w-full h-[0.5px] bg-gradient-to-r from-gray-800 via-gray-200 to-gray-800 mb-10 group-hover:from-blue-400/30 group-hover:via-blue-400/60 group-hover:to-blue-400/30 transition-all duration-1500" />
                   
                   {/* Fonctionnalités avec animations sophistiquées */}
                   <div className="space-y-5 mb-12">
@@ -374,7 +373,7 @@ const Services = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: index * 0.15 }}
                   viewport={{ once: true }}
-                        className="flex items-start gap-4 text-white/60 font-thin text-base group/item"
+                        className="flex items-start gap-4 text-gray-600 font-thin text-base group/item"
                       >
                         <motion.div
                           whileHover={{ scale: 1.2, rotate: 360 }}
@@ -383,7 +382,7 @@ const Services = () => {
                     >
                           <FaCheck className="text-blue-400/70 w-4 h-4 flex-shrink-0 transition-colors duration-500 group-hover/item:text-blue-400" />
                         </motion.div>
-                        <span className="transition-colors duration-500 group-hover/item:text-white/80">{feature}</span>
+                        <span className="transition-colors duration-500 group-hover/item:text-gray-100">{feature}</span>
                       </motion.div>
                   ))}
                   </div>
@@ -392,7 +391,7 @@ const Services = () => {
                   <motion.button
                     whileHover={{ scale: 1.08, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="group/btn relative px-10 py-5 bg-gradient-to-r from-white/[0.05] to-white/[0.02] border border-white/[0.12] text-white font-thin rounded-3xl backdrop-blur-xl hover:border-blue-400/[0.3] transition-all duration-700 overflow-hidden w-full"
+                    className="group/btn relative px-10 py-5 bg-gradient-to-r from-white/[0.05] to-white/[0.02] border border-gray-200 text-gray-900 font-thin rounded-3xl backdrop-blur-xl hover:border-blue-400/[0.3] transition-all duration-700 overflow-hidden w-full"
                   >
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-r from-blue-500/[0.15] via-blue-400/[0.08] to-blue-500/[0.15] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-700"
@@ -432,7 +431,7 @@ const Services = () => {
               />
               
               {/* Carte principale ultra-sophistiquée */}
-              <div className="relative rounded-3xl overflow-hidden backdrop-blur-3xl border border-white/[0.06] bg-gradient-to-br from-slate-900/70 via-slate-800/50 to-slate-900/70 hover:border-violet-400/[0.25] transition-all duration-1500 hover:shadow-2xl group-hover:shadow-violet-500/20">
+              <div className="relative rounded-3xl overflow-hidden backdrop-blur-3xl border border-gray-200 bg-gradient-to-br from-slate-900/70 via-slate-800/50 to-slate-900/70 hover:border-violet-400/[0.25] transition-all duration-1500 hover:shadow-2xl group-hover:shadow-violet-500/20">
                 
                 {/* Effet holographique multicouche */}
                 <div className="absolute inset-0 bg-gradient-to-br from-violet-500/[0.12] via-purple-600/[0.06] to-violet-500/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-1800 rounded-3xl"></div>
@@ -460,7 +459,7 @@ const Services = () => {
                       transition={{ duration: 0.6, ease: "easeOut" }}
                       className="relative flex-shrink-0"
                     >
-                      <div className="w-18 h-18 rounded-3xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-white/[0.12] flex items-center justify-center relative overflow-hidden group-hover:scale-110 transition-all duration-1000 shadow-2xl backdrop-blur-xl">
+                      <div className="w-18 h-18 rounded-3xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-gray-200 flex items-center justify-center relative overflow-hidden group-hover:scale-110 transition-all duration-1000 shadow-2xl backdrop-blur-xl">
                         {/* Halo quantique multiple */}
                         <div className="absolute inset-0 bg-violet-400/15 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
                         <div className="absolute inset-0 bg-violet-300/10 blur-lg opacity-0 group-hover:opacity-60 transition-opacity duration-800 scale-125"></div>
@@ -485,15 +484,15 @@ const Services = () => {
                     </motion.div>
                     
                     <div>
-                      <div className="text-white/50 text-sm font-thin tracking-[0.25em] uppercase mb-2">Service Innovant</div>
-                      <h3 className="text-3xl lg:text-4xl font-thin text-white/95 group-hover:text-white transition-colors duration-700 tracking-tight leading-tight">
+                      <div className="text-gray-50 text-sm font-thin tracking-[0.25em] uppercase mb-2">Service Innovant</div>
+                      <h3 className="text-3xl lg:text-4xl font-thin text-gray-900 group-hover:text-gray-100 transition-colors duration-700 tracking-tight leading-tight">
                         Logement Social
                       </h3>
                     </div>
                   </div>
                   
                   {/* Description évoluée */}
-                  <p className="text-white/70 font-thin text-xl leading-relaxed mb-10 group-hover:text-white/85 transition-colors duration-700">
+                  <p className="text-gray-700 font-thin text-xl leading-relaxed mb-10 group-hover:text-gray-100 transition-colors duration-700">
                     Accédez à des logements{' '}
                     <span className="bg-gradient-to-r from-violet-400/80 to-violet-300/80 bg-clip-text text-transparent">
                       sociaux révolutionnaires
@@ -502,7 +501,7 @@ const Services = () => {
                   </p>
                   
                   {/* Ligne de séparation quantique évoluée */}
-                  <div className="w-full h-[0.5px] bg-gradient-to-r from-white/8 via-white/25 to-white/8 mb-10 group-hover:from-violet-400/30 group-hover:via-violet-400/60 group-hover:to-violet-400/30 transition-all duration-1500" />
+                  <div className="w-full h-[0.5px] bg-gradient-to-r from-gray-800 via-gray-200 to-gray-800 mb-10 group-hover:from-violet-400/30 group-hover:via-violet-400/60 group-hover:to-violet-400/30 transition-all duration-1500" />
                   
                   {/* Fonctionnalités avec animations sophistiquées */}
                   <div className="space-y-5 mb-12">
@@ -513,7 +512,7 @@ const Services = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: index * 0.15 }}
                   viewport={{ once: true }}
-                        className="flex items-start gap-4 text-white/60 font-thin text-base group/item"
+                        className="flex items-start gap-4 text-gray-600 font-thin text-base group/item"
                       >
                         <motion.div
                           whileHover={{ scale: 1.2, rotate: 360 }}
@@ -522,7 +521,7 @@ const Services = () => {
                     >
                           <FaCheck className="text-violet-400/70 w-4 h-4 flex-shrink-0 transition-colors duration-500 group-hover/item:text-violet-400" />
                         </motion.div>
-                        <span className="transition-colors duration-500 group-hover/item:text-white/80">{feature}</span>
+                        <span className="transition-colors duration-500 group-hover/item:text-gray-100">{feature}</span>
                       </motion.div>
                   ))}
                   </div>
@@ -531,7 +530,7 @@ const Services = () => {
                   <motion.button
                     whileHover={{ scale: 1.08, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="group/btn relative px-10 py-5 bg-gradient-to-r from-white/[0.05] to-white/[0.02] border border-white/[0.12] text-white font-thin rounded-3xl backdrop-blur-xl hover:border-violet-400/[0.3] transition-all duration-700 overflow-hidden w-full"
+                    className="group/btn relative px-10 py-5 bg-gradient-to-r from-white/[0.05] to-white/[0.02] border border-gray-200 text-gray-900 font-thin rounded-3xl backdrop-blur-xl hover:border-violet-400/[0.3] transition-all duration-700 overflow-hidden w-full"
                   >
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-r from-violet-500/[0.15] via-violet-400/[0.08] to-violet-500/[0.15] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-700"
@@ -559,12 +558,12 @@ const Services = () => {
             viewport={{ once: true }}
             className="text-center mt-24"
           >
-            <p className="text-4xl md:text-5xl lg:text-6xl font-thin text-white/95 leading-relaxed">
+            <p className="text-4xl md:text-5xl lg:text-6xl font-thin text-gray-900 leading-relaxed">
               <span className="bg-gradient-to-r from-blue-400 via-violet-400 to-pink-400 bg-clip-text text-transparent">
                 L'avenir de l'immobilier
               </span>
               <br />
-              <span className="text-white/70">commence ici</span>
+              <span className="text-gray-700">commence ici</span>
             </p>
           </motion.div>
         </div>
@@ -573,7 +572,7 @@ const Services = () => {
         {!isMobile && (
           <>
             <motion.div
-              className="absolute top-[15%] left-[8%] w-24 h-24 rounded-full border border-white/[0.006] bg-white/[0.001]"
+              className="absolute top-[15%] left-[8%] w-24 h-24 rounded-full border border-gray-200 bg-gray-100/[0.006] animate-pulse"
               animate={{ 
                 y: [0, -20, 0],
                 opacity: [0.08, 0.25, 0.08],
@@ -588,7 +587,7 @@ const Services = () => {
             />
             
             <motion.div
-              className="absolute bottom-[20%] right-[10%] w-18 h-18 rounded-full border border-white/[0.008] bg-white/[0.002]"
+              className="absolute bottom-[20%] right-[10%] w-18 h-18 rounded-full border border-gray-200 bg-gray-100/[0.008] animate-pulse"
               animate={{ 
                 y: [0, 15, 0],
                 opacity: [0.1, 0.3, 0.1],
@@ -604,7 +603,7 @@ const Services = () => {
             />
             
             <motion.div
-              className="absolute top-[60%] left-[5%] w-12 h-12 rounded-full border border-white/[0.01] bg-white/[0.003]"
+              className="absolute top-[60%] left-[5%] w-12 h-12 rounded-full border border-gray-200 bg-gray-100/[0.01] animate-pulse"
               animate={{ 
                 y: [0, -10, 0],
                 opacity: [0.15, 0.4, 0.15],
