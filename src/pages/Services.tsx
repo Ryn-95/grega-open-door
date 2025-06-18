@@ -67,7 +67,7 @@ const Services = () => {
               backgroundSize: '40px 40px'
             }}
           />
-          
+        
           {/* Effet de lumière qui suit la souris */}
           <motion.div
             animate={{
@@ -95,8 +95,8 @@ const Services = () => {
                 style={{
                 left: `${3 + (i * 3.8)}%`,
                 top: `${15 + Math.sin(i) * 50}%`
-              }}
-            />
+                }}
+              />
           ))}
         </div>
 
@@ -147,7 +147,7 @@ const Services = () => {
               redéfinie pour vous
             </h2>
           </motion.div>
-          
+
           {/* Description premium */}
         <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -179,7 +179,7 @@ const Services = () => {
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-              >
+            >
                 <span className="flex items-center gap-2 text-sm font-medium">
                   {service.icon}
                   {service.title}
@@ -193,7 +193,7 @@ const Services = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.6 }}
-          >
+            >
             <motion.button
               className="group relative px-8 py-4 bg-gradient-to-r from-gray-900 to-black text-white rounded-full text-lg font-medium overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500"
               whileHover={{ scale: 1.02, y: -2 }}
@@ -235,7 +235,7 @@ const Services = () => {
           </div>
             </motion.div>
       </section>
-
+          
       {/* Section Services Détaillés - Style révolutionnaire */}
       <section className="py-20 bg-white relative overflow-hidden">
         {/* Background holographique */}
@@ -247,7 +247,7 @@ const Services = () => {
                 "radial-gradient(circle at 80% 70%, rgba(0, 0, 0, 0.03) 0%, transparent 50%)",
                 "radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.03) 0%, transparent 50%)"
               ]
-            }}
+              }}
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             className="absolute inset-0"
           />
@@ -255,7 +255,7 @@ const Services = () => {
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           {/* Header révolutionnaire */}
-          <motion.div
+              <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.6, 0.01, 0.05, 0.95] }}
@@ -288,7 +288,7 @@ const Services = () => {
               initial={{ width: 0 }}
               whileInView={{ width: 96 }}
               transition={{ duration: 1, delay: 0.3 }}
-            />
+                          />
                     </motion.div>
                     
           {/* Grille des services ultra-sophistiquée */}
@@ -355,7 +355,7 @@ const Services = () => {
                     <p className="text-gray-600 leading-relaxed font-light text-lg mb-8">
                       {service.description}
                     </p>
-                    
+                  
                     {/* Features premium */}
                     <div className="space-y-3 mb-8">
                       {service.features.map((feature, featureIndex) => (
@@ -371,9 +371,9 @@ const Services = () => {
                             whileHover={{ scale: 1.2, rotate: 90 }}
                             transition={{ duration: 0.3 }}
                             className="w-5 h-5 rounded-full flex items-center justify-center bg-gray-50/80 border-gray-200/30 border"
-                          >
+                    >
                             <FaCheck className="w-2 h-2 text-gray-700" />
-                          </motion.div>
+                        </motion.div>
                           <span className="text-gray-700 font-light">{feature}</span>
                       </motion.div>
                   ))}
