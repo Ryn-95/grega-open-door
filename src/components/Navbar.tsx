@@ -70,202 +70,277 @@ const Navbar = () => {
 
   return (
     <>
+      {/* NAVBAR RÉVOLUTIONNAIRE ULTRA-FUTURISTE */}
       <motion.nav
-        initial={{ y: -50, opacity: 0 }}
+        initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.6, 0.01, 0.05, 0.95] }}
-        className={`fixed w-full z-50 transition-all duration-500 ${
-          scrolled 
-            ? 'bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-lg shadow-gray-900/5' 
-            : 'bg-gradient-to-b from-black/20 to-transparent backdrop-blur-sm'
-        }`}
+        transition={{ duration: 1, ease: [0.6, 0.01, 0.05, 0.95] }}
+        className="fixed w-full z-50 top-0"
       >
-        {/* Barre lumineuse animée */}
-        <motion.div
-          animate={{ 
-            background: [
-              "linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.3) 50%, transparent 100%)",
-              "linear-gradient(90deg, transparent 0%, rgba(34, 197, 94, 0.3) 50%, transparent 100%)",
-              "linear-gradient(90deg, transparent 0%, rgba(168, 85, 247, 0.3) 50%, transparent 100%)",
-              "linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.3) 50%, transparent 100%)"
-            ]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-0 left-0 w-full h-0.5"
-        />
-        
-        <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo révolutionnaire */}
-            <Link to="/" className="flex items-center group">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="relative"
+        {/* Background révolutionnaire avec effets néon */}
+        <div className={`relative transition-all duration-700 ${
+          scrolled 
+            ? 'bg-black/90 backdrop-blur-2xl border-b-2 border-cyan-400/30' 
+            : 'bg-gradient-to-r from-black/80 via-gray-900/85 to-black/80 backdrop-blur-xl'
+        }`}>
+          
+          {/* Effet néon supérieur ultra-révolutionnaire */}
+          <motion.div
+            animate={{ 
+              boxShadow: [
+                "0 0 20px rgba(6, 182, 212, 0.3), 0 0 40px rgba(168, 85, 247, 0.2)",
+                "0 0 30px rgba(168, 85, 247, 0.4), 0 0 60px rgba(236, 72, 153, 0.3)",
+                "0 0 25px rgba(236, 72, 153, 0.3), 0 0 50px rgba(6, 182, 212, 0.2)",
+                "0 0 20px rgba(6, 182, 212, 0.3), 0 0 40px rgba(168, 85, 247, 0.2)"
+              ]
+            }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500"
+          />
+          
+          {/* Grid quantique arrière-plan */}
+          <div 
+            className="absolute inset-0 opacity-10 pointer-events-none"
+            style={{ 
+              backgroundImage: `
+                linear-gradient(rgba(6, 182, 212, 0.2) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(6, 182, 212, 0.2) 1px, transparent 1px)
+              `,
+              backgroundSize: '30px 30px'
+            }}
+          />
+          
+          {/* Particules flottantes */}
+          {[...Array(8)].map((_, i) => (
+            <motion.div
+              key={i}
+              animate={{ 
+                y: [0, -20, 0],
+                opacity: [0.3, 0.8, 0.3],
+                scale: [0.5, 1, 0.5]
+              }}
+              transition={{ 
+                duration: 3 + i * 0.3, 
+                repeat: Infinity, 
+                delay: i * 0.5 
+              }}
+              className="absolute w-1 h-1 bg-cyan-400 rounded-full"
+              style={{
+                left: `${10 + i * 12}%`,
+                top: `50%`
+              }}
+            />
+          ))}
+
+          <div className="container mx-auto px-6">
+            <div className="flex items-center justify-between h-20">
+              
+              {/* LOGO ULTRA-RÉVOLUTIONNAIRE */}
+              <Link to="/" className="flex items-center group relative z-10">
+                <motion.div
+                  whileHover={{ scale: 1.1, rotateY: 10 }}
+                  transition={{ duration: 0.4 }}
+                  className="relative"
+                >
+                  {/* Halo énergétique ÉNORME */}
+                  <motion.div
+                    animate={{ 
+                      boxShadow: [
+                        "0 0 30px rgba(6, 182, 212, 0.4), 0 0 60px rgba(168, 85, 247, 0.3)",
+                        "0 0 50px rgba(168, 85, 247, 0.6), 0 0 100px rgba(236, 72, 153, 0.4)",
+                        "0 0 40px rgba(236, 72, 153, 0.5), 0 0 80px rgba(6, 182, 212, 0.3)",
+                        "0 0 30px rgba(6, 182, 212, 0.4), 0 0 60px rgba(168, 85, 247, 0.3)"
+                      ]
+                    }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                    className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 rounded-2xl blur-xl"
+                  />
+                  
+                  {/* Texte GREGA révolutionnaire */}
+                  <motion.div
+                    className="relative bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent text-4xl font-black tracking-wider"
+                    animate={{ 
+                      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+                    }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                    style={{ backgroundSize: "200% 200%" }}
+                  >
+                    GREGA
+                  </motion.div>
+                  
+                  {/* Effet de brillance */}
+                  <motion.div
+                    animate={{ x: [-100, 200] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12 opacity-0 group-hover:opacity-100"
+                  />
+                  
+                  {/* Orbites énergétiques */}
+                  {[...Array(3)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
+                      transition={{ 
+                        duration: 8 + i * 2, 
+                        repeat: Infinity, 
+                        ease: "linear" 
+                      }}
+                      className={`absolute inset-${i * 2} border border-cyan-400/20 rounded-full`}
+                    />
+                  ))}
+                </motion.div>
+              </Link>
+
+              {/* NAVIGATION DESKTOP RÉVOLUTIONNAIRE */}
+              <div className="hidden md:flex items-center space-x-2">
+                {links.map((link, index) => (
+                  <motion.div
+                    key={link.path}
+                    initial={{ opacity: 0, y: -30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.6 }}
+                  >
+                    <Link
+                      to={link.path}
+                      className="group relative px-6 py-3 mx-1"
+                    >
+                      {/* Background néon hover */}
+                      <motion.div
+                        whileHover={{ scale: 1.05, opacity: 1 }}
+                        className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 rounded-xl opacity-0 transition-all duration-500 backdrop-blur-sm border border-cyan-400/20"
+                      />
+                      
+                      {/* Texte néon */}
+                      <motion.span
+                        className="relative font-bold text-base tracking-wide text-white/90 group-hover:text-white transition-all duration-300"
+                        whileHover={{ 
+                          textShadow: "0 0 10px rgba(6, 182, 212, 0.8), 0 0 20px rgba(168, 85, 247, 0.6)" 
+                        }}
+                      >
+                        {link.name}
+                      </motion.span>
+                      
+                      {/* Ligne néon animée */}
+                      <motion.div
+                        initial={{ width: 0, opacity: 0 }}
+                        whileHover={{ width: "100%", opacity: 1 }}
+                        transition={{ duration: 0.4 }}
+                        className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 rounded-full"
+                        style={{
+                          boxShadow: "0 0 10px rgba(6, 182, 212, 0.8)"
+                        }}
+                      />
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* BOUTON HAMBURGER RÉVOLUTIONNAIRE */}
+              <motion.button 
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="md:hidden relative z-50 group menu-toggle"
+                aria-label="Menu"
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
               >
-                {/* Halo énergétique autour du logo */}
+                {/* Halo énergétique autour du bouton */}
                 <motion.div
                   animate={{ 
-                    opacity: [0.3, 0.8, 0.3],
-                    scale: [1, 1.2, 1]
+                    boxShadow: menuOpen 
+                      ? ["0 0 20px rgba(6, 182, 212, 0.6)", "0 0 40px rgba(168, 85, 247, 0.8)", "0 0 20px rgba(6, 182, 212, 0.6)"]
+                      : ["0 0 10px rgba(6, 182, 212, 0.3)", "0 0 20px rgba(168, 85, 247, 0.4)", "0 0 10px rgba(6, 182, 212, 0.3)"]
                   }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                  className="absolute -inset-2 bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-green-400/20 rounded-lg blur-lg"
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="absolute -inset-4 bg-gradient-to-r from-cyan-400/20 to-purple-400/20 rounded-xl blur-lg"
                 />
                 
-                <motion.span 
-                  className={`relative text-2xl font-bold tracking-wider transition-all duration-300 ${
-                    scrolled 
-                      ? 'bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent' 
-                      : 'text-white drop-shadow-lg'
-                  }`}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  GREGA
-                </motion.span>
-                
-                {/* Particules autour du logo */}
-                {[...Array(4)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    animate={{ 
-                      y: [0, -10, 0],
-                      opacity: [0, 1, 0],
-                      scale: [0, 1, 0]
-                    }}
-                    transition={{ 
-                      duration: 2, 
-                      repeat: Infinity, 
-                      delay: i * 0.5 
-                    }}
-                    className="absolute w-1 h-1 bg-blue-400 rounded-full"
+                <div className="relative space-y-2 p-3">
+                  <motion.span 
+                    animate={menuOpen 
+                      ? { rotate: 45, y: 8, backgroundColor: '#06b6d4' } 
+                      : { rotate: 0, y: 0, backgroundColor: '#ffffff' }
+                    }
+                    transition={{ duration: 0.3 }}
+                    className="block w-8 h-1 origin-center rounded-full"
                     style={{
-                      left: `${20 + i * 15}%`,
-                      top: `${10 + Math.sin(i) * 20}%`
+                      boxShadow: menuOpen ? "0 0 10px rgba(6, 182, 212, 0.8)" : "none"
                     }}
                   />
-                ))}
-              </motion.div>
-            </Link>
-
-            {/* Navigation desktop ultra-moderne */}
-            <div className="hidden md:flex items-center space-x-1">
-              {links.map((link, index) => (
-                <motion.div
-                  key={link.path}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                >
-                  <Link
-                    to={link.path}
-                    className="group relative px-4 py-2 mx-1"
-                  >
-                    {/* Background hover avec effet holographique */}
-                    <motion.div
-                      whileHover={{ scale: 1, opacity: 1 }}
-                      className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-green-500/10 rounded-xl opacity-0 transition-opacity duration-300 backdrop-blur-sm"
-                    />
-                    
-                    {/* Texte avec effet lumineux */}
-                    <motion.span
-                      className={`relative font-medium text-sm tracking-wide transition-all duration-300 ${
-                        scrolled 
-                          ? 'text-gray-700 group-hover:text-gray-900' 
-                          : 'text-white/90 group-hover:text-white'
-                      }`}
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      {link.name}
-                    </motion.span>
-                    
-                    {/* Ligne animée sous le texte */}
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileHover={{ width: "100%" }}
-                      transition={{ duration: 0.3 }}
-                      className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-green-500 rounded-full"
-                    />
-                  </Link>
-                </motion.div>
-              ))}
+                  <motion.span 
+                    animate={menuOpen ? { opacity: 0, scale: 0 } : { opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                    className="block w-8 h-1 bg-white rounded-full"
+                  />
+                  <motion.span 
+                    animate={menuOpen 
+                      ? { rotate: -45, y: -8, backgroundColor: '#06b6d4' } 
+                      : { rotate: 0, y: 0, backgroundColor: '#ffffff' }
+                    }
+                    transition={{ duration: 0.3 }}
+                    className="block w-8 h-1 origin-center rounded-full"
+                    style={{
+                      boxShadow: menuOpen ? "0 0 10px rgba(6, 182, 212, 0.8)" : "none"
+                    }}
+                  />
+                </div>
+              </motion.button>
             </div>
-
-            {/* Bouton menu hamburger révolutionnaire */}
-            <motion.button 
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden relative z-50 group"
-              aria-label="Menu"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {/* Halo énergétique autour du bouton */}
-              <motion.div
-                animate={{ 
-                  opacity: menuOpen ? [0.5, 1, 0.5] : [0.2, 0.4, 0.2],
-                  scale: menuOpen ? [1, 1.3, 1] : [1, 1.1, 1]
-                }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="absolute -inset-3 bg-gradient-to-r from-blue-400/30 to-purple-400/30 rounded-lg blur-md"
-              />
-              
-              <div className="relative space-y-2 p-2">
-                <motion.span 
-                  animate={menuOpen ? { rotate: 45, y: 8, backgroundColor: scrolled ? '#1f2937' : '#ffffff' } : { rotate: 0, y: 0, backgroundColor: scrolled ? '#1f2937' : '#ffffff' }}
-                  transition={{ duration: 0.3 }}
-                  className="block w-6 h-0.5 origin-center rounded-full"
-                />
-                <motion.span 
-                  animate={menuOpen ? { opacity: 0, scale: 0 } : { opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3 }}
-                  className={`block w-6 h-0.5 rounded-full ${scrolled ? 'bg-gray-900' : 'bg-white'}`}
-                />
-                <motion.span 
-                  animate={menuOpen ? { rotate: -45, y: -8, backgroundColor: scrolled ? '#1f2937' : '#ffffff' } : { rotate: 0, y: 0, backgroundColor: scrolled ? '#1f2937' : '#ffffff' }}
-                  transition={{ duration: 0.3 }}
-                  className="block w-6 h-0.5 origin-center rounded-full"
-                />
-              </div>
-            </motion.button>
           </div>
         </div>
       </motion.nav>
 
-      {/* Menu mobile révolutionnaire */}
+      {/* MENU MOBILE RÉVOLUTIONNAIRE */}
       <AnimatePresence>
         {menuOpen && isMobile && (
           <>
-            {/* Overlay holographique */}
+            {/* Overlay quantique */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-gradient-to-br from-black/40 via-blue-900/20 to-purple-900/20 backdrop-blur-lg z-40"
+              transition={{ duration: 0.4 }}
+              className="fixed inset-0 bg-black/80 backdrop-blur-xl z-40"
               onClick={() => setMenuOpen(false)}
+              style={{
+                background: "radial-gradient(circle at center, rgba(6, 182, 212, 0.1), rgba(0, 0, 0, 0.9))"
+              }}
             />
             
-            {/* Menu mobile ultra-futuriste */}
+            {/* Menu révolutionnaire */}
             <motion.div
-              initial={{ x: '100%', opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: '100%', opacity: 0 }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 w-80 h-full bg-gradient-to-br from-white/95 via-blue-50/90 to-purple-50/90 backdrop-blur-xl border-l border-gradient-to-b from-blue-200/50 to-purple-200/50 z-40 overflow-hidden"
+              initial={{ x: '100%', opacity: 0, scale: 0.8 }}
+              animate={{ x: 0, opacity: 1, scale: 1 }}
+              exit={{ x: '100%', opacity: 0, scale: 0.8 }}
+              transition={{ type: 'spring', damping: 20, stiffness: 150 }}
+              className="fixed top-0 right-0 w-full h-full bg-gradient-to-br from-black/95 via-gray-900/95 to-black/95 backdrop-blur-2xl z-40 overflow-hidden mobile-menu"
             >
-              {/* Particules animées en arrière-plan */}
-              {[...Array(15)].map((_, i) => (
+              {/* Grid quantique background */}
+              <div 
+                className="absolute inset-0 opacity-20"
+                style={{ 
+                  backgroundImage: `
+                    linear-gradient(rgba(6, 182, 212, 0.3) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(6, 182, 212, 0.3) 1px, transparent 1px)
+                  `,
+                  backgroundSize: '50px 50px'
+                }}
+              />
+
+              {/* Particules arrière-plan ultra-nombreuses */}
+              {[...Array(30)].map((_, i) => (
                 <motion.div
                   key={i}
                   animate={{ 
-                    y: [0, -window.innerHeight],
-                    opacity: [0, 1, 0]
+                    y: [0, -window.innerHeight * 1.5],
+                    opacity: [0, 1, 0],
+                    scale: [0.5, 1, 0.5]
                   }}
                   transition={{ 
-                    duration: 3 + i * 0.5, 
+                    duration: 4 + i * 0.3, 
                     repeat: Infinity, 
-                    delay: i * 0.2 
+                    delay: i * 0.1 
                   }}
-                  className="absolute w-1 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
+                  className="absolute w-1 h-1 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full"
                   style={{
                     left: `${Math.random() * 100}%`,
                     top: `${Math.random() * 100}%`
@@ -273,52 +348,57 @@ const Navbar = () => {
                 />
               ))}
 
-              {/* Header du menu avec effet holographique */}
-              <div className="relative p-6 border-b border-gradient-to-r from-blue-200/30 to-purple-200/30">
+              {/* Header ultra-révolutionnaire */}
+              <div className="relative p-8 border-b border-cyan-400/30">
                 <motion.div
                   initial={{ scale: 0, rotate: -180 }}
                   animate={{ scale: 1, rotate: 0 }}
-                  transition={{ duration: 0.5, type: "spring" }}
-                  className="relative"
+                  transition={{ duration: 0.8, type: "spring" }}
+                  className="text-center"
                 >
                   <motion.div
                     animate={{ 
-                      opacity: [0.3, 0.8, 0.3],
-                      scale: [1, 1.1, 1]
+                      boxShadow: [
+                        "0 0 20px rgba(6, 182, 212, 0.6)",
+                        "0 0 40px rgba(168, 85, 247, 0.8)",
+                        "0 0 20px rgba(6, 182, 212, 0.6)"
+                      ]
                     }}
                     transition={{ duration: 2, repeat: Infinity }}
-                    className="absolute -inset-2 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-lg blur-lg"
-                  />
-                  <span className="relative text-gray-900 text-xl font-bold tracking-wider bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    GREGA
-                  </span>
+                    className="inline-block"
+                  >
+                    <span className="text-6xl font-black bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent tracking-wider">
+                      GREGA
+                    </span>
+                  </motion.div>
+                  <p className="text-cyan-400 text-sm mt-2 tracking-[0.3em] uppercase">Interface Quantique</p>
                 </motion.div>
               </div>
 
-              {/* Navigation mobile avec effets révolutionnaires */}
-              <div className="px-6 py-8">
-                <nav className="space-y-2">
+              {/* Navigation mobile révolutionnaire */}
+              <div className="px-8 py-12">
+                <nav className="space-y-4">
                   {links.map((link, index) => (
                     <motion.div
                       key={link.path}
-                      initial={{ opacity: 0, x: 50, scale: 0.8 }}
-                      animate={{ opacity: 1, x: 0, scale: 1 }}
+                      initial={{ opacity: 0, x: 100, rotateY: -20 }}
+                      animate={{ opacity: 1, x: 0, rotateY: 0 }}
                       transition={{ 
-                        delay: index * 0.1, 
-                        duration: 0.4,
+                        delay: index * 0.15, 
+                        duration: 0.6,
                         type: "spring",
-                        stiffness: 200
+                        stiffness: 150
                       }}
                     >
                       <Link
                         to={link.path}
-                        className="group relative block py-4 px-6 rounded-xl overflow-hidden"
+                        className="group relative block py-6 px-8 rounded-2xl overflow-hidden"
                         onClick={() => setMenuOpen(false)}
                       >
-                        {/* Background hover holographique */}
+                        {/* Background hover révolutionnaire */}
                         <motion.div
                           whileHover={{ scale: 1.02, opacity: 1 }}
-                          className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-green-500/10 opacity-0 transition-all duration-300 backdrop-blur-sm"
+                          className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 opacity-0 transition-all duration-500 backdrop-blur-sm border border-cyan-400/20 rounded-2xl"
                         />
                         
                         {/* Particules sur hover */}
@@ -326,22 +406,22 @@ const Navbar = () => {
                           whileHover={{ opacity: 1 }}
                           className="absolute inset-0 opacity-0"
                         >
-                          {[...Array(6)].map((_, i) => (
+                          {[...Array(8)].map((_, i) => (
                             <motion.div
                               key={i}
                               animate={{ 
-                                x: [0, Math.random() * 50 - 25],
-                                y: [0, Math.random() * 30 - 15],
+                                x: [0, Math.random() * 100 - 50],
+                                y: [0, Math.random() * 60 - 30],
                                 opacity: [0, 1, 0]
                               }}
                               transition={{ 
-                                duration: 1.5, 
+                                duration: 2, 
                                 repeat: Infinity, 
                                 delay: i * 0.2 
                               }}
-                              className="absolute w-1 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
+                              className="absolute w-1 h-1 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full"
                               style={{
-                                left: `${20 + i * 12}%`,
+                                left: `${20 + i * 10}%`,
                                 top: '50%'
                               }}
                             />
@@ -349,18 +429,24 @@ const Navbar = () => {
                         </motion.div>
                         
                         <motion.span 
-                          className="relative text-gray-700 text-lg font-medium group-hover:text-gray-900 transition-colors duration-300"
-                          whileHover={{ x: 8 }}
+                          className="relative text-white text-2xl font-bold group-hover:text-cyan-400 transition-all duration-300"
+                          whileHover={{ 
+                            x: 12,
+                            textShadow: "0 0 15px rgba(6, 182, 212, 0.8)" 
+                          }}
                         >
                           {link.name}
                         </motion.span>
                         
-                        {/* Ligne animée */}
+                        {/* Ligne néon révolutionnaire */}
                         <motion.div
-                          initial={{ width: 0 }}
-                          whileHover={{ width: "60%" }}
-                          transition={{ duration: 0.3 }}
-                          className="absolute bottom-2 left-6 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
+                          initial={{ width: 0, opacity: 0 }}
+                          whileHover={{ width: "80%", opacity: 1 }}
+                          transition={{ duration: 0.5 }}
+                          className="absolute bottom-3 left-8 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full"
+                          style={{
+                            boxShadow: "0 0 15px rgba(6, 182, 212, 0.8)"
+                          }}
                         />
                       </Link>
                     </motion.div>

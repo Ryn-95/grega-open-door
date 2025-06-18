@@ -256,11 +256,7 @@ const Services = () => {
               className="text-xl md:text-2xl text-white/60 font-thin max-w-5xl mx-auto leading-relaxed"
               viewport={{ once: true }}
             >
-              Découvrez nos{' '}
-              <span className="bg-gradient-to-r from-blue-400/80 to-violet-400/80 bg-clip-text text-transparent">
-                solutions immobilières quantiques
-              </span>{' '}
-              sur mesure, conçues pour répondre à tous vos besoins{' '}
+              Découvrez nos solutions immobilières sur mesure, conçues pour répondre à tous vos besoins 
               <span className="text-white/40"> avec un service premium et une intelligence artificielle révolutionnaire</span>
             </motion.p>
             
