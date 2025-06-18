@@ -656,7 +656,8 @@ const Home = () => {
             viewport={{ once: true }}
             className="relative flex justify-center"
           >
-            <div className="relative">
+            {/* VERSION DESKTOP - MacBook complet */}
+            <div className="relative hidden lg:block">
               {/* Halo lumineux */}
               <div className="absolute -inset-8 bg-gradient-to-r from-gray-100/30 to-gray-200/20 rounded-3xl blur-3xl opacity-40"></div>
               
@@ -674,7 +675,7 @@ const Home = () => {
                       <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                       <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                       <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                      </div>
+                    </div>
                     <div className="text-sm font-medium text-gray-700">GREGA - Plateforme Immobilière</div>
                     <div className="w-16"></div>
                   </div>
@@ -692,8 +693,8 @@ const Home = () => {
                           <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                         </div>
                         <span className="text-sm text-gray-600">En ligne</span>
+                      </div>
                     </div>
-                  </div>
                   
                     {/* Recherche en cours */}
                     <div className="grid grid-cols-3 gap-6">
@@ -714,7 +715,7 @@ const Home = () => {
                             <div className="font-medium text-blue-900">2 pièces</div>
                           </div>
                         </div>
-                </div>
+                      </div>
                 
                       {/* Colonne centre - Résultats */}
                       <div className="space-y-4">
@@ -754,11 +755,11 @@ const Home = () => {
                                   {bien.status}
                                 </div>
                               </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-        
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+            
                       {/* Colonne droite - Actions */}
                       <div className="space-y-4">
                         <h3 className="font-semibold text-gray-900">Actions rapides</h3>
@@ -784,7 +785,7 @@ const Home = () => {
                               "Visite confirmée",
                               "Dossier accepté"
                             ].map((notif, index) => (
-        <motion.div 
+                              <motion.div 
                                 key={index}
                                 initial={{ opacity: 0, y: 10 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -808,6 +809,150 @@ const Home = () => {
                 
                 {/* Base MacBook */}
                 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-64 h-4 bg-gradient-to-b from-gray-300 to-gray-400 rounded-b-xl"></div>
+              </motion.div>
+            </div>
+
+            {/* VERSION MOBILE - Interface simplifiée */}
+            <div className="lg:hidden w-full max-w-sm mx-auto">
+              {/* Téléphone Frame */}
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.4 }}
+                className="relative bg-gradient-to-b from-gray-800 via-gray-700 to-gray-800 rounded-[2rem] p-2 shadow-2xl"
+              >
+                {/* Écran téléphone */}
+                <div className="w-full bg-black rounded-[1.5rem] overflow-hidden relative">
+                  {/* Barre de statut mobile */}
+                  <div className="flex items-center justify-between px-4 py-2 bg-gray-900 text-white">
+                    <div className="text-xs">9:41</div>
+                    <div className="text-xs font-medium">GREGA</div>
+                    <div className="flex items-center gap-1">
+                      <div className="w-4 h-2 border border-white rounded-sm">
+                        <div className="w-3 h-1 bg-green-500 rounded-sm"></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Interface GREGA Mobile */}
+                  <div className="bg-white p-4 space-y-4" style={{ minHeight: '500px' }}>
+                    {/* Header Mobile */}
+                    <div className="flex items-center justify-between pb-3 border-b border-gray-100">
+                      <div>
+                        <div className="text-lg font-semibold text-gray-900">GREGA</div>
+                        <div className="text-xs text-gray-500">Dashboard</div>
+                      </div>
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    </div>
+                    
+                    {/* Critères Mobile */}
+                    <div className="space-y-3">
+                      <h3 className="text-sm font-semibold text-gray-900">Critères</h3>
+                      <div className="grid grid-cols-2 gap-2">
+                        <div className="p-2 bg-gray-50 rounded-lg">
+                          <div className="text-xs text-gray-600">Budget</div>
+                          <div className="text-sm font-medium">1 200-1 800€</div>
+                        </div>
+                        <div className="p-2 bg-blue-50 rounded-lg border border-blue-200">
+                          <div className="text-xs text-blue-600">Type</div>
+                          <div className="text-sm font-medium text-blue-900">2 pièces</div>
+                        </div>
+                      </div>
+                      <div className="p-2 bg-gray-50 rounded-lg">
+                        <div className="text-xs text-gray-600">Zone</div>
+                        <div className="text-sm font-medium">Paris 11ème</div>
+                      </div>
+                    </div>
+                    
+                    {/* Résultats Mobile */}
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-sm font-semibold text-gray-900">Résultats</h3>
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                          className="w-3 h-3 border border-blue-500 border-t-transparent rounded-full"
+                        />
+                      </div>
+                      
+                      {/* Biens Mobile */}
+                      <div className="space-y-2">
+                        {[
+                          { addr: "Rue de la Roquette", price: "1 450€", status: "Nouveau" },
+                          { addr: "Boulevard Voltaire", price: "1 650€", status: "Visite prévue" },
+                          { addr: "Rue Oberkampf", price: "1 380€", status: "Dossier envoyé" }
+                        ].map((bien, index) => (
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.2 + 1 }}
+                            className="p-2 border border-gray-200 rounded-lg"
+                          >
+                            <div className="flex justify-between items-center">
+                              <div>
+                                <div className="text-xs font-medium">{bien.addr}</div>
+                                <div className="text-sm font-semibold text-gray-900">{bien.price}</div>
+                              </div>
+                              <div className={`text-xs px-2 py-1 rounded-full ${
+                                bien.status === "Nouveau" ? "bg-green-100 text-green-700" :
+                                bien.status === "Visite prévue" ? "bg-blue-100 text-blue-700" :
+                                "bg-orange-100 text-orange-700"
+                              }`}>
+                                {bien.status}
+                              </div>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* Actions Mobile */}
+                    <div className="space-y-2">
+                      <h3 className="text-sm font-semibold text-gray-900">Actions</h3>
+                      <div className="grid grid-cols-2 gap-2">
+                        <motion.button
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="p-2 bg-gray-900 text-white rounded-lg text-xs font-medium"
+                        >
+                          Planifier visite
+                        </motion.button>
+                        <motion.button
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="p-2 border border-gray-200 text-gray-700 rounded-lg text-xs font-medium"
+                        >
+                          Affiner recherche
+                        </motion.button>
+                      </div>
+                    </div>
+                    
+                    {/* Notifications Mobile */}
+                    <div className="space-y-2">
+                      <div className="text-sm font-medium text-gray-900">Notifications</div>
+                      {[
+                        "3 nouveaux biens",
+                        "Visite confirmée",
+                        "Dossier accepté"
+                      ].map((notif, index) => (
+                        <motion.div 
+                          key={index}
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.4, delay: index * 0.3 + 2 }}
+                          className="flex items-center gap-2 p-2 bg-blue-50 rounded-lg"
+                        >
+                          <motion.div
+                            animate={{ scale: [1, 1.2, 1] }}
+                            transition={{ duration: 1, repeat: Infinity, delay: index * 0.3 }}
+                            className="w-1.5 h-1.5 bg-blue-500 rounded-full"
+                          />
+                          <span className="text-xs text-blue-900">{notif}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             </div>
           </motion.div>
