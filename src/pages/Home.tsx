@@ -1022,7 +1022,7 @@ const Home = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-extralight text-gray-900 mb-4 leading-tight tracking-tight">
-              Services Immobiliers
+              Nos services
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
               Nos Solutions
@@ -1290,7 +1290,7 @@ const Home = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-extralight text-gray-900 mb-4 leading-tight tracking-tight">
-              À qui s'adressent nos services
+              À qui s'adressent nos services ?
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
               Solutions adaptées à tous profils

@@ -55,7 +55,7 @@ const Hero = () => {
             Trouvez votre logement
             <br />
             <span className="font-medium bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-              à Paris
+              partout en France
             </span>
           </h2>
           
