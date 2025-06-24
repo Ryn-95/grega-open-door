@@ -5,6 +5,8 @@ import Services from './pages/Services'
 import Offices from './pages/Offices'
 import Contact from './pages/Contact'
 import Proprietaires from './pages/Proprietaires'
+import Villes from './pages/Villes'
+import BiensALouer from './pages/BiensALouer'
 import { useEffect } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
@@ -37,8 +39,10 @@ const AppContent = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/biens-a-louer" element={<BiensALouer />} />
           <Route path="/offices" element={<Offices />} />
           <Route path="/proprietaires" element={<Proprietaires />} />
+          <Route path="/villes" element={<Villes />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </AnimatePresence>

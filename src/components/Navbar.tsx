@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { navigateToPage } from '../utils/navigation';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,15 +9,22 @@ const Navbar = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const location = useLocation();
 
-  // Liste des pages
+  // Liste des pages réorganisée par importance
   const pages = [
     { path: '/', label: 'ACCUEIL' },
-    { path: '/about', label: 'À PROPOS' },
     { path: '/services', label: 'SERVICES' },
+    { path: '/biens-a-louer', label: 'NOS BIENS' },
     { path: '/proprietaires', label: 'PROPRIÉTAIRES' },
-    { path: '/offices', label: 'BUREAUX' },
+    { path: '/villes', label: 'NOS BUREAUX' },
+    { path: '/about', label: 'À PROPOS' },
     { path: '/contact', label: 'CONTACT' },
   ];
+
+  // Fonction pour gérer la navigation
+  const handleNavigation = (path: string) => {
+    setIsOpen(false);
+    navigateToPage(path);
+  };
 
   // Effet de scroll
   useEffect(() => {
@@ -83,7 +91,10 @@ const Navbar = () => {
 
         <div className="container mx-auto px-8 flex justify-between items-center relative z-10">
           {/* Logo Ultra-Raffiné */}
-          <Link to="/" className="group relative">
+          <div 
+            onClick={() => handleNavigation('/')} 
+            className="group relative cursor-pointer"
+          >
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -172,7 +183,7 @@ const Navbar = () => {
                 transition={{ duration: 0.3 }}
               />
             </motion.div>
-          </Link>
+          </div>
 
           {/* Menu Burger Ultra-Sophistiqué */}
           <motion.button
@@ -331,9 +342,9 @@ const Navbar = () => {
                     }}
                     className="relative"
                   >
-                    <Link
-                      to={page.path}
-                      className="group relative block"
+                    <div
+                      onClick={() => handleNavigation(page.path)}
+                      className="group relative block cursor-pointer"
                     >
                       <motion.span
                         className={`text-2xl md:text-3xl font-light tracking-[0.15em] transition-all duration-500 relative ${
@@ -398,7 +409,7 @@ const Navbar = () => {
                       >
                         {String(i + 1).padStart(2, '0')}
                       </motion.span>
-                    </Link>
+                    </div>
                   </motion.div>
                 ))}
               </motion.div>

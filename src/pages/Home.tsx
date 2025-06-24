@@ -45,249 +45,6 @@ const Home = () => {
     <main className="min-h-screen bg-white">
       <Hero />
 
-      {/* Section Avantages - Style Ultra-Épuré RÉVOLUTIONNAIRE */}
-      <section className="py-20 bg-white relative overflow-hidden">
-        {/* Background holographique */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50/10 via-transparent to-purple-50/10"></div>
-          <motion.div
-            animate={{ 
-              background: [
-                "radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 50%)",
-                "radial-gradient(circle at 80% 70%, rgba(34, 197, 94, 0.05) 0%, transparent 50%)",
-                "radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.05) 0%, transparent 50%)"
-              ]
-            }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute inset-0"
-          />
-      </div>
-
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          {/* Header Révolutionnaire */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.6, 0.01, 0.05, 0.95] }}
-            viewport={{ once: true }}
-            className="text-center mb-20"
-          >
-            <motion.h2 
-              className="text-4xl md:text-5xl font-extralight text-gray-900 mb-6 tracking-tight leading-tight relative"
-              whileHover={{ scale: 1.02 }}
-            >
-              Pourquoi choisir{' '}
-              <motion.span 
-                className="font-normal bg-gradient-to-r from-blue-600 via-purple-600 to-orange-600 bg-clip-text text-transparent relative"
-                animate={{ 
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-                style={{ backgroundSize: "200% 200%" }}
-              >
-                GREGA ?
-              </motion.span>
-            </motion.h2>
-            <motion.div 
-              className="w-24 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"
-              initial={{ width: 0 }}
-              whileInView={{ width: 96 }}
-              transition={{ duration: 1, delay: 0.3 }}
-            />
-          </motion.div>
-
-          {/* Grille Ultra-Révolutionnaire */}
-          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
-            
-            {/* EFFICACITÉ - Version Simple */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200/30 hover:shadow-lg transition-shadow duration-300">
-                
-                {/* Icône Simple */}
-                <div className="w-16 h-16 mx-auto mb-6 bg-blue-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-2xl font-bold">3x</span>
-                </div>
-
-                <h3 className="text-2xl font-light text-gray-900 mb-4">
-                  Efficacité Maximale
-                </h3>
-                <p className="text-gray-700 font-light text-base leading-relaxed mb-6">
-                  IA prédictive : trouvez votre logement 3x plus rapidement
-                </p>
-                
-                <div className="text-sm text-blue-700 font-medium">
-                  Performance optimisée
-                </div>
-              </div>
-            </motion.div>
-
-            {/* SÉCURITÉ - Version Simple */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-100 border border-green-200/30 hover:shadow-lg transition-shadow duration-300">
-                
-                {/* Icône Simple */}
-                <div className="w-16 h-16 mx-auto mb-6 bg-green-500 rounded-full flex items-center justify-center">
-                  <FaShieldAlt className="w-8 h-8 text-white" />
-                </div>
-
-                <h3 className="text-2xl font-light text-gray-900 mb-4">
-                  Sécurité Absolue
-                </h3>
-                <p className="text-gray-700 font-light text-base leading-relaxed mb-6">
-                  Protection maximale de vos données et dossiers
-                </p>
-                
-                <div className="text-sm text-green-700 font-medium">
-                  Sécurité garantie
-                </div>
-              </div>
-            </motion.div>
-
-            {/* EXCELLENCE - Version Simple */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-100 border border-amber-200/30 hover:shadow-lg transition-shadow duration-300">
-                
-                {/* Icône Simple */}
-                <div className="w-16 h-16 mx-auto mb-6 bg-amber-500 rounded-full flex items-center justify-center">
-                  <FaStar className="w-8 h-8 text-white" />
-                </div>
-
-                <h3 className="text-2xl font-light text-gray-900 mb-4">
-                  Excellence Premium
-                </h3>
-                <p className="text-gray-700 font-light text-base leading-relaxed mb-6">
-                  Service personnalisé avec accompagnement VIP
-                </p>
-                
-                <div className="text-sm text-orange-700 font-medium">
-                  +500 clients satisfaits
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Section Bonus Simplifiée */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            viewport={{ once: true }}
-            className="mt-20"
-          >
-            <div className="bg-gray-900 rounded-2xl p-8 text-center text-white">
-              <h3 className="text-2xl font-light mb-4">Command Center</h3>
-              <p className="text-gray-300 mb-6">Système opérationnel</p>
-              
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {[
-                  { label: "Recherches actives", value: "127", icon: "🔍" },
-                  { label: "Visites planifiées", value: "43", icon: "🏠" },
-                  { label: "Dossiers traités", value: "89", icon: "📋" },
-                  { label: "Contrats signés", value: "31", icon: "✅" }
-                ].map((stat, index) => (
-                  <div key={index} className="text-center p-4 bg-gray-800 rounded-xl">
-                    <div className="text-2xl mb-2">{stat.icon}</div>
-                    <div className="text-2xl font-light text-white mb-1">{stat.value}</div>
-                    <p className="text-gray-400 text-xs">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Section Statistiques Temps Réel Ultra-Innovante */}
-      <section className="py-20 bg-gradient-to-b from-gray-50/30 to-gray-100/20 relative overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          {/* Header Stats */}
-          <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.6, 0.01, 0.05, 0.95] }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-extralight text-gray-900 mb-4 tracking-tight leading-tight">
-              GREGA en{' '}
-              <span className="font-normal">Temps Réel</span>
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
-              Nos performances live
-            </p>
-            <div className="w-16 h-px bg-gray-900 mx-auto mt-6"></div>
-          </motion.div>
-
-          {/* Statistiques Animées */}
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              { number: 847, label: "Clients satisfaits", suffix: "+", color: "blue" },
-              { number: 2156, label: "Biens analysés", suffix: "", color: "green" },
-              { number: 94, label: "Taux de réussite", suffix: "%", color: "purple" },
-              { number: 12, label: "Jours moyens", suffix: "", color: "orange" }
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="text-center group"
-              >
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  className="p-6 bg-white rounded-xl border border-gray-100 hover:border-gray-200 transition-all duration-300 shadow-sm hover:shadow-lg"
-              >
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    transition={{ duration: 0.8, delay: index * 0.1 + 0.3 }}
-                    className={`text-3xl md:text-4xl font-light text-${stat.color}-600 mb-2`}
-                  >
-                    <motion.span
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 2, delay: index * 0.1 + 0.5 }}
-                    >
-                      {stat.number}{stat.suffix}
-              </motion.span>
-                  </motion.div>
-                  <p className="text-gray-600 font-light text-sm">{stat.label}</p>
-                  
-                  {/* Indicateur live */}
-                  <div className="flex items-center justify-center gap-2 mt-3">
-                    <motion.div
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                      className="w-2 h-2 bg-green-500 rounded-full"
-                    />
-                    <span className="text-xs text-gray-500">Live</span>
-                  </div>
-                </motion.div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Section Processus Ultra-Design */}
       <section className="py-20 bg-gradient-to-b from-gray-50/30 to-white relative overflow-hidden">
         {/* Background minimaliste */}
@@ -544,6 +301,249 @@ const Home = () => {
             </motion.button>
           </motion.div>
                       </div>
+      </section>
+
+      {/* Section Avantages - Style Ultra-Épuré RÉVOLUTIONNAIRE */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        {/* Background holographique */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50/10 via-transparent to-purple-50/10"></div>
+          <motion.div
+            animate={{ 
+              background: [
+                "radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 50%)",
+                "radial-gradient(circle at 80% 70%, rgba(34, 197, 94, 0.05) 0%, transparent 50%)",
+                "radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.05) 0%, transparent 50%)"
+              ]
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute inset-0"
+          />
+      </div>
+
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          {/* Header Révolutionnaire */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.6, 0.01, 0.05, 0.95] }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
+            <motion.h2 
+              className="text-4xl md:text-5xl font-extralight text-gray-900 mb-6 tracking-tight leading-tight relative"
+              whileHover={{ scale: 1.02 }}
+            >
+              Pourquoi choisir{' '}
+              <motion.span 
+                className="font-normal bg-gradient-to-r from-blue-600 via-purple-600 to-orange-600 bg-clip-text text-transparent relative"
+                animate={{ 
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+                style={{ backgroundSize: "200% 200%" }}
+              >
+                GREGA ?
+              </motion.span>
+            </motion.h2>
+            <motion.div 
+              className="w-24 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"
+              initial={{ width: 0 }}
+              whileInView={{ width: 96 }}
+              transition={{ duration: 1, delay: 0.3 }}
+            />
+          </motion.div>
+
+          {/* Grille Ultra-Révolutionnaire */}
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
+            
+            {/* EFFICACITÉ - Version Simple */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <div className="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200/30 hover:shadow-lg transition-shadow duration-300">
+                
+                {/* Icône Simple */}
+                <div className="w-16 h-16 mx-auto mb-6 bg-blue-500 rounded-full flex items-center justify-center">
+                  <span className="text-white text-2xl font-bold">3x</span>
+                </div>
+
+                <h3 className="text-2xl font-light text-gray-900 mb-4">
+                  Efficacité Maximale
+                </h3>
+                <p className="text-gray-700 font-light text-base leading-relaxed mb-6">
+                  IA prédictive : trouvez votre logement 3x plus rapidement
+                </p>
+                
+                <div className="text-sm text-blue-700 font-medium">
+                  Performance optimisée
+                </div>
+              </div>
+            </motion.div>
+
+            {/* SÉCURITÉ - Version Simple */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <div className="p-8 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-100 border border-green-200/30 hover:shadow-lg transition-shadow duration-300">
+                
+                {/* Icône Simple */}
+                <div className="w-16 h-16 mx-auto mb-6 bg-green-500 rounded-full flex items-center justify-center">
+                  <FaShieldAlt className="w-8 h-8 text-white" />
+                </div>
+
+                <h3 className="text-2xl font-light text-gray-900 mb-4">
+                  Sécurité Absolue
+                </h3>
+                <p className="text-gray-700 font-light text-base leading-relaxed mb-6">
+                  Protection maximale de vos données et dossiers
+                </p>
+                
+                <div className="text-sm text-green-700 font-medium">
+                  Sécurité garantie
+                </div>
+              </div>
+            </motion.div>
+
+            {/* EXCELLENCE - Version Simple */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <div className="p-8 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-100 border border-amber-200/30 hover:shadow-lg transition-shadow duration-300">
+                
+                {/* Icône Simple */}
+                <div className="w-16 h-16 mx-auto mb-6 bg-amber-500 rounded-full flex items-center justify-center">
+                  <FaStar className="w-8 h-8 text-white" />
+                </div>
+
+                <h3 className="text-2xl font-light text-gray-900 mb-4">
+                  Excellence Premium
+                </h3>
+                <p className="text-gray-700 font-light text-base leading-relaxed mb-6">
+                  Service personnalisé avec accompagnement VIP
+                </p>
+                
+                <div className="text-sm text-orange-700 font-medium">
+                  +500 clients satisfaits
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Section Bonus Simplifiée */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: true }}
+            className="mt-20"
+          >
+            <div className="bg-gray-900 rounded-2xl p-8 text-center text-white">
+              <h3 className="text-2xl font-light mb-4">Command Center</h3>
+              <p className="text-gray-300 mb-6">Système opérationnel</p>
+              
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {[
+                  { label: "Recherches actives", value: "127", icon: "🔍" },
+                  { label: "Visites planifiées", value: "43", icon: "🏠" },
+                  { label: "Dossiers traités", value: "89", icon: "📋" },
+                  { label: "Contrats signés", value: "31", icon: "✅" }
+                ].map((stat, index) => (
+                  <div key={index} className="text-center p-4 bg-gray-800 rounded-xl">
+                    <div className="text-2xl mb-2">{stat.icon}</div>
+                    <div className="text-2xl font-light text-white mb-1">{stat.value}</div>
+                    <p className="text-gray-400 text-xs">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Section Statistiques Temps Réel Ultra-Innovante */}
+      <section className="py-20 bg-gradient-to-b from-gray-50/30 to-gray-100/20 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          {/* Header Stats */}
+          <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.6, 0.01, 0.05, 0.95] }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-extralight text-gray-900 mb-4 tracking-tight leading-tight">
+              GREGA en{' '}
+              <span className="font-normal">Temps Réel</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
+              Nos performances live
+            </p>
+            <div className="w-16 h-px bg-gray-900 mx-auto mt-6"></div>
+          </motion.div>
+
+          {/* Statistiques Animées */}
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              { number: 847, label: "Clients satisfaits", suffix: "+", color: "blue" },
+              { number: 2156, label: "Biens analysés", suffix: "", color: "green" },
+              { number: 94, label: "Taux de réussite", suffix: "%", color: "purple" },
+              { number: 12, label: "Jours moyens", suffix: "", color: "orange" }
+            ].map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="text-center group"
+              >
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="p-6 bg-white rounded-xl border border-gray-100 hover:border-gray-200 transition-all duration-300 shadow-sm hover:shadow-lg"
+              >
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ duration: 0.8, delay: index * 0.1 + 0.3 }}
+                    className={`text-3xl md:text-4xl font-light text-${stat.color}-600 mb-2`}
+                  >
+                    <motion.span
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 2, delay: index * 0.1 + 0.5 }}
+                    >
+                      {stat.number}{stat.suffix}
+              </motion.span>
+                  </motion.div>
+                  <p className="text-gray-600 font-light text-sm">{stat.label}</p>
+                  
+                  {/* Indicateur live */}
+                  <div className="flex items-center justify-center gap-2 mt-3">
+                    <motion.div
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="w-2 h-2 bg-green-500 rounded-full"
+                    />
+                    <span className="text-xs text-gray-500">Live</span>
+                  </div>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Section Services Ultra-Premium */}
@@ -1030,7 +1030,7 @@ const Home = () => {
                       <motion.div 
                         whileHover={{ scale: 1.1, rotate: 5 }}
                         transition={{ duration: 0.3 }}
-                        className={`w-14 h-14 bg-gradient-to-br from-${profile.color}-500 to-${profile.color}-600 text-white rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 flex-shrink-0`}
+                        className={`w-14 h-14 bg-gradient-to-br from-${profile.color}-500 to-${profile.color}-600 text-white rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300`}
                       >
                         {profile.icon}
                       </motion.div>

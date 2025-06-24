@@ -1,8 +1,82 @@
-import { motion } from 'framer-motion'
-import { FaPhone, FaArrowRight } from 'react-icons/fa'
+import { motion, AnimatePresence } from 'framer-motion'
+import { FaPhone, FaArrowRight, FaCalendarAlt, FaTimes } from 'react-icons/fa'
 import logoGrega from '/images/logo_grega.jpeg'
+import { useState } from 'react'
 
 const Hero = () => {
+  const [showCalendly, setShowCalendly] = useState(false);
+
+  // Composant Calendly intégré
+  const CalendlyWidget = () => (
+    <div className="w-full h-[600px]">
+      <iframe
+        src="https://calendly.com/contact-gregaopendoor/consultation"
+        width="100%"
+        height="100%"
+        frameBorder="0"
+        title="Consultation avec GREGA"
+      />
+      <p className="text-center text-gray-600 mt-4 font-light">
+        Si le calendrier ne s'affiche pas, 
+        <a 
+          href="https://calendly.com/contact-gregaopendoor/consultation" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-black underline hover:no-underline ml-1"
+        >
+          cliquez ici pour ouvrir dans un nouvel onglet
+        </a>
+      </p>
+    </div>
+  );
+
+  // Composant Modal réutilisable
+  const Modal = ({ isOpen, onClose, title, children }: any) => (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            onClose();
+          }}
+        >
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            className="bg-white max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
+          >
+            <div className="p-8">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-3xl font-light text-black">{title}</h2>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    onClose();
+                  }}
+                  className="text-gray-400 hover:text-black transition-colors"
+                >
+                  <FaTimes className="w-6 h-6" />
+                </button>
+              </div>
+              {children}
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+
   return (
     <div className="h-screen bg-white overflow-hidden flex items-center justify-center relative">
       
@@ -36,7 +110,7 @@ const Hero = () => {
             <img 
               src={logoGrega} 
               alt="Grega" 
-              className="w-16 h-16 rounded-xl object-cover mx-auto shadow-lg border border-gray-100"
+              className="w-24 h-24 rounded-full object-cover mx-auto shadow-lg border border-gray-100"
             />
           </motion.div>
           <h1 className="text-2xl font-semibold text-gray-900 tracking-wider">
@@ -149,23 +223,41 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.8, ease: [0.6, 0.01, 0.05, 0.95] }}
           className="space-y-6"
         >
-          {/* Bouton Principal Optimisé */}
-          <motion.a
-            href="tel:0953376141"
-            whileHover={{ scale: 1.02, y: -1 }}
-            whileTap={{ scale: 0.98 }}
-            className="group bg-gray-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-gray-800 transition-all duration-300 flex items-center gap-2 mx-auto shadow-lg hover:shadow-xl w-fit"
-          >
-            <FaPhone className="w-3 h-3" />
-            <span>Nous contacter</span>
-            <motion.div
-              className="opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-              animate={{ x: [0, 3, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          {/* Boutons Principaux Optimisés */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <motion.a
+              href="tel:0953376141"
+              whileHover={{ scale: 1.02, y: -1 }}
+              whileTap={{ scale: 0.98 }}
+              className="group bg-gray-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-gray-800 transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl"
             >
-              <FaArrowRight className="w-3 h-3" />
-            </motion.div>
-          </motion.a>
+              <FaPhone className="w-3 h-3" />
+              <span>Nous contacter</span>
+              <motion.div
+                className="opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                animate={{ x: [0, 3, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <FaArrowRight className="w-3 h-3" />
+              </motion.div>
+            </motion.a>
+
+            <motion.button
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                if (!showCalendly) {
+                  setShowCalendly(true);
+                }
+              }}
+              whileHover={{ scale: 1.02, y: -1 }}
+              whileTap={{ scale: 0.98 }}
+              className="group border border-gray-900 text-gray-900 px-6 py-2.5 rounded-full text-sm font-medium hover:bg-gray-900 hover:text-white transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl"
+            >
+              <FaCalendarAlt className="w-3 h-3" />
+              <span>Consultation Gratuite</span>
+            </motion.button>
+          </div>
           
           {/* Numéro Compact */}
           <motion.div
@@ -199,6 +291,15 @@ const Hero = () => {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Modal Calendly */}
+      <Modal
+        isOpen={showCalendly}
+        onClose={() => setShowCalendly(false)}
+        title="Consultation Gratuite"
+      >
+        <CalendlyWidget />
+      </Modal>
     </div>
   );
 };

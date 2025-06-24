@@ -1,7 +1,7 @@
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaInstagram, FaTwitter, FaLinkedin, FaArrowUp, FaClock, FaGlobe, FaHeart } from 'react-icons/fa'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import { useState, useEffect, useRef } from 'react'
+import { navigateToPage } from '../utils/navigation'
 
 const Footer = () => {
   const [currentTime, setCurrentTime] = useState(new Date())
@@ -25,6 +25,11 @@ const Footer = () => {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  // Fonction pour gérer la navigation
+  const handleNavigation = (path: string) => {
+    navigateToPage(path)
   }
 
   return (
@@ -109,17 +114,17 @@ const Footer = () => {
                 { 
                   title: "Solutions", 
                   links: [
-                    { label: "Logement Classique", url: "/logement-classique" },
-                    { label: "Logement Social", url: "/logement-social" },
-                    { label: "Dossier Express", url: "/dossier" }
+                    { label: "Propriétaires", url: "/proprietaires" },
+                    { label: "Nos Biens", url: "/biens-a-louer" },
+                    { label: "Nos Bureaux", url: "/villes" }
                   ]
                 },
                 { 
                   title: "Ressources", 
                   links: [
-                    { label: "Quartiers", url: "/quartiers" },
-                    { label: "Conseils", url: "/conseils" },
-                    { label: "FAQ", url: "/faq" }
+                    { label: "À Propos", url: "/about" },
+                    { label: "Contact", url: "/contact" },
+                    { label: "Services", url: "/services" }
                   ]
                 }
               ].map((section, index) => (
@@ -143,12 +148,12 @@ const Footer = () => {
                         transition={{ duration: 0.4, delay: index * 0.1 + linkIndex * 0.05 }}
                         viewport={{ once: true }}
                       >
-                        <Link 
-                          to={link.url}
-                          className="block text-gray-600 hover:text-gray-900 transition-colors duration-200 text-sm font-light"
+                        <div 
+                          onClick={() => handleNavigation(link.url)}
+                          className="block text-gray-600 hover:text-gray-900 transition-colors duration-200 text-sm font-light cursor-pointer"
                         >
                           {link.label}
-                        </Link>
+                        </div>
                       </motion.div>
                     ))}
                   </div>
@@ -231,19 +236,19 @@ const Footer = () => {
             <div className="flex items-center gap-6">
               {/* Links légaux */}
               <div className="flex items-center gap-4">
-                <Link 
-                  to="/mentions-legales" 
-                  className="text-sm text-gray-500 hover:text-gray-700 transition-colors duration-200"
+                <div 
+                  onClick={() => handleNavigation('/mentions-legales')}
+                  className="text-sm text-gray-500 hover:text-gray-700 transition-colors duration-200 cursor-pointer"
                 >
                   Mentions légales
-                </Link>
+                </div>
                 <span className="text-gray-300">•</span>
-                <Link 
-                  to="/confidentialite" 
-                  className="text-sm text-gray-500 hover:text-gray-700 transition-colors duration-200"
+                <div 
+                  onClick={() => handleNavigation('/confidentialite')}
+                  className="text-sm text-gray-500 hover:text-gray-700 transition-colors duration-200 cursor-pointer"
                 >
                   Confidentialité
-                </Link>
+                </div>
               </div>
 
               {/* Scroll to top */}

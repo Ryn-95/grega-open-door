@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
-import { FaCheck, FaDownload, FaPhone, FaEnvelope, FaMapMarkerAlt, FaShieldAlt, FaUserCheck, FaClock, FaHandshake, FaArrowRight, FaTimes, FaKey, FaStar, FaBuilding } from 'react-icons/fa';
+import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
+import { FaCheck, FaDownload, FaPhone, FaEnvelope, FaMapMarkerAlt, FaShieldAlt, FaUserCheck, FaClock, FaHandshake, FaArrowRight, FaTimes, FaFileAlt, FaHeart, FaUsers, FaBrain, FaCamera, FaCalendarAlt, FaEye, FaRocket, FaStar } from 'react-icons/fa';
 import Footer from '../components/Footer';
 
 const Proprietaires = () => {
@@ -20,6 +20,10 @@ const Proprietaires = () => {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
   const heroScale = useTransform(scrollYProgress, [0, 0.15], [1, 0.98]);
   const heroBlur = useTransform(scrollYProgress, [0, 0.15], [0, 4]);
+
+  const [showCTADetails, setShowCTADetails] = useState(false);
+  const [activeModal, setActiveModal] = useState<string | null>(null);
+  const [showCalendly, setShowCalendly] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -54,24 +58,24 @@ const Proprietaires = () => {
 
   const problemes = [
     {
-      title: "Candidats sans dossier",
-      description: "Contacté en permanence par des candidats locataires sans dossier recevable",
-      icon: "📱"
+      title: "Candidats non qualifiés",
+      description: "Élimination automatique des dossiers incomplets grâce à notre IA de présélection",
+      icon: "🎯"
     },
     {
-      title: "Honoraires coûteux", 
-      description: "Devoir payer des honoraires pour trouver un bon locataire",
-      icon: "💰"
+      title: "Frais cachés",
+      description: "Transparence totale avec notre modèle économique révolutionnaire 100% gratuit",
+      icon: "💎"
     },
     {
-      title: "Appels incessants",
-      description: "Recevoir des appels pendant plusieurs semaines après avoir trouvé un locataire",
-      icon: "📞"
+      title: "Sollicitations incessantes",
+      description: "Filtrage intelligent qui ne vous présente que les candidats premium validés",
+      icon: "🛡️"
     },
     {
-      title: "Manque de liberté",
-      description: "Ne pas avoir une totale liberté dans la gestion de votre location",
-      icon: "🔒"
+      title: "Contraintes administratives",
+      description: "Automatisation complète du processus de vérification et de validation",
+      icon: "⚡"
     }
   ];
 
@@ -79,660 +83,888 @@ const Proprietaires = () => {
     {
       icon: <FaUserCheck />,
       title: "Contrôle rigoureux",
-      description: "Vérification approfondie de chaque candidat",
-      gradient: "from-blue-500/10 via-indigo-500/5 to-blue-500/10"
+      description: "Vérification approfondie de chaque candidat"
     },
     {
       icon: <FaClock />,
       title: "Gain de temps",
-      description: "Nous gérons tout le processus de sélection",
-      gradient: "from-indigo-500/10 via-purple-500/5 to-indigo-500/10"
+      description: "Nous gérons tout le processus de sélection"
     },
     {
       icon: <FaShieldAlt />,
       title: "Sécurité garantie",
-      description: "Éligibilité GLI et pass GRL vérifiée",
-      gradient: "from-purple-500/10 via-pink-500/5 to-purple-500/10"
+      description: "Éligibilité GLI et pass GRL vérifiée"
     },
     {
       icon: <FaHandshake />,
       title: "Accompagnement",
-      description: "Support complet jusqu'à la signature",
-      gradient: "from-pink-500/10 via-blue-500/5 to-pink-500/10"
+      description: "Support complet jusqu'à la signature"
     }
   ];
 
-  return (
-    <div className="min-h-screen bg-black overflow-x-hidden">
-      {/* Curseur custom minimaliste */}
-      {!isMobile && (
-        <motion.div
-          className="fixed top-0 left-0 w-4 h-4 pointer-events-none z-[9999] mix-blend-difference"
-          style={{
-            x: springMouseX,
-            y: springMouseY,
-            translateX: "-50%",
-            translateY: "-50%"
-          }}
-        >
-          <div className="w-full h-full rounded-full bg-white/60 backdrop-blur-sm" />
-          <div className="absolute inset-1 rounded-full bg-white/10 animate-pulse" />
-        </motion.div>
-      )}
+  // Fonction pour créer et télécharger le formulaire Word
+  const downloadWordForm = () => {
+    // Créer le contenu HTML formaté pour Word
+    const wordContent = `
+    <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+    <head>
+      <meta charset='utf-8'>
+      <title>Formulaire Propriétaire GREGA</title>
+      <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+        .header { text-align: center; background-color: #f8f9fa; padding: 20px; border: 2px solid #28a745; margin-bottom: 30px; }
+        .section { margin-bottom: 25px; }
+        .section-title { background-color: #343a40; color: white; padding: 10px; font-weight: bold; font-size: 14px; }
+        .form-row { margin: 10px 0; }
+        .form-field { display: inline-block; width: 200px; border-bottom: 1px solid #000; margin-right: 20px; }
+        .checkbox { margin-right: 10px; }
+        .footer { background-color: #28a745; color: white; padding: 15px; text-align: center; margin-top: 30px; }
+        table { width: 100%; border-collapse: collapse; }
+        td { padding: 8px; vertical-align: top; }
+      </style>
+    </head>
+    <body>
+      <div class='header'>
+        <h1>FORMULAIRE PROPRIÉTAIRE GREGA</h1>
+        <h2 style='color: #28a745; margin: 0;'>SERVICE 100% GRATUIT - SANS ENGAGEMENT</h2>
+        <p style='margin: 10px 0 0 0;'>Remplissez ce formulaire et renvoyez-le à contact@gregaopendoor.fr</p>
+      </div>
 
-      {/* Hero Section Ultra-Épuré */}
-      <motion.section 
-        ref={heroRef}
-        className="relative h-screen w-full overflow-hidden flex items-center justify-center"
-        style={{ 
-          opacity: heroOpacity,
-          scale: heroScale,
-          filter: `blur(${heroBlur}px)`
-        }}
-      >
-        {/* Background ultra-subtil */}
-        <div className="absolute inset-0">
-          {/* Grille ultra-fine */}
-          <div 
-            className="absolute inset-0 opacity-[0.003] pointer-events-none"
-            style={{ 
-              backgroundImage: `
-                linear-gradient(rgba(255, 255, 255, 0.015) 0.5px, transparent 0.5px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.015) 0.5px, transparent 0.5px)
-              `,
-              backgroundSize: '40px 40px'
-            }}
-          />
-          
-          {/* Effet de lumière ultra-subtil */}
-          {!isMobile && (
-            <motion.div 
-              className="absolute inset-0 opacity-[0.04] pointer-events-none"
-              style={{
-                background: `radial-gradient(1400px circle at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, rgba(59, 130, 246, 0.02), transparent 80%)`,
-                transition: 'background 4s cubic-bezier(0.4, 0, 0.2, 1)'
-              }}
-            />
-          )}
-          
-          {/* Éléments géométriques minimalistes */}
-          <motion.div 
-            className="absolute top-[15%] right-[8%] w-[0.5px] h-24 bg-gradient-to-b from-transparent via-white/[0.04] to-transparent"
-            initial={{ opacity: 0, scaleY: 0 }}
-            animate={{ opacity: 1, scaleY: 1 }}
-            transition={{ duration: 2, delay: 2, ease: [0.4, 0, 0.2, 1] }}
-          />
-          
-          <motion.div 
-            className="absolute bottom-[20%] left-[8%] w-16 h-[0.5px] bg-gradient-to-r from-transparent via-white/[0.04] to-transparent"
-            initial={{ opacity: 0, scaleX: 0 }}
-            animate={{ opacity: 1, scaleX: 1 }}
-            transition={{ duration: 2, delay: 2.5, ease: [0.4, 0, 0.2, 1] }}
-          />
-        </div>
+      <div class='section'>
+        <div class='section-title'>📋 INFORMATIONS PERSONNELLES</div>
+        <table>
+          <tr>
+            <td width='50%'>Nom : <span class='form-field'></span></td>
+            <td width='50%'>Prénom : <span class='form-field'></span></td>
+          </tr>
+          <tr>
+            <td>Téléphone : <span class='form-field'></span></td>
+            <td>Email : <span class='form-field'></span></td>
+          </tr>
+        </table>
+      </div>
 
-        {/* Contenu Hero centré et équilibré */}
-        <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
-          
-          {/* Badge ultra-épuré */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            className="mb-8"
-          >
-            <div className="inline-flex items-center px-4 py-2 rounded-full border border-white/[0.05] bg-white/[0.01] backdrop-blur-sm">
-              <div className="w-1.5 h-1.5 rounded-full bg-blue-400/40 mr-3 animate-pulse" />
-              <span className="text-white/40 text-xs font-light tracking-[0.2em] uppercase">
-                Service Propriétaires Premium
-              </span>
-              <div className="w-1.5 h-1.5 rounded-full bg-violet-400/40 ml-3 animate-pulse" style={{ animationDelay: '1s' }} />
-            </div>
-          </motion.div>
-          
-          {/* Titre principal épuré */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.6, ease: [0.4, 0, 0.2, 1] }}
-            className="mb-6"
-          >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extralight text-white leading-[1.1] tracking-[-0.02em] mb-4">
-              Propriétaires
-            </h1>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-thin bg-gradient-to-r from-blue-400 via-violet-400 to-pink-400 bg-clip-text text-transparent leading-[1.1] tracking-[-0.01em]">
-              Nouvelle Ère
-            </h2>
-          </motion.div>
-          
-          {/* Description équilibrée */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1, ease: [0.4, 0, 0.2, 1] }}
-            className="mb-10"
-          >
-            <p className="text-lg md:text-xl text-white/50 font-light leading-relaxed max-w-3xl mx-auto">
-              Révolutionnez votre expérience de propriétaire avec notre plateforme d'intelligence artificielle 
-              <span className="text-white/70"> dédiée à la sélection de candidats premium</span>
-            </p>
-          </motion.div>
-          
-          {/* CTA élégant */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.3, ease: [0.4, 0, 0.2, 1] }}
-            className="mb-12"
-          >
-            <motion.button
-              className="group relative px-8 py-3 bg-gradient-to-r from-blue-500/10 via-violet-500/10 to-pink-500/10 border border-white/10 rounded-full text-white font-light backdrop-blur-sm overflow-hidden"
-              whileHover={{ 
-                scale: 1.02,
-                borderColor: "rgba(255, 255, 255, 0.15)"
-              }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-blue-500/15 via-violet-500/15 to-pink-500/15 opacity-0 group-hover:opacity-100"
-                transition={{ duration: 0.3 }}
-              />
-              <span className="relative z-10 flex items-center gap-2 text-sm">
-                Découvrir l'expérience
-                <motion.div
-                  animate={{ x: [0, 3, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <FaArrowRight className="w-3 h-3" />
-                </motion.div>
-              </span>
-            </motion.button>
-          </motion.div>
-          
-          {/* Métadonnées ultra-épurées */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6 text-white/25"
-          >
-            <div className="flex items-center gap-2 text-xs font-light tracking-wide">
-              <div className="w-1 h-1 rounded-full bg-blue-400/30" />
-              100% Gratuit
-            </div>
-            <div className="hidden sm:block w-6 h-[0.5px] bg-white/10" />
-            <div className="flex items-center gap-2 text-xs font-light tracking-wide">
-              <div className="w-1 h-1 rounded-full bg-violet-400/30" />
-              Intelligence Artificielle
-            </div>
-            <div className="hidden sm:block w-6 h-[0.5px] bg-white/10" />
-            <div className="flex items-center gap-2 text-xs font-light tracking-wide">
-              <div className="w-1 h-1 rounded-full bg-pink-400/30" />
-              Service Premium
-            </div>
-          </motion.div>
+      <div class='section'>
+        <div class='section-title'>🏠 INFORMATIONS DU BIEN</div>
+        <div class='form-row'>
+          Type de bien : 
+          <span class='checkbox'>☐ Appartement</span>
+          <span class='checkbox'>☐ Maison</span>
+          <span class='checkbox'>☐ Studio</span>
+          <span class='checkbox'>☐ Loft</span>
+          <span class='checkbox'>☐ Autre : ________</span>
         </div>
-        
-        {/* Indicateur de scroll épuré */}
+        <div class='form-row'>Adresse complète : <span class='form-field' style='width: 400px;'></span></div>
+        <table>
+          <tr>
+            <td>Superficie : <span class='form-field'></span> m²</td>
+            <td>Nombre de pièces : <span class='form-field'></span></td>
+          </tr>
+          <tr>
+            <td>Loyer souhaité : <span class='form-field'></span> €/mois</td>
+            <td>Charges : <span class='form-field'></span> €/mois</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class='section'>
+        <div class='section-title'>⚙️ ÉQUIPEMENTS & COMMODITÉS</div>
+        <table>
+          <tr>
+            <td width='50%'>
+              <span class='checkbox'>☐ Meublé</span><br>
+              <span class='checkbox'>☐ Parking/Garage</span><br>
+              <span class='checkbox'>☐ Cave</span><br>
+              <span class='checkbox'>☐ Balcon</span><br>
+            </td>
+            <td width='50%'>
+              <span class='checkbox'>☐ Terrasse</span><br>
+              <span class='checkbox'>☐ Ascenseur</span><br>
+              <span class='checkbox'>☐ Gardien</span><br>
+              <span class='checkbox'>☐ Interphone</span><br>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class='section'>
+        <div class='section-title'>👥 CRITÈRES LOCATAIRES SOUHAITÉS</div>
+        <div class='form-row'>Revenus minimum souhaités : <span class='form-field'></span> €/mois (conseillé : 3x le loyer)</div>
+        <div class='form-row'>
+          Situation professionnelle acceptée :<br>
+          <span class='checkbox'>☐ CDI uniquement</span>
+          <span class='checkbox'>☐ Accepte CDD</span>
+          <span class='checkbox'>☐ Accepte étudiants</span>
+          <span class='checkbox'>☐ Accepte professions libérales</span>
+        </div>
+        <div class='form-row'>
+          <span class='checkbox'>☐ Accepte les animaux</span>
+          <span class='checkbox'>☐ Non fumeur uniquement</span>
+          <span class='checkbox'>☐ Couple accepté</span>
+          <span class='checkbox'>☐ Colocation acceptée</span>
+        </div>
+      </div>
+
+      <div class='section'>
+        <div class='section-title'>📅 DISPONIBILITÉ & PRÉFÉRENCES</div>
+        <table>
+          <tr>
+            <td>Date de disponibilité : <span class='form-field'></span></td>
+            <td>Durée minimum souhaitée : <span class='form-field'></span></td>
+          </tr>
+        </table>
+        <div class='form-row'>Horaires de visite préférés : <span class='form-field' style='width: 300px;'></span></div>
+      </div>
+
+      <div class='section'>
+        <div class='section-title'>💬 COMMENTAIRES & DEMANDES SPÉCIALES</div>
+        <div style='border: 1px solid #ccc; height: 80px; padding: 10px; margin-top: 10px;'></div>
+      </div>
+
+      <div class='footer'>
+        <h3>🎯 ENGAGEMENT GREGA - VOTRE TRANQUILLITÉ ASSURÉE</h3>
+        <table style='color: white;'>
+          <tr>
+            <td width='50%'>
+              ✅ Service 100% GRATUIT pour les propriétaires<br>
+              ✅ Présélection par intelligence artificielle<br>
+              ✅ Candidats vérifiés et qualifiés uniquement<br>
+            </td>
+            <td width='50%'>
+              ✅ Support complet jusqu'à la signature<br>
+              ✅ Réponse sous 24h maximum<br>
+              ✅ Accompagnement personnalisé 7j/7<br>
+            </td>
+          </tr>
+        </table>
+        <hr style='margin: 15px 0; border-color: white;'>
+        <p><strong>📧 À retourner par email à : contact@gregaopendoor.fr</strong></p>
+        <p><strong>📞 Ou par téléphone au : 09 53 37 61 41</strong></p>
+        <p style='font-size: 12px; margin-top: 15px;'>© 2024 GREGA OPEN DOOR - Tous droits réservés</p>
+      </div>
+    </body>
+    </html>`;
+
+    // Créer et télécharger le fichier Word
+    const blob = new Blob([wordContent], { 
+      type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' 
+    });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'Formulaire_Proprietaire_GREGA.doc';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
+  };
+
+  const ctaSteps = [
+    {
+      title: "Étape 1 : Évaluation gratuite",
+      description: "Nous analysons votre bien et définissons ensemble la stratégie optimale",
+      icon: <FaFileAlt />,
+      action: "Commencer l'évaluation",
+      modalKey: "evaluation"
+    },
+    {
+      title: "Étape 2 : Mise en ligne",
+      description: "Publication sur nos plateformes premium avec photos professionnelles",
+      icon: <FaUsers />,
+      action: "Voir les plateformes",
+      modalKey: "plateformes"
+    },
+    {
+      title: "Étape 3 : Sélection IA",
+      description: "Notre intelligence artificielle présélectionne les meilleurs candidats",
+      icon: <FaHeart />,
+      action: "Découvrir l'IA",
+      modalKey: "ia"
+    }
+  ];
+
+  // Composant Modal réutilisable
+  const Modal = ({ isOpen, onClose, title, children }: any) => (
+    <AnimatePresence>
+      {isOpen && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 2 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            onClose();
+          }}
         >
-          <div className="flex flex-col items-center">
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="w-[0.5px] h-12 bg-gradient-to-b from-white/20 to-transparent mb-2"
-            />
-            <div className="text-white/20 text-xs font-light tracking-wide uppercase">
-              Scroll
-            </div>
-          </div>
-        </motion.div>
-        
-        {/* Particules ultra-subtiles */}
-        {!isMobile && (
-          <>
-            <motion.div
-              className="absolute top-[25%] left-[15%] w-16 h-16 rounded-full border border-white/[0.005] bg-white/[0.001]"
-              animate={{ 
-                y: [0, -12, 0],
-                opacity: [0.1, 0.2, 0.1]
-              }}
-              transition={{ 
-                duration: 10,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-            
-            <motion.div
-              className="absolute bottom-[30%] right-[10%] w-12 h-12 rounded-full border border-white/[0.008] bg-white/[0.002]"
-              animate={{ 
-                y: [0, 8, 0],
-                opacity: [0.1, 0.3, 0.1]
-              }}
-              transition={{ 
-                duration: 8,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 2
-              }}
-            />
-          </>
-        )}
-      </motion.section>
-
-      {/* Section Problèmes - Design Quantique */}
-      <section className="py-32 bg-black relative overflow-hidden">
-        {/* Background quantique */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/[0.02] via-violet-900/[0.01] to-pink-900/[0.02]" />
-          <motion.div 
-            className="absolute inset-0 opacity-[0.008]"
-            style={{
-              backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
-              backgroundSize: '40px 40px'
-            }}
-            animate={{
-              backgroundPosition: ['0px 0px', '40px 40px']
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: 'linear'
-            }}
-          />
-        </div>
-
-        <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            className="bg-white max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
+          >
+            <div className="p-8">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-3xl font-light text-black">{title}</h2>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    onClose();
+                  }}
+                  className="text-gray-400 hover:text-black transition-colors"
+                >
+                  <FaTimes className="w-6 h-6" />
+                </button>
+              </div>
+              {children}
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+
+  // Composant Calendly intégré
+  const CalendlyWidget = () => (
+    <div className="w-full h-[600px]">
+      <iframe
+        src="https://calendly.com/contact-gregaopendoor/consultation"
+        width="100%"
+        height="100%"
+        frameBorder="0"
+        title="Prendre rendez-vous avec GREGA"
+      />
+      <p className="text-center text-gray-600 mt-4 font-light">
+        Si le calendrier ne s'affiche pas, 
+        <a 
+          href="https://calendly.com/contact-gregaopendoor/consultation" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-black underline hover:no-underline ml-1"
+        >
+          cliquez ici pour ouvrir dans un nouvel onglet
+        </a>
+      </p>
+    </div>
+  );
+
+  return (
+    <main className="min-h-screen bg-white">
+          
+      {/* Hero Ultra Épuré avec mention gratuit */}
+      <section className="py-32">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            {/* Badge gratuit en première position */}
+          <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-flex items-center gap-2 border border-green-500 text-green-600 px-6 py-2 font-light mb-8 bg-green-50"
+          >
+              <FaCheck className="w-4 h-4" />
+              <span className="text-sm font-medium">SERVICE 100% GRATUIT</span>
+            </motion.div>
+
+            <h1 className="text-6xl md:text-8xl font-light text-black mb-8 tracking-tight">
+              Propriétaires
+            </h1>
+            <div className="w-24 h-px bg-black mx-auto mb-12"></div>
+            <p className="text-xl text-gray-600 font-light max-w-2xl mx-auto leading-relaxed mb-12">
+              Service premium pour propriétaires exigeants
+              <span className="block text-lg text-green-600 font-medium mt-2">
+                Sans frais cachés, sans commission
+              </span>
+            </p>
+
+            {/* Bouton Calendly Hero */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
+            >
+              <motion.button
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  if (!showCalendly) {
+                    setShowCalendly(true);
+                  }
+                }}
+                whileHover={{ y: -2, scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-3 bg-black text-white px-8 py-4 font-light text-lg hover:bg-gray-800 transition-all duration-300 shadow-lg"
+              >
+                <FaCalendarAlt className="w-5 h-5" />
+                <span>Consultation Gratuite</span>
+              </motion.button>
+              
+              <motion.button
+                onClick={downloadWordForm}
+                whileHover={{ y: -2 }}
+                className="inline-flex items-center gap-3 border border-black text-black px-8 py-4 font-light text-lg hover:bg-black hover:text-white transition-all duration-300"
+                >
+                <FaDownload className="w-5 h-5" />
+                <span>Télécharger le formulaire</span>
+            </motion.button>
+          </motion.div>
+          
+            {/* Informations supplémentaires */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-6 text-gray-500 font-light"
+          >
+              <div className="flex items-center gap-2">
+                <FaClock className="w-4 h-4" />
+                <span className="text-sm">Consultation 30min</span>
+            </div>
+              <div className="flex items-center gap-2">
+                <FaPhone className="w-4 h-4" />
+                <span className="text-sm">Par téléphone ou visio</span>
+            </div>
+              <div className="flex items-center gap-2">
+                <FaCheck className="w-4 h-4 text-green-500" />
+                <span className="text-sm">100% gratuit</span>
+            </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Section Problèmes Épurée */}
+      <section className="pb-32">
+        <div className="max-w-6xl mx-auto px-6">
+          
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className="text-center mb-24"
           >
-            <motion.div 
-              className="inline-block mb-6 text-[10px] font-extralight tracking-[0.5em] text-white/30 uppercase relative"
-            >
-              <span className="absolute -left-12 top-1/2 w-8 h-[0.5px] bg-gradient-to-r from-transparent to-white/15" />
-              Problématiques Identifiées
-              <span className="absolute -right-12 top-1/2 w-8 h-[0.5px] bg-gradient-to-l from-transparent to-white/15" />
-            </motion.div>
-            
-            <h2 className="text-5xl md:text-7xl lg:text-8xl font-thin text-white mb-8 tracking-[-0.02em] leading-tight">
-              Fini les{' '}
-              <span className="bg-gradient-to-r from-red-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
-                complications
-              </span>
+            <h2 className="text-4xl md:text-6xl font-light text-black mb-12">
+              Fini les complications
             </h2>
-            
-            <p className="text-xl md:text-2xl text-white/30 font-extralight max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg text-gray-600 font-light max-w-3xl mx-auto">
               Notre intelligence artificielle élimine les frictions traditionnelles
             </p>
           </motion.div>
 
-          {/* Grid des problèmes ultra-moderne */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 max-w-7xl mx-auto mb-24">
-            {[
-              {
-                title: "Candidats non qualifiés",
-                description: "Élimination automatique des dossiers incomplets grâce à notre IA de présélection",
-                icon: "🎯",
-                gradient: "from-red-500/[0.05] via-pink-500/[0.02] to-red-500/[0.05]"
-              },
-              {
-                title: "Frais cachés",
-                description: "Transparence totale avec notre modèle économique révolutionnaire 100% gratuit",
-                icon: "💎",
-                gradient: "from-blue-500/[0.05] via-violet-500/[0.02] to-blue-500/[0.05]"
-              },
-              {
-                title: "Sollicitations incessantes",
-                description: "Filtrage intelligent qui ne vous présente que les candidats premium validés",
-                icon: "🛡️",
-                gradient: "from-violet-500/[0.05] via-purple-500/[0.02] to-violet-500/[0.05]"
-              },
-              {
-                title: "Contraintes administratives",
-                description: "Automatisation complète du processus de vérification et de validation",
-                icon: "⚡",
-                gradient: "from-emerald-500/[0.05] via-teal-500/[0.02] to-emerald-500/[0.05]"
-              }
-            ].map((probleme, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+            {problemes.map((probleme, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group relative"
+                className="border border-gray-200 p-8 hover:border-black transition-all duration-300"
               >
-                <div className="relative rounded-3xl overflow-hidden backdrop-blur-2xl border border-white/[0.03] bg-gradient-to-r from-white/[0.01] via-white/[0.005] to-white/[0.01] hover:border-white/[0.08] transition-all duration-1000">
-                  
-                  {/* Effet de lueur quantique */}
-                  <div className={`absolute inset-0 bg-gradient-to-r ${probleme.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-1000 rounded-3xl`} />
-                  
-                  {/* Effet de scan */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.02] to-transparent -translate-x-full"
-                    whileHover={{ translateX: "200%" }}
-                    transition={{ duration: 1.5 }}
-                  />
-                  
-                  <div className="relative z-10 p-8 md:p-12">
-                    <div className="text-4xl md:text-5xl mb-8">{probleme.icon}</div>
-                    <h3 className="text-2xl md:text-3xl font-extralight text-white mb-6 leading-tight">
+                <div className="text-3xl mb-6">{probleme.icon}</div>
+                <h3 className="text-xl font-light text-black mb-4">
                       {probleme.title}
                     </h3>
-                    <p className="text-white/50 leading-relaxed font-light text-lg">
+                <p className="text-gray-600 font-light leading-relaxed">
                       {probleme.description}
                     </p>
-                  </div>
-                </div>
               </motion.div>
             ))}
           </div>
-
-          {/* Transition élégante */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <p className="text-3xl md:text-4xl font-extralight text-white leading-relaxed">
-              <span className="bg-gradient-to-r from-blue-400 via-violet-400 to-pink-400 bg-clip-text text-transparent">
-                Notre révolution
-              </span>{' '}
-              transforme tout
-            </p>
-          </motion.div>
         </div>
       </section>
 
-      {/* Section Services - Design ultra-cohérent */}
-      <section className="py-36 bg-black relative overflow-hidden">
-        {/* Ligne décorative supérieure */}
-        <motion.div 
-          initial={{ scaleX: 0 }} 
-          whileInView={{ scaleX: 1 }} 
-          transition={{ duration: 1.8, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent"
-        />
-
-        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+      {/* Section Services Épurée */}
+      <section className="border-t border-gray-200 py-32">
+        <div className="max-w-6xl mx-auto px-6">
+          
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className="text-center mb-24"
           >
-            <motion.div 
-              className="inline-block mb-4 text-[11px] font-light tracking-[0.2em] text-white/40 uppercase relative"
-            >
-              <span className="absolute -left-8 top-1/2 w-6 h-[1px] bg-gradient-to-r from-transparent to-white/20"></span>
-              NOTRE EXPERTISE
-              <span className="absolute -right-8 top-1/2 w-6 h-[1px] bg-gradient-to-l from-transparent to-white/20"></span>
-            </motion.div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extralight text-white mb-6 tracking-[-0.01em]">
-              Service <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-300 bg-clip-text text-transparent">Premium</span>
+            <h2 className="text-4xl md:text-6xl font-light text-black mb-12">
+              Service Premium
             </h2>
-            <p className="text-lg md:text-xl text-white/60 font-light max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-gray-600 font-light max-w-3xl mx-auto">
               Un accompagnement complet pour une location sereine et profitable
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group relative"
+                className="text-center p-6"
               >
-                <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden backdrop-blur-xl border border-white/[0.06] bg-gradient-to-r from-slate-900/80 via-slate-800/60 to-slate-900/50 hover:border-white/15 transition-all duration-700 hover:shadow-2xl hover:shadow-black/20">
-                  
-                  {/* Effet de lueur colorée */}
-                  <div className={`absolute inset-0 bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-800 rounded-2xl sm:rounded-3xl`}></div>
-                  
-                  {/* Effet de brillance ondulante */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/3 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1200 rounded-2xl sm:rounded-3xl"></div>
-                  
-                  <div className="relative z-10 p-6 sm:p-8">
-                    <motion.div
-                      className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-white/8 to-white/[0.02] border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
-                    >
-                      <div className="text-white/80 text-lg sm:text-xl">{service.icon}</div>
-                    </motion.div>
-                    
-                    <h3 className="text-lg sm:text-xl font-extralight text-white mb-3 group-hover:text-blue-300 transition-colors leading-tight">
+                <div className="w-12 h-12 mx-auto mb-6 text-gray-400 flex items-center justify-center">
+                  {service.icon}
+                </div>
+                <h3 className="text-lg font-light text-black mb-4">
                       {service.title}
                     </h3>
-                    <p className="text-white/70 leading-relaxed font-light text-sm sm:text-base">
+                <p className="text-gray-600 font-light leading-relaxed">
                       {service.description}
                     </p>
-                  </div>
-                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Section Contact - Design ultra-épuré */}
-      <section className="py-36 bg-black relative overflow-hidden">
-        {/* Ligne décorative supérieure */}
-        <motion.div 
-          initial={{ scaleX: 0 }} 
-          whileInView={{ scaleX: 1 }} 
-          transition={{ duration: 1.8, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent"
-        />
-
-        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+      {/* Section Contact Épurée avec vrai formulaire Word */}
+      <section className="border-t border-gray-200 py-32">
+        <div className="max-w-6xl mx-auto px-6">
+          
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className="text-center mb-24"
           >
-            <motion.div 
-              className="inline-block mb-4 text-[11px] font-light tracking-[0.2em] text-white/40 uppercase relative"
-            >
-              <span className="absolute -left-8 top-1/2 w-6 h-[1px] bg-gradient-to-r from-transparent to-white/20"></span>
-              CONTACTEZ-NOUS
-              <span className="absolute -right-8 top-1/2 w-6 h-[1px] bg-gradient-to-l from-transparent to-white/20"></span>
-            </motion.div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extralight text-white mb-6 tracking-[-0.01em]">
-              Parlons de votre <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-300 bg-clip-text text-transparent">projet</span>
+            <h2 className="text-4xl md:text-6xl font-light text-black mb-12">
+              Parlons de votre projet
             </h2>
-            <p className="text-lg md:text-xl text-white/60 font-light max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-gray-600 font-light max-w-3xl mx-auto">
               Choisissez le moyen de contact qui vous convient le mieux
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto">
-            {/* Formulaire Digital */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            {/* Formulaire Word Amélioré */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="lg:col-span-2 group"
+              className="lg:col-span-2 border border-gray-200 p-8 hover:border-black transition-all duration-300"
             >
-              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden backdrop-blur-xl border border-white/[0.06] bg-gradient-to-r from-slate-900/80 via-slate-800/60 to-slate-900/50 hover:border-white/15 transition-all duration-700 hover:shadow-2xl hover:shadow-black/20">
-                
-                {/* Effet de lueur */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-indigo-500/5 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-800 rounded-2xl sm:rounded-3xl"></div>
-                
-                <div className="relative z-10 p-8 sm:p-10 lg:p-12">
-                  <div className="flex items-center gap-4 mb-8">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-white/8 to-white/[0.02] border border-white/10 flex items-center justify-center">
-                      <FaDownload className="text-white/80 text-lg sm:text-xl" />
-                    </div>
+              <div className="flex items-center gap-4 mb-6">
+                <FaDownload className="w-5 h-5 text-gray-400" />
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-extralight text-white">Formulaire Digital</h3>
-                      <p className="text-white/60 font-light">Le plus simple et rapide</p>
+                  <h3 className="text-xl font-light text-black">Formulaire Digital</h3>
+                  <p className="text-gray-600 font-light">Le plus simple et rapide</p>
                     </div>
                   </div>
                   
-                  <p className="text-white/70 mb-8 leading-relaxed font-light">
-                    Téléchargez notre formulaire optimisé, remplissez-le en quelques minutes et renvoyez-le nous par email. 
-                    Nous vous recontactons sous 24h.
+              <p className="text-gray-600 font-light mb-6 leading-relaxed">
+                Téléchargez notre formulaire professionnel au format Word, remplissez-le confortablement et renvoyez-le nous par email. 
+                <strong className="text-black"> Nous vous recontactons sous 24h.</strong>
                   </p>
                   
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="flex-1 px-6 py-4 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 border border-blue-500/30 text-white rounded-xl font-light shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm"
-                    >
-                      <FaDownload className="inline mr-2" />
-                      Télécharger le formulaire
-                    </motion.button>
+              {/* Détails du formulaire Word */}
+              <div className="bg-gray-50 p-6 mb-6 border border-gray-100">
+                <h4 className="font-medium text-black mb-4">📝 Formulaire Word professionnel contenant :</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-gray-600">
+                  <div className="flex items-center gap-2">
+                    <FaCheck className="w-3 h-3 text-green-500" />
+                    <span>Informations personnelles</span>
                   </div>
-                  
-                  <div className="mt-6 text-center">
-                    <span className="text-white/50 text-sm font-light">contact@gregaopendoor.fr</span>
+                  <div className="flex items-center gap-2">
+                    <FaCheck className="w-3 h-3 text-green-500" />
+                    <span>Détails complets du bien</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <FaCheck className="w-3 h-3 text-green-500" />
+                    <span>Équipements & commodités</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <FaCheck className="w-3 h-3 text-green-500" />
+                    <span>Critères locataires souhaités</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <FaCheck className="w-3 h-3 text-green-500" />
+                    <span>Disponibilités & préférences</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <FaCheck className="w-3 h-3 text-green-500" />
+                    <span>Format professionnel Word</span>
                   </div>
                 </div>
               </div>
+              
+              <motion.button
+                whileHover={{ y: -2 }}
+                onClick={downloadWordForm}
+                className="w-full border border-black text-black px-6 py-4 font-light hover:bg-black hover:text-white transition-all duration-300 mb-4"
+              >
+                <FaDownload className="inline mr-2" />
+                Télécharger le formulaire Word (.doc)
+              </motion.button>
+              
+              <div className="text-center">
+                <span className="text-gray-500 text-sm font-light">
+                  À retourner à : <strong className="text-black">contact@gregaopendoor.fr</strong>
+                </span>
+              </div>
             </motion.div>
 
-            {/* Contact Direct */}
+            {/* Contact Direct avec Email */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
               className="space-y-6"
             >
               {/* Téléphone */}
-              <div className="group">
-                <div className="relative rounded-2xl overflow-hidden backdrop-blur-xl border border-white/[0.06] bg-gradient-to-r from-slate-900/80 via-slate-800/60 to-slate-900/50 hover:border-white/15 transition-all duration-700 hover:shadow-2xl hover:shadow-black/20">
-                  
-                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-teal-500/5 to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-800 rounded-2xl"></div>
-                  
-                  <div className="relative z-10 p-6 sm:p-8">
+              <div className="border border-gray-200 p-6 hover:border-black transition-all duration-300">
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-white/8 to-white/[0.02] border border-white/10 flex items-center justify-center">
-                        <FaPhone className="text-white/80" />
-                      </div>
-                      <h3 className="text-lg sm:text-xl font-extralight text-white">Téléphone</h3>
-                    </div>
-                    <p className="text-white/70 mb-4 font-light text-sm sm:text-base">Discussion directe avec nos experts</p>
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      className="w-full px-4 py-3 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border border-emerald-500/30 text-white rounded-xl font-light hover:shadow-lg transition-all duration-300 backdrop-blur-sm"
-                    >
-                      09 53 37 61 41
-                    </motion.button>
-                  </div>
+                  <FaPhone className="w-4 h-4 text-gray-400" />
+                  <h3 className="text-lg font-light text-black">Téléphone</h3>
                 </div>
+                <p className="text-gray-600 font-light mb-4">Discussion directe avec nos experts</p>
+                <motion.a
+                  href="tel:0953376141"
+                  whileHover={{ y: -2 }}
+                  className="block w-full border border-gray-300 text-black px-4 py-3 font-light hover:border-black transition-all duration-300 text-center"
+                >
+                  09 53 37 61 41
+                </motion.a>
               </div>
 
-              {/* Bureau */}
-              <div className="group">
-                <div className="relative rounded-2xl overflow-hidden backdrop-blur-xl border border-white/[0.06] bg-gradient-to-r from-slate-900/80 via-slate-800/60 to-slate-900/50 hover:border-white/15 transition-all duration-700 hover:shadow-2xl hover:shadow-black/20">
-                  
-                  <div className="absolute inset-0 bg-gradient-to-r from-violet-500/10 via-purple-500/5 to-violet-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-800 rounded-2xl"></div>
-                  
-                  <div className="relative z-10 p-6 sm:p-8">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-white/8 to-white/[0.02] border border-white/10 flex items-center justify-center">
-                        <FaMapMarkerAlt className="text-white/80" />
-                      </div>
-                      <h3 className="text-lg sm:text-xl font-extralight text-white">Notre Bureau</h3>
-                    </div>
-                    <p className="text-white/70 mb-4 font-light text-sm sm:text-base">37 rue des maturins<br />75008 Paris</p>
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      className="w-full px-4 py-3 bg-gradient-to-r from-violet-500/20 to-purple-500/20 border border-violet-500/30 text-white rounded-xl font-light hover:shadow-lg transition-all duration-300 backdrop-blur-sm"
-                    >
-                      Prendre RDV
-                    </motion.button>
-                  </div>
+              {/* Bureau avec Calendly */}
+              <div className="border border-gray-200 p-6 hover:border-black transition-all duration-300">
+                <div className="flex items-center gap-4 mb-4">
+                  <FaMapMarkerAlt className="w-4 h-4 text-gray-400" />
+                  <h3 className="text-lg font-light text-black">Bureau</h3>
                 </div>
+                <p className="text-gray-600 font-light mb-4">Rendez-vous sur place ou par visio</p>
+                <motion.button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (!showCalendly) {
+                      setShowCalendly(true);
+                    }
+                  }}
+                  whileHover={{ y: -2 }}
+                  className="block w-full border border-gray-300 text-black px-4 py-3 font-light hover:border-black transition-all duration-300 text-center"
+                >
+                  Prendre rendez-vous
+                </motion.button>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Section CTA Final - Ultra épuré */}
-      <section className="py-36 bg-black relative overflow-hidden">
-        {/* Ligne décorative supérieure */}
-        <motion.div 
-          initial={{ scaleX: 0 }} 
-          whileInView={{ scaleX: 1 }} 
-          transition={{ duration: 1.8, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent"
-        />
-
-        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+      {/* Section CTA Final Développée */}
+      <section className="border-t border-gray-200 py-32">
+        <div className="max-w-6xl mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <motion.div 
-              className="inline-block mb-4 text-[11px] font-light tracking-[0.2em] text-white/40 uppercase relative"
+            className="text-center mb-16"
             >
-              <span className="absolute -left-8 top-1/2 w-6 h-[1px] bg-gradient-to-r from-transparent to-white/20"></span>
-              DÉMARRER MAINTENANT
-              <span className="absolute -right-8 top-1/2 w-6 h-[1px] bg-gradient-to-l from-transparent to-white/20"></span>
-            </motion.div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extralight text-white mb-8 tracking-[-0.01em] leading-tight">
-              Prêt à <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-300 bg-clip-text text-transparent">simplifier</span> vos locations ?
+            <h2 className="text-4xl md:text-6xl font-light text-black mb-8">
+              Prêt à simplifier vos locations ?
             </h2>
-            <p className="text-lg md:text-xl text-white/60 font-light mb-12 leading-relaxed">
-              Rejoignez des centaines de propriétaires qui nous font déjà confiance
+            <p className="text-lg text-gray-600 font-light mb-12 leading-relaxed max-w-3xl mx-auto">
+              Rejoignez des centaines de propriétaires qui nous font déjà confiance pour gérer leurs biens immobiliers 
+              sans stress et sans frais cachés.
             </p>
             
             <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 border border-blue-500/30 text-white rounded-2xl font-light text-lg shadow-xl hover:shadow-2xl transition-all duration-300 backdrop-blur-sm mb-12"
+              whileHover={{ y: -2 }}
+              onClick={() => setShowCTADetails(!showCTADetails)}
+              className="inline-flex items-center gap-3 border border-black text-black px-8 py-4 font-light text-lg hover:bg-black hover:text-white transition-all duration-300 mb-12"
             >
-              <FaCheck className="text-lg" />
               <span>Démarrer maintenant</span>
-              <FaArrowRight className="text-lg" />
+              <FaArrowRight className={`transition-transform duration-300 ${showCTADetails ? 'rotate-90' : ''}`} />
             </motion.button>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 text-white/50 font-light">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-gray-500 font-light mb-12">
               <div className="flex items-center gap-2">
-                <FaCheck className="text-blue-400 text-sm" />
+                <FaCheck className="text-green-500 text-sm" />
                 <span className="text-sm">100% Gratuit</span>
               </div>
               <div className="flex items-center gap-2">
-                <FaCheck className="text-blue-400 text-sm" />
+                <FaCheck className="text-green-500 text-sm" />
                 <span className="text-sm">Sans engagement</span>
               </div>
               <div className="flex items-center gap-2">
-                <FaCheck className="text-blue-400 text-sm" />
+                <FaCheck className="text-green-500 text-sm" />
                 <span className="text-sm">Support 7j/7</span>
               </div>
             </div>
           </motion.div>
+
+          {/* Étapes détaillées développées */}
+          <AnimatePresence>
+            {showCTADetails && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.6 }}
+                className="overflow-hidden"
+              >
+                <div className="border-t border-gray-200 pt-16">
+                  <h3 className="text-2xl font-light text-black text-center mb-12">
+                    Comment ça marche ?
+                  </h3>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {ctaSteps.map((step, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.2 }}
+                        className="text-center border border-gray-200 p-8 hover:border-black transition-all duration-300"
+                      >
+                        <div className="w-16 h-16 mx-auto mb-6 text-gray-400 flex items-center justify-center text-2xl">
+                          {step.icon}
+                        </div>
+                        <h4 className="text-lg font-light text-black mb-4">
+                          {step.title}
+                        </h4>
+                        <p className="text-gray-600 font-light mb-6 leading-relaxed">
+                          {step.description}
+                        </p>
+                        <motion.button
+                          whileHover={{ y: -2 }}
+                          onClick={() => setActiveModal(step.modalKey)}
+                          className="border border-gray-300 text-black px-6 py-2 font-light hover:border-black transition-all duration-300"
+                        >
+                          {step.action}
+                        </motion.button>
+                      </motion.div>
+                    ))}
+                  </div>
+                  
+                  <div className="text-center mt-12">
+                    <motion.button
+                      whileHover={{ y: -2 }}
+                      onClick={() => setShowCTADetails(false)}
+                      className="inline-flex items-center gap-2 text-gray-500 hover:text-black transition-colors duration-300"
+                    >
+                      <FaTimes className="w-4 h-4" />
+                      <span className="font-light">Fermer</span>
+                    </motion.button>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 
+      {/* Modal Évaluation */}
+      <Modal
+        isOpen={activeModal === 'evaluation'}
+        onClose={() => setActiveModal(null)}
+        title="Évaluation Gratuite de Votre Bien"
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div>
+            <h3 className="text-xl font-light text-black mb-6">🎯 Notre méthode d'évaluation</h3>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <FaEye className="w-5 h-5 text-gray-400 mt-1" />
+                <div>
+                  <h4 className="font-medium text-black">Analyse du marché local</h4>
+                  <p className="text-gray-600 font-light">Étude comparative des biens similaires dans votre secteur</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <FaRocket className="w-5 h-5 text-gray-400 mt-1" />
+                <div>
+                  <h4 className="font-medium text-black">Optimisation du loyer</h4>
+                  <p className="text-gray-600 font-light">Définition du prix optimal pour maximiser vos revenus</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <FaStar className="w-5 h-5 text-gray-400 mt-1" />
+                <div>
+                  <h4 className="font-medium text-black">Conseils personnalisés</h4>
+                  <p className="text-gray-600 font-light">Recommandations pour valoriser votre bien</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 className="text-xl font-light text-black mb-6">📋 Ce que vous recevez</h3>
+            <div className="bg-gray-50 p-6 border border-gray-200">
+              <ul className="space-y-3 text-gray-600 font-light">
+                <li className="flex items-center gap-2">
+                  <FaCheck className="w-4 h-4 text-green-500" />
+                  <span>Rapport d'évaluation détaillé</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <FaCheck className="w-4 h-4 text-green-500" />
+                  <span>Fourchette de loyer recommandée</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <FaCheck className="w-4 h-4 text-green-500" />
+                  <span>Analyse de la concurrence</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <FaCheck className="w-4 h-4 text-green-500" />
+                  <span>Conseils d'amélioration</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <FaCheck className="w-4 h-4 text-green-500" />
+                  <span>Stratégie de mise en location</span>
+                </li>
+              </ul>
+            </div>
+            <motion.button
+              whileHover={{ y: -2 }}
+              onClick={downloadWordForm}
+              className="w-full mt-6 border border-black text-black px-6 py-3 font-light hover:bg-black hover:text-white transition-all duration-300"
+            >
+              Commencer mon évaluation
+            </motion.button>
+          </div>
+        </div>
+      </Modal>
+
+      {/* Modal Plateformes */}
+      <Modal
+        isOpen={activeModal === 'plateformes'}
+        onClose={() => setActiveModal(null)}
+        title="Nos Plateformes Premium"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { name: "SeLoger", desc: "Leader français de l'immobilier", icon: "🏠" },
+            { name: "Leboncoin", desc: "Plateforme n°1 en France", icon: "🔍" },
+            { name: "PAP", desc: "Spécialiste particulier à particulier", icon: "🤝" },
+            { name: "Logic-Immo", desc: "Réseau professionnel premium", icon: "🏢" },
+            { name: "Bien'ici", desc: "Innovation et proximité", icon: "📍" },
+            { name: "Orpi", desc: "Réseau d'agences immobilières", icon: "🏪" }
+          ].map((platform, index) => (
+            <div key={index} className="border border-gray-200 p-6 text-center hover:border-black transition-all duration-300">
+              <div className="text-3xl mb-4">{platform.icon}</div>
+              <h4 className="font-medium text-black mb-2">{platform.name}</h4>
+              <p className="text-gray-600 font-light text-sm">{platform.desc}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-8 p-6 bg-green-50 border border-green-200">
+          <div className="flex items-center gap-3 mb-4">
+            <FaCamera className="w-5 h-5 text-green-600" />
+            <h3 className="text-lg font-medium text-black">Service photo professionnel inclus</h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600">
+            <div className="flex items-center gap-2">
+              <FaCheck className="w-3 h-3 text-green-500" />
+              <span>Photographe professionnel</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaCheck className="w-3 h-3 text-green-500" />
+              <span>Retouches et optimisation</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaCheck className="w-3 h-3 text-green-500" />
+              <span>Mise en valeur du bien</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaCheck className="w-3 h-3 text-green-500" />
+              <span>Format adapté aux plateformes</span>
+            </div>
+          </div>
+        </div>
+      </Modal>
+
+      {/* Modal IA */}
+      <Modal
+        isOpen={activeModal === 'ia'}
+        onClose={() => setActiveModal(null)}
+        title="Notre Intelligence Artificielle"
+      >
+        <div className="space-y-8">
+          <div className="text-center">
+            <FaBrain className="w-16 h-16 mx-auto text-gray-400 mb-6" />
+            <h3 className="text-2xl font-light text-black mb-4">IA de Présélection Avancée</h3>
+            <p className="text-gray-600 font-light max-w-2xl mx-auto">
+              Notre intelligence artificielle analyse automatiquement chaque candidature selon vos critères 
+              et ne vous présente que les profils les plus qualifiés.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h4 className="text-lg font-medium text-black mb-4">🔍 Critères analysés</h4>
+              <div className="space-y-3">
+                {[
+                  "Revenus et stabilité financière",
+                  "Historique de location",
+                  "Situation professionnelle",
+                  "Références précédentes",
+                  "Compatibilité avec vos exigences"
+                ].map((critere, index) => (
+                  <div key={index} className="flex items-center gap-2">
+                    <FaCheck className="w-4 h-4 text-green-500" />
+                    <span className="text-gray-600 font-light">{critere}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div>
+              <h4 className="text-lg font-medium text-black mb-4">⚡ Avantages</h4>
+              <div className="space-y-3">
+                {[
+                  "Gain de temps considérable",
+                  "Réduction des risques d'impayés",
+                  "Candidats pré-qualifiés uniquement",
+                  "Processus 100% automatisé",
+                  "Disponible 24h/24, 7j/7"
+                ].map((avantage, index) => (
+                  <div key={index} className="flex items-center gap-2">
+                    <FaCheck className="w-4 h-4 text-green-500" />
+                    <span className="text-gray-600 font-light">{avantage}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-gray-50 p-6 border border-gray-200 text-center">
+            <h4 className="font-medium text-black mb-2">🎯 Taux de réussite</h4>
+            <div className="text-3xl font-light text-black mb-2">94%</div>
+            <p className="text-gray-600 font-light">de nos propriétaires trouvent le locataire idéal en moins de 15 jours</p>
+          </div>
+        </div>
+      </Modal>
+
+      {/* Modal Calendly */}
+      <Modal
+        isOpen={showCalendly}
+        onClose={() => setShowCalendly(false)}
+        title="Consultation Gratuite"
+      >
+        <CalendlyWidget />
+      </Modal>
+
       <Footer />
-    </div>
+    </main>
   );
 };
 
