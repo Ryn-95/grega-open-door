@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaCalendarAlt, FaTimes } from 'react-icons/fa'
 import Footer from '../components/Footer'
 import React, { useState, useEffect } from 'react'
+import { navigateToPage } from '../utils/navigation'
 
 const Villes = () => {
   const villes = [

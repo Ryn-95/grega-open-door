@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
 import { FaCheck, FaDownload, FaPhone, FaEnvelope, FaMapMarkerAlt, FaShieldAlt, FaUserCheck, FaClock, FaHandshake, FaArrowRight, FaTimes, FaFileAlt, FaHeart, FaUsers, FaBrain, FaCamera, FaCalendarAlt, FaEye, FaRocket, FaStar } from 'react-icons/fa';
 import Footer from '../components/Footer';
+import { navigateToPage } from '../utils/navigation';
 
 const Proprietaires = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });

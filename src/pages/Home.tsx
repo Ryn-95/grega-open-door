@@ -7,6 +7,7 @@ import Footer from '../components/Footer'
 import Processus from '../components/Processus'
 import { images } from '../data/images'
 import { useEffect, useState } from 'react'
+import { navigateToPage } from '../utils/navigation'
 
 const Home = () => {
   useEffect(() => {
@@ -152,10 +153,16 @@ const Home = () => {
                       
                       {/* Boutons d'action premium - MOBILE OPTIMISÉ */}
                       <div className="space-y-2 md:space-y-3 pt-3 md:pt-4">
-                        <button className="w-full bg-gray-900 text-white py-2.5 md:py-3 rounded-lg md:rounded-xl text-xs md:text-sm font-medium">
+                        <button 
+                          onClick={() => navigateToPage('/biens-a-louer')}
+                          className="w-full bg-gray-900 text-white py-2.5 md:py-3 rounded-lg md:rounded-xl text-xs md:text-sm font-medium hover:bg-gray-800 transition-colors duration-300"
+                        >
                           Voir les biens trouvés
                         </button>
-                        <button className="w-full border border-gray-200 text-gray-700 py-2.5 md:py-3 rounded-lg md:rounded-xl text-xs md:text-sm font-medium">
+                        <button 
+                          onClick={() => window.open('tel:0953376141', '_self')}
+                          className="w-full border border-gray-200 text-gray-700 py-2.5 md:py-3 rounded-lg md:rounded-xl text-xs md:text-sm font-medium hover:border-gray-900 hover:text-gray-900 transition-colors duration-300"
+                        >
                           Modifier mes critères
                         </button>
                       </div>
@@ -250,7 +257,10 @@ const Home = () => {
                 Une application intuitive pour suivre toutes les étapes
               </span>
             </div>
-            <button className="bg-gray-900 text-white px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg font-medium hover:bg-gray-800 transition-colors duration-300 shadow-lg">
+            <button 
+              onClick={() => navigateToPage('/biens-a-louer')}
+              className="bg-gray-900 text-white px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg font-medium hover:bg-gray-800 transition-colors duration-300 shadow-lg"
+            >
               Démarrer maintenant
             </button>
           </motion.div>
@@ -529,7 +539,8 @@ const Home = () => {
                 description: "Découvrez notre sélection premium de biens résidentiels disponibles à la location",
                 cta: "Découvrir",
                 gradient: "from-blue-50 to-blue-100",
-                icon: <FaHome className="w-5 md:w-6 h-5 md:h-6" />
+                icon: <FaHome className="w-5 md:w-6 h-5 md:h-6" />,
+                action: () => navigateToPage('/biens-a-louer')
               },
               {
                 title: "Logement Social", 
@@ -537,7 +548,8 @@ const Home = () => {
                 description: "Accédez à des logements à loyer modèré avec un accompagnement personnalisé",
                 cta: "Découvrir",
                 gradient: "from-green-50 to-green-100",
-                icon: <FaUsers className="w-5 md:w-6 h-5 md:h-6" />
+                icon: <FaUsers className="w-5 md:w-6 h-5 md:h-6" />,
+                action: () => window.open('tel:0953376141', '_self')
               }
             ].map((service, index) => (
               <motion.div
@@ -569,6 +581,7 @@ const Home = () => {
                         <motion.button
                     whileHover={{ scale: 1.05, x: 4 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={service.action}
                     className="inline-flex items-center gap-2 md:gap-3 bg-gray-900 text-white px-5 md:px-6 py-2.5 md:py-3 rounded-full text-sm md:text-base font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl group-hover:gap-4"
                   >
                     <span>{service.cta}</span>
@@ -716,10 +729,16 @@ const Home = () => {
                       <div className="space-y-4">
                         <h3 className="font-semibold text-gray-900">Actions rapides</h3>
                         <div className="space-y-3">
-                          <button className="w-full p-3 bg-gray-900 text-white rounded-lg text-sm font-medium">
+                          <button 
+                            onClick={() => window.open('https://calendly.com/contact-gregaopendoor/consultation', '_blank')}
+                            className="w-full p-3 bg-gray-900 text-white rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors duration-300"
+                          >
                             Planifier visite
                           </button>
-                          <button className="w-full p-3 border border-gray-200 text-gray-700 rounded-lg text-sm font-medium">
+                          <button 
+                            onClick={() => navigateToPage('/biens-a-louer')}
+                            className="w-full p-3 border border-gray-200 text-gray-700 rounded-lg text-sm font-medium hover:border-gray-900 hover:text-gray-900 transition-colors duration-300"
+                          >
                             Affiner recherche
                           </button>
                           
@@ -846,10 +865,16 @@ const Home = () => {
                     <div className="space-y-1.5 md:space-y-2">
                       <h3 className="text-xs md:text-sm font-semibold text-gray-900">Actions</h3>
                       <div className="grid grid-cols-2 gap-1.5 md:gap-2">
-                        <button className="p-1.5 md:p-2 bg-gray-900 text-white rounded-md md:rounded-lg text-xs font-medium">
+                        <button 
+                          onClick={() => window.open('https://calendly.com/contact-gregaopendoor/consultation', '_blank')}
+                          className="p-1.5 md:p-2 bg-gray-900 text-white rounded-md md:rounded-lg text-xs font-medium hover:bg-gray-800 transition-colors duration-300"
+                        >
                           Planifier visite
                         </button>
-                        <button className="p-1.5 md:p-2 border border-gray-200 text-gray-700 rounded-md md:rounded-lg text-xs font-medium">
+                        <button 
+                          onClick={() => navigateToPage('/biens-a-louer')}
+                          className="p-1.5 md:p-2 border border-gray-200 text-gray-700 rounded-md md:rounded-lg text-xs font-medium hover:border-gray-900 hover:text-gray-900 transition-colors duration-300"
+                        >
                           Affiner recherche
                         </button>
                       </div>
@@ -930,7 +955,8 @@ const Home = () => {
                 cta: "Démarrer",
                 color: "blue",
                 icon: "👤",
-                stats: "2.4k users"
+                stats: "2.4k users",
+                action: () => navigateToPage('/biens-a-louer')
               },
               {
                 title: "Entreprises", 
@@ -940,7 +966,8 @@ const Home = () => {
                 cta: "Découvrir",
                 color: "purple",
                 icon: "🏢",
-                stats: "150+ entreprises"
+                stats: "150+ entreprises",
+                action: () => window.open('mailto:contact@gregaopendoor.fr', '_self')
               },
               {
                 title: "Écoles & Universités",
@@ -950,7 +977,8 @@ const Home = () => {
                 cta: "Innover",
                 color: "green",
                 icon: "🎓",
-                stats: "30+ établissements"
+                stats: "30+ établissements",
+                action: () => window.open('tel:0953376141', '_self')
               }
             ].map((profile, index) => (
               <motion.div
@@ -1041,11 +1069,14 @@ const Home = () => {
 
                         {/* Bouton CTA simplifié */}
                         <div className="mt-auto">
-                          <button className={`w-full py-4 rounded-xl text-white font-semibold text-base shadow-lg ${
-                            profile.color === 'blue' ? 'bg-gradient-to-r from-blue-500 to-blue-600' :
-                            profile.color === 'purple' ? 'bg-gradient-to-r from-purple-500 to-purple-600' :
-                            'bg-gradient-to-r from-green-500 to-green-600'
-                          }`}>
+                          <button 
+                            onClick={profile.action}
+                            className={`w-full py-4 rounded-xl text-white font-semibold text-base shadow-lg hover:shadow-xl transition-all duration-300 ${
+                              profile.color === 'blue' ? 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700' :
+                              profile.color === 'purple' ? 'bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700' :
+                              'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700'
+                            }`}
+                          >
                             {profile.cta}
                           </button>
 

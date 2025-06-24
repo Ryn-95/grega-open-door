@@ -1167,6 +1167,20 @@ const BiensALouer = () => {
                           <motion.button
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              const shareData = {
+                                title: bien.titre,
+                                text: `${bien.titre} - ${bien.prix}€/mois à ${bien.ville}`,
+                                url: window.location.href + `?bien=${bien.id}`
+                              };
+                              if (navigator.share) {
+                                navigator.share(shareData);
+                              } else {
+                                navigator.clipboard.writeText(`${shareData.title} - ${shareData.url}`);
+                                alert('Lien copié dans le presse-papier !');
+                              }
+                            }}
                             className="w-10 h-10 bg-white/90 text-gray-600 rounded-full flex items-center justify-center hover:text-black hover:bg-white transition-all backdrop-blur-sm"
                           >
                             <FaShare className="w-4 h-4" />
@@ -1515,6 +1529,20 @@ const BiensALouer = () => {
                   
                   <motion.button
                     whileHover={{ scale: 1.1 }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      const shareData = {
+                        title: bienSelectionne.titre,
+                        text: `${bienSelectionne.titre} - ${bienSelectionne.prix}€/mois à ${bienSelectionne.ville}`,
+                        url: window.location.href + `?bien=${bienSelectionne.id}`
+                      };
+                      if (navigator.share) {
+                        navigator.share(shareData);
+                      } else {
+                        navigator.clipboard.writeText(`${shareData.title} - ${shareData.url}`);
+                        alert('Lien copié dans le presse-papier !');
+                      }
+                    }}
                     className="w-12 h-12 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 flex items-center justify-center transition-colors"
                   >
                     <FaShare className="w-5 h-5" />

@@ -7,6 +7,8 @@ import Contact from './pages/Contact'
 import Proprietaires from './pages/Proprietaires'
 import Villes from './pages/Villes'
 import BiensALouer from './pages/BiensALouer'
+import MentionsLegales from './pages/MentionsLegales'
+import Confidentialite from './pages/Confidentialite'
 import { useEffect } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
@@ -44,6 +46,8 @@ const AppContent = () => {
           <Route path="/proprietaires" element={<Proprietaires />} />
           <Route path="/villes" element={<Villes />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/mentions-legales" element={<MentionsLegales />} />
+          <Route path="/confidentialite" element={<Confidentialite />} />
         </Routes>
       </AnimatePresence>
     </div>
