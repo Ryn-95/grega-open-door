@@ -352,7 +352,7 @@ const Proprietaires = () => {
           cliquez ici pour ouvrir dans un nouvel onglet
         </a>
       </p>
-    </div>
+        </div>
   );
 
   return (
@@ -376,8 +376,8 @@ const Proprietaires = () => {
           >
               <FaCheck className="w-4 h-4" />
               <span className="text-sm font-medium">SERVICE 100% GRATUIT</span>
-            </motion.div>
-
+          </motion.div>
+          
             <h1 className="text-6xl md:text-8xl font-light text-black mb-8 tracking-tight">
               Propriétaires
             </h1>
@@ -395,8 +395,8 @@ const Proprietaires = () => {
             animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
-            >
-              <motion.button
+          >
+            <motion.button
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
@@ -450,7 +450,7 @@ const Proprietaires = () => {
       <section className="pb-32">
         <div className="max-w-6xl mx-auto px-6">
           
-          <motion.div
+            <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -605,14 +605,14 @@ const Proprietaires = () => {
                 </div>
               </div>
               
-              <motion.button
+                    <motion.button
                 whileHover={{ y: -2 }}
                 onClick={downloadWordForm}
                 className="w-full border border-black text-black px-6 py-4 font-light hover:bg-black hover:text-white transition-all duration-300 mb-4"
-              >
-                <FaDownload className="inline mr-2" />
+                    >
+                      <FaDownload className="inline mr-2" />
                 Télécharger le formulaire Word (.doc)
-              </motion.button>
+                    </motion.button>
               
               <div className="text-center">
                 <span className="text-gray-500 text-sm font-light">
@@ -634,7 +634,7 @@ const Proprietaires = () => {
                     <div className="flex items-center gap-4 mb-4">
                   <FaPhone className="w-4 h-4 text-gray-400" />
                   <h3 className="text-lg font-light text-black">Téléphone</h3>
-                </div>
+                      </div>
                 <p className="text-gray-600 font-light mb-4">Discussion directe avec nos experts</p>
                 <motion.a
                   href="tel:0953376141"
@@ -647,12 +647,12 @@ const Proprietaires = () => {
 
               {/* Bureau avec Calendly */}
               <div className="border border-gray-200 p-6 hover:border-black transition-all duration-300">
-                <div className="flex items-center gap-4 mb-4">
+                    <div className="flex items-center gap-4 mb-4">
                   <FaMapMarkerAlt className="w-4 h-4 text-gray-400" />
                   <h3 className="text-lg font-light text-black">Bureau</h3>
-                </div>
+                      </div>
                 <p className="text-gray-600 font-light mb-4">Rendez-vous sur place ou par visio</p>
-                <motion.button
+                    <motion.button
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
@@ -664,7 +664,7 @@ const Proprietaires = () => {
                   className="block w-full border border-gray-300 text-black px-4 py-3 font-light hover:border-black transition-all duration-300 text-center"
                 >
                   Prendre rendez-vous
-                </motion.button>
+                    </motion.button>
               </div>
             </motion.div>
           </div>
@@ -674,7 +674,7 @@ const Proprietaires = () => {
       {/* Section CTA Final Développée */}
       <section className="border-t border-gray-200 py-32">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div
+        <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -790,7 +790,7 @@ const Proprietaires = () => {
                 <div>
                   <h4 className="font-medium text-black">Analyse du marché local</h4>
                   <p className="text-gray-600 font-light">Étude comparative des biens similaires dans votre secteur</p>
-                </div>
+    </div>
               </div>
               <div className="flex items-start gap-3">
                 <FaRocket className="w-5 h-5 text-gray-400 mt-1" />

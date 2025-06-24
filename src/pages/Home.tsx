@@ -334,7 +334,7 @@ const Home = () => {
                 {/* Icône Simple - MOBILE OPTIMISÉ */}
                 <div className="w-12 md:w-16 h-12 md:h-16 mx-auto mb-4 md:mb-6 bg-blue-500 rounded-full flex items-center justify-center">
                   <span className="text-white text-lg md:text-2xl font-bold">3x</span>
-                </div>
+        </div>
 
                 <h3 className="text-lg md:text-2xl font-light text-gray-900 mb-3 md:mb-4">
                   Efficacité Maximale
@@ -345,8 +345,8 @@ const Home = () => {
                 
                 <div className="text-xs md:text-sm text-blue-700 font-medium">
                   Performance optimisée
+                  </div>
                 </div>
-              </div>
             </motion.div>
 
             {/* SÉCURITÉ - Version Simple - MOBILE OPTIMISÉ */}
@@ -354,7 +354,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
+          viewport={{ once: true }}
               className="text-center"
             >
               <div className="p-6 md:p-8 rounded-xl md:rounded-2xl bg-gradient-to-br from-green-50 to-emerald-100 border border-green-200/30 hover:shadow-lg transition-shadow duration-300">
@@ -362,7 +362,7 @@ const Home = () => {
                 {/* Icône Simple - MOBILE OPTIMISÉ */}
                 <div className="w-12 md:w-16 h-12 md:h-16 mx-auto mb-4 md:mb-6 bg-green-500 rounded-full flex items-center justify-center">
                   <FaShieldAlt className="w-6 md:w-8 h-6 md:h-8 text-white" />
-                </div>
+            </div>
 
                 <h3 className="text-lg md:text-2xl font-light text-gray-900 mb-3 md:mb-4">
                   Sécurité Absolue
@@ -374,7 +374,7 @@ const Home = () => {
                 <div className="text-xs md:text-sm text-green-700 font-medium">
                   Sécurité garantie
                 </div>
-              </div>
+                </div>
             </motion.div>
 
             {/* EXCELLENCE - Version Simple - MOBILE OPTIMISÉ */}
@@ -402,7 +402,7 @@ const Home = () => {
                 <div className="text-xs md:text-sm text-orange-700 font-medium">
                   +500 clients satisfaits
                 </div>
-              </div>
+                </div>
             </motion.div>
           </div>
 
@@ -432,7 +432,7 @@ const Home = () => {
                   </div>
                 ))}
               </div>
-            </div>
+              </div>
           </motion.div>
         </div>
       </section>
@@ -598,13 +598,13 @@ const Home = () => {
       <section className="py-12 md:py-20 bg-gradient-to-b from-gray-50/30 to-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
           {/* Header MacBook - MOBILE OPTIMISÉ */}
-          <motion.div 
+                          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.6, 0.01, 0.05, 0.95] }}
-            viewport={{ once: true }}
+          viewport={{ once: true }}
             className="text-center mb-10 md:mb-16"
-          >
+                          >
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-extralight text-gray-900 mb-3 md:mb-4 leading-tight tracking-tight">
               Interface{' '}
               <span className="font-normal">Professionnelle</span>
@@ -613,7 +613,7 @@ const Home = () => {
               Plateforme de recherche intelligente
             </p>
             <div className="w-16 md:w-20 h-px bg-gray-900 mx-auto mt-4 md:mt-6"></div>
-          </motion.div>
+                          </motion.div>
 
           {/* MacBook avec Interface GREGA - MOBILE OPTIMISÉ */}
           <motion.div
@@ -638,7 +638,7 @@ const Home = () => {
                       <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                       <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                       <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                    </div>
+                      </div>
                     <div className="text-sm font-medium text-gray-700">GREGA - Plateforme Immobilière</div>
                     <div className="w-16"></div>
                   </div>
@@ -656,8 +656,8 @@ const Home = () => {
                           <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                         </div>
                         <span className="text-sm text-gray-600">En ligne</span>
-                      </div>
                     </div>
+                  </div>
                   
                     {/* Recherche en cours */}
                     <div className="grid grid-cols-3 gap-6">
@@ -678,7 +678,7 @@ const Home = () => {
                             <div className="font-medium text-blue-900">2 pièces</div>
                           </div>
                         </div>
-                      </div>
+                </div>
                 
                       {/* Colonne centre - Résultats */}
                       <div className="space-y-4">
@@ -690,15 +690,15 @@ const Home = () => {
                         {/* Biens trouvés */}
                         <div className="space-y-3">
                           <div className="p-3 border border-gray-200 rounded-lg">
-                            <div className="flex justify-between items-start">
-                              <div>
+                              <div className="flex justify-between items-start">
+                                <div>
                                 <div className="font-medium text-sm">Rue de la Roquette</div>
                                 <div className="text-lg font-semibold text-gray-900">1 450 €</div>
-                              </div>
+                                </div>
                               <div className="text-xs px-2 py-1 rounded-full bg-green-100 text-green-700">
                                 Nouveau
+                                </div>
                               </div>
-                            </div>
                           </div>
                           <div className="p-3 border border-gray-200 rounded-lg">
                             <div className="flex justify-between items-start">
@@ -722,9 +722,9 @@ const Home = () => {
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-            
+          </div>
+        </div>
+        
                       {/* Colonne droite - Actions */}
                       <div className="space-y-4">
                         <h3 className="font-semibold text-gray-900">Actions rapides</h3>
@@ -748,7 +748,7 @@ const Home = () => {
                             <div className="flex items-center gap-2 p-2 bg-blue-50 rounded-lg text-sm">
                               <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                               <span className="text-blue-900">3 nouveaux biens</span>
-                            </div>
+                          </div>
                             <div className="flex items-center gap-2 p-2 bg-blue-50 rounded-lg text-sm">
                               <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                               <span className="text-blue-900">Visite confirmée</span>
@@ -926,7 +926,7 @@ const Home = () => {
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           {/* Header Ultra-Clean */}
-          <motion.div 
+        <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.6, 0.01, 0.05, 0.95] }}
@@ -1023,7 +1023,7 @@ const Home = () => {
                         {/* Header avec icône et stats */}
                         <div className="text-center mb-6">
                           <div className="text-4xl mb-3">
-                            {profile.icon}
+                        {profile.icon}
                           </div>
                           <h3 className="text-xl font-light text-gray-900">{profile.title}</h3>
                           <p className={`text-sm font-medium mt-1 ${
@@ -1063,10 +1063,10 @@ const Home = () => {
                               <span className="text-sm text-gray-700">
                                 {feature}
                               </span>
-                            </div>
+                </div>
                           ))}
-                        </div>
-
+                    </div>
+                    
                         {/* Bouton CTA simplifié */}
                         <div className="mt-auto">
                           <button 
@@ -1095,7 +1095,7 @@ const Home = () => {
                                   }`}
                                 />
                               ))}
-                            </div>
+                    </div>
                           </div>
                         </div>
                       </div>
@@ -1298,7 +1298,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-
+            
       {/* Section FAQ Ultra-Design */}
       <section className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-6 relative z-10">
