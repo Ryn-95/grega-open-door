@@ -263,24 +263,51 @@ const Footer = () => {
             </div>
           </motion.div>
 
-          {/* Message final avec cœur */}
+          {/* Message final avec logo Visuance - Ultra épuré */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
+            transition={{ duration: 1, delay: 0.8, ease: [0.6, 0.01, 0.05, 0.95] }}
             viewport={{ once: true }}
-            className="text-center mt-8 pt-6 border-t border-gray-50"
+            className="text-center mt-16 pt-10 border-t border-gray-100"
           >
-            <p className="text-xs text-gray-400 flex items-center justify-center gap-2">
-              <span>Fait avec</span>
-              <motion.div
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            <div className="flex items-center justify-center gap-12 text-gray-400">
+              <span className="text-sm font-extralight tracking-[0.2em] uppercase text-gray-500">Créé par</span>
+              
+              <motion.a
+                href="https://visuance.fr"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                className="group relative"
               >
-                <FaHeart className="text-red-400 w-3 h-3" />
-              </motion.div>
-              <span>à Paris</span>
-            </p>
+                <div className="relative overflow-hidden rounded-2xl p-1 bg-gradient-to-br from-gray-50 to-gray-100 shadow-sm group-hover:shadow-md transition-all duration-700">
+                  <img 
+                    src="/images/logo_visuance.png" 
+                    alt="Visuance" 
+                    className="h-16 w-auto opacity-85 group-hover:opacity-100 transition-all duration-700 filter grayscale group-hover:grayscale-0"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                </div>
+              </motion.a>
+
+              <div className="w-px h-8 bg-gradient-to-b from-transparent via-gray-300 to-transparent"></div>
+
+              <motion.a
+                href="https://playtosky.fr"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -2, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="group relative"
+              >
+                <span className="text-sm font-extralight tracking-[0.2em] uppercase text-gray-500 group-hover:text-gray-700 transition-all duration-500 relative">
+                  Play to Sky
+                  <div className="absolute -bottom-1 left-0 w-0 h-px bg-gradient-to-r from-gray-400 to-gray-600 group-hover:w-full transition-all duration-500"></div>
+                </span>
+              </motion.a>
+            </div>
           </motion.div>
         </div>
       </div>
