@@ -45,163 +45,131 @@ const Home = () => {
     <main className="min-h-screen bg-white">
       <Hero />
 
-      {/* Section Processus Ultra-Design */}
-      <section className="py-20 bg-gradient-to-b from-gray-50/30 to-white relative overflow-hidden">
+      {/* Section Processus Ultra-Design - MOBILE OPTIMISÉ */}
+      <section className="py-12 md:py-20 bg-gradient-to-b from-gray-50/30 to-white relative overflow-hidden">
         {/* Background minimaliste */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-gray-100/15 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gray-200/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/3 left-1/4 w-48 md:w-96 h-48 md:h-96 bg-gray-100/15 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-40 md:w-80 h-40 md:h-80 bg-gray-200/10 rounded-full blur-3xl"></div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          {/* Header Processus Ultra-Clean */}
+        <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+          {/* Header Processus Ultra-Clean - MOBILE OPTIMISÉ */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.6, 0.01, 0.05, 0.95] }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8 md:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-extralight text-gray-900 mb-4 leading-tight tracking-tight">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-extralight text-gray-900 mb-3 md:mb-4 leading-tight tracking-tight">
               Notre Processus
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
+            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto font-light leading-relaxed px-4">
               Comment nous vous accompagnons ?
             </p>
-            <div className="w-20 h-px bg-gray-900 mx-auto mt-6"></div>
+            <div className="w-16 md:w-20 h-px bg-gray-900 mx-auto mt-4 md:mt-6"></div>
           </motion.div>
 
-          {/* Layout Smartphone + Étapes */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Layout Smartphone + Étapes - MOBILE OPTIMISÉ */}
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
             
-            {/* Smartphone Ultra-Premium */}
+            {/* Smartphone Ultra-Premium - MOBILE OPTIMISÉ */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: [0.6, 0.01, 0.05, 0.95] }}
               viewport={{ once: true }}
-              className="relative flex justify-center lg:justify-end"
+              className="relative flex justify-center lg:justify-end order-2 lg:order-1"
             >
               <div className="relative">
-                {/* Halo lumineux */}
-                <div className="absolute -inset-6 bg-gradient-to-r from-gray-100/30 to-gray-200/20 rounded-3xl blur-2xl opacity-40"></div>
+                {/* Halo lumineux statique */}
+                <div className="absolute -inset-3 md:-inset-6 bg-gradient-to-r from-gray-100/20 to-gray-200/15 rounded-3xl blur-2xl opacity-30"></div>
                 
-                {/* Frame iPhone */}
-                        <motion.div 
-                  whileHover={{ scale: 1.02, rotateY: 1 }}
-                  transition={{ duration: 0.4 }}
-                  className="relative w-72 h-[580px] bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 rounded-[3rem] p-2.5 shadow-2xl"
-                >
+                {/* Frame iPhone - MOBILE OPTIMISÉ */}
+                <div className="relative w-56 md:w-72 h-[450px] md:h-[580px] bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 rounded-[2.5rem] md:rounded-[3rem] p-2 md:p-2.5 shadow-2xl">
                   {/* Écran */}
-                  <div className="w-full h-full bg-white rounded-[2.5rem] overflow-hidden relative">
-                    {/* Barre de statut */}
-                    <div className="flex justify-between items-center px-6 py-3 text-sm font-medium text-gray-900">
+                  <div className="w-full h-full bg-white rounded-[2rem] md:rounded-[2.5rem] overflow-hidden relative">
+                    {/* Barre de statut - MOBILE OPTIMISÉ */}
+                    <div className="flex justify-between items-center px-4 md:px-6 py-2 md:py-3 text-xs md:text-sm font-medium text-gray-900">
                       <span>9:41</span>
                       <div className="flex space-x-1">
-                        <div className="w-4 h-2 bg-gray-900 rounded-sm"></div>
-                        <div className="w-4 h-2 bg-gray-900 rounded-sm"></div>
-                        <div className="w-4 h-2 bg-gray-400 rounded-sm"></div>
+                        <div className="w-3 md:w-4 h-1.5 md:h-2 bg-gray-900 rounded-sm"></div>
+                        <div className="w-3 md:w-4 h-1.5 md:h-2 bg-gray-900 rounded-sm"></div>
+                        <div className="w-3 md:w-4 h-1.5 md:h-2 bg-gray-400 rounded-sm"></div>
                       </div>
-                            </div>
+                    </div>
                             
-                    {/* Header app */}
-                    <div className="px-6 py-4 border-b border-gray-100">
+                    {/* Header app - MOBILE OPTIMISÉ */}
+                    <div className="px-4 md:px-6 py-3 md:py-4 border-b border-gray-100">
                       <div className="flex items-center justify-between">
-                        <h3 className="text-xl font-semibold text-gray-900">GREGA</h3>
-                        <div className="w-8 h-8 bg-gray-900 rounded-full flex items-center justify-center">
-                          <FaPhone className="w-3 h-3 text-white" />
+                        <h3 className="text-lg md:text-xl font-semibold text-gray-900">GREGA</h3>
+                        <div className="w-6 md:w-8 h-6 md:h-8 bg-gray-900 rounded-full flex items-center justify-center">
+                          <FaPhone className="w-2.5 md:w-3 h-2.5 md:h-3 text-white" />
                         </div>
-                            </div>
-                          </div>
+                      </div>
+                    </div>
                     
-                    {/* Contenu app */}
-                    <div className="p-6 space-y-4">
+                    {/* Contenu app - MOBILE OPTIMISÉ */}
+                    <div className="p-4 md:p-6 space-y-3 md:space-y-4">
                       {/* Progress bar premium */}
-                      <div className="mb-6">
+                      <div className="mb-4 md:mb-6">
                         <div className="flex justify-between items-center mb-2">
-                          <span className="text-sm font-medium text-gray-600">Progression</span>
-                          <span className="text-sm font-bold text-gray-900">3/5</span>
+                          <span className="text-xs md:text-sm font-medium text-gray-600">Progression</span>
+                          <span className="text-xs md:text-sm font-bold text-gray-900">3/5</span>
                         </div>
-                        <div className="w-full bg-gray-200 rounded-full h-2">
-                          <motion.div 
-                            className="bg-gradient-to-r from-gray-900 to-gray-700 h-2 rounded-full"
-                            initial={{ width: 0 }}
-                            whileInView={{ width: "60%" }}
-                            transition={{ duration: 1.5, delay: 0.6 }}
-                          ></motion.div>
+                        <div className="w-full bg-gray-200 rounded-full h-1.5 md:h-2">
+                          <div className="bg-gradient-to-r from-gray-900 to-gray-700 h-1.5 md:h-2 rounded-full w-3/5"></div>
                         </div>
                       </div>
                       
-                      {/* Étape actuelle premium */}
-                      <motion.div
-                        initial={{ opacity: 0, y: 15 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 1 }}
-                        className="bg-gray-50 rounded-2xl p-4"
-                      >
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="w-8 h-8 bg-gray-900 text-white rounded-lg flex items-center justify-center text-sm font-bold">
+                      {/* Étape actuelle premium - MOBILE OPTIMISÉ */}
+                      <div className="bg-gray-50 rounded-xl md:rounded-2xl p-3 md:p-4">
+                        <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
+                          <div className="w-6 md:w-8 h-6 md:h-8 bg-gray-900 text-white rounded-md md:rounded-lg flex items-center justify-center text-xs md:text-sm font-bold">
                             03
                           </div>
-                          <h4 className="font-semibold text-gray-900">Recherche active</h4>
+                          <h4 className="text-sm md:text-base font-semibold text-gray-900">Recherche active</h4>
                         </div>
-                        <p className="text-gray-600 mb-3 text-sm">
+                        <p className="text-gray-600 mb-2 md:mb-3 text-xs md:text-sm">
                           Nous explorons le marché pour vous
                         </p>
-                        <div className="space-y-2">
-                          {[
-                            "15 biens analysés",
-                            "4 visites planifiées", 
-                            "2 dossiers préparés"
-                          ].map((item, index) => (
-                            <motion.div
-                              key={index}
-                              initial={{ opacity: 0, x: -15 }}
-                              whileInView={{ opacity: 1, x: 0 }}
-                              transition={{ duration: 0.4, delay: 1.3 + index * 0.1 }}
-                              className="flex items-center gap-2 text-xs text-gray-700"
-                            >
-                              <FaCheckCircle className="w-3 h-3 text-green-500" />
-                              {item}
-                            </motion.div>
-                          ))}
+                        <div className="space-y-1.5 md:space-y-2">
+                          <div className="flex items-center gap-2 text-xs text-gray-700">
+                            <FaCheckCircle className="w-2.5 md:w-3 h-2.5 md:h-3 text-green-500" />
+                            15 biens analysés
+                          </div>
+                          <div className="flex items-center gap-2 text-xs text-gray-700">
+                            <FaCheckCircle className="w-2.5 md:w-3 h-2.5 md:h-3 text-green-500" />
+                            4 visites planifiées
+                          </div>
+                          <div className="flex items-center gap-2 text-xs text-gray-700">
+                            <FaCheckCircle className="w-2.5 md:w-3 h-2.5 md:h-3 text-green-500" />
+                            2 dossiers préparés
+                          </div>
+                        </div>
                       </div>
-                      </motion.div>
                       
-                      {/* Boutons d'action premium */}
-                      <div className="space-y-3 pt-4">
-                        <motion.button
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          className="w-full bg-gray-900 text-white py-3 rounded-xl text-sm font-medium"
-                          initial={{ opacity: 0, y: 15 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.6, delay: 1.6 }}
-                        >
+                      {/* Boutons d'action premium - MOBILE OPTIMISÉ */}
+                      <div className="space-y-2 md:space-y-3 pt-3 md:pt-4">
+                        <button className="w-full bg-gray-900 text-white py-2.5 md:py-3 rounded-lg md:rounded-xl text-xs md:text-sm font-medium">
                           Voir les biens trouvés
-                        </motion.button>
-                        <motion.button
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          className="w-full border border-gray-200 text-gray-700 py-3 rounded-xl text-sm font-medium"
-                          initial={{ opacity: 0, y: 15 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.6, delay: 1.7 }}
-                        >
+                        </button>
+                        <button className="w-full border border-gray-200 text-gray-700 py-2.5 md:py-3 rounded-lg md:rounded-xl text-xs md:text-sm font-medium">
                           Modifier mes critères
-                        </motion.button>
+                        </button>
                       </div>
                     </div>
                   </div>
                   
-                  {/* Indicateur home */}
-                  <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-white rounded-full opacity-70"></div>
-                </motion.div>
+                  {/* Indicateur home - MOBILE OPTIMISÉ */}
+                  <div className="absolute bottom-1.5 md:bottom-2 left-1/2 transform -translate-x-1/2 w-24 md:w-32 h-0.5 md:h-1 bg-white rounded-full opacity-70"></div>
+                </div>
               </div>
             </motion.div>
 
-            {/* Étapes Ultra-Clean */}
-            <div className="space-y-8">
+            {/* Étapes Ultra-Clean - MOBILE OPTIMISÉ */}
+            <div className="space-y-6 md:space-y-8 order-1 lg:order-2">
               {[
                 {
                   number: "01",
@@ -232,79 +200,65 @@ const Home = () => {
                   title: "Suivi Complet", 
                   description: "Assistance complète dans toutes les démarches administratives pour une intégration rapide et sans souci.",
                   color: "red"
-              }
+                }
               ].map((step, index) => (
-              <motion.div
-                key={index}
+                <motion.div
+                  key={index}
                   initial={{ opacity: 0, x: 40 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1, ease: [0.6, 0.01, 0.05, 0.95] }}
                   viewport={{ once: true }}
-                className="group relative"
-              >
-                  {/* Ligne de connexion */}
+                  className="group relative"
+                >
+                  {/* Ligne de connexion - MOBILE OPTIMISÉ */}
                   {index < 4 && (
-                    <motion.div
-                      initial={{ scaleY: 0 }}
-                      whileInView={{ scaleY: 1 }}
-                      transition={{ duration: 0.8, delay: 0.6 + index * 0.1 }}
-                      className="absolute left-6 top-16 w-px h-16 bg-gradient-to-b from-gray-300 to-transparent origin-top"
-                    />
+                    <div className="absolute left-4 md:left-6 top-12 md:top-16 w-px h-12 md:h-16 bg-gradient-to-b from-gray-300 to-transparent"></div>
                   )}
                   
-                  <div className="flex items-start gap-6">
-                    {/* Numéro premium */}
-                        <motion.div 
-                      className="relative w-12 h-12 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center text-sm font-bold text-gray-900 shadow-sm group-hover:border-gray-300 transition-all duration-300 flex-shrink-0 z-10"
-                      whileHover={{ scale: 1.1, rotate: 2 }}
-                          transition={{ duration: 0.3 }}
-                    >
+                  <div className="flex items-start gap-4 md:gap-6">
+                    {/* Numéro premium - MOBILE OPTIMISÉ */}
+                    <div className="relative w-8 md:w-12 h-8 md:h-12 bg-white border-2 border-gray-200 rounded-lg md:rounded-xl flex items-center justify-center text-xs md:text-sm font-bold text-gray-900 shadow-sm flex-shrink-0 z-10">
                       {step.number}
-                      <div className={`absolute inset-0 bg-${step.color}-500 rounded-xl opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
-                    </motion.div>
+                    </div>
                             
-                    {/* Contenu */}
-                    <div className="flex-1 pt-2">
-                      <h3 className="text-lg md:text-xl font-light text-gray-900 mb-3 tracking-wide group-hover:text-gray-700 transition-colors duration-200">
+                    {/* Contenu - MOBILE OPTIMISÉ */}
+                    <div className="flex-1 pt-1 md:pt-2">
+                      <h3 className="text-base md:text-lg lg:text-xl font-light text-gray-900 mb-2 md:mb-3 tracking-wide">
                         {step.title}
                       </h3>
-                      <p className="text-gray-600 font-light leading-relaxed text-base">
+                      <p className="text-gray-600 font-light leading-relaxed text-sm md:text-base">
                         {step.description}
                       </p>
-                            </div>
-                          </div>
-                        </motion.div>
+                    </div>
+                  </div>
+                </motion.div>
               ))}
             </div>
           </div>
                         
-          {/* Call to Action Ultra-Premium */}
+          {/* Call to Action Ultra-Premium - MOBILE OPTIMISÉ */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mt-20"
+            className="text-center mt-12 md:mt-20"
           >
-            <div className="inline-flex items-center gap-3 bg-gray-50 border border-gray-200 rounded-full px-6 py-3 mb-8">
-              <FaMobileAlt className="w-4 h-4 text-gray-600" />
-              <span className="text-sm font-medium text-gray-700">
+            <div className="inline-flex items-center gap-2 md:gap-3 bg-gray-50 border border-gray-200 rounded-full px-4 md:px-6 py-2 md:py-3 mb-6 md:mb-8">
+              <FaMobileAlt className="w-3 md:w-4 h-3 md:h-4 text-gray-600" />
+              <span className="text-xs md:text-sm font-medium text-gray-700">
                 Une application intuitive pour suivre toutes les étapes
               </span>
-                        </div>
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gray-900 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
+            </div>
+            <button className="bg-gray-900 text-white px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg font-medium hover:bg-gray-800 transition-colors duration-300 shadow-lg">
               Démarrer maintenant
-            </motion.button>
+            </button>
           </motion.div>
-                      </div>
+        </div>
       </section>
 
-      {/* Section Avantages - Style Ultra-Épuré RÉVOLUTIONNAIRE */}
-      <section className="py-20 bg-white relative overflow-hidden">
+      {/* Section Avantages - Style Ultra-Épuré RÉVOLUTIONNAIRE - MOBILE OPTIMISÉ */}
+      <section className="py-12 md:py-20 bg-white relative overflow-hidden">
         {/* Background holographique */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50/10 via-transparent to-purple-50/10"></div>
@@ -321,17 +275,17 @@ const Home = () => {
           />
       </div>
 
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          {/* Header Révolutionnaire */}
+        <div className="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
+          {/* Header Révolutionnaire - MOBILE OPTIMISÉ */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.6, 0.01, 0.05, 0.95] }}
             viewport={{ once: true }}
-            className="text-center mb-20"
+            className="text-center mb-12 md:mb-20"
           >
             <motion.h2 
-              className="text-4xl md:text-5xl font-extralight text-gray-900 mb-6 tracking-tight leading-tight relative"
+              className="text-2xl md:text-4xl lg:text-5xl font-extralight text-gray-900 mb-4 md:mb-6 tracking-tight leading-tight relative px-4"
               whileHover={{ scale: 1.02 }}
             >
               Pourquoi choisir{' '}
@@ -347,17 +301,17 @@ const Home = () => {
               </motion.span>
             </motion.h2>
             <motion.div 
-              className="w-24 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"
+              className="w-16 md:w-24 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"
               initial={{ width: 0 }}
               whileInView={{ width: 96 }}
               transition={{ duration: 1, delay: 0.3 }}
             />
           </motion.div>
 
-          {/* Grille Ultra-Révolutionnaire */}
-          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
+          {/* Grille Ultra-Révolutionnaire - MOBILE OPTIMISÉ */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
             
-            {/* EFFICACITÉ - Version Simple */}
+            {/* EFFICACITÉ - Version Simple - MOBILE OPTIMISÉ */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -365,27 +319,27 @@ const Home = () => {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200/30 hover:shadow-lg transition-shadow duration-300">
+              <div className="p-6 md:p-8 rounded-xl md:rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200/30 hover:shadow-lg transition-shadow duration-300">
                 
-                {/* Icône Simple */}
-                <div className="w-16 h-16 mx-auto mb-6 bg-blue-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-2xl font-bold">3x</span>
+                {/* Icône Simple - MOBILE OPTIMISÉ */}
+                <div className="w-12 md:w-16 h-12 md:h-16 mx-auto mb-4 md:mb-6 bg-blue-500 rounded-full flex items-center justify-center">
+                  <span className="text-white text-lg md:text-2xl font-bold">3x</span>
                 </div>
 
-                <h3 className="text-2xl font-light text-gray-900 mb-4">
+                <h3 className="text-lg md:text-2xl font-light text-gray-900 mb-3 md:mb-4">
                   Efficacité Maximale
                 </h3>
-                <p className="text-gray-700 font-light text-base leading-relaxed mb-6">
+                <p className="text-gray-700 font-light text-sm md:text-base leading-relaxed mb-4 md:mb-6">
                   IA prédictive : trouvez votre logement 3x plus rapidement
                 </p>
                 
-                <div className="text-sm text-blue-700 font-medium">
+                <div className="text-xs md:text-sm text-blue-700 font-medium">
                   Performance optimisée
                 </div>
               </div>
             </motion.div>
 
-            {/* SÉCURITÉ - Version Simple */}
+            {/* SÉCURITÉ - Version Simple - MOBILE OPTIMISÉ */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -393,78 +347,78 @@ const Home = () => {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-100 border border-green-200/30 hover:shadow-lg transition-shadow duration-300">
+              <div className="p-6 md:p-8 rounded-xl md:rounded-2xl bg-gradient-to-br from-green-50 to-emerald-100 border border-green-200/30 hover:shadow-lg transition-shadow duration-300">
                 
-                {/* Icône Simple */}
-                <div className="w-16 h-16 mx-auto mb-6 bg-green-500 rounded-full flex items-center justify-center">
-                  <FaShieldAlt className="w-8 h-8 text-white" />
+                {/* Icône Simple - MOBILE OPTIMISÉ */}
+                <div className="w-12 md:w-16 h-12 md:h-16 mx-auto mb-4 md:mb-6 bg-green-500 rounded-full flex items-center justify-center">
+                  <FaShieldAlt className="w-6 md:w-8 h-6 md:h-8 text-white" />
                 </div>
 
-                <h3 className="text-2xl font-light text-gray-900 mb-4">
+                <h3 className="text-lg md:text-2xl font-light text-gray-900 mb-3 md:mb-4">
                   Sécurité Absolue
                 </h3>
-                <p className="text-gray-700 font-light text-base leading-relaxed mb-6">
+                <p className="text-gray-700 font-light text-sm md:text-base leading-relaxed mb-4 md:mb-6">
                   Protection maximale de vos données et dossiers
                 </p>
                 
-                <div className="text-sm text-green-700 font-medium">
+                <div className="text-xs md:text-sm text-green-700 font-medium">
                   Sécurité garantie
                 </div>
               </div>
             </motion.div>
 
-            {/* EXCELLENCE - Version Simple */}
+            {/* EXCELLENCE - Version Simple - MOBILE OPTIMISÉ */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="text-center"
+              className="text-center md:col-span-2 lg:col-span-1"
             >
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-100 border border-amber-200/30 hover:shadow-lg transition-shadow duration-300">
+              <div className="p-6 md:p-8 rounded-xl md:rounded-2xl bg-gradient-to-br from-amber-50 to-orange-100 border border-amber-200/30 hover:shadow-lg transition-shadow duration-300">
                 
-                {/* Icône Simple */}
-                <div className="w-16 h-16 mx-auto mb-6 bg-amber-500 rounded-full flex items-center justify-center">
-                  <FaStar className="w-8 h-8 text-white" />
+                {/* Icône Simple - MOBILE OPTIMISÉ */}
+                <div className="w-12 md:w-16 h-12 md:h-16 mx-auto mb-4 md:mb-6 bg-amber-500 rounded-full flex items-center justify-center">
+                  <FaStar className="w-6 md:w-8 h-6 md:h-8 text-white" />
                 </div>
 
-                <h3 className="text-2xl font-light text-gray-900 mb-4">
+                <h3 className="text-lg md:text-2xl font-light text-gray-900 mb-3 md:mb-4">
                   Excellence Premium
                 </h3>
-                <p className="text-gray-700 font-light text-base leading-relaxed mb-6">
+                <p className="text-gray-700 font-light text-sm md:text-base leading-relaxed mb-4 md:mb-6">
                   Service personnalisé avec accompagnement VIP
                 </p>
                 
-                <div className="text-sm text-orange-700 font-medium">
+                <div className="text-xs md:text-sm text-orange-700 font-medium">
                   +500 clients satisfaits
                 </div>
               </div>
             </motion.div>
           </div>
 
-          {/* Section Bonus Simplifiée */}
+          {/* Section Bonus Simplifiée - MOBILE OPTIMISÉ */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
-            className="mt-20"
+            className="mt-12 md:mt-20"
           >
-            <div className="bg-gray-900 rounded-2xl p-8 text-center text-white">
-              <h3 className="text-2xl font-light mb-4">Command Center</h3>
-              <p className="text-gray-300 mb-6">Système opérationnel</p>
+            <div className="bg-gray-900 rounded-xl md:rounded-2xl p-6 md:p-8 text-center text-white">
+              <h3 className="text-lg md:text-2xl font-light mb-3 md:mb-4">Command Center</h3>
+              <p className="text-gray-300 mb-4 md:mb-6 text-sm md:text-base">Système opérationnel</p>
               
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
                 {[
                   { label: "Recherches actives", value: "127", icon: "🔍" },
                   { label: "Visites planifiées", value: "43", icon: "🏠" },
                   { label: "Dossiers traités", value: "89", icon: "📋" },
                   { label: "Contrats signés", value: "31", icon: "✅" }
                 ].map((stat, index) => (
-                  <div key={index} className="text-center p-4 bg-gray-800 rounded-xl">
-                    <div className="text-2xl mb-2">{stat.icon}</div>
-                    <div className="text-2xl font-light text-white mb-1">{stat.value}</div>
-                    <p className="text-gray-400 text-xs">{stat.label}</p>
+                  <div key={index} className="text-center p-3 md:p-4 bg-gray-800 rounded-lg md:rounded-xl">
+                    <div className="text-lg md:text-2xl mb-1 md:mb-2">{stat.icon}</div>
+                    <div className="text-lg md:text-2xl font-light text-white mb-1">{stat.value}</div>
+                    <p className="text-gray-400 text-xs leading-tight">{stat.label}</p>
                   </div>
                 ))}
               </div>
@@ -473,29 +427,29 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Section Statistiques Temps Réel Ultra-Innovante */}
-      <section className="py-20 bg-gradient-to-b from-gray-50/30 to-gray-100/20 relative overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          {/* Header Stats */}
+      {/* Section Statistiques Temps Réel Ultra-Innovante - MOBILE OPTIMISÉ */}
+      <section className="py-12 md:py-20 bg-gradient-to-b from-gray-50/30 to-gray-100/20 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
+          {/* Header Stats - MOBILE OPTIMISÉ */}
           <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.6, 0.01, 0.05, 0.95] }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-10 md:mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-extralight text-gray-900 mb-4 tracking-tight leading-tight">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-extralight text-gray-900 mb-3 md:mb-4 tracking-tight leading-tight">
               GREGA en{' '}
               <span className="font-normal">Temps Réel</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
+            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto font-light leading-relaxed px-4">
               Nos performances live
             </p>
-            <div className="w-16 h-px bg-gray-900 mx-auto mt-6"></div>
+            <div className="w-12 md:w-16 h-px bg-gray-900 mx-auto mt-4 md:mt-6"></div>
           </motion.div>
 
-          {/* Statistiques Animées */}
-          <div className="grid md:grid-cols-4 gap-8">
+          {/* Statistiques Animées - MOBILE OPTIMISÉ */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {[
               { number: 847, label: "Clients satisfaits", suffix: "+", color: "blue" },
               { number: 2156, label: "Biens analysés", suffix: "", color: "green" },
@@ -512,13 +466,13 @@ const Home = () => {
               >
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className="p-6 bg-white rounded-xl border border-gray-100 hover:border-gray-200 transition-all duration-300 shadow-sm hover:shadow-lg"
+                  className="p-4 md:p-6 bg-white rounded-lg md:rounded-xl border border-gray-100 hover:border-gray-200 transition-all duration-300 shadow-sm hover:shadow-lg"
               >
                   <motion.div
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     transition={{ duration: 0.8, delay: index * 0.1 + 0.3 }}
-                    className={`text-3xl md:text-4xl font-light text-${stat.color}-600 mb-2`}
+                    className={`text-2xl md:text-3xl lg:text-4xl font-light text-${stat.color}-600 mb-1 md:mb-2`}
                   >
                     <motion.span
                       initial={{ opacity: 0 }}
@@ -528,14 +482,14 @@ const Home = () => {
                       {stat.number}{stat.suffix}
               </motion.span>
                   </motion.div>
-                  <p className="text-gray-600 font-light text-sm">{stat.label}</p>
+                  <p className="text-gray-600 font-light text-xs md:text-sm leading-tight">{stat.label}</p>
                   
-                  {/* Indicateur live */}
-                  <div className="flex items-center justify-center gap-2 mt-3">
+                  {/* Indicateur live - MOBILE OPTIMISÉ */}
+                  <div className="flex items-center justify-center gap-1 md:gap-2 mt-2 md:mt-3">
                     <motion.div
                       animate={{ scale: [1, 1.2, 1] }}
                       transition={{ duration: 2, repeat: Infinity }}
-                      className="w-2 h-2 bg-green-500 rounded-full"
+                      className="w-1.5 md:w-2 h-1.5 md:h-2 bg-green-500 rounded-full"
                     />
                     <span className="text-xs text-gray-500">Live</span>
                   </div>
@@ -546,28 +500,28 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Section Services Ultra-Premium */}
-      <section className="py-20 bg-white relative overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          {/* Header Services */}
+      {/* Section Services Ultra-Premium - MOBILE OPTIMISÉ */}
+      <section className="py-12 md:py-20 bg-white relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
+          {/* Header Services - MOBILE OPTIMISÉ */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.6, 0.01, 0.05, 0.95] }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-10 md:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-extralight text-gray-900 mb-4 leading-tight tracking-tight">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-extralight text-gray-900 mb-3 md:mb-4 leading-tight tracking-tight">
               Nos services
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
+            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto font-light leading-relaxed px-4">
               Nos Solutions
             </p>
-            <div className="w-20 h-px bg-gray-900 mx-auto mt-6"></div>
+            <div className="w-16 md:w-20 h-px bg-gray-900 mx-auto mt-4 md:mt-6"></div>
           </motion.div>
 
-          {/* Services Premium Grid */}
-          <div className="grid md:grid-cols-2 gap-12">
+          {/* Services Premium Grid - MOBILE OPTIMISÉ */}
+          <div className="grid gap-6 md:grid-cols-2 md:gap-12">
             {[
               {
                 title: "Logement Classique",
@@ -575,7 +529,7 @@ const Home = () => {
                 description: "Découvrez notre sélection premium de biens résidentiels disponibles à la location",
                 cta: "Découvrir",
                 gradient: "from-blue-50 to-blue-100",
-                icon: <FaHome className="w-6 h-6" />
+                icon: <FaHome className="w-5 md:w-6 h-5 md:h-6" />
               },
               {
                 title: "Logement Social", 
@@ -583,7 +537,7 @@ const Home = () => {
                 description: "Accédez à des logements à loyer modèré avec un accompagnement personnalisé",
                 cta: "Découvrir",
                 gradient: "from-green-50 to-green-100",
-                icon: <FaUsers className="w-6 h-6" />
+                icon: <FaUsers className="w-5 md:w-6 h-5 md:h-6" />
               }
             ].map((service, index) => (
               <motion.div
@@ -597,28 +551,28 @@ const Home = () => {
                 <motion.div
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.4 }}
-                  className={`bg-gradient-to-br ${service.gradient} rounded-2xl p-8 border border-gray-100 hover:border-gray-200 transition-all duration-500 relative overflow-hidden group-hover:shadow-xl`}
+                  className={`bg-gradient-to-br ${service.gradient} rounded-xl md:rounded-2xl p-6 md:p-8 border border-gray-100 hover:border-gray-200 transition-all duration-500 relative overflow-hidden group-hover:shadow-xl`}
                 >
-                  {/* Badge Service Premium */}
-                  <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 text-sm font-medium text-gray-700 border border-gray-200/50">
+                  {/* Badge Service Premium - MOBILE OPTIMISÉ */}
+                  <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-3 md:px-4 py-1.5 md:py-2 mb-4 md:mb-6 text-xs md:text-sm font-medium text-gray-700 border border-gray-200/50">
                     {service.icon}
                     <span>{service.subtitle}</span>
                       </div>
                       
-                  <h3 className="text-2xl font-light text-gray-900 mb-4 tracking-wide group-hover:text-gray-800 transition-colors duration-300">
+                  <h3 className="text-xl md:text-2xl font-light text-gray-900 mb-3 md:mb-4 tracking-wide group-hover:text-gray-800 transition-colors duration-300">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 font-light leading-relaxed mb-8 text-lg">
+                  <p className="text-gray-600 font-light leading-relaxed mb-6 md:mb-8 text-sm md:text-lg">
                     {service.description}
                   </p>
                   
                         <motion.button
                     whileHover={{ scale: 1.05, x: 4 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center gap-3 bg-gray-900 text-white px-6 py-3 rounded-full font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl group-hover:gap-4"
+                    className="inline-flex items-center gap-2 md:gap-3 bg-gray-900 text-white px-5 md:px-6 py-2.5 md:py-3 rounded-full text-sm md:text-base font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl group-hover:gap-4"
                   >
                     <span>{service.cta}</span>
-                    <FaArrowRight className="w-4 h-4" />
+                    <FaArrowRight className="w-3 md:w-4 h-3 md:h-4" />
                   </motion.button>
                 </motion.div>
               </motion.div>
@@ -627,28 +581,28 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Section MacBook Interface GREGA Ultra-Innovante */}
-      <section className="py-20 bg-gradient-to-b from-gray-50/30 to-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          {/* Header MacBook */}
-                          <motion.div 
+      {/* Section MacBook Interface GREGA Ultra-Innovante - MOBILE OPTIMISÉ */}
+      <section className="py-12 md:py-20 bg-gradient-to-b from-gray-50/30 to-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+          {/* Header MacBook - MOBILE OPTIMISÉ */}
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.6, 0.01, 0.05, 0.95] }}
-          viewport={{ once: true }}
-            className="text-center mb-16"
-                          >
-            <h2 className="text-4xl md:text-5xl font-extralight text-gray-900 mb-4 leading-tight tracking-tight">
+            viewport={{ once: true }}
+            className="text-center mb-10 md:mb-16"
+          >
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-extralight text-gray-900 mb-3 md:mb-4 leading-tight tracking-tight">
               Interface{' '}
               <span className="font-normal">Professionnelle</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
+            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto font-light leading-relaxed px-4">
               Plateforme de recherche intelligente
             </p>
-            <div className="w-20 h-px bg-gray-900 mx-auto mt-6"></div>
-                          </motion.div>
+            <div className="w-16 md:w-20 h-px bg-gray-900 mx-auto mt-4 md:mt-6"></div>
+          </motion.div>
 
-          {/* MacBook avec Interface GREGA */}
+          {/* MacBook avec Interface GREGA - MOBILE OPTIMISÉ */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -656,17 +610,13 @@ const Home = () => {
             viewport={{ once: true }}
             className="relative flex justify-center"
           >
-            {/* VERSION DESKTOP - MacBook complet */}
+            {/* VERSION DESKTOP - MacBook complet - SANS HOVER */}
             <div className="relative hidden lg:block">
-              {/* Halo lumineux */}
-              <div className="absolute -inset-8 bg-gradient-to-r from-gray-100/30 to-gray-200/20 rounded-3xl blur-3xl opacity-40"></div>
+              {/* Halo lumineux statique */}
+              <div className="absolute -inset-8 bg-gradient-to-r from-gray-100/20 to-gray-200/15 rounded-3xl blur-3xl opacity-30"></div>
               
-              {/* MacBook Frame */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.4 }}
-                className="relative w-[900px] h-[560px] bg-gradient-to-b from-gray-300 via-gray-200 to-gray-300 rounded-[1.5rem] p-4 shadow-2xl"
-              >
+              {/* MacBook Frame - SANS HOVER */}
+              <div className="relative w-[900px] h-[560px] bg-gradient-to-b from-gray-300 via-gray-200 to-gray-300 rounded-[1.5rem] p-4 shadow-2xl">
                 {/* Écran MacBook */}
                 <div className="w-full h-full bg-black rounded-[1rem] overflow-hidden relative">
                   {/* Barre de menu macOS */}
@@ -721,42 +671,44 @@ const Home = () => {
                       <div className="space-y-4">
                         <div className="flex items-center justify-between">
                           <h3 className="font-semibold text-gray-900">Résultats</h3>
-                          <motion.div
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                            className="w-4 h-4 border-2 border-blue-500 border-t-transparent rounded-full"
-                          />
+                          <div className="w-4 h-4 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
                         </div>
                         
                         {/* Biens trouvés */}
                         <div className="space-y-3">
-                          {[
-                            { addr: "Rue de la Roquette", price: "1 450 €", status: "Nouveau" },
-                            { addr: "Boulevard Voltaire", price: "1 650 €", status: "Visite prévue" },
-                            { addr: "Rue Oberkampf", price: "1 380 €", status: "Dossier envoyé" }
-                          ].map((bien, index) => (
-                            <motion.div
-                              key={index}
-                              initial={{ opacity: 0, x: -20 }}
-                              whileInView={{ opacity: 1, x: 0 }}
-                              transition={{ duration: 0.5, delay: index * 0.2 + 1 }}
-                              className="p-3 border border-gray-200 rounded-lg hover:border-gray-300 transition-colors"
-                            >
-                              <div className="flex justify-between items-start">
-                                <div>
-                                  <div className="font-medium text-sm">{bien.addr}</div>
-                                  <div className="text-lg font-semibold text-gray-900">{bien.price}</div>
-                                </div>
-                                <div className={`text-xs px-2 py-1 rounded-full ${
-                                  bien.status === "Nouveau" ? "bg-green-100 text-green-700" :
-                                  bien.status === "Visite prévue" ? "bg-blue-100 text-blue-700" :
-                                  "bg-orange-100 text-orange-700"
-                                }`}>
-                                  {bien.status}
-                                </div>
+                          <div className="p-3 border border-gray-200 rounded-lg">
+                            <div className="flex justify-between items-start">
+                              <div>
+                                <div className="font-medium text-sm">Rue de la Roquette</div>
+                                <div className="text-lg font-semibold text-gray-900">1 450 €</div>
                               </div>
-                            </motion.div>
-                          ))}
+                              <div className="text-xs px-2 py-1 rounded-full bg-green-100 text-green-700">
+                                Nouveau
+                              </div>
+                            </div>
+                          </div>
+                          <div className="p-3 border border-gray-200 rounded-lg">
+                            <div className="flex justify-between items-start">
+                              <div>
+                                <div className="font-medium text-sm">Boulevard Voltaire</div>
+                                <div className="text-lg font-semibold text-gray-900">1 650 €</div>
+                              </div>
+                              <div className="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-700">
+                                Visite prévue
+                              </div>
+                            </div>
+                          </div>
+                          <div className="p-3 border border-gray-200 rounded-lg">
+                            <div className="flex justify-between items-start">
+                              <div>
+                                <div className="font-medium text-sm">Rue Oberkampf</div>
+                                <div className="text-lg font-semibold text-gray-900">1 380 €</div>
+                              </div>
+                              <div className="text-xs px-2 py-1 rounded-full bg-orange-100 text-orange-700">
+                                Dossier envoyé
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
             
@@ -764,42 +716,28 @@ const Home = () => {
                       <div className="space-y-4">
                         <h3 className="font-semibold text-gray-900">Actions rapides</h3>
                         <div className="space-y-3">
-                          <motion.button
-                            whileHover={{ scale: 1.02 }}
-                            className="w-full p-3 bg-gray-900 text-white rounded-lg text-sm font-medium"
-                          >
+                          <button className="w-full p-3 bg-gray-900 text-white rounded-lg text-sm font-medium">
                             Planifier visite
-                          </motion.button>
-                          <motion.button
-                            whileHover={{ scale: 1.02 }}
-                            className="w-full p-3 border border-gray-200 text-gray-700 rounded-lg text-sm font-medium"
-                          >
+                          </button>
+                          <button className="w-full p-3 border border-gray-200 text-gray-700 rounded-lg text-sm font-medium">
                             Affiner recherche
-                          </motion.button>
+                          </button>
                           
                           {/* Notifications temps réel */}
                           <div className="mt-6 space-y-2">
                             <div className="text-sm font-medium text-gray-900 mb-3">Notifications</div>
-                            {[
-                              "3 nouveaux biens",
-                              "Visite confirmée",
-                              "Dossier accepté"
-                            ].map((notif, index) => (
-                              <motion.div 
-                                key={index}
-                                initial={{ opacity: 0, y: 10 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.4, delay: index * 0.3 + 2 }}
-                                className="flex items-center gap-2 p-2 bg-blue-50 rounded-lg text-sm"
-                              >
-                                <motion.div
-                                  animate={{ scale: [1, 1.2, 1] }}
-                                  transition={{ duration: 1, repeat: Infinity, delay: index * 0.3 }}
-                                  className="w-2 h-2 bg-blue-500 rounded-full"
-                                />
-                                <span className="text-blue-900">{notif}</span>
-                              </motion.div>
-                            ))}
+                            <div className="flex items-center gap-2 p-2 bg-blue-50 rounded-lg text-sm">
+                              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                              <span className="text-blue-900">3 nouveaux biens</span>
+                            </div>
+                            <div className="flex items-center gap-2 p-2 bg-blue-50 rounded-lg text-sm">
+                              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                              <span className="text-blue-900">Visite confirmée</span>
+                            </div>
+                            <div className="flex items-center gap-2 p-2 bg-blue-50 rounded-lg text-sm">
+                              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                              <span className="text-blue-900">Dossier accepté</span>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -809,268 +747,363 @@ const Home = () => {
                 
                 {/* Base MacBook */}
                 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-64 h-4 bg-gradient-to-b from-gray-300 to-gray-400 rounded-b-xl"></div>
-              </motion.div>
+              </div>
             </div>
 
-            {/* VERSION MOBILE - Interface simplifiée */}
-            <div className="lg:hidden w-full max-w-sm mx-auto">
-              {/* Téléphone Frame */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.4 }}
-                className="relative bg-gradient-to-b from-gray-800 via-gray-700 to-gray-800 rounded-[2rem] p-2 shadow-2xl"
-              >
+            {/* VERSION MOBILE - Interface simplifiée - MOBILE OPTIMISÉ */}
+            <div className="lg:hidden w-full max-w-xs mx-auto">
+              {/* Téléphone Frame - MOBILE OPTIMISÉ */}
+              <div className="relative bg-gradient-to-b from-gray-800 via-gray-700 to-gray-800 rounded-[1.5rem] md:rounded-[2rem] p-1.5 md:p-2 shadow-2xl">
                 {/* Écran téléphone */}
-                <div className="w-full bg-black rounded-[1.5rem] overflow-hidden relative">
-                  {/* Barre de statut mobile */}
-                  <div className="flex items-center justify-between px-4 py-2 bg-gray-900 text-white">
+                <div className="w-full bg-black rounded-[1.25rem] md:rounded-[1.5rem] overflow-hidden relative">
+                  {/* Barre de statut mobile - MOBILE OPTIMISÉ */}
+                  <div className="flex items-center justify-between px-3 md:px-4 py-1.5 md:py-2 bg-gray-900 text-white">
                     <div className="text-xs">9:41</div>
                     <div className="text-xs font-medium">GREGA</div>
                     <div className="flex items-center gap-1">
-                      <div className="w-4 h-2 border border-white rounded-sm">
-                        <div className="w-3 h-1 bg-green-500 rounded-sm"></div>
+                      <div className="w-3 md:w-4 h-1.5 md:h-2 border border-white rounded-sm">
+                        <div className="w-2 md:w-3 h-0.5 md:h-1 bg-green-500 rounded-sm"></div>
                       </div>
                     </div>
                   </div>
                   
-                  {/* Interface GREGA Mobile */}
-                  <div className="bg-white p-4 space-y-4" style={{ minHeight: '500px' }}>
-                    {/* Header Mobile */}
-                    <div className="flex items-center justify-between pb-3 border-b border-gray-100">
+                  {/* Interface GREGA Mobile - MOBILE OPTIMISÉ */}
+                  <div className="bg-white p-3 md:p-4 space-y-3 md:space-y-4" style={{ minHeight: '400px' }}>
+                    {/* Header Mobile - MOBILE OPTIMISÉ */}
+                    <div className="flex items-center justify-between pb-2 md:pb-3 border-b border-gray-100">
                       <div>
-                        <div className="text-lg font-semibold text-gray-900">GREGA</div>
+                        <div className="text-base md:text-lg font-semibold text-gray-900">GREGA</div>
                         <div className="text-xs text-gray-500">Dashboard</div>
                       </div>
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <div className="w-1.5 md:w-2 h-1.5 md:h-2 bg-green-500 rounded-full"></div>
                     </div>
                     
-                    {/* Critères Mobile */}
-                    <div className="space-y-3">
-                      <h3 className="text-sm font-semibold text-gray-900">Critères</h3>
-                      <div className="grid grid-cols-2 gap-2">
-                        <div className="p-2 bg-gray-50 rounded-lg">
+                    {/* Critères Mobile - MOBILE OPTIMISÉ */}
+                    <div className="space-y-2 md:space-y-3">
+                      <h3 className="text-xs md:text-sm font-semibold text-gray-900">Critères</h3>
+                      <div className="grid grid-cols-2 gap-1.5 md:gap-2">
+                        <div className="p-1.5 md:p-2 bg-gray-50 rounded-md md:rounded-lg">
                           <div className="text-xs text-gray-600">Budget</div>
-                          <div className="text-sm font-medium">1 200-1 800€</div>
+                          <div className="text-xs md:text-sm font-medium">1 200-1 800€</div>
                         </div>
-                        <div className="p-2 bg-blue-50 rounded-lg border border-blue-200">
+                        <div className="p-1.5 md:p-2 bg-blue-50 rounded-md md:rounded-lg border border-blue-200">
                           <div className="text-xs text-blue-600">Type</div>
-                          <div className="text-sm font-medium text-blue-900">2 pièces</div>
+                          <div className="text-xs md:text-sm font-medium text-blue-900">2 pièces</div>
                         </div>
                       </div>
-                      <div className="p-2 bg-gray-50 rounded-lg">
+                      <div className="p-1.5 md:p-2 bg-gray-50 rounded-md md:rounded-lg">
                         <div className="text-xs text-gray-600">Zone</div>
-                        <div className="text-sm font-medium">Paris 11ème</div>
+                        <div className="text-xs md:text-sm font-medium">Paris 11ème</div>
                       </div>
                     </div>
                     
-                    {/* Résultats Mobile */}
-                    <div className="space-y-3">
+                    {/* Résultats Mobile - MOBILE OPTIMISÉ */}
+                    <div className="space-y-2 md:space-y-3">
                       <div className="flex items-center justify-between">
-                        <h3 className="text-sm font-semibold text-gray-900">Résultats</h3>
-                        <motion.div
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                          className="w-3 h-3 border border-blue-500 border-t-transparent rounded-full"
-                        />
+                        <h3 className="text-xs md:text-sm font-semibold text-gray-900">Résultats</h3>
+                        <div className="w-2.5 md:w-3 h-2.5 md:h-3 border border-blue-500 border-t-transparent rounded-full animate-spin"></div>
                       </div>
                       
-                      {/* Biens Mobile */}
-                      <div className="space-y-2">
-                        {[
-                          { addr: "Rue de la Roquette", price: "1 450€", status: "Nouveau" },
-                          { addr: "Boulevard Voltaire", price: "1 650€", status: "Visite prévue" },
-                          { addr: "Rue Oberkampf", price: "1 380€", status: "Dossier envoyé" }
-                        ].map((bien, index) => (
-                          <motion.div
-                            key={index}
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.2 + 1 }}
-                            className="p-2 border border-gray-200 rounded-lg"
-                          >
-                            <div className="flex justify-between items-center">
-                              <div>
-                                <div className="text-xs font-medium">{bien.addr}</div>
-                                <div className="text-sm font-semibold text-gray-900">{bien.price}</div>
-                              </div>
-                              <div className={`text-xs px-2 py-1 rounded-full ${
-                                bien.status === "Nouveau" ? "bg-green-100 text-green-700" :
-                                bien.status === "Visite prévue" ? "bg-blue-100 text-blue-700" :
-                                "bg-orange-100 text-orange-700"
-                              }`}>
-                                {bien.status}
-                              </div>
+                      {/* Biens Mobile - MOBILE OPTIMISÉ */}
+                      <div className="space-y-1.5 md:space-y-2">
+                        <div className="p-1.5 md:p-2 border border-gray-200 rounded-md md:rounded-lg">
+                          <div className="flex justify-between items-center">
+                            <div>
+                              <div className="text-xs font-medium">Rue de la Roquette</div>
+                              <div className="text-sm font-semibold text-gray-900">1 450€</div>
                             </div>
-                          </motion.div>
-                        ))}
+                            <div className="text-xs px-1.5 py-0.5 rounded-full bg-green-100 text-green-700">
+                              Nouveau
+                            </div>
+                          </div>
+                        </div>
+                        <div className="p-1.5 md:p-2 border border-gray-200 rounded-md md:rounded-lg">
+                          <div className="flex justify-between items-center">
+                            <div>
+                              <div className="text-xs font-medium">Boulevard Voltaire</div>
+                              <div className="text-sm font-semibold text-gray-900">1 650€</div>
+                            </div>
+                            <div className="text-xs px-1.5 py-0.5 rounded-full bg-blue-100 text-blue-700">
+                              Visite prévue
+                            </div>
+                          </div>
+                        </div>
+                        <div className="p-1.5 md:p-2 border border-gray-200 rounded-md md:rounded-lg">
+                          <div className="flex justify-between items-center">
+                            <div>
+                              <div className="text-xs font-medium">Rue Oberkampf</div>
+                              <div className="text-sm font-semibold text-gray-900">1 380€</div>
+                            </div>
+                            <div className="text-xs px-1.5 py-0.5 rounded-full bg-orange-100 text-orange-700">
+                              Dossier envoyé
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     
-                    {/* Actions Mobile */}
-                    <div className="space-y-2">
-                      <h3 className="text-sm font-semibold text-gray-900">Actions</h3>
-                      <div className="grid grid-cols-2 gap-2">
-                        <motion.button
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          className="p-2 bg-gray-900 text-white rounded-lg text-xs font-medium"
-                        >
+                    {/* Actions Mobile - MOBILE OPTIMISÉ */}
+                    <div className="space-y-1.5 md:space-y-2">
+                      <h3 className="text-xs md:text-sm font-semibold text-gray-900">Actions</h3>
+                      <div className="grid grid-cols-2 gap-1.5 md:gap-2">
+                        <button className="p-1.5 md:p-2 bg-gray-900 text-white rounded-md md:rounded-lg text-xs font-medium">
                           Planifier visite
-                        </motion.button>
-                        <motion.button
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          className="p-2 border border-gray-200 text-gray-700 rounded-lg text-xs font-medium"
-                        >
+                        </button>
+                        <button className="p-1.5 md:p-2 border border-gray-200 text-gray-700 rounded-md md:rounded-lg text-xs font-medium">
                           Affiner recherche
-                        </motion.button>
+                        </button>
                       </div>
                     </div>
                     
-                    {/* Notifications Mobile */}
-                    <div className="space-y-2">
-                      <div className="text-sm font-medium text-gray-900">Notifications</div>
-                      {[
-                        "3 nouveaux biens",
-                        "Visite confirmée",
-                        "Dossier accepté"
-                      ].map((notif, index) => (
-                        <motion.div 
-                          key={index}
-                          initial={{ opacity: 0, y: 10 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.4, delay: index * 0.3 + 2 }}
-                          className="flex items-center gap-2 p-2 bg-blue-50 rounded-lg"
-                        >
-                          <motion.div
-                            animate={{ scale: [1, 1.2, 1] }}
-                            transition={{ duration: 1, repeat: Infinity, delay: index * 0.3 }}
-                            className="w-1.5 h-1.5 bg-blue-500 rounded-full"
-                          />
-                          <span className="text-xs text-blue-900">{notif}</span>
-                        </motion.div>
-                      ))}
+                    {/* Notifications Mobile - MOBILE OPTIMISÉ */}
+                    <div className="space-y-1.5 md:space-y-2">
+                      <div className="text-xs md:text-sm font-medium text-gray-900">Notifications</div>
+                      <div className="flex items-center gap-1.5 md:gap-2 p-1.5 md:p-2 bg-blue-50 rounded-md md:rounded-lg">
+                        <div className="w-1 md:w-1.5 h-1 md:h-1.5 bg-blue-500 rounded-full"></div>
+                        <span className="text-xs text-blue-900">3 nouveaux biens</span>
+                      </div>
+                      <div className="flex items-center gap-1.5 md:gap-2 p-1.5 md:p-2 bg-blue-50 rounded-md md:rounded-lg">
+                        <div className="w-1 md:w-1.5 h-1 md:h-1.5 bg-blue-500 rounded-full"></div>
+                        <span className="text-xs text-blue-900">Visite confirmée</span>
+                      </div>
+                      <div className="flex items-center gap-1.5 md:gap-2 p-1.5 md:p-2 bg-blue-50 rounded-md md:rounded-lg">
+                        <div className="w-1 md:w-1.5 h-1 md:h-1.5 bg-blue-500 rounded-full"></div>
+                        <span className="text-xs text-blue-900">Dossier accepté</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Section Profils Ultra-Design */}
-      <section className="py-20 bg-gradient-to-b from-gray-50/30 to-white relative overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          {/* Header Profils */}
-        <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+      {/* Section Profils Ultra-Originale avec Tablettes Interactives */}
+      <section className="py-32 bg-gradient-to-b from-gray-50/30 to-white relative overflow-hidden">
+        {/* Background épuré avec particules subtiles OPTIMISÉES */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-gray-100/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gray-200/10 rounded-full blur-3xl"></div>
+          
+          {/* Particules flottantes réduites et simplifiées */}
+          {[...Array(3)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-gray-300/20 rounded-full"
+              style={{
+                left: `${30 + i * 20}%`,
+                top: `${40 + (i % 2) * 20}%`,
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          {/* Header Ultra-Clean */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.6, 0.01, 0.05, 0.95] }}
+            transition={{ duration: 0.8, ease: [0.6, 0.01, 0.05, 0.95] }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <h2 className="text-4xl md:text-5xl font-extralight text-gray-900 mb-4 leading-tight tracking-tight">
-              À qui s'adressent nos services ?
+            <h2 className="text-4xl md:text-5xl font-extralight text-gray-900 mb-6 leading-tight tracking-tight">
+              À qui s'adressent{' '}
+              <span className="font-normal">nos services</span>
+              <span className="text-gray-900"> ?</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
               Solutions adaptées à tous profils
             </p>
-            <div className="w-20 h-px bg-gray-900 mx-auto mt-6"></div>
+            <div className="w-24 h-px bg-gray-900 mx-auto mt-8"></div>
           </motion.div>
 
-          {/* Profils Premium Cards */}
-          <div className="space-y-12">
+          {/* Tablettes Interactives Ultra-Originales */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
             {[
               {
-                icon: <FaUserFriends className="w-6 h-6" />,
                 title: "Particuliers",
-                description: "Intelligence artificielle dédiée à votre recherche personnalisée",
-                details: "Que vous soyez en CDI, étudiant, indépendant ou retraité, notre IA s'adapte à votre profil unique pour optimiser votre recherche de logement à Paris.",
-                cta: "Démarrer ma recherche",
-                gradient: "from-blue-50 to-indigo-50",
-                color: "blue"
+                subtitle: "IA Personnalisée",
+                description: "Notre intelligence artificielle s'adapte à votre profil unique",
+                features: ["Recherche automatisée", "Dossier optimisé", "Suivi 24/7"],
+                cta: "Démarrer",
+                color: "blue",
+                icon: "👤",
+                stats: "2.4k users"
               },
               {
-                icon: <FaBuilding className="w-6 h-6" />,
                 title: "Entreprises", 
-                description: "Révolutionnez votre marque employeur avec notre solution RH",
-                details: "Transformez l'expérience d'intégration de vos talents avec notre service de relocation intelligent. Une solution révolutionnaire pour attirer et fidéliser.",
-                cta: "Découvrir l'innovation",
-                gradient: "from-purple-50 to-violet-50",
-                color: "purple"
+                subtitle: "Solution RH",
+                description: "Révolutionnez l'intégration de vos talents",
+                features: ["Relocation express", "Marque employeur", "Support dédié"],
+                cta: "Découvrir",
+                color: "purple",
+                icon: "🏢",
+                stats: "150+ entreprises"
               },
               {
-                icon: <FaGraduationCap className="w-6 h-6" />,
                 title: "Écoles & Universités",
-                description: "Innovation pédagogique : intégrez l'IA dans l'accompagnement étudiant",
-                details: "Révolutionnez l'accueil de vos étudiants avec notre plateforme intelligente. Une approche disruptive pour l'enseignement supérieur moderne.",
-                cta: "Innovation académique",
-                gradient: "from-green-50 to-emerald-50",
-                color: "green"
+                subtitle: "Innovation Académique",
+                description: "Plateforme intelligente pour vos étudiants",
+                features: ["Accueil automatisé", "Intégration rapide", "Suivi personnalisé"],
+                cta: "Innover",
+                color: "green",
+                icon: "🎓",
+                stats: "30+ établissements"
               }
             ].map((profile, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 80 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2, ease: [0.6, 0.01, 0.05, 0.95] }}
+                transition={{ duration: 1, delay: index * 0.2, ease: [0.6, 0.01, 0.05, 0.95] }}
                 viewport={{ once: true }}
-                className="group"
+                className="group relative"
               >
-                <motion.div
-                  whileHover={{ y: -3 }}
-                  transition={{ duration: 0.4 }}
-                  className={`bg-gradient-to-br ${profile.gradient} rounded-2xl p-8 md:p-10 border border-gray-100 hover:border-gray-200 transition-all duration-500 relative overflow-hidden group-hover:shadow-xl`}
-                >
-                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-                    {/* Section gauche */}
-                    <div className="flex items-start gap-6 flex-1">
-                      {/* Icône Premium */}
-                      <motion.div 
-                        whileHover={{ scale: 1.1, rotate: 5 }}
-                        transition={{ duration: 0.3 }}
-                        className={`w-14 h-14 bg-gradient-to-br from-${profile.color}-500 to-${profile.color}-600 text-white rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300`}
-                      >
-                        {profile.icon}
-                      </motion.div>
+                {/* Tablette Frame - OPTIMISÉE SANS HOVER */}
+                <div className="relative">
+                  {/* Halo lumineux statique */}
+                  <div className={`absolute -inset-6 bg-gradient-to-r rounded-3xl blur-2xl opacity-20 ${
+                    profile.color === 'blue' ? 'from-blue-100/20 to-blue-200/20' :
+                    profile.color === 'purple' ? 'from-purple-100/20 to-purple-200/20' :
+                    'from-green-100/20 to-green-200/20'
+                  }`} />
+                  
+                  {/* Tablette principale - STATIQUE */}
+                  <div className="relative w-full h-[600px] bg-gradient-to-b from-gray-800 via-gray-700 to-gray-800 rounded-[2rem] p-3 shadow-2xl">
+                    {/* Écran tactile */}
+                    <div className="w-full h-full bg-white rounded-[1.5rem] overflow-hidden relative flex flex-col">
+                      {/* Barre de statut simplifiée */}
+                      <div className="flex items-center justify-between px-6 py-3 bg-gray-50 border-b border-gray-100 flex-shrink-0">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-green-500 rounded-full" />
+                          <span className="text-sm font-medium text-gray-700">GREGA</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs text-gray-500">Interface Pro</span>
+                          <div className={`w-2 h-2 rounded-full ${
+                            profile.color === 'blue' ? 'bg-blue-500' :
+                            profile.color === 'purple' ? 'bg-purple-500' :
+                            'bg-green-500'
+                          }`} />
+                        </div>
+                      </div>
                       
-                      {/* Contenu */}
-                      <div className="flex-1">
-                        <h3 className="text-2xl md:text-3xl font-light text-gray-900 mb-4 tracking-wide group-hover:text-gray-800 transition-colors duration-300">
-                          {profile.title}
-                        </h3>
-                        <p className="text-gray-700 font-medium text-lg mb-4 leading-relaxed">
+                      {/* Contenu de l'interface */}
+                      <div className="p-6 flex-1 flex flex-col">
+                        {/* Header avec icône et stats */}
+                        <div className="text-center mb-6">
+                          <div className="text-4xl mb-3">
+                            {profile.icon}
+                          </div>
+                          <h3 className="text-xl font-light text-gray-900">{profile.title}</h3>
+                          <p className={`text-sm font-medium mt-1 ${
+                            profile.color === 'blue' ? 'text-blue-600' :
+                            profile.color === 'purple' ? 'text-purple-600' :
+                            'text-green-600'
+                          }`}>
+                            {profile.subtitle}
+                          </p>
+                          {/* Stats statiques */}
+                          <div className={`inline-block mt-2 px-3 py-1 rounded-full text-xs font-medium ${
+                            profile.color === 'blue' ? 'bg-blue-50 text-blue-700' :
+                            profile.color === 'purple' ? 'bg-purple-50 text-purple-700' :
+                            'bg-green-50 text-green-700'
+                          }`}>
+                            {profile.stats}
+                          </div>
+                        </div>
+
+                        {/* Description */}
+                        <p className="text-gray-600 text-sm leading-relaxed mb-6 text-center">
                           {profile.description}
                         </p>
-                        <p className="text-gray-600 font-light leading-relaxed">
-                          {profile.details}
-                        </p>
-                </div>
+
+                        {/* Features simplifiées */}
+                        <div className="space-y-3 mb-6 flex-1">
+                          {profile.features.map((feature, featureIndex) => (
+                            <div
+                              key={featureIndex}
+                              className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl"
+                            >
+                              <div className={`w-2 h-2 rounded-full ${
+                                profile.color === 'blue' ? 'bg-blue-500' :
+                                profile.color === 'purple' ? 'bg-purple-500' :
+                                'bg-green-500'
+                              }`} />
+                              <span className="text-sm text-gray-700">
+                                {feature}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Bouton CTA simplifié */}
+                        <div className="mt-auto">
+                          <button className={`w-full py-4 rounded-xl text-white font-semibold text-base shadow-lg ${
+                            profile.color === 'blue' ? 'bg-gradient-to-r from-blue-500 to-blue-600' :
+                            profile.color === 'purple' ? 'bg-gradient-to-r from-purple-500 to-purple-600' :
+                            'bg-gradient-to-r from-green-500 to-green-600'
+                          }`}>
+                            {profile.cta}
+                          </button>
+
+                          {/* Indicateur de progression statique */}
+                          <div className="mt-4 text-center">
+                            <div className="flex justify-center gap-1">
+                              {[...Array(3)].map((_, dotIndex) => (
+                                <div
+                                  key={dotIndex}
+                                  className={`w-2 h-2 rounded-full ${
+                                    dotIndex === index 
+                                      ? (profile.color === 'blue' ? 'bg-blue-500' :
+                                         profile.color === 'purple' ? 'bg-purple-500' :
+                                         'bg-green-500')
+                                      : 'bg-gray-300'
+                                  }`}
+                                />
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    
-                    {/* Section droite - CTA */}
-                    <div className="flex-shrink-0">
-                      <motion.button
-                        whileHover={{ scale: 1.05, x: 4 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="group/btn bg-gray-900 text-white px-6 py-3 rounded-full font-medium hover:bg-gray-800 transition-all duration-300 flex items-center gap-3 shadow-lg hover:shadow-xl"
-                      >
-                        <span>{profile.cta}</span>
-                        <motion.div
-                          animate={{ x: [0, 4, 0] }}
-                          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                        >
-                          <FaArrowRight className="w-4 h-4" />
-                        </motion.div>
-                      </motion.button>
-                    </div>
+                  </div>
+
+                  {/* Reflets statiques */}
+                  <div className="absolute inset-3 bg-gradient-to-br from-white/5 via-transparent to-transparent rounded-[1.5rem] pointer-events-none" />
                 </div>
-                </motion.div>
               </motion.div>
             ))}
           </div>
+
+          {/* Message de fermeture épuré */}
+          <motion.div
+            className="text-center mt-20"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-lg text-gray-600 font-light">
+              Une technologie adaptée à chaque profil
+            </p>
+            <motion.div
+              className="w-16 h-px bg-gray-400 mx-auto mt-4"
+              initial={{ width: 0 }}
+              whileInView={{ width: 64 }}
+              transition={{ duration: 1, delay: 1.2 }}
+            />
+          </motion.div>
         </div>
+
+        {/* CSS pour la perspective */}
+        <style jsx>{`
+          .perspective-1000 {
+            perspective: 1000px;
+          }
+        `}</style>
       </section>
 
       {/* Section Témoignages Clients Ultra-Innovante avec Notifications Mobiles */}
@@ -1222,7 +1255,7 @@ const Home = () => {
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-20"
             >
               <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 shadow-xl">
-                <h3 className="text-2xl font-light text-gray-900 mb-2">+500 clients satisfaits</h3>
+                <h3 className="text-2xl font-light mb-2">+500 clients satisfaits</h3>
                 <p className="text-gray-600 font-light">Note moyenne : 4.9/5</p>
                 <div className="flex justify-center gap-1 mt-3">
                   {[...Array(5)].map((_, i) => (
@@ -1234,136 +1267,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-            
-      {/* Section Ultra-Originale SIMPLE : Grille de Services Animée */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50/50 relative overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Header Simple et Élégant */}
-            <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extralight text-gray-900 mb-4 leading-tight tracking-tight">
-              Nos{' '}
-              <span className="font-normal bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Innovations
-              </span>
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
-              Découvrez ce qui nous rend unique
-            </p>
-            <div className="w-20 h-px bg-gray-900 mx-auto mt-6"></div>
-          </motion.div>
 
-          {/* Grille de Services Ultra-Clean */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {[
-              {
-                icon: <FaRocket className="w-6 h-6" />,
-                title: "IA Prédictive",
-                description: "Notre intelligence artificielle analyse le marché pour vous proposer les meilleures opportunités avant tout le monde.",
-                color: "blue",
-                delay: 0
-              },
-              {
-                icon: <FaLightbulb className="w-6 h-6" />,
-                title: "Interface Intuitive",
-                description: "Une plateforme simple et moderne qui rend la recherche de logement aussi facile qu'un jeu.",
-                color: "purple",
-                delay: 0.1
-              },
-              {
-                icon: <FaShieldAlt className="w-6 h-6" />,
-                title: "Sécurité Maximale",
-                description: "Tous vos documents et données sont protégés par les dernières technologies de sécurité.",
-                color: "green",
-                delay: 0.2
-              },
-              {
-                icon: <FaStar className="w-6 h-6" />,
-                title: "Service Premium",
-                description: "Un accompagnement personnalisé de A à Z avec des conseillers dédiés disponibles 7j/7.",
-                color: "orange",
-                delay: 0.3
-              },
-              {
-                icon: <FaHeadset className="w-6 h-6" />,
-                title: "Support 24/7",
-                description: "Une équipe disponible à tout moment pour répondre à vos questions et vous accompagner.",
-                color: "pink",
-                delay: 0.4
-              },
-              {
-                icon: <FaCheckCircle className="w-6 h-6" />,
-                title: "Garantie Résultat",
-                description: "Si nous ne trouvons pas votre logement en 30 jours, nous vous remboursons intégralement.",
-                color: "cyan",
-                delay: 0.5
-              }
-            ].map((service, index) => (
-                <motion.div 
-                  key={index}
-                initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: service.delay }}
-                viewport={{ once: true }}
-                className="group"
-                  >
-                      <motion.div 
-                  whileHover={{ y: -5, scale: 1.02 }}
-                        transition={{ duration: 0.3 }}
-                  className="bg-white rounded-2xl p-6 lg:p-8 border border-gray-100 hover:border-gray-200 transition-all duration-300 shadow-sm hover:shadow-lg h-full"
-                      >
-                  {/* Icône avec animation */}
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    className={`w-12 h-12 bg-gradient-to-br from-${service.color}-500 to-${service.color}-600 rounded-xl flex items-center justify-center text-white mb-4 group-hover:shadow-lg transition-all duration-300`}
-                  >
-                    {service.icon}
-                      </motion.div>
-                  
-                  {/* Contenu */}
-                  <h3 className="text-xl font-light text-gray-900 mb-3 group-hover:text-gray-800 transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 font-light leading-relaxed text-sm lg:text-base">
-                    {service.description}
-                  </p>
-                  
-                  {/* Ligne d'accent */}
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "100%" }}
-                    transition={{ duration: 1, delay: service.delay + 0.3 }}
-                    className={`h-0.5 bg-gradient-to-r from-${service.color}-500 to-${service.color}-600 mt-4 rounded-full`}
-                  />
-                </motion.div>
-                </motion.div>
-              ))}
-          </div>
-
-          {/* CTA Simple et Efficace */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mt-16"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-medium text-lg hover:shadow-lg transition-all duration-300"
-            >
-              Découvrir nos services
-            </motion.button>
-            </motion.div>
-        </div>
-      </section>
-            
       {/* Section FAQ Ultra-Design */}
       <section className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-6 relative z-10">

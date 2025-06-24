@@ -93,19 +93,19 @@ const Hero = () => {
       />
       
       {/* Hero Content Ultra-Optimisé */}
-      <div className="max-w-5xl mx-auto text-center px-6 relative z-10 py-20">
+      <div className="max-w-5xl mx-auto text-center px-6 relative z-10">
         
         {/* Logo + Nom */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.6, 0.01, 0.05, 0.95] }}
-          className="mb-10"
+          className="mb-6"
         >
           <motion.div
             whileHover={{ scale: 1.08 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="inline-block mb-4"
+            className="inline-block"
           >
             <img 
               src={logoGrega} 
@@ -113,9 +113,6 @@ const Hero = () => {
               className="w-24 h-24 rounded-full object-cover mx-auto shadow-lg border border-gray-100"
             />
           </motion.div>
-          <h1 className="text-2xl font-semibold text-gray-900 tracking-wider">
-            GREGA
-          </h1>
         </motion.div>
         
         {/* Message Principal Compact */}
@@ -123,9 +120,9 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15, ease: [0.6, 0.01, 0.05, 0.95] }}
-          className="mb-12"
+          className="mb-8"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extralight text-gray-900 mb-4 leading-tight tracking-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extralight text-gray-900 mb-3 leading-tight tracking-tight">
             Trouvez votre logement
             <br />
             <span className="font-medium bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
@@ -134,7 +131,7 @@ const Hero = () => {
           </h2>
           
           <motion.p 
-            className="text-lg text-gray-600 max-w-2xl mx-auto font-light leading-relaxed"
+            className="text-base text-gray-600 max-w-2xl mx-auto font-light leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
@@ -152,22 +149,22 @@ const Hero = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4, ease: [0.6, 0.01, 0.05, 0.95] }}
-          className="mb-12"
+          className="mb-8"
         >
-          <div className="flex justify-center items-center gap-8 md:gap-12 text-gray-400">
+          <div className="flex justify-center items-center gap-6 md:gap-10 text-gray-400">
             <motion.div 
               className="text-center group"
               whileHover={{ y: -1 }}
               transition={{ duration: 0.2 }}
             >
               <motion.div 
-                className="w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-xs font-medium shadow-sm group-hover:shadow-md transition-shadow duration-200"
+                className="w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-medium shadow-sm group-hover:shadow-md transition-shadow duration-200"
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.2 }}
               >
                 1
               </motion.div>
-              <p className="text-xs font-medium text-gray-700">Recherche</p>
+              <p className="text-sm font-medium text-gray-700">Recherche</p>
             </motion.div>
             
             <motion.div 
@@ -183,13 +180,13 @@ const Hero = () => {
               transition={{ duration: 0.2 }}
             >
               <motion.div 
-                className="w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-xs font-medium shadow-sm group-hover:shadow-md transition-shadow duration-200"
+                className="w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-medium shadow-sm group-hover:shadow-md transition-shadow duration-200"
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.2 }}
               >
                 2
               </motion.div>
-              <p className="text-xs font-medium text-gray-700">Dossier</p>
+              <p className="text-sm font-medium text-gray-700">Dossier</p>
             </motion.div>
             
             <motion.div 
@@ -205,13 +202,13 @@ const Hero = () => {
               transition={{ duration: 0.2 }}
             >
               <motion.div 
-                className="w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-xs font-medium shadow-sm group-hover:shadow-md transition-shadow duration-200"
+                className="w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-medium shadow-sm group-hover:shadow-md transition-shadow duration-200"
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.2 }}
               >
                 3
               </motion.div>
-              <p className="text-xs font-medium text-gray-700">Signature</p>
+              <p className="text-sm font-medium text-gray-700">Signature</p>
             </motion.div>
           </div>
         </motion.div>
@@ -221,7 +218,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8, ease: [0.6, 0.01, 0.05, 0.95] }}
-          className="space-y-6"
+          className="space-y-5"
         >
           {/* Boutons Principaux Optimisés */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -229,16 +226,16 @@ const Hero = () => {
               href="tel:0953376141"
               whileHover={{ scale: 1.02, y: -1 }}
               whileTap={{ scale: 0.98 }}
-              className="group bg-gray-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-gray-800 transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl"
+              className="group bg-gray-900 text-white px-6 py-2.5 rounded-full text-base font-medium hover:bg-gray-800 transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl"
             >
-              <FaPhone className="w-3 h-3" />
+              <FaPhone className="w-4 h-4" />
               <span>Nous contacter</span>
               <motion.div
                 className="opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                 animate={{ x: [0, 3, 0] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               >
-                <FaArrowRight className="w-3 h-3" />
+                <FaArrowRight className="w-4 h-4" />
               </motion.div>
             </motion.a>
 
@@ -252,9 +249,9 @@ const Hero = () => {
               }}
               whileHover={{ scale: 1.02, y: -1 }}
               whileTap={{ scale: 0.98 }}
-              className="group border border-gray-900 text-gray-900 px-6 py-2.5 rounded-full text-sm font-medium hover:bg-gray-900 hover:text-white transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl"
+              className="group border border-gray-900 text-gray-900 px-6 py-2.5 rounded-full text-base font-medium hover:bg-gray-900 hover:text-white transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl"
             >
-              <FaCalendarAlt className="w-3 h-3" />
+              <FaCalendarAlt className="w-4 h-4" />
               <span>Consultation Gratuite</span>
             </motion.button>
           </div>
@@ -268,7 +265,7 @@ const Hero = () => {
             <p className="text-3xl font-extralight text-gray-900 mb-1 tracking-wider">
               09 53 37 61 41
             </p>
-            <p className="text-gray-500 text-xs font-medium tracking-wide">
+            <p className="text-gray-500 text-sm font-medium tracking-wide">
               GRATUIT • IMMÉDIAT • SANS ENGAGEMENT
             </p>
           </motion.div>
@@ -285,7 +282,7 @@ const Hero = () => {
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             />
-            <span className="text-orange-700 text-xs font-medium">
+            <span className="text-orange-700 text-sm font-medium">
               Marché tendu • Agissez rapidement
             </span>
           </motion.div>

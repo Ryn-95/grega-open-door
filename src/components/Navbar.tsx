@@ -146,6 +146,26 @@ const Navbar = () => {
                   >
                     A
                   </motion.span>
+                  <motion.span
+                    className="text-gray-600 font-light inline-block mx-2"
+                    whileHover={{ 
+                      y: -1,
+                      color: "#374151"
+                    }}
+                    transition={{ duration: 0.2, delay: 0.25 }}
+                  >
+                    OPEN
+                  </motion.span>
+                  <motion.span
+                    className="text-gray-700 font-medium inline-block"
+                    whileHover={{ 
+                      y: -1,
+                      color: "#374151"
+                    }}
+                    transition={{ duration: 0.2, delay: 0.3 }}
+                  >
+                    DOOR
+                  </motion.span>
                 </span>
 
                 {/* Ligne élégante sous le logo */}
