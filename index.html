@@ -10,7 +10,7 @@
     <!-- Optimisations iOS Safari -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="GREGA" />
+    <meta name="apple-mobile-web-app-title" content="GREGA ONE COMPANY" />
     
     <!-- Optimisations Android Chrome -->
     <meta name="theme-color" content="#000000" />
@@ -19,7 +19,7 @@
     <!-- Optimisations pour les écrans haute densité -->
     <meta name="format-detection" content="telephone=no" />
     
-    <title>GREGA OPEN DOOR - Votre partenaire immobilier</title>
+    <title>GREGA ONE COMPANY - Votre plateforme immobilière</title>
     
     <!-- Préchargement des polices -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,20 +27,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Meta descriptions et SEO -->
-    <meta name="description" content="GREGA OPEN DOOR vous accompagne dans tous vos projets immobiliers. Location, logement social, constitution de dossier - nous sommes là pour vous." />
-    <meta name="keywords" content="immobilier, location, logement social, Paris, agent immobilier, appartement, dossier location" />
-    <meta name="author" content="GREGA OPEN DOOR" />
+    <meta name="description" content="GREGA ONE COMPANY - Plateforme immobilière avec biens disponibles et services pour propriétaires. Location, achat, vente et gestion immobilière." />
+    <meta name="keywords" content="immobilier, location, achat, vente, propriétaires, biens disponibles, plateforme immobilière, Paris, agent immobilier, appartement" />
+    <meta name="author" content="GREGA ONE COMPANY" />
     
     <!-- Open Graph pour les réseaux sociaux -->
-    <meta property="og:title" content="GREGA OPEN DOOR - Votre partenaire immobilier" />
-    <meta property="og:description" content="Votre agent immobilier digital spécialisé dans la recherche de logements à Paris." />
+    <meta property="og:title" content="GREGA ONE COMPANY - Votre plateforme immobilière" />
+    <meta property="og:description" content="Plateforme immobilière complète avec biens disponibles et services pour propriétaires." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_FR" />
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="GREGA OPEN DOOR" />
-    <meta name="twitter:description" content="Votre partenaire immobilier de confiance à Paris" />
+    <meta name="twitter:title" content="GREGA ONE COMPANY" />
+    <meta name="twitter:description" content="Votre plateforme immobilière de confiance" />
     
     <!-- Optimisations de performance -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
@@ -105,38 +105,12 @@
     </style>
   </head>
   <body>
-    <!-- Écran de chargement -->
-    <div id="loading" class="loading">
-      <div class="loading-spinner"></div>
+    <div id="root">
+      <!-- Écran de chargement -->
+      <div class="loading">
+        <div class="loading-spinner"></div>
+      </div>
     </div>
-    
-    <div id="root"></div>
-    
     <script type="module" src="/src/main.tsx"></script>
-    
-    <!-- Script pour masquer l'écran de chargement -->
-    <script>
-      window.addEventListener('load', () => {
-        const loading = document.getElementById('loading');
-        if (loading) {
-          loading.style.opacity = '0';
-          setTimeout(() => {
-            loading.style.display = 'none';
-          }, 300);
-        }
-      });
-      
-      // Gestion des erreurs JavaScript globales
-      window.addEventListener('error', (e) => {
-        console.error('Erreur JavaScript:', e.error);
-      });
-      
-      // Support pour les PWA
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          // Code pour enregistrer un service worker si nécessaire
-        });
-      }
-    </script>
   </body>
 </html>

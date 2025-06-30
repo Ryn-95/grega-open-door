@@ -1,11 +1,11 @@
-# GREGA OPEN DOOR
+# GREGA ONE COMPANY
 
-Site immobilier ultra-sophistiqué avec design révolutionnaire noir et blanc.
+Plateforme immobilière complète avec design révolutionnaire noir et blanc.
 
 ## 🚀 Domaine principal
 
-- Site accessible sur : https://gregaopendoor.fr
-- Version www : https://www.gregaopendoor.fr
+- Site accessible sur : https://gregaonecompany.fr
+- Version www : https://www.gregaonecompany.fr
 
 ## Technologies
 
@@ -58,15 +58,14 @@ export default tseslint.config({
 import react from "eslint-plugin-react";
 
 export default tseslint.config({
-  // Set the react version
+  // other rules...
   settings: { react: { version: "18.3" } },
   plugins: {
-    // Add the react plugin
+    // other plugins...
     react,
   },
   rules: {
     // other rules...
-    // Enable its recommended rules
     ...react.configs.recommended.rules,
     ...react.configs["jsx-runtime"].rules,
   },

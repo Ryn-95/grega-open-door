@@ -21,7 +21,7 @@ const Home = () => {
   // Questions fréquemment posées
   const faqItems = [
     {
-      question: "Comment fonctionne le processus de location avec GREGA OPEN DOOR ?",
+      question: "Comment fonctionne le processus de location avec GREGA ONE COMPANY ?",
       answer: "Notre processus de location est simple et transparent. Après avoir sélectionné un bien qui vous intéresse, nous organisons une visite. Si le logement vous convient, nous vous aidons à constituer un dossier solide que nous présentons au propriétaire. Une fois votre candidature acceptée, nous nous occupons de toutes les formalités administratives jusqu'à la remise des clés."
     },
     {
@@ -37,7 +37,7 @@ const Home = () => {
       answer: "Nos états des lieux sont réalisés par des professionnels qui documentent méticuleusement l'état du logement à l'entrée et à la sortie. Le rapport inclut des photographies détaillées et une description précise de chaque pièce. Ce document protège à la fois le locataire et le propriétaire en cas de litige sur l'état du bien."
     },
     {
-      question: "Quel est le délai moyen pour trouver un logement avec GREGA OPEN DOOR ?",
+      question: "Quel est le délai moyen pour trouver un logement avec GREGA ONE COMPANY ?",
       answer: "Le délai varie selon vos critères et votre budget, mais grâce à notre connaissance approfondie du marché parisien et à notre réseau de propriétaires, nos clients trouvent généralement un logement adapté en 2 à 4 semaines. Pour les demandes plus spécifiques, cela peut prendre un peu plus de temps."
     }
   ];
@@ -104,7 +104,7 @@ const Home = () => {
                     {/* Header app - MOBILE OPTIMISÉ */}
                     <div className="px-4 md:px-6 py-3 md:py-4 border-b border-gray-100">
                       <div className="flex items-center justify-between">
-                        <h3 className="text-lg md:text-xl font-semibold text-gray-900">GREGA</h3>
+                        <h3 className="text-lg md:text-xl font-semibold text-gray-900">GREGA ONE COMPANY</h3>
                         <div className="w-6 md:w-8 h-6 md:h-8 bg-gray-900 rounded-full flex items-center justify-center">
                           <FaPhone className="w-2.5 md:w-3 h-2.5 md:h-3 text-white" />
                         </div>
@@ -267,36 +267,112 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Section Avantages - Style Ultra-Épuré RÉVOLUTIONNAIRE - MOBILE OPTIMISÉ */}
+      {/* Section Services Ultra-Premium - MOBILE OPTIMISÉ - DÉPLACÉE APRÈS PROCESSUS */}
       <section className="py-12 md:py-20 bg-white relative overflow-hidden">
-        {/* Background holographique */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50/10 via-transparent to-purple-50/10"></div>
-          <motion.div
-            animate={{ 
-              background: [
-                "radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 50%)",
-                "radial-gradient(circle at 80% 70%, rgba(34, 197, 94, 0.05) 0%, transparent 50%)",
-                "radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.05) 0%, transparent 50%)"
-              ]
-            }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute inset-0"
-          />
-      </div>
-
         <div className="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
-          {/* Header Révolutionnaire - MOBILE OPTIMISÉ */}
+          {/* Header Services - MOBILE OPTIMISÉ */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.6, 0.01, 0.05, 0.95] }}
             viewport={{ once: true }}
-            className="text-center mb-12 md:mb-20"
+            className="text-center mb-10 md:mb-16"
+          >
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-extralight text-gray-900 mb-3 md:mb-4 leading-tight tracking-tight">
+              Nos services
+            </h2>
+            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto font-light leading-relaxed px-4">
+              Nos Solutions
+            </p>
+            <div className="w-16 md:w-20 h-px bg-gray-900 mx-auto mt-4 md:mt-6"></div>
+          </motion.div>
+
+          {/* Services Premium Grid - MOBILE OPTIMISÉ */}
+          <div className="grid gap-6 md:grid-cols-2 md:gap-12">
+            {[
+              {
+                title: "Logement Classique",
+                subtitle: "Service",
+                description: "Découvrez notre sélection premium de biens résidentiels disponibles à la location",
+                cta: "Découvrir",
+                gradient: "from-blue-50 to-blue-100",
+                icon: <FaHome className="w-5 md:w-6 h-5 md:h-6" />,
+                action: () => navigateToPage('/biens-a-louer')
+              },
+              {
+                title: "Logement Social", 
+                subtitle: "Service",
+                description: "Accédez à des logements à loyer modèré avec un accompagnement personnalisé",
+                cta: "Découvrir",
+                gradient: "from-green-50 to-green-100",
+                icon: <FaUsers className="w-5 md:w-6 h-5 md:h-6" />,
+                action: () => window.open('tel:0953376141', '_self')
+              }
+            ].map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2, ease: [0.6, 0.01, 0.05, 0.95] }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <motion.div
+                  whileHover={{ y: -5 }}
+                  transition={{ duration: 0.4 }}
+                  className={`bg-gradient-to-br ${service.gradient} rounded-xl md:rounded-2xl p-6 md:p-8 border border-gray-100 hover:border-gray-200 transition-all duration-500 relative overflow-hidden group-hover:shadow-xl`}
+                >
+                  {/* Badge Service Premium - MOBILE OPTIMISÉ */}
+                  <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-3 md:px-4 py-1.5 md:py-2 mb-4 md:mb-6 text-xs md:text-sm font-medium text-gray-700 border border-gray-200/50">
+                    {service.icon}
+                    <span>{service.subtitle}</span>
+                  </div>
+                      
+                  <h3 className="text-xl md:text-2xl font-light text-gray-900 mb-3 md:mb-4 tracking-wide group-hover:text-gray-800 transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 font-light leading-relaxed mb-6 md:mb-8 text-sm md:text-lg">
+                    {service.description}
+                  </p>
+                  
+                  <motion.button
+                    whileHover={{ scale: 1.05, x: 4 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={service.action}
+                    className="inline-flex items-center gap-2 md:gap-3 bg-gray-900 text-white px-5 md:px-6 py-2.5 md:py-3 rounded-full text-sm md:text-base font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl group-hover:gap-4"
+                  >
+                    <span>{service.cta}</span>
+                    <FaArrowRight className="w-3 md:w-4 h-3 md:h-4" />
+                  </motion.button>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section Avantages Ultra-Révolutionnaire - MOBILE OPTIMISÉ */}
+      <section className="py-12 md:py-20 bg-gradient-to-b from-gray-50/30 to-white relative overflow-hidden">
+        {/* Background Effects */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 left-1/3 w-32 md:w-64 h-32 md:h-64 bg-blue-100/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/3 w-40 md:w-80 h-40 md:h-80 bg-purple-100/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
+          {/* Header Avantages Ultra-Clean - MOBILE OPTIMISÉ */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.6, 0.01, 0.05, 0.95] }}
+            viewport={{ once: true }}
+            className="text-center mb-10 md:mb-16"
           >
             <motion.h2 
-              className="text-2xl md:text-4xl lg:text-5xl font-extralight text-gray-900 mb-4 md:mb-6 tracking-tight leading-tight relative px-4"
-              whileHover={{ scale: 1.02 }}
+              className="text-2xl md:text-4xl lg:text-5xl font-extralight text-gray-900 mb-3 md:mb-4 leading-tight tracking-tight"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.6, 0.01, 0.05, 0.95] }}
             >
               Pourquoi choisir{' '}
               <motion.span 
@@ -307,7 +383,7 @@ const Home = () => {
                 transition={{ duration: 3, repeat: Infinity }}
                 style={{ backgroundSize: "200% 200%" }}
               >
-                GREGA ?
+                GREGA ONE COMPANY ?
               </motion.span>
             </motion.h2>
             <motion.div 
@@ -449,7 +525,7 @@ const Home = () => {
             className="text-center mb-10 md:mb-16"
           >
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-extralight text-gray-900 mb-3 md:mb-4 tracking-tight leading-tight">
-              GREGA en{' '}
+              GREGA ONE COMPANY en{' '}
               <span className="font-normal">Temps Réel</span>
             </h2>
             <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto font-light leading-relaxed px-4">
@@ -510,90 +586,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Section Services Ultra-Premium - MOBILE OPTIMISÉ */}
-      <section className="py-12 md:py-20 bg-white relative overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
-          {/* Header Services - MOBILE OPTIMISÉ */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.6, 0.01, 0.05, 0.95] }}
-            viewport={{ once: true }}
-            className="text-center mb-10 md:mb-16"
-          >
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-extralight text-gray-900 mb-3 md:mb-4 leading-tight tracking-tight">
-              Nos services
-            </h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto font-light leading-relaxed px-4">
-              Nos Solutions
-            </p>
-            <div className="w-16 md:w-20 h-px bg-gray-900 mx-auto mt-4 md:mt-6"></div>
-          </motion.div>
-
-          {/* Services Premium Grid - MOBILE OPTIMISÉ */}
-          <div className="grid gap-6 md:grid-cols-2 md:gap-12">
-            {[
-              {
-                title: "Logement Classique",
-                subtitle: "Service",
-                description: "Découvrez notre sélection premium de biens résidentiels disponibles à la location",
-                cta: "Découvrir",
-                gradient: "from-blue-50 to-blue-100",
-                icon: <FaHome className="w-5 md:w-6 h-5 md:h-6" />,
-                action: () => navigateToPage('/biens-a-louer')
-              },
-              {
-                title: "Logement Social", 
-                subtitle: "Service",
-                description: "Accédez à des logements à loyer modèré avec un accompagnement personnalisé",
-                cta: "Découvrir",
-                gradient: "from-green-50 to-green-100",
-                icon: <FaUsers className="w-5 md:w-6 h-5 md:h-6" />,
-                action: () => window.open('tel:0953376141', '_self')
-              }
-            ].map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2, ease: [0.6, 0.01, 0.05, 0.95] }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <motion.div
-                  whileHover={{ y: -5 }}
-                  transition={{ duration: 0.4 }}
-                  className={`bg-gradient-to-br ${service.gradient} rounded-xl md:rounded-2xl p-6 md:p-8 border border-gray-100 hover:border-gray-200 transition-all duration-500 relative overflow-hidden group-hover:shadow-xl`}
-                >
-                  {/* Badge Service Premium - MOBILE OPTIMISÉ */}
-                  <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-3 md:px-4 py-1.5 md:py-2 mb-4 md:mb-6 text-xs md:text-sm font-medium text-gray-700 border border-gray-200/50">
-                    {service.icon}
-                    <span>{service.subtitle}</span>
-                      </div>
-                      
-                  <h3 className="text-xl md:text-2xl font-light text-gray-900 mb-3 md:mb-4 tracking-wide group-hover:text-gray-800 transition-colors duration-300">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 font-light leading-relaxed mb-6 md:mb-8 text-sm md:text-lg">
-                    {service.description}
-                  </p>
-                  
-                        <motion.button
-                    whileHover={{ scale: 1.05, x: 4 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={service.action}
-                    className="inline-flex items-center gap-2 md:gap-3 bg-gray-900 text-white px-5 md:px-6 py-2.5 md:py-3 rounded-full text-sm md:text-base font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl group-hover:gap-4"
-                  >
-                    <span>{service.cta}</span>
-                    <FaArrowRight className="w-3 md:w-4 h-3 md:h-4" />
-                  </motion.button>
-                </motion.div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Section MacBook Interface GREGA Ultra-Innovante - MOBILE OPTIMISÉ */}
       <section className="py-12 md:py-20 bg-gradient-to-b from-gray-50/30 to-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
@@ -639,7 +631,7 @@ const Home = () => {
                       <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                       <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                       </div>
-                    <div className="text-sm font-medium text-gray-700">GREGA - Plateforme Immobilière</div>
+                    <div className="text-sm font-medium text-gray-700">GREGA ONE COMPANY - Plateforme Immobilière</div>
                     <div className="w-16"></div>
                   </div>
                   
@@ -648,7 +640,7 @@ const Home = () => {
                     {/* Header Interface */}
                     <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-100">
                       <div className="flex items-center gap-4">
-                        <div className="text-2xl font-semibold text-gray-900">GREGA</div>
+                        <div className="text-2xl font-semibold text-gray-900">GREGA ONE COMPANY</div>
                         <div className="text-sm text-gray-500">Dashboard Professionnel</div>
                       </div>
                       <div className="flex items-center gap-3">
@@ -730,7 +722,7 @@ const Home = () => {
                         <h3 className="font-semibold text-gray-900">Actions rapides</h3>
                         <div className="space-y-3">
                           <button 
-                            onClick={() => window.open('https://calendly.com/contact-gregaopendoor/consultation', '_blank')}
+                            onClick={() => window.open('https://calendly.com/contact-gregaonecompany/consultation', '_blank')}
                             className="w-full p-3 bg-gray-900 text-white rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors duration-300"
                           >
                             Planifier visite
@@ -778,7 +770,7 @@ const Home = () => {
                   {/* Barre de statut mobile - MOBILE OPTIMISÉ */}
                   <div className="flex items-center justify-between px-3 md:px-4 py-1.5 md:py-2 bg-gray-900 text-white">
                     <div className="text-xs">9:41</div>
-                    <div className="text-xs font-medium">GREGA</div>
+                    <div className="text-xs font-medium">GREGA ONE COMPANY</div>
                     <div className="flex items-center gap-1">
                       <div className="w-3 md:w-4 h-1.5 md:h-2 border border-white rounded-sm">
                         <div className="w-2 md:w-3 h-0.5 md:h-1 bg-green-500 rounded-sm"></div>
@@ -791,7 +783,7 @@ const Home = () => {
                     {/* Header Mobile - MOBILE OPTIMISÉ */}
                     <div className="flex items-center justify-between pb-2 md:pb-3 border-b border-gray-100">
                       <div>
-                        <div className="text-base md:text-lg font-semibold text-gray-900">GREGA</div>
+                        <div className="text-base md:text-lg font-semibold text-gray-900">GREGA ONE COMPANY</div>
                         <div className="text-xs text-gray-500">Dashboard</div>
                       </div>
                       <div className="w-1.5 md:w-2 h-1.5 md:h-2 bg-green-500 rounded-full"></div>
@@ -866,7 +858,7 @@ const Home = () => {
                       <h3 className="text-xs md:text-sm font-semibold text-gray-900">Actions</h3>
                       <div className="grid grid-cols-2 gap-1.5 md:gap-2">
                         <button 
-                          onClick={() => window.open('https://calendly.com/contact-gregaopendoor/consultation', '_blank')}
+                          onClick={() => window.open('https://calendly.com/contact-gregaonecompany/consultation', '_blank')}
                           className="p-1.5 md:p-2 bg-gray-900 text-white rounded-md md:rounded-lg text-xs font-medium hover:bg-gray-800 transition-colors duration-300"
                         >
                           Planifier visite
@@ -967,7 +959,7 @@ const Home = () => {
                 color: "purple",
                 icon: "🏢",
                 stats: "150+ entreprises",
-                action: () => window.open('mailto:contact@gregaopendoor.fr', '_self')
+                action: () => window.open('mailto:contact@gregaonecompany.fr', '_self')
               },
               {
                 title: "Écoles & Universités",
@@ -1006,7 +998,7 @@ const Home = () => {
                       <div className="flex items-center justify-between px-6 py-3 bg-gray-50 border-b border-gray-100 flex-shrink-0">
                         <div className="flex items-center gap-2">
                           <div className="w-3 h-3 bg-green-500 rounded-full" />
-                          <span className="text-sm font-medium text-gray-700">GREGA</span>
+                          <span className="text-sm font-medium text-gray-700">GREGA ONE COMPANY</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <span className="text-xs text-gray-500">Interface Pro</span>
@@ -1171,7 +1163,7 @@ const Home = () => {
               },
               {
                 name: "Thomas L.", 
-                message: "Dossier accepté du premier coup grâce à GREGA ✨",
+                message: "Dossier accepté du premier coup grâce à GREGA ONE COMPANY ✨",
                 avatar: "TL",
                 color: "green", 
                 delay: 2
