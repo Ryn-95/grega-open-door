@@ -71,9 +71,9 @@ const Footer = () => {
                 transition={{ duration: 0.6, ease: [0.6, 0.01, 0.05, 0.95] }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-2xl font-light text-gray-900 mb-4 tracking-wide">
-                  GREGA ONE COMPANY
-                </h3>
+                <h2 className="text-2xl font-semibold tracking-wider text-gray-900 mb-3">
+                  GREGA OPEN DOOR
+                </h2>
                 <p className="text-sm text-gray-600 font-light tracking-wide leading-relaxed">
                   L'immobilier réinventé
                 </p>
@@ -179,10 +179,10 @@ const Footer = () => {
                   link: "tel:0953376141"
                 },
                 {
-                  icon: <FaEnvelope />,
+                  icon: <FaEnvelope className="w-4 h-4" />,
                   label: "Email",
-                  value: "contact@gregaonecompany.fr",
-                  link: "mailto:contact@gregaonecompany.fr"
+                  value: "contact@gregaopendoor.fr",
+                  link: "mailto:contact@gregaopendoor.fr"
                 },
                 {
                   icon: <FaMapMarkerAlt className="w-4 h-4" />,
@@ -223,7 +223,7 @@ const Footer = () => {
           >
             {/* Copyright */}
             <div className="flex items-center gap-2 text-sm text-gray-500">
-              <span>© 2024 GREGA ONE COMPANY</span>
+              <span>© 2024 GREGA OPEN DOOR</span>
               <span>•</span>
               <span>Immobilier</span>
               <span>•</span>

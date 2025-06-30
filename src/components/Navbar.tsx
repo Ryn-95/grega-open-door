@@ -466,7 +466,7 @@ const Navbar = () => {
               className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center"
             >
               <div className="text-gray-400 text-xs font-light tracking-[0.3em] mb-2">
-                GREGA ONE COMPANY
+                GREGA OPEN DOOR
               </div>
               <motion.div
                 className="h-px w-16 bg-gradient-to-r from-transparent via-gray-300 to-transparent mx-auto"
