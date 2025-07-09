@@ -12,7 +12,6 @@ const Navbar = () => {
   // Liste des pages réorganisée par importance
   const pages = [
     { path: '/', label: 'ACCUEIL' },
-    { path: '/services', label: 'SERVICES' },
     { path: '/biens-a-louer', label: 'NOS BIENS' },
     { path: '/proprietaires', label: 'PROPRIÉTAIRES' },
     { path: '/villes', label: 'NOS BUREAUX' },

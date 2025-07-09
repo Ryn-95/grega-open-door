@@ -1,304 +1,108 @@
-import { motion, AnimatePresence } from 'framer-motion'
-import { FaPhone, FaArrowRight, FaCalendarAlt, FaTimes } from 'react-icons/fa'
-import logoGrega from '/images/logo_grega.jpeg'
-import { useState } from 'react'
+import { FaSearch } from 'react-icons/fa'
+import { motion } from 'framer-motion'
 
 const Hero = () => {
-  const [showCalendly, setShowCalendly] = useState(false);
-
-  // Composant Calendly intégré
-  const CalendlyWidget = () => (
-    <div className="w-full h-[600px]">
-      <iframe
-        src="https://calendly.com/contact-gregaopendoor/consultation"
-        width="100%"
-        height="100%"
-        frameBorder="0"
-        title="Consultation avec GREGA"
-      />
-      <p className="text-center text-gray-600 mt-4 font-light">
-        Si le calendrier ne s'affiche pas, 
-        <a 
-          href="https://calendly.com/contact-gregaopendoor/consultation" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-black underline hover:no-underline ml-1"
-        >
-          cliquez ici pour ouvrir dans un nouvel onglet
-        </a>
-      </p>
-    </div>
-  );
-
-  // Composant Modal réutilisable
-  const Modal = ({ isOpen, onClose, title, children }: any) => (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            onClose();
-          }}
-        >
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.8, opacity: 0 }}
-            className="bg-white max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-            }}
-          >
-            <div className="p-8">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-3xl font-light text-black">{title}</h2>
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    onClose();
-                  }}
-                  className="text-gray-400 hover:text-black transition-colors"
-                >
-                  <FaTimes className="w-6 h-6" />
-                </button>
-              </div>
-              {children}
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-
   return (
-    <div className="h-screen bg-white overflow-hidden flex items-center justify-center relative">
-      
-      {/* Grille subtile pour la profondeur */}
-      <div 
-        className="absolute inset-0 opacity-[0.008] pointer-events-none"
-        style={{ 
-          backgroundImage: `
-            linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px)
-          `,
-          backgroundSize: '40px 40px'
-        }}
-      />
-      
-      {/* Hero Content Ultra-Optimisé */}
-      <div className="max-w-5xl mx-auto text-center px-6 relative z-10">
-        
-        {/* Logo + Nom */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.6, 0.01, 0.05, 0.95] }}
-          className="mb-6"
-        >
+    <section className="relative min-h-screen flex items-center bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 w-full relative z-10 flex flex-col items-center">
+        {/* Titre principal */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extralight text-slate-800 leading-tight mb-4 tracking-tight">
+            Simplifiez votre recherche
+            <span className="block font-normal text-slate-700">immobilière</span>
+          </h1>
+          <p className="text-lg md:text-xl text-slate-500 font-light max-w-2xl mx-auto">
+            Trouvez, gérez et louez un bien en moins de 3 clics.
+          </p>
+        </div>
+
+        {/* Conteneur pour la barre et les illustrations */}
+        <div className="relative flex justify-center items-center w-full max-w-5xl mb-20">
+          {/* Illustration gauche */}
+          <motion.img
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            src="/3D/Entonnoir.png"
+            alt="Entonnoir 3D"
+            className="hidden xl:block absolute -left-32 -bottom-8 w-64 object-contain select-none pointer-events-none"
+          />
+
+          {/* Barre de recherche format pill */}
           <motion.div
-            whileHover={{ scale: 1.08 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="inline-block"
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.1, ease: "easeOut" }}
+            className="bg-white/90 backdrop-blur-lg shadow-lg rounded-full flex flex-col lg:flex-row items-stretch lg:items-center overflow-hidden w-full max-w-3xl border border-gray-100"
           >
-            <img 
-              src={logoGrega} 
-              alt="Grega" 
-              className="w-24 h-24 rounded-full object-cover mx-auto shadow-lg border border-gray-100"
-            />
+            <div className="flex-[1.2] flex items-center px-8 py-3 gap-3">
+              <span className="text-slate-500 text-sm hidden md:inline">Type</span>
+              <select className="flex-1 bg-transparent outline-none text-slate-800 font-medium text-sm w-full cursor-pointer">
+                <option>Appartement</option>
+                <option>Maison</option>
+                <option>Studio</option>
+              </select>
+            </div>
+            <span className="hidden lg:block w-px h-6 bg-slate-200 self-center" />
+            <div className="flex-[1.5] flex items-center px-8 py-3">
+              <input
+                type="text"
+                placeholder="Localisation"
+                className="w-full bg-transparent outline-none text-slate-800 text-sm placeholder:text-slate-400"
+              />
+            </div>
+            <span className="hidden lg:block w-px h-6 bg-slate-200 self-center" />
+            <div className="flex-1 flex items-center px-8 py-3">
+              <input
+                type="text"
+                placeholder="Surface min (m²)"
+                className="w-full bg-transparent outline-none text-slate-800 text-sm placeholder:text-slate-400"
+              />
+            </div>
+            <button className="flex items-center justify-center gap-2 bg-gradient-to-br from-slate-900 to-slate-800 hover:from-slate-800 text-white p-4 transition-all duration-300">
+              <FaSearch className="w-4 h-4" />
+              <span className="text-sm font-medium hidden lg:inline">Rechercher</span>
+            </button>
           </motion.div>
-        </motion.div>
-        
-        {/* Message Principal Compact */}
+
+          {/* Illustration droite */}
+          <motion.img
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            src="/3D/Cle_devantlaporte.png"
+            alt="Clé 3D"
+            className="hidden xl:block absolute -right-36 -bottom-16 w-[380px] object-contain select-none pointer-events-none"
+          />
+        </div>
+
+        {/* Bandeau ultra épuré de liens */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15, ease: [0.6, 0.01, 0.05, 0.95] }}
-          className="mb-8"
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="flex flex-col sm:flex-row justify-center items-start gap-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extralight text-gray-900 mb-3 leading-tight tracking-tight">
-            Trouvez votre logement
-            <br />
-            <span className="font-medium bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-              partout en France
-            </span>
-          </h2>
-          
-          <motion.p 
-            className="text-base text-gray-600 max-w-2xl mx-auto font-light leading-relaxed"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-          >
-            Agence de Broker Real Estate.
-            <br />
-            <span className="text-gray-500">
-              Nous trouvons, préparons votre dossier et négocions pour vous.
-            </span>
-          </motion.p>
-        </motion.div>
-
-        {/* Process Compact */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4, ease: [0.6, 0.01, 0.05, 0.95] }}
-          className="mb-8"
-        >
-          <div className="flex justify-center items-center gap-6 md:gap-10 text-gray-400">
-            <motion.div 
-              className="text-center group"
-              whileHover={{ y: -1 }}
-              transition={{ duration: 0.2 }}
+          {[
+            { href: '/biens-a-louer', label: 'Nos biens à louer', img: '/3D/mini_immeuble.png' },
+            { href: '/proprietaires', label: 'Vous êtes propriétaire ?', img: '/3D/seragedemaindevantunemaison.png' },
+            { href: '/services', label: 'Nos partenaires', img: '/3D/Personnagealaloupe.png' }
+          ].map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              className="group flex flex-col items-center text-center transition-transform duration-300 ease-out hover:-translate-y-1.5"
             >
-              <motion.div 
-                className="w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-medium shadow-sm group-hover:shadow-md transition-shadow duration-200"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.2 }}
-              >
-                1
-              </motion.div>
-              <p className="text-sm font-medium text-gray-700">Recherche</p>
-            </motion.div>
-            
-            <motion.div 
-              className="w-8 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 0.6, duration: 0.4 }}
-            />
-            
-            <motion.div 
-              className="text-center group"
-              whileHover={{ y: -1 }}
-              transition={{ duration: 0.2 }}
-            >
-              <motion.div 
-                className="w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-medium shadow-sm group-hover:shadow-md transition-shadow duration-200"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.2 }}
-              >
-                2
-              </motion.div>
-              <p className="text-sm font-medium text-gray-700">Dossier</p>
-            </motion.div>
-            
-            <motion.div 
-              className="w-8 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 0.7, duration: 0.4 }}
-            />
-            
-            <motion.div 
-              className="text-center group"
-              whileHover={{ y: -1 }}
-              transition={{ duration: 0.2 }}
-            >
-              <motion.div 
-                className="w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-medium shadow-sm group-hover:shadow-md transition-shadow duration-200"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.2 }}
-              >
-                3
-              </motion.div>
-              <p className="text-sm font-medium text-gray-700">Signature</p>
-            </motion.div>
-          </div>
-        </motion.div>
-
-        {/* CTA Compact */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8, ease: [0.6, 0.01, 0.05, 0.95] }}
-          className="space-y-5"
-        >
-          {/* Boutons Principaux Optimisés */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <motion.a
-              href="tel:0953376141"
-              whileHover={{ scale: 1.02, y: -1 }}
-              whileTap={{ scale: 0.98 }}
-              className="group bg-gray-900 text-white px-6 py-2.5 rounded-full text-base font-medium hover:bg-gray-800 transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl"
-            >
-              <FaPhone className="w-4 h-4" />
-              <span>Nous contacter</span>
-              <motion.div
-                className="opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                animate={{ x: [0, 3, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <FaArrowRight className="w-4 h-4" />
-              </motion.div>
-            </motion.a>
-
-            <motion.button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                if (!showCalendly) {
-                  setShowCalendly(true);
-                }
-              }}
-              whileHover={{ scale: 1.02, y: -1 }}
-              whileTap={{ scale: 0.98 }}
-              className="group border border-gray-900 text-gray-900 px-6 py-2.5 rounded-full text-base font-medium hover:bg-gray-900 hover:text-white transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl"
-            >
-              <FaCalendarAlt className="w-4 h-4" />
-              <span>Consultation Gratuite</span>
-            </motion.button>
-          </div>
-          
-          {/* Numéro Compact */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
-          >
-            <p className="text-3xl font-extralight text-gray-900 mb-1 tracking-wider">
-              09 53 37 61 41
-            </p>
-            <p className="text-gray-500 text-sm font-medium tracking-wide">
-              GRATUIT • IMMÉDIAT • SANS ENGAGEMENT
-            </p>
-          </motion.div>
-          
-          {/* Message d'urgence compact */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1.2, duration: 0.3 }}
-            className="inline-flex items-center gap-2 bg-orange-50 border border-orange-100 rounded-full px-4 py-2 hover:bg-orange-75 transition-colors duration-200"
-          >
-            <motion.div 
-              className="w-1.5 h-1.5 bg-orange-400 rounded-full"
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <span className="text-orange-700 text-sm font-medium">
-              Marché tendu • Agissez rapidement
-            </span>
-          </motion.div>
+              <img src={item.img} alt={item.label} className="h-16 w-16 object-contain mb-4" />
+              <span className="text-slate-600 text-sm md:text-base font-medium group-hover:text-slate-900 transition-colors">
+                {item.label}
+              </span>
+            </a>
+          ))}
         </motion.div>
       </div>
+    </section>
+  )
+}
 
-      {/* Modal Calendly */}
-      <Modal
-        isOpen={showCalendly}
-        onClose={() => setShowCalendly(false)}
-        title="Consultation Gratuite"
-      >
-        <CalendlyWidget />
-      </Modal>
-    </div>
-  );
-};
-
-export default Hero; 
+export default Hero 

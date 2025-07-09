@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
-import Services from './pages/Services'
 import Offices from './pages/Offices'
 import Contact from './pages/Contact'
 import Proprietaires from './pages/Proprietaires'
@@ -40,7 +39,6 @@ const AppContent = () => {
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
           <Route path="/biens-a-louer" element={<BiensALouer />} />
           <Route path="/offices" element={<Offices />} />
           <Route path="/proprietaires" element={<Proprietaires />} />

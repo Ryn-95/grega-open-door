@@ -1,83 +1,62 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaUsers, FaAward, FaClock } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaShieldAlt, FaLightbulb, FaHeart } from 'react-icons/fa';
 import Footer from '../components/Footer';
 
 const About = () => {
+  const values = [
+    {
+      icon: <FaShieldAlt className="w-8 h-8 text-slate-700" />,
+      title: "Confiance & Sécurité",
+      description: "Chaque dossier est vérifié, chaque étape est transparente. Votre sérénité est notre priorité absolue.",
+      image: "/3D/securite.png"
+    },
+    {
+      icon: <FaLightbulb className="w-8 h-8 text-slate-700" />,
+      title: "Innovation & Simplicité",
+      description: "Nous utilisons la technologie pour rendre la location plus simple, plus rapide et plus intelligente pour tous.",
+      image: "/3D/Personnagealaloupe.png"
+    },
+    {
+      icon: <FaHeart className="w-8 h-8 text-slate-700" />,
+      title: "L'Humain au Centre",
+      description: "Derrière la technologie, il y a notre équipe. Nous sommes à votre écoute pour vous accompagner personnellement.",
+      image: "/3D/familleheureuse.png"
+    }
+  ];
+
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl md:text-5xl font-extralight text-gray-900 mb-6"
-          >
-            À Propos de GREGA
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg text-gray-600 max-w-3xl mx-auto"
-          >
-            Votre partenaire de confiance pour tous vos projets immobiliers
-          </motion.p>
-        </div>
-      </section>
-
-      {/* Notre Mission */}
-      <section className="py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section className="py-24 bg-slate-50 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <h2 className="text-3xl font-light text-gray-900 mb-6">Notre Mission</h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                GREGA OPEN DOOR révolutionne l'expérience immobilière en France. 
-                Nous croyons que trouver un logement ne devrait pas être un parcours du combattant.
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                Grâce à notre expertise, notre réseau et notre technologie, nous accompagnons 
-                chaque client vers la réussite de son projet immobilier, qu'il s'agisse de 
-                trouver un logement, d'investir ou de gérer un patrimoine.
+              <h1 className="text-5xl md:text-7xl font-extralight text-slate-900 mb-6 tracking-tight">
+                Notre mission : <span className="font-normal text-slate-700">simplifier l'immobilier.</span>
+              </h1>
+              <p className="text-xl text-slate-600 font-light max-w-xl leading-relaxed">
+                Chez GREGA, nous croyons que l'accès au logement doit être une expérience juste, transparente et efficace. Nous mettons la technologie et notre expertise au service de votre projet.
               </p>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="grid grid-cols-2 gap-6"
+              initial={{ opacity: 0, scale: 0.8, x: 50 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 1, ease: [0.165, 0.84, 0.44, 1] }}
             >
-              {[
-                { icon: <FaUsers className="w-6 h-6" />, number: "2500+", label: "Clients satisfaits" },
-                { icon: <FaAward className="w-6 h-6" />, number: "98%", label: "Taux de réussite" },
-                { icon: <FaClock className="w-6 h-6" />, number: "15", label: "Jours en moyenne" },
-                { icon: <FaMapMarkerAlt className="w-6 h-6" />, number: "8", label: "Villes couvertes" }
-              ].map((stat, index) => (
-                <div key={index} className="text-center p-6 bg-gray-50 rounded-xl">
-                  <div className="w-12 h-12 bg-gray-900 text-white rounded-lg flex items-center justify-center mx-auto mb-4">
-                    {stat.icon}
-                  </div>
-                  <div className="text-2xl font-light text-gray-900 mb-2">{stat.number}</div>
-                  <div className="text-gray-600 text-sm">{stat.label}</div>
-                </div>
-              ))}
+              <img src="/3D/scenedequipeautourdunplanholographique.png" alt="Notre équipe travaillant sur un projet immobilier" className="w-full h-auto" />
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Nos Valeurs */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -85,73 +64,118 @@ const About = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-light text-gray-900 mb-6">Nos Valeurs</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              Les principes qui guident notre action au quotidien
+            <h2 className="text-4xl md:text-5xl font-extralight text-slate-800 mb-4 tracking-tight">
+              Guidés par nos valeurs
+            </h2>
+            <p className="text-lg text-slate-500 font-light max-w-3xl mx-auto">
+              Les principes qui animent chacune de nos décisions.
             </p>
           </motion.div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Excellence",
-                description: "Nous visons l'excellence dans chaque interaction, chaque conseil, chaque service proposé à nos clients."
-              },
-              {
-                title: "Transparence", 
-                description: "Honnêteté et clarté dans tous nos échanges. Nos clients connaissent toujours les enjeux et les coûts."
-              },
-              {
-                title: "Innovation",
-                description: "Nous intégrons les dernières technologies pour améliorer constamment l'expérience de nos clients."
-              }
-            ].map((value, index) => (
+            {values.map((value, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
                 viewport={{ once: true }}
-                className="text-center p-8 bg-white rounded-xl border border-gray-100"
+                className="bg-slate-50/70 rounded-3xl p-8 text-center flex flex-col items-center border border-slate-100 hover:shadow-xl hover:border-slate-200 transition-all duration-300"
               >
-                <h3 className="text-xl font-light text-gray-900 mb-4">{value.title}</h3>
-                <p className="text-gray-600">{value.description}</p>
+                <div className="relative mb-6">
+                  <img src={value.image} alt={value.title} className="h-28 w-28 object-contain" />
+                  <motion.div 
+                    whileHover={{ scale: 1.2, rotate: 15 }}
+                    className="absolute -top-2 -right-2 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg border border-slate-100">
+                    {value.icon}
+                  </motion.div>
+                </div>
+                <h3 className="text-xl font-semibold text-slate-800 mb-3">{value.title}</h3>
+                <p className="text-slate-500 font-light leading-relaxed text-sm">{value.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Section "Notre Approche" */}
+      <section className="py-24 bg-slate-900 text-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="md:order-last"
+            >
+              <img src="/3D/Graphiquedecroissance.png" alt="Croissance et performance" className="w-full h-auto" />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="md:order-first"
+            >
+              <h2 className="text-4xl font-extralight mb-6 tracking-tight">Une approche axée sur la performance</h2>
+              <p className="text-slate-300 mb-6 leading-relaxed font-light">
+                Nous combinons une connaissance approfondie du marché avec des outils d'analyse de données pour maximiser vos chances de succès. Que vous soyez locataire ou propriétaire, notre objectif est d'atteindre le vôtre, rapidement et efficacement.
+              </p>
+              <div className="flex flex-wrap gap-4 mt-8">
+                  <div className="p-4 bg-slate-800/60 rounded-lg">
+                      <p className="text-2xl font-semibold text-white">98%</p>
+                      <p className="text-sm text-slate-400">Taux de réussite</p>
+                  </div>
+                  <div className="p-4 bg-slate-800/60 rounded-lg">
+                      <p className="text-2xl font-semibold text-white">15 jours</p>
+                      <p className="text-sm text-slate-400">Location moyenne</p>
+                  </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact */}
-      <section className="py-20">
+      <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <motion.h2
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-3xl font-light text-gray-900 mb-8"
           >
-            Parlons de votre projet
-          </motion.h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.a
+            <img src="/3D/Agentimmobiliersouriant.png" alt="Contactez notre équipe" className="w-32 h-32 mx-auto mb-6" />
+            <h2 className="text-3xl font-extralight text-slate-800 mb-4">
+              Parlons de votre projet
+            </h2>
+            <p className="text-lg text-slate-500 mb-8 max-w-2xl mx-auto font-light">
+              Notre équipe est prête à vous écouter et à vous proposer des solutions sur mesure.
+            </p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <a
               href="tel:0953376141"
-              whileHover={{ scale: 1.05 }}
-              className="inline-flex items-center gap-3 bg-gray-900 text-white px-8 py-4 rounded-full hover:bg-gray-800 transition-colors duration-300"
+              className="inline-flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-3 rounded-xl font-medium hover:bg-slate-800 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
-              <FaPhone className="w-5 h-5" />
+              <FaPhone />
               <span>09 53 37 61 41</span>
-            </motion.a>
-            <motion.a
+            </a>
+            <a
               href="mailto:contact@gregaopendoor.fr"
-              whileHover={{ scale: 1.05 }}
-              className="inline-flex items-center gap-3 border border-gray-900 text-gray-900 px-8 py-4 rounded-full hover:bg-gray-900 hover:text-white transition-all duration-300"
+              className="inline-flex items-center justify-center gap-3 border border-slate-300 text-slate-800 px-8 py-3 rounded-xl font-medium hover:bg-slate-100 hover:border-slate-400 transition-all duration-300"
             >
-              <FaEnvelope className="w-5 h-5" />
-              <span>Nous contacter</span>
-            </motion.a>
-          </div>
+              <FaEnvelope />
+              <span>Nous contacter par e-mail</span>
+            </a>
+          </motion.div>
         </div>
       </section>
 

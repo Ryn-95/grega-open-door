@@ -1,8 +1,7 @@
-import { motion, AnimatePresence } from 'framer-motion'
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaCalendarAlt, FaTimes } from 'react-icons/fa'
-import Footer from '../components/Footer'
-import React, { useState, useEffect } from 'react'
-import { navigateToPage } from '../utils/navigation'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
+import Footer from '../components/Footer';
 
 const Villes = () => {
   const villes = [
@@ -10,270 +9,144 @@ const Villes = () => {
       id: 'paris',
       nom: 'Paris',
       adresse: '37 rue des Maturins, 75008',
-      telephone: '09 53 37 61 41',
-      email: 'paris@gregaopendoor.fr'
+      image: 'https://images.unsplash.com/photo-1502602898657-3e91760c0337?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
     },
     {
       id: 'lyon',
       nom: 'Lyon',
       adresse: '25 Place Bellecour, 69002',
-      telephone: '04 78 22 33 44',
-      email: 'lyon@gregaopendoor.fr'
+      image: 'https://images.unsplash.com/photo-1593923363432-3e25424734b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
     },
     {
       id: 'marseille',
       nom: 'Marseille',
       adresse: '10 La Canebière, 13001',
-      telephone: '04 91 55 66 77',
-      email: 'marseille@gregaopendoor.fr'
-    },
-    {
-      id: 'toulouse',
-      nom: 'Toulouse',
-      adresse: '8 Place du Capitole, 31000',
-      telephone: '05 61 44 55 66',
-      email: 'toulouse@gregaopendoor.fr'
+      image: 'https://images.unsplash.com/photo-1560963952-4721a37a504a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
     },
     {
       id: 'bordeaux',
       nom: 'Bordeaux',
       adresse: '12 Cours de l\'Intendance, 33000',
-      telephone: '05 56 33 44 55',
-      email: 'bordeaux@gregaopendoor.fr'
+      image: 'https://images.unsplash.com/photo-1592235921473-74109591434c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
     },
     {
       id: 'lille',
       nom: 'Lille',
       adresse: '20 Grand Place, 59000',
-      telephone: '03 20 22 33 44',
-      email: 'lille@gregaopendoor.fr'
-    },
-    {
-      id: 'nantes',
-      nom: 'Nantes',
-      adresse: '5 Place Royale, 44000',
-      telephone: '02 40 11 22 33',
-      email: 'nantes@gregaopendoor.fr'
+      image: 'https://images.unsplash.com/photo-1581342676839-a1b65e931449?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1334&q=80'
     },
     {
       id: 'nice',
       nom: 'Nice',
       adresse: '30 Promenade des Anglais, 06000',
-      telephone: '04 93 44 55 66',
-      email: 'nice@gregaopendoor.fr'
+      image: 'https://images.unsplash.com/photo-1541732626242-995d28258e1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
     }
-  ]
-
-  const [showCalendly, setShowCalendly] = useState(false)
-
-  // Composant Calendly intégré
-  const CalendlyWidget = () => (
-    <div className="w-full h-[600px]">
-      <iframe
-        src="https://calendly.com/contact-gregaopendoor/consultation"
-        width="100%"
-        height="100%"
-        frameBorder="0"
-        title="Consultation avec GREGA"
-      />
-      <p className="text-center text-gray-600 mt-4 font-light">
-        Si le calendrier ne s'affiche pas, 
-        <a 
-          href="https://calendly.com/contact-gregaopendoor/consultation" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-black underline hover:no-underline ml-1"
-        >
-          cliquez ici pour ouvrir dans un nouvel onglet
-        </a>
-      </p>
-    </div>
-  )
-
-  // Composant Modal réutilisable
-  const Modal = ({ isOpen, onClose, title, children }: any) => (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            onClose();
-          }}
-        >
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.8, opacity: 0 }}
-            className="bg-white max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-            }}
-          >
-            <div className="p-8">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-3xl font-light text-black">{title}</h2>
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    onClose();
-                  }}
-                  className="text-gray-400 hover:text-black transition-colors"
-                >
-                  <FaTimes className="w-6 h-6" />
-                </button>
-              </div>
-              {children}
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  )
+  ];
 
   return (
     <main className="min-h-screen bg-white">
       
-      {/* Hero Ultra Épuré */}
-      <section className="py-32 bg-white">
-        <div className="max-w-3xl mx-auto text-center px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-16"
-          >
-            <h1 className="text-6xl md:text-7xl font-light text-black leading-tight mb-8">
-              Nos Bureaux
-            </h1>
-            <p className="text-lg text-gray-600 font-light">
-              8 villes • 15 conseillers • Lun-Ven 9h-18h
-            </p>
-          </motion.div>
+      {/* Hero Section */}
+      <section className="py-24 bg-slate-900 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 text-center relative">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+            >
+                <h1 className="text-5xl md:text-7xl font-extralight text-white mb-6 tracking-tight">
+                    Présents <span className="font-normal text-slate-300">partout en France.</span>
+                </h1>
+                <p className="text-xl text-slate-400 font-light max-w-2xl mx-auto">
+                    Découvrez nos agences locales, toujours prêtes à vous accueillir et vous accompagner dans votre projet immobilier.
+                </p>
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, scale: 0.7, y: 50 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 1.2, ease: [0.165, 0.84, 0.44, 1], delay: 0.2 }}
+                className="mt-12"
+            >
+                <img src="/3D/Carte3DdelaFrancE.png" alt="Carte de France" className="w-full h-auto max-w-3xl mx-auto" />
+            </motion.div>
         </div>
       </section>
 
-      {/* Liste Ultra-Épurée */}
-      <section className="py-32 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="space-y-12">
-            {villes.map((ville, index) => (
-              <motion.div
-                key={ville.id}
+      {/* Liste des Villes */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+            <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.05 }}
+                transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="group"
-              >
-                <div className="py-8 border-b border-gray-100 hover:border-gray-300 transition-colors duration-300">
-                  <div className="grid md:grid-cols-4 gap-6 items-center">
-                    
-                    {/* Ville */}
-                    <div>
-                      <h3 className="text-2xl font-light text-black">
-                        {ville.nom}
-                      </h3>
-                    </div>
-
-                    {/* Adresse */}
-                    <div className="flex items-center gap-3">
-                      <FaMapMarkerAlt className="w-3 h-3 text-gray-400" />
-                      <span className="text-sm text-gray-600 font-light">
-                        {ville.adresse}
-                      </span>
-                    </div>
-
-                    {/* Téléphone */}
-                    <div className="flex items-center gap-3">
-                      <FaPhone className="w-3 h-3 text-gray-400" />
-                      <a 
-                        href={`tel:${ville.telephone.replace(/\s/g, '')}`}
-                        className="text-sm text-gray-600 font-light hover:text-black transition-colors"
-                      >
-                        {ville.telephone}
-                      </a>
-                    </div>
-
-                    {/* Email */}
-                    <div className="flex items-center gap-3">
-                      <FaEnvelope className="w-3 h-3 text-gray-400" />
-                      <motion.button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          if (!showCalendly) {
-                            setShowCalendly(true);
-                          }
-                        }}
-                        whileHover={{ y: -2 }}
-                        className="inline-flex items-center gap-3 bg-black text-white px-8 py-4 font-light text-lg hover:bg-gray-800 transition-all duration-300"
-                      >
-                        <FaCalendarAlt className="w-5 h-5" />
-                        <span>Nous Contacter</span>
-                      </motion.button>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Section Contact Final - Ultra Simple */}
-      <section className="py-32 bg-gray-50">
-        <div className="max-w-3xl mx-auto text-center px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mb-12"
-          >
-            <h2 className="text-4xl font-light text-black mb-8">
-              Une question ?
-            </h2>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.a
-                href="mailto:contact@gregaopendoor.fr"
-                whileHover={{ y: -2 }}
-                className="inline-flex items-center gap-3 bg-black text-white px-8 py-4 font-light text-lg hover:bg-gray-800 transition-all duration-300"
-              >
-                <FaEnvelope className="w-5 h-5" />
-                <span>Nous Contacter</span>
-              </motion.a>
-              
-              <a
-                href="tel:0953376141"
-                className="px-8 py-3 border border-black text-black font-light hover:bg-black hover:text-white transition-colors"
-              >
-                09 53 37 61 41
-              </a>
+                className="text-center mb-16"
+            >
+                <h2 className="text-4xl md:text-5xl font-extralight text-slate-800 mb-4 tracking-tight">
+                    Nos agences locales
+                </h2>
+                <p className="text-lg text-slate-500 font-light max-w-3xl mx-auto">
+                    Proximité, expertise et connaissance du marché local.
+                </p>
+            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {villes.map((ville, index) => (
+                    <motion.div
+                        key={ville.id}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                        className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl border border-slate-100/80 transition-all duration-300 group"
+                    >
+                        <div className="relative h-56">
+                            <img src={ville.image} alt={`Vue de ${ville.nom}`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <h3 className="absolute bottom-4 left-6 text-3xl font-light text-white">{ville.nom}</h3>
+                        </div>
+                        <div className="p-6 bg-slate-50">
+                            <div className="flex items-center gap-4 mb-4">
+                                <FaMapMarkerAlt className="w-5 h-5 text-slate-400 flex-shrink-0" />
+                                <p className="text-slate-700">{ville.adresse}</p>
+                            </div>
+                            <div className="flex justify-between gap-4 mt-6">
+                                <a href={`mailto:contact-${ville.id}@gregaopendoor.fr`} className="flex-1 text-center bg-slate-800 text-white px-6 py-3 rounded-xl font-medium hover:bg-slate-700 transition-all text-sm">
+                                    Contacter
+                                </a>
+                                <a href={`tel:0953376141`} className="flex-1 text-center bg-white text-slate-800 px-6 py-3 rounded-xl font-medium hover:bg-slate-200 border border-slate-200 transition-all text-sm">
+                                    Appeler
+                                </a>
+                            </div>
+                        </div>
+                    </motion.div>
+                ))}
             </div>
-          </motion.div>
         </div>
       </section>
 
-      {/* Modal Calendly */}
-      <Modal
-        isOpen={showCalendly}
-        onClose={() => setShowCalendly(false)}
-        title="Consultation Gratuite"
-      >
-        <CalendlyWidget />
-      </Modal>
+      {/* Prochainement */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+            >
+                <img src="/3D/panneauavendre.png" alt="Prochainement" className="w-32 h-32 mx-auto mb-6" />
+                <h2 className="text-3xl font-extralight text-slate-800 mb-4">
+                    Bientôt près de chez vous
+                </h2>
+                <p className="text-lg text-slate-500 mb-8 max-w-2xl mx-auto font-light">
+                    Notre réseau s'agrandit ! Nous préparons notre arrivée à <strong>Toulouse</strong> et <strong>Nantes</strong>. Restez connectés pour suivre nos prochaines ouvertures.
+                </p>
+            </motion.div>
+        </div>
+      </section>
 
       <Footer />
     </main>
-  )
-}
+  );
+};
 
-export default Villes
+export default Villes;
