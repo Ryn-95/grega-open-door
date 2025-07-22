@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GREGA OPEN DOOR - Image OG</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        .og-container {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .og-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        
+        .og-content {
+            text-align: center;
+            z-index: 10;
+            max-width: 900px;
+            padding: 60px;
+        }
+        
+        .og-title {
+            font-size: 64px;
+            font-weight: 100;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+        
+        .og-subtitle {
+            font-size: 28px;
+            color: #ffffff;
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+        
+        .og-description {
+            font-size: 24px;
+            color: #cccccc;
+            font-weight: 300;
+            line-height: 1.4;
+            margin-bottom: 40px;
+        }
+        
+        .og-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: white;
+            color: black;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 500;
+            text-decoration: none;
+            border: none;
+        }
+        
+        .og-phone {
+            position: absolute;
+            bottom: 32px;
+            right: 32px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 16px 24px;
+            border-radius: 12px;
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        
+        .og-logo {
+            position: absolute;
+            top: 32px;
+            left: 32px;
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+        
+        .og-decoration {
+            position: absolute;
+            top: 50%;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="og-container">
+        <div class="og-grid"></div>
+        <div class="og-decoration"></div>
+        
+        <div class="og-logo">GREGA</div>
+        
+        <div class="og-content">
+            <h1 class="og-title">
+                Simplifiez votre<br>
+                recherche immobilière
+            </h1>
+            <p class="og-subtitle">OPEN DOOR</p>
+            <p class="og-description">
+                Votre agence immobilière à Paris<br>
+                Location • Achat • Vente • Gestion
+            </p>
+            <div class="og-cta">
+                📞 Appelez-nous maintenant
+            </div>
+        </div>
+        
+        <div class="og-phone">
+            09 53 37 61 41
+        </div>
+    </div>
+</body>
+</html> 

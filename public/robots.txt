@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.gregaopendoor.fr/sitemap.xml
+
+# Disallow admin/private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_redirects
+Disallow: /vercel.json
+
+# Allow CSS and JS for better crawling
+Allow: /static/
+Allow: /assets/
+Allow: /*.css
+Allow: /*.js
+
+# Crawl-delay (optional)
+Crawl-delay: 1 
