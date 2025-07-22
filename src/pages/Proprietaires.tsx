@@ -1,181 +1,117 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { FaCheck, FaPhone, FaEnvelope, FaMapMarkerAlt, FaShieldAlt, FaUserCheck, FaClock, FaHandshake, FaArrowRight, FaTimes, FaFileAlt, FaHeart, FaUsers, FaBrain, FaCamera, FaCalendarAlt, FaEye, FaRocket, FaStar } from 'react-icons/fa';
-import Footer from '../components/Footer';
+import { motion } from 'framer-motion'
+import { FaDownload, FaEnvelope, FaPhone } from 'react-icons/fa'
 
-const Proprietaires = () => {
-  const [showCalendly, setShowCalendly] = useState(false);
-
-  const problemes = [
-    { title: 'Annonces inefficaces', description: 'Visibilité limitée, photos de mauvaise qualité, descriptions vagues.', imageUrl: '/3D/Plan_2.png' },
-    { title: 'Visites interminables', description: 'Coordonner les agendas, gérer les annulations et les curieux.', imageUrl: '/3D/calendrier.png' },
-    { title: 'Dossiers incomplets', description: 'Vérifier manuellement des dizaines de documents et relancer les candidats.', imageUrl: '/3D/Livraison_carton.png' },
-    { title: 'Risques d\'impayés', description: 'Incertitude sur la solvabilité des locataires et stress des retards de paiement.', imageUrl: '/3D/securite.png' },
-  ];
-
-  const services = [
-    { icon: <FaCamera size={24} className="text-slate-700" />, title: "Shooting photo professionnel", description: "Photos HDR, visite virtuelle 360°, et plans 2D/3D pour sublimer votre bien." },
-    { icon: <FaRocket size={24} className="text-slate-700" />, title: "Diffusion massive", description: "Annonces sur +30 portails, réseaux sociaux, et notre base de +10k candidats qualifiés." },
-    { icon: <FaBrain size={24} className="text-slate-700" />, title: "Sélection par IA", description: "Matching des candidats, vérification automatique des dossiers et scoring de solvabilité." },
-    { icon: <FaUserCheck size={24} className="text-slate-700" />, title: "Gestion des visites", description: "Prise de RDV en ligne, qualification des visiteurs et rappels automatiques pour optimiser votre temps." }
-  ];
-
-  const CalendlyWidget = () => (
-    <div className="w-full h-[600px] bg-white rounded-2xl overflow-hidden shadow-2xl">
-      <iframe
-        src="https://calendly.com/contact-gregaopendoor/consultation"
-        width="100%"
-        height="100%"
-        frameBorder="0"
-        title="Prendre rendez-vous avec GREGA"
-      />
-        </div>
-  );
-
+export default function Proprietaires() {
   return (
-    <main className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="py-32 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <span className="inline-flex items-center gap-2 border border-green-500 text-green-600 px-4 py-1.5 rounded-full text-sm font-medium mb-6 bg-green-50">
-              <FaCheck />
-              <span>SERVICE 100% GRATUIT</span>
-            </span>
-            <h1 className="text-5xl md:text-7xl font-extralight text-slate-900 mb-6 tracking-tight">
-              Louez votre bien, <span className="font-normal text-slate-700">l'esprit tranquille.</span>
-            </h1>
-            <p className="text-xl text-slate-600 font-light max-w-xl leading-relaxed mb-10">
-              Notre service premium pour propriétaires exigeants vous garantit une location rapide et sécurisée, sans frais cachés ni commission.
-            </p>
-            <motion.button
-              onClick={() => setShowCalendly(true)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-slate-900 text-white px-10 py-4 font-medium text-lg rounded-xl shadow-lg hover:shadow-xl transition-all"
-            >
-              Estimer mon bien
-            </motion.button>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: [0.165, 0.84, 0.44, 1] }}
-            className="hidden md:block"
-          >
-            <img src="/3D/seragedemaindevantunemaison.png" alt="Gestion immobilière" className="w-full h-auto object-contain" />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Section "Fini les complications" */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-              className="text-center mb-16"
-          >
-              <h2 className="text-4xl md:text-5xl font-extralight text-slate-800 mb-4 tracking-tight">
-              Fini les complications
-            </h2>
-              <p className="text-lg text-slate-500 font-light max-w-3xl mx-auto">
-                Notre technologie et notre expertise éliminent les frictions traditionnelles de la location immobilière.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {problemes.map((probleme, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-slate-50 rounded-3xl p-8 text-center flex flex-col items-center border border-slate-100"
-              >
-                <img src={probleme.imageUrl} alt={probleme.title} className="h-24 w-24 object-contain mb-6" />
-                <h3 className="text-lg font-semibold text-slate-800 mb-3">
-                      {probleme.title}
-                    </h3>
-                <p className="text-slate-500 font-light leading-relaxed text-sm">
-                      {probleme.description}
-                    </p>
-              </motion.div>
-            ))}
+    <div className="min-h-screen bg-white">
+      {/* Navigation */}
+      <nav className="bg-[#2A3942] text-white py-4">
+        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
+          <div className="flex gap-16">
+            <a href="/biens-a-louer" className="hover:text-gray-300 transition-colors">
+              NOS BIENS À LOUER
+            </a>
+            <a href="/proprietaires" className="hover:text-gray-300 transition-colors">
+              VOUS ÊTES PROPRIÉTAIRE ?
+            </a>
+            <a href="/partenaires" className="hover:text-gray-300 transition-colors">
+              NOS PARTENAIRES
+            </a>
           </div>
         </div>
-      </section>
+      </nav>
 
-      {/* Section "Notre Service Premium" */}
-      <section className="py-24 bg-slate-900 text-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-extralight mb-4 tracking-tight">
-              Un service premium, de A à Z
-            </h2>
-            <p className="text-lg text-slate-300 font-light max-w-3xl mx-auto">
-              Un accompagnement complet pour une location sereine et profitable.
+      {/* Hero Image */}
+      <div className="relative h-[300px] overflow-hidden">
+        <img
+          src="/images/appartement-luxe.jpg"
+          alt="Appartement de luxe"
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      {/* Contenu Principal */}
+      <div className="max-w-4xl mx-auto px-4 py-12">
+        <h1 className="text-[#8B0000] text-2xl mb-8 text-center italic">
+          Vous êtes propriétaire ?
+        </h1>
+
+        <div className="space-y-6 text-[#333] leading-relaxed">
+          <p>
+            De nombreux propriétaires nous ont fait confiance pour leur trouver des locataires avec des garanties recevables, rejoignez les!
+          </p>
+
+          <p className="text-[#8B0000] font-semibold">
+            Ce service est gratuit .
+          </p>
+
+          <p>
+            Vous êtes propriétaire d'un ou plusieurs logements que vous voulez louer.
+          </p>
+
+          <div>
+            <p className="text-[#8B0000] font-semibold mb-4">
+              Allo location vous propose le service qu'il vous faut !
             </p>
-          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="flex items-start gap-6 p-6 bg-slate-800/50 rounded-2xl"
+            <p className="mb-4">Si vous en avez assez :</p>
+            <ul className="list-disc pl-8 space-y-2">
+              <li>d'être contacté toute la journée par des candidats locataires sans un dossier recevable !</li>
+              <li>de devoir régler des honoraires pour trouver un bon locataire</li>
+              <li>de continuer à recevoir des appels pendant plusieurs semaines après avoir loué votre bien</li>
+              <li>de ne pas avoir une totale liberté sur la location de votre appartement</li>
+            </ul>
+          </div>
+
+          <p>
+            N'hésitez plus, contactez nous !
+          </p>
+
+          <p>
+            Nos services assurent un contrôle sérieux des garanties de votre futur locataire, pour un gain de temps évident ! En effet nous recevons au préalable tous les candidats pour une étude sérieuse de la solvabilité de leur dossier et de leur éligibilité au GLI (garantie loyer impayé), au pass GRL ...
+          </p>
+
+          <p>
+            Notre service vous accompagnera dans votre démarche en vous apportant sérieux et conseil
+          </p>
+
+          <p>
+            Assurance loyer : loyer impayé, carence locative, détérioration immobilière et protection juridique.
+          </p>
+
+          <div>
+            <h2 className="text-[#8B0000] text-xl font-semibold mb-4">
+              Proposez votre bien à la location
+            </h2>
+
+            <p>
+              Téléchargez, imprimez, remplissez, signez et renvoyez le formulaire ci-dessous par Email à allolocation@sfr.fr ou par courrier à l'adresse : 21, rue Cheroy 75017 PARIS ou contactez nous directement au 01 45 22 45 22.
+            </p>
+
+            <div className="mt-4">
+              <a 
+                href="/formulaire-proprietaire.pdf" 
+                className="text-[#8B0000] hover:underline"
               >
-                <div className="flex-shrink-0 w-12 h-12 bg-slate-700 rounded-xl flex items-center justify-center">
-                  {service.icon}
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">
-                      {service.title}
-                    </h3>
-                  <p className="text-slate-300 font-light leading-relaxed">
-                      {service.description}
-                    </p>
-                </div>
-              </motion.div>
-            ))}
+                - Téléchargez le formulaire
+              </a>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Section Calendly */}
-      {showCalendly && (
-        <section className="py-32 bg-white">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-4xl mx-auto px-6 text-center"
-          >
-            <h2 className="text-4xl font-light text-slate-800 mb-4 tracking-tight">Prendre rendez-vous</h2>
-            <p className="text-lg text-slate-500 mb-12">Choisissez un créneau pour une estimation gratuite et sans engagement.</p>
-            <CalendlyWidget />
-          </motion.div>
-      </section>
-      )}
-
-      <Footer />
-    </main>
-  );
-};
-
-export default Proprietaires;
+      {/* Footer */}
+      <footer className="bg-[#8B0000] text-white py-4">
+        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-sm">
+          <span>Allo Location</span>
+          <a href="/contact" className="hover:underline">NOUS CONTACTER</a>
+          <a href="/mentions-legales" className="hover:underline">MENTIONS LEGALES</a>
+          <div className="flex items-center gap-2">
+            <span>Site réalisé par</span>
+            <a href="https://cosmosoft.fr" className="text-[#FFA07A] hover:underline">Cosmosoft</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}
