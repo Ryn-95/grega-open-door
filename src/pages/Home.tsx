@@ -71,7 +71,8 @@ const PropertyList = () => {
               className="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col"
             >
               <div className="bg-gray-50 h-56 flex items-center justify-center p-4">
-                <img
+                <
+                  img
                   src={property.imageUrl}
                   alt={property.title}
                   className="h-full w-full object-contain group-hover:scale-105 transition-transform duration-500 ease-out"
