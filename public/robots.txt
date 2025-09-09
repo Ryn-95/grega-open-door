@@ -2,19 +2,23 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://www.gregaopendoor.fr/sitemap.xml
+Sitemap: https://gregaopendoor.fr/sitemap.xml
 
-# Disallow admin/private areas
+# Interdire le crawl de pages inutiles
 Disallow: /admin/
-Disallow: /private/
-Disallow: /_redirects
-Disallow: /vercel.json
+Disallow: /api/
+Disallow: /*.json$
 
-# Allow CSS and JS for better crawling
-Allow: /static/
-Allow: /assets/
-Allow: /*.css
-Allow: /*.js
+# Optimisations pour Google
+User-agent: Googlebot
+Allow: /
 
-# Crawl-delay (optional)
-Crawl-delay: 1 
+# Interdire les bots malveillants
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+# Délai entre les requêtes (en secondes)
+Crawl-delay: 1
