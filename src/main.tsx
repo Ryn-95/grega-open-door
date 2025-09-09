@@ -8,3 +8,5 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>,
 )
+/* GREGA OPEN DOOR FORCE REBUILD 20250909_133827 */
+/* FORCE DEPLOY SPA FIX 20250909_142342 */
