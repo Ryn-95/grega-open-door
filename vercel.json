@@ -8,11 +8,6 @@
       "destination": "/index.html"
     }
   ],
-  "functions": {
-    "src/pages/api/sitemap.xml": {
-      "maxDuration": 10
-    }
-  },
   "headers": [
     {
       "source": "/robots.txt",
