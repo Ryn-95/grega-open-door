@@ -1,4 +1,4 @@
-# GREGA ONE COMPANY
+# GREGA OPEN DOOR
 
 Plateforme immobilière complète avec design révolutionnaire noir et blanc.
 
