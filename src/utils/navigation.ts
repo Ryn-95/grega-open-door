@@ -1,14 +1,16 @@
-// Utilitaire de navigation pour éviter les problèmes de liens après navigation
+// Utilitaire de navigation pour React Router
 export const navigateToPage = (path: string) => {
-  // Forcer le rechargement de la page pour éviter les problèmes de React Router
-  window.location.href = path;
+  // Utilise l'API History moderne pour la navigation SPA
+  window.history.pushState(null, '', path);
+  window.dispatchEvent(new PopStateEvent('popstate'));
 };
 
 // Alternative avec scroll smooth vers le haut
 export const navigateWithScroll = (path: string) => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
   setTimeout(() => {
-    window.location.href = path;
+    window.history.pushState(null, '', path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
   }, 300);
 };
 
