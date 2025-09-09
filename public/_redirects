@@ -1,1 +1,13 @@
-/* /index.html 200 
+# Gestion SPA pour toutes les routes React
+/*    /index.html   200
+
+# Redirections spécifiques pour éviter les 404
+/proprietaires    /index.html   200
+/contact          /index.html   200
+/blog             /index.html   200
+/about            /index.html   200
+/biens-a-louer    /index.html   200
+/villes           /index.html   200
+/offices          /index.html   200
+/mentions-legales /index.html   200
+/confidentialite  /index.html   200

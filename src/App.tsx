@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -61,6 +61,8 @@ const AppContent = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/mentions-legales" element={<LazyMentionsLegales />} />
             <Route path="/confidentialite" element={<LazyConfidentialite />} />
+            {/* Route de fallback pour gérer les 404 côté client */}
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>
       </AnimatePresence>
