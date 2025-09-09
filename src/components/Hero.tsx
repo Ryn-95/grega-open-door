@@ -7,6 +7,7 @@ const Hero = () => {
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false)
 
   return (
+    <>
     <section className="relative min-h-[100dvh] flex items-center bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-6 w-full relative z-10 flex flex-col items-center">
         {/* Titre principal */}
@@ -101,6 +102,28 @@ const Hero = () => {
           </button>
         </motion.div>
 
+        {/* Barre de navigation */}
+        <motion.nav
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.25 }}
+          className="bg-[#2A3942] text-white py-4 shadow-lg mb-8 w-screen -mx-4 md:-mx-6"
+        >
+          <div className="flex justify-center items-center">
+            <div className="flex gap-8 md:gap-16">
+              <a href="/biens-a-louer" className="hover:text-gray-300 transition-colors text-sm md:text-base">
+                NOS BIENS À LOUER
+              </a>
+              <a href="/proprietaires" className="hover:text-gray-300 transition-colors text-sm md:text-base">
+                VOUS ÊTES PROPRIÉTAIRE ?
+              </a>
+              <a href="/partenaires" className="hover:text-gray-300 transition-colors text-sm md:text-base">
+                NOS PARTENAIRES
+              </a>
+            </div>
+          </div>
+        </motion.nav>
+
         {/* Calendly Modal */}
         <PopupModal
           url="https://calendly.com/contact-gregaopendoor/consultation"
@@ -115,36 +138,10 @@ const Hero = () => {
           }}
         />
 
-        {/* Bandeau ultra épuré de liens */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 px-4 w-full max-w-4xl mx-auto"
-        >
-          {[
-            { href: '/biens-a-louer', label: 'Nos biens à louer', img: '/3D/mini_immeuble.png' },
-            { href: '/proprietaires', label: 'Vous êtes propriétaire ?', img: '/3D/seragedemaindevantunemaison.png' },
-            { href: '/services', label: 'Nos partenaires', img: '/3D/Personnagealaloupe.png' }
-          ].map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="group flex flex-col items-center text-center transition-transform duration-300 ease-out hover:-translate-y-1.5"
-            >
-              <img 
-                src={item.img} 
-                alt={item.label} 
-                className="h-14 md:h-16 w-14 md:w-16 object-contain mb-3 md:mb-4" 
-              />
-              <span className="text-slate-600 text-sm md:text-base font-medium group-hover:text-slate-900 transition-colors">
-                {item.label}
-              </span>
-            </a>
-          ))}
-        </motion.div>
+
       </div>
     </section>
+    </>
   )
 }
 

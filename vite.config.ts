@@ -50,13 +50,13 @@ export default defineConfig({
     chunkSizeWarningLimit: 500,
   },
   server: {
-    port: 3000,
+    port: 3001, // Changé de 3000 à 3001
     host: true,
     // Compression gzip en dev
     middlewareMode: false,
   },
   preview: {
-    port: 3001,
+    port: 3002, // Port différent pour preview
     host: true
   },
   // Optimisations CSS

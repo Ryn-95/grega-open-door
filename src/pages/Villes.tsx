@@ -9,37 +9,37 @@ const Villes = () => {
       id: 'paris',
       nom: 'Paris',
       adresse: '37 rue des Maturins, 75008',
-      image: 'https://images.unsplash.com/photo-1502602898657-3e91760c0337?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
+      image: '/images/paris-sunset.jpg'
     },
     {
       id: 'lyon',
       nom: 'Lyon',
       adresse: '25 Place Bellecour, 69002',
-      image: 'https://images.unsplash.com/photo-1593923363432-3e25424734b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
+      image: '/images/modern-building.jpg'
     },
     {
       id: 'marseille',
       nom: 'Marseille',
       adresse: '10 La Canebière, 13001',
-      image: 'https://images.unsplash.com/photo-1560963952-4721a37a504a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
+      image: '/images/property1.jpg'
     },
     {
       id: 'bordeaux',
       nom: 'Bordeaux',
       adresse: '12 Cours de l\'Intendance, 33000',
-      image: 'https://images.unsplash.com/photo-1592235921473-74109591434c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
+      image: '/images/property2.jpg'
     },
     {
       id: 'lille',
       nom: 'Lille',
       adresse: '20 Grand Place, 59000',
-      image: 'https://images.unsplash.com/photo-1581342676839-a1b65e931449?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1334&q=80'
+      image: '/images/property3.jpg'
     },
     {
       id: 'nice',
       nom: 'Nice',
       adresse: '30 Promenade des Anglais, 06000',
-      image: 'https://images.unsplash.com/photo-1541732626242-995d28258e1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
+      image: '/images/property4.jpg'
     }
   ];
 

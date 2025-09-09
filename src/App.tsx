@@ -7,6 +7,7 @@ import Contact from './pages/Contact'
 import Proprietaires from './pages/Proprietaires'
 import Villes from './pages/Villes'
 import BiensALouer from './pages/BiensALouer'
+import Blog from './pages/Blog'
 import MentionsLegales from './pages/MentionsLegales'
 import Confidentialite from './pages/Confidentialite'
 import { useEffect, Suspense, lazy } from 'react'
@@ -53,6 +54,7 @@ const AppContent = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<LazyAbout />} />
             <Route path="/biens-a-louer" element={<BiensALouer />} />
+            <Route path="/blog" element={<Blog />} />
             <Route path="/offices" element={<LazyOffices />} />
             <Route path="/proprietaires" element={<Proprietaires />} />
             <Route path="/villes" element={<LazyVilles />} />

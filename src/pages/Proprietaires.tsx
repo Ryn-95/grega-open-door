@@ -1,4 +1,5 @@
 import SEOHead from '../components/SEOHead'
+import Footer from '../components/Footer'
 
 export default function Proprietaires() {
   const faqData = [
@@ -38,34 +39,8 @@ export default function Proprietaires() {
         faq={faqData}
       />
       <div className="min-h-screen bg-white">
-        {/* Navigation */}
-        <nav className="bg-[#2A3942] text-white py-4">
-          <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
-            <div className="flex gap-16">
-              <a href="/biens-a-louer" className="hover:text-gray-300 transition-colors">
-                NOS BIENS À LOUER
-              </a>
-              <a href="/proprietaires" className="hover:text-gray-300 transition-colors">
-                VOUS ÊTES PROPRIÉTAIRE ?
-              </a>
-              <a href="/partenaires" className="hover:text-gray-300 transition-colors">
-                NOS PARTENAIRES
-              </a>
-            </div>
-          </div>
-        </nav>
-
-        {/* Hero Image */}
-        <div className="relative h-[300px] overflow-hidden">
-          <img
-            src="/images/appartement-luxe.jpg"
-            alt="Appartement de luxe"
-            className="w-full h-full object-cover"
-          />
-        </div>
-
         {/* Contenu Principal */}
-        <div className="max-w-4xl mx-auto px-4 py-12">
+        <div className="max-w-4xl mx-auto px-4 pt-12 pb-12">
           <h1 className="text-[#8B0000] text-2xl mb-8 text-center italic">
             Vous êtes propriétaire ?
           </h1>
@@ -85,7 +60,7 @@ export default function Proprietaires() {
 
             <div>
               <p className="text-[#8B0000] font-semibold mb-4">
-                Allo location vous propose le service qu'il vous faut !
+                GREGA OPEN DOOR vous propose le service qu'il vous faut !
               </p>
 
               <p className="mb-4">Si vous en avez assez :</p>
@@ -119,7 +94,7 @@ export default function Proprietaires() {
               </h2>
 
               <p>
-                Téléchargez, imprimez, remplissez, signez et renvoyez le formulaire ci-dessous par Email à allolocation@sfr.fr ou par courrier à l'adresse : 21, rue Cheroy 75017 PARIS ou contactez nous directement au 01 45 22 45 22.
+                Téléchargez, imprimez, remplissez, signez et renvoyez le formulaire ci-dessous par Email à contact@gregaopendoor.fr ou contactez nous directement au 09 53 37 61 41.
               </p>
 
               <div className="mt-4">
@@ -133,20 +108,8 @@ export default function Proprietaires() {
             </div>
           </div>
         </div>
-
-        {/* Footer */}
-        <footer className="bg-[#8B0000] text-white py-4">
-          <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-sm">
-            <span>Allo Location</span>
-            <a href="/contact" className="hover:underline">NOUS CONTACTER</a>
-            <a href="/mentions-legales" className="hover:underline">MENTIONS LEGALES</a>
-            <div className="flex items-center gap-2">
-              <span>Site réalisé par</span>
-              <a href="https://cosmosoft.fr" className="text-[#FFA07A] hover:underline">Cosmosoft</a>
-            </div>
-          </div>
-        </footer>
       </div>
+      <Footer />
     </>
   )
 }

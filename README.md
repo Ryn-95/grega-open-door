@@ -4,8 +4,8 @@ Plateforme immobilière complète avec design révolutionnaire noir et blanc.
 
 ## 🚀 Domaine principal
 
-- Site accessible sur : https://gregaonecompany.fr
-- Version www : https://www.gregaonecompany.fr
+- Site accessible sur : https://gregaopendoor.fr
+- Version www : https://www.gregaopendoor.fr
 
 ## Technologies
 

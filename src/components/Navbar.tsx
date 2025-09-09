@@ -12,10 +12,11 @@ const Navbar = () => {
   // Liste des pages réorganisée par importance
   const pages = [
     { path: '/', label: 'ACCUEIL' },
+    { path: '/about', label: 'À PROPOS' },
     { path: '/biens-a-louer', label: 'NOS BIENS' },
     { path: '/proprietaires', label: 'PROPRIÉTAIRES' },
+    { path: '/blog', label: 'BLOG' },
     { path: '/villes', label: 'NOS BUREAUX' },
-    { path: '/about', label: 'À PROPOS' },
     { path: '/contact', label: 'CONTACT' },
   ];
 
@@ -53,7 +54,7 @@ const Navbar = () => {
   return (
     <>
       {/* Navbar Ultra-Perfectionnée */}
-      <motion.nav 
+      <motion.nav
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -193,7 +194,7 @@ const Navbar = () => {
                   transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
                 />
               </motion.div>
-
+                  
               {/* Aura subtile au hover */}
               <motion.div
                 className="absolute -inset-2 bg-gray-50 rounded-lg -z-10"
@@ -317,7 +318,7 @@ const Navbar = () => {
                 backgroundSize: '60px 60px'
               }}
             />
-
+            
             {/* Navigation ultra-sophistiquée */}
             <div className="relative z-10 h-full flex items-center justify-center">
               <motion.div
