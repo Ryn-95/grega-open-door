@@ -8,7 +8,7 @@ import Proprietaires from './pages/Proprietaires'
 import Villes from './pages/Villes'
 import BiensALouer from './pages/BiensALouer'
 import Blog from './pages/Blog'
-import PrixLoyers from './pages/PrixLoyers'
+import PrixLocation from './pages/PrixLocation'
 import MentionsLegales from './pages/MentionsLegales'
 import Confidentialite from './pages/Confidentialite'
 import { useEffect, Suspense, lazy } from 'react'
@@ -56,7 +56,7 @@ const AppContent = () => {
             <Route path="/about" element={<LazyAbout />} />
             <Route path="/biens-a-louer" element={<BiensALouer />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/prix-loyers-paris" element={<PrixLoyers />} />
+            <Route path="/prix-location-paris" element={<PrixLocation />} />
             <Route path="/offices" element={<LazyOffices />} />
             <Route path="/proprietaires" element={<Proprietaires />} />
             <Route path="/villes" element={<LazyVilles />} />

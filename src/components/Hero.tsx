@@ -79,6 +79,26 @@ const Hero = () => {
           />
         </div>
 
+        {/* CTA VIRAL - PRIX 2025 */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="mb-6"
+        >
+          <a
+            href="/prix-location-paris"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-xl hover:shadow-2xl group transform hover:scale-105"
+          >
+            <span className="text-2xl">💰</span>
+            <div className="text-left">
+              <div className="font-bold text-lg">PRIX LOCATION PARIS 2025</div>
+              <div className="text-red-100 text-sm">Tarifs réels par arrondissement</div>
+            </div>
+            <div className="ml-2 text-red-200 group-hover:translate-x-1 transition-transform">→</div>
+          </a>
+        </motion.div>
+
         {/* Boutons d'appel à l'action */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -110,12 +130,9 @@ const Hero = () => {
           className="bg-[#2A3942] text-white py-4 shadow-lg mb-8 w-screen -mx-4 md:-mx-6"
         >
           <div className="flex justify-center items-center">
-            <div className="flex gap-4 md:gap-8 lg:gap-16 flex-wrap justify-center">
+            <div className="flex gap-8 md:gap-16">
               <a href="/biens-a-louer" className="hover:text-gray-300 transition-colors text-sm md:text-base">
                 NOS BIENS À LOUER
-              </a>
-              <a href="/prix-loyers-paris" className="hover:text-gray-300 transition-colors text-sm md:text-base bg-red-600 px-3 py-1 rounded-md font-semibold">
-                🔥 PRIX LOYERS 2025
               </a>
               <a href="/proprietaires" className="hover:text-gray-300 transition-colors text-sm md:text-base">
                 VOUS ÊTES PROPRIÉTAIRE ?

@@ -14,7 +14,7 @@ const Navbar = () => {
     { path: '/', label: 'ACCUEIL' },
     { path: '/about', label: 'À PROPOS' },
     { path: '/biens-a-louer', label: 'NOS BIENS' },
-    { path: '/prix-loyers-paris', label: 'PRIX LOYERS 2025' },
+    { path: '/prix-location-paris', label: '💰 PRIX 2025', highlight: true },
     { path: '/proprietaires', label: 'PROPRIÉTAIRES' },
     { path: '/blog', label: 'BLOG' },
     { path: '/villes', label: 'NOS BUREAUX' },
