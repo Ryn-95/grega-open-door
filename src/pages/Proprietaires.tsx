@@ -29,8 +29,8 @@ export default function Proprietaires() {
   return (
     <>
       <SEOHead
-        title="Services Propriétaires Gratuits | GREGA OPEN DOOR - Trouvez des Locataires Qualifiés"
-        description="Service gratuit pour propriétaires : trouvez des locataires solvables avec garanties. Vérification complète des dossiers, assurance loyer impayé. Contactez GREGA OPEN DOOR."
+        title="Propriétaires : Trouvez des Locataires en 48h | Service 100% GRATUIT + Garanties GREGA"
+        description="🏠 Propriétaires Paris : trouvez locataires solvables en 48h ! Service 100% GRATUIT : vérification dossiers, garantie loyers impayés, gestion complète. 0 commission ! ☎️ 09 53 37 61 41"
         keywords="service propriétaire gratuit, trouver locataire, garantie loyer impayé, dossier locataire, vérification solvabilité, gestion locative Paris, propriétaire bailleur"
         canonical="https://www.gregaopendoor.fr/proprietaires"
         ogType="webpage"

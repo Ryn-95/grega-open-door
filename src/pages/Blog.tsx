@@ -265,8 +265,8 @@ const Blog = () => {
   return (
     <>
       <SEOHead
-        title="Blog Immobilier Paris 2025 | +150 Conseils d'Experts Location, Achat, Investissement - GREGA"
-        description="Le blog immobilier référence avec +150 guides d'experts : dossier de location, investissement locatif Paris, négociation, défiscalisation. Conseils pratiques pour propriétaires et locataires. Mis à jour quotidiennement par nos spécialistes."
+        title="Éviter les Arnaques Location Paris 2025 | Guide Complet Anti-Escroqueries + 150 Conseils GREGA"
+        description="🚨 STOP aux arnaques location ! Guide expert : reconnaître fausses annonces, vérifier propriétaires, sécuriser visites, éviter les pièges. +150 conseils immobiliers Paris. Protégez-vous avec GREGA OPEN DOOR !"
         keywords="blog immobilier Paris 2025, conseils location appartement, investissement locatif rentable, dossier location documents, estimation loyer, garanties locatives GLI, colocation Paris guide, travaux rénovation autorisations, négociation prix immobilier, défiscalisation Pinel Malraux"
         canonical="https://www.gregaopendoor.fr/blog"
         ogType="website"
