@@ -398,20 +398,24 @@ const AppSection = () => {
 const Home = () => {
   const faqData = [
     {
-      question: "Comment puis-je louer un appartement via GREGA OPEN DOOR ?",
-      answer: "Contactez-nous au 09 53 37 61 41 ou via notre formulaire en ligne. Notre équipe vous accompagnera dans votre recherche et vous présentera les biens correspondant à vos critères."
+      question: "Combien de temps pour trouver un appartement à Paris avec GREGA OPEN DOOR ?",
+      answer: "Avec GREGA OPEN DOOR, trouvez votre appartement en 2-4 semaines en moyenne ! Notre réseau exclusif et notre accompagnement personnalisé accélèrent votre recherche. Nous organisons 5-10 visites qualifiées par semaine selon vos critères."
+    },
+    {
+      question: "Comment éviter les arnaques location à Paris ?", 
+      answer: "GREGA OPEN DOOR vous protège des arnaques : vérification systématique des propriétaires, contrôle des diagnostics, visite accompagnée obligatoire, et sécurisation des versements. Tous nos biens sont vérifiés et authentifiés."
+    },
+    {
+      question: "Chasseur d'appartement Paris 16ème : comment ça marche ?",
+      answer: "Notre service de chasseur d'appartement dans le 16ème inclut : recherche active sur notre réseau privé, 3-5 visites organisées par semaine, constitution de dossier optimisé, et négociation du prix. Taux de réussite de 89% dans le 16ème."
     },
     {
       question: "Quels sont vos secteurs d'intervention ?",
-      answer: "Nous intervenons principalement à Paris et en région parisienne. Notre expertise couvre tous les arrondissements parisiens et les principales villes d'Île-de-France."
+      answer: "Nous intervenons dans tous les arrondissements parisiens + Neuilly, Boulogne, Vincennes. Expertise particulière dans les 7ème, 8ème, 15ème, 16ème et 17ème arrondissements avec un réseau de propriétaires exclusifs."
     },
     {
       question: "Proposez-vous des services pour les propriétaires ?",
-      answer: "Oui, nous proposons des services complets pour les propriétaires : estimation gratuite, gestion locative, recherche de locataires qualifiés, et accompagnement juridique."
-    },
-    {
-      question: "Comment prendre rendez-vous pour une visite ?",
-      answer: "Vous pouvez prendre rendez-vous directement via notre système Calendly en ligne, nous appeler au 09 53 37 61 41, ou nous envoyer un email à contact@gregaopendoor.fr"
+      answer: "Oui ! Services propriétaires gratuits : estimation en 24h, recherche de locataires solvables, constitution de dossiers vérifiés, accompagnement état des lieux, et suivi relation locative. Commission uniquement en cas de succès."
     }
   ]
 
@@ -422,9 +426,9 @@ const Home = () => {
   return (
     <>
       <SEOHead
-        title="GREGA OPEN DOOR - Agence Immobilière Paris | Location, Achat, Vente"
-        description="GREGA OPEN DOOR, votre agence immobilière de confiance à Paris. Spécialiste en location, achat et vente de biens immobiliers. Services personnalisés pour propriétaires et locataires. Contactez-nous au 09 53 37 61 41."
-        keywords="agence immobilière Paris, location appartement Paris, achat immobilier Paris, vente immobilier, propriétaires, locataires, gestion locative, estimation immobilière, 75001, 75002, 75003, 75004, 75005, 75006, 75007, 75008"
+        title="🏠 Trouvez votre appartement Paris en 2-4 semaines | GREGA OPEN DOOR"
+        description="✅ Chasseur appartement Paris expert | Évitez les arnaques location | 5-10 visites/semaine | Dossier optimisé | Paris 16ème spécialiste | ☎️ 09 53 37 61 41 | Estimation gratuite 24h"
+        keywords="combien de temps pour trouver un appartement, chasseur appartement paris 16, arnaque location, grega open door, opendoor, dgccrf arnaques location logement conseils, chasseurs d'appartement location paris, prix location appartement paris 2025"
         canonical="https://www.gregaopendoor.fr/"
         ogType="website"
         schemaType="RealEstateAgent"
