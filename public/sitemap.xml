@@ -55,6 +55,15 @@
     <mobile:mobile/>
   </url>
 
+  <!-- PAGE VIRAL PRIX LOYERS - TRÈS HAUTE PRIORITÉ -->
+  <url>
+    <loc>https://gregaopendoor.fr/prix-loyers-paris</loc>
+    <lastmod>2025-01-27T12:00:00+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <mobile:mobile/>
+  </url>
+
   <url>
     <loc>https://gregaopendoor.fr/contact</loc>
     <lastmod>2025-01-27T12:00:00+01:00</lastmod>

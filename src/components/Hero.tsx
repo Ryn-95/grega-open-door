@@ -110,9 +110,12 @@ const Hero = () => {
           className="bg-[#2A3942] text-white py-4 shadow-lg mb-8 w-screen -mx-4 md:-mx-6"
         >
           <div className="flex justify-center items-center">
-            <div className="flex gap-8 md:gap-16">
+            <div className="flex gap-4 md:gap-8 lg:gap-16 flex-wrap justify-center">
               <a href="/biens-a-louer" className="hover:text-gray-300 transition-colors text-sm md:text-base">
                 NOS BIENS À LOUER
+              </a>
+              <a href="/prix-loyers-paris" className="hover:text-gray-300 transition-colors text-sm md:text-base bg-red-600 px-3 py-1 rounded-md font-semibold">
+                🔥 PRIX LOYERS 2025
               </a>
               <a href="/proprietaires" className="hover:text-gray-300 transition-colors text-sm md:text-base">
                 VOUS ÊTES PROPRIÉTAIRE ?
