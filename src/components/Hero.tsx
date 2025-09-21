@@ -9,14 +9,14 @@ const Hero = () => {
   return (
     <>
     <section className="relative min-h-[100dvh] flex items-center bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 w-full relative z-10 flex flex-col items-center">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-6 w-full relative z-10 flex flex-col items-center">
         {/* Titre principal */}
-        <div className="text-center mb-8 md:mb-12">
-          <h1 className="text-[2rem] leading-[1.2] md:text-4xl lg:text-5xl xl:text-6xl font-extralight text-slate-800 tracking-tight mb-3 md:mb-4 px-3 md:px-0">
+        <div className="text-center mb-8 md:mb-12 px-4 sm:px-0">
+          <h1 className="text-[2rem] leading-[1.2] md:text-4xl lg:text-5xl xl:text-6xl font-extralight text-slate-800 tracking-tight mb-3 md:mb-4">
             Simplifiez votre recherche
             <span className="block font-normal text-slate-700 mt-1">immobilière</span>
           </h1>
-          <p className="text-base md:text-lg lg:text-xl text-slate-500 font-light max-w-2xl mx-auto px-3 md:px-4">
+          <p className="text-base md:text-lg lg:text-xl text-slate-500 font-light max-w-2xl mx-auto">
             Trouvez, gérez et louez un bien en moins de 3 clics.
           </p>
         </div>
@@ -79,32 +79,13 @@ const Hero = () => {
           />
         </div>
 
-        {/* CTA VIRAL - PRIX 2025 - ULTRA RESPONSIVE */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="mb-4 sm:mb-6 px-4 sm:px-0"
-        >
-          <a
-            href="/prix-location-paris"
-            className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 py-3 sm:py-4 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-lg sm:rounded-xl hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg sm:shadow-xl hover:shadow-xl sm:hover:shadow-2xl group transform hover:scale-105 w-full sm:w-auto max-w-sm sm:max-w-none mx-auto"
-          >
-            <span className="text-lg sm:text-xl md:text-2xl">💰</span>
-            <div className="text-left flex-1 sm:flex-none">
-              <div className="font-bold text-sm sm:text-base md:text-lg leading-tight">PRIX LOCATION PARIS 2025</div>
-              <div className="text-red-100 text-xs sm:text-sm">Tarifs réels par arrondissement</div>
-            </div>
-            <div className="ml-1 sm:ml-2 text-red-200 group-hover:translate-x-1 transition-transform text-sm sm:text-base">→</div>
-          </a>
-        </motion.div>
 
         {/* Boutons d'appel à l'action */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex flex-col md:flex-row gap-3 md:gap-4 justify-center items-stretch md:items-center w-full md:w-auto px-4 mb-8 md:mb-16"
+          className="flex flex-col md:flex-row gap-3 md:gap-4 justify-center items-stretch md:items-center w-full md:w-auto px-4 sm:px-6 md:px-4 mb-8 md:mb-16 max-w-xs sm:max-w-md md:max-w-none mx-auto"
         >
           <a
             href="tel:0953376141"
@@ -127,7 +108,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.25 }}
-          className="bg-[#2A3942] text-white py-4 shadow-lg mb-8 w-screen -mx-4 md:-mx-6"
+          className="bg-[#2A3942] text-white py-4 shadow-lg mb-8 w-screen -mx-6 sm:-mx-8 md:-mx-6"
         >
           <div className="flex justify-center items-center">
             <div className="flex gap-8 md:gap-16">

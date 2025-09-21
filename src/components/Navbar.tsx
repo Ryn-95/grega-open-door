@@ -90,7 +90,7 @@ const Navbar = () => {
           className="absolute inset-0 pointer-events-none"
         />
 
-        <div className="container mx-auto px-8 flex justify-between items-center relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center relative z-10">
           {/* Logo Ultra-Raffiné */}
           <div 
             onClick={() => handleNavigation('/')} 
@@ -321,7 +321,7 @@ const Navbar = () => {
             />
             
             {/* Navigation ultra-sophistiquée */}
-            <div className="relative z-10 h-full flex items-center justify-center">
+            <div className="relative z-10 h-full flex items-center justify-center px-6 sm:px-8">
               <motion.div
                 initial="closed"
                 animate="open"
@@ -340,7 +340,7 @@ const Navbar = () => {
                     }
                   }
                 }}
-                className="text-center space-y-8"
+                className="text-center space-y-6 sm:space-y-8 w-full max-w-sm"
               >
                 {pages.map((page, i) => (
                   <motion.div
@@ -439,7 +439,7 @@ const Navbar = () => {
             {/* Bouton de fermeture sophistiqué */}
             <motion.button
               onClick={() => setIsOpen(false)}
-              className="absolute top-8 right-8 w-10 h-10 rounded-xl bg-gray-50 hover:bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-600 hover:text-gray-900 transition-all duration-400 group"
+              className="absolute top-6 right-6 sm:top-8 sm:right-8 w-10 h-10 rounded-xl bg-gray-50 hover:bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-600 hover:text-gray-900 transition-all duration-400 group"
               whileHover={{ scale: 1.1, rotate: 90 }}
               whileTap={{ scale: 0.9 }}
               initial={{ opacity: 0, scale: 0, rotate: -90 }}
