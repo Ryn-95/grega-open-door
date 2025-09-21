@@ -79,23 +79,23 @@ const Hero = () => {
           />
         </div>
 
-        {/* CTA VIRAL - PRIX 2025 */}
+        {/* CTA VIRAL - PRIX 2025 - ULTRA RESPONSIVE */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="mb-6"
+          className="mb-4 sm:mb-6 px-4 sm:px-0"
         >
           <a
             href="/prix-location-paris"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-xl hover:shadow-2xl group transform hover:scale-105"
+            className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 py-3 sm:py-4 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-lg sm:rounded-xl hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg sm:shadow-xl hover:shadow-xl sm:hover:shadow-2xl group transform hover:scale-105 w-full sm:w-auto max-w-sm sm:max-w-none mx-auto"
           >
-            <span className="text-2xl">💰</span>
-            <div className="text-left">
-              <div className="font-bold text-lg">PRIX LOCATION PARIS 2025</div>
-              <div className="text-red-100 text-sm">Tarifs réels par arrondissement</div>
+            <span className="text-lg sm:text-xl md:text-2xl">💰</span>
+            <div className="text-left flex-1 sm:flex-none">
+              <div className="font-bold text-sm sm:text-base md:text-lg leading-tight">PRIX LOCATION PARIS 2025</div>
+              <div className="text-red-100 text-xs sm:text-sm">Tarifs réels par arrondissement</div>
             </div>
-            <div className="ml-2 text-red-200 group-hover:translate-x-1 transition-transform">→</div>
+            <div className="ml-1 sm:ml-2 text-red-200 group-hover:translate-x-1 transition-transform text-sm sm:text-base">→</div>
           </a>
         </motion.div>
 
