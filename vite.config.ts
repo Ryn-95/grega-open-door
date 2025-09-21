@@ -84,6 +84,5 @@ export default defineConfig({
   // Configuration pour le cache HTTP
   define: {
     __BUILD_TIME__: JSON.stringify(new Date().toISOString()),
-    __FORCE_REBUILD__: JSON.stringify("VERCEL_DEPLOY_NOW"),
   }
 })

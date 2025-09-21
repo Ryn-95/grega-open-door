@@ -1,16 +1,14 @@
 // Utilitaire de navigation pour React Router
 export const navigateToPage = (path: string) => {
-  // Utilise l'API History moderne pour la navigation SPA
-  window.history.pushState(null, '', path);
-  window.dispatchEvent(new PopStateEvent('popstate'));
+  // Force la navigation en changeant l'URL
+  window.location.href = path;
 };
 
 // Alternative avec scroll smooth vers le haut
 export const navigateWithScroll = (path: string) => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
   setTimeout(() => {
-    window.history.pushState(null, '', path);
-    window.dispatchEvent(new PopStateEvent('popstate'));
+    window.location.href = path;
   }, 300);
 };
 
